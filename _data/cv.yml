@@ -13,16 +13,16 @@
   contents:
     - title: Ph.D. in Civil Engineering
       institution: New York University Abu Dhabi
-      year: 2019.09-2024.05
+      year: 2019.09 - 2024.05
     - title: M.Sc. in Computer Science
       institution: Georgia Institute of Technology
-      year: 2021.01-2022.12
+      year: 2021.01 - 2022.12
     - title: 工程硕士(土木工程)
       institution: 同济大学
-      year: 2016.09-2019.06
+      year: 2016.09 - 2019.06
     - title: 工学学士(土木工程)
       institution: 同济大学
-      year: 2012.09-2016.07
+      year: 2012.09 - 2016.07
 
 - title: 科研经历
   type: time_table
@@ -39,7 +39,7 @@
     
     - title: Geospatial Modelling of Urban Thermodynamics
       institution: New York University Abu Dhabi
-      year: 2019-2022
+      year: 2019 - 2022
       description:
         - 利用热成像相机监测纽约和阿布扎比的建筑表面温度
         - 结合辐射传输方程计算建筑表面温度
@@ -48,7 +48,7 @@
 
     - title: 基于计算机视觉和环境WIM数据融合技术的动态车流荷载判定
       institution: 同济大学
-      year: 2017-2019
+      year: 2017 - 2019
       description:
         - 利用监控摄像头收集江阴大桥车流数据并完成标注得到车辆检测数据集
         - 基于SSD目标检测模型实现单帧图像的车辆检测
@@ -58,7 +58,7 @@
 
     - title: 大跨缆索桥梁防腐涂层表观检测、特征识别及养护策略
       institution: 同济大学
-      year: 2016-2017
+      year: 2016 - 2017
       description:
         - 利用梁底检测车收集江阴大桥梁底表面图像并完成标注得到梁底表观病害数据集
         - 基于U-Net和DeepLab语义分割模型实现不同病害的自动识别和分割
