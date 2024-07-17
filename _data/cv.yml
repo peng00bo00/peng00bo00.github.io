@@ -31,7 +31,7 @@
       institution: 同济大学
       year: 2012-2016
 
-- title: Experience
+- title: 科研经历
   type: time_table
   contents:
     - title: Professor of Theoretical Physics
@@ -94,7 +94,7 @@
         - Description 1.
         - Description 2.
 
-- title: Other Interests
+- title: 发表论文
   type: list
   contents:
     - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
