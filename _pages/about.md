@@ -2,15 +2,15 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Ph.D in Civil Engineering
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: true # crops the image to make it circular
   more_info: >
-    <p>A3-306</p>
-    <p>New York University Abu Dhabi</p>
+    <p>Division of Engineering | Civil & Urban Engineering</p>
+    <p>New York University Abu Dhabi | NYU Tandon School of Engineering</p>
     <p>Abu Dhabi, UAE</p>
 
 news: false # includes a list of news items
