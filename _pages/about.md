@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Ph.D in Civil Engineering
+subtitle: Ph.D in Civil Engineering | Graduate Research Assistant
 
 profile:
   align: right
