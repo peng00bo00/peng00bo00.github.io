@@ -1,12 +1,10 @@
-- title: General Information
+- title: 基本信息
   type: map
   contents:
-    - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
-    - name: Languages
-      value: English, German
+    - name: 姓名
+      value: 彭博
+    - name: 学历
+      value: 博士
 
 - title: Education
   type: time_table
