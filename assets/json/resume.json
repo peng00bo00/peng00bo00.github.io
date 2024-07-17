@@ -28,18 +28,36 @@
       "location": "Abu Dhabi, UAE",
       "url": "https://nyuad.nyu.edu/en/",
       "area": "Civil Engineering",
-      "studyType": "PhD",
+      "studyType": "Ph.D.",
       "startDate": "2019-07",
       "endDate": "2024-05"
+    },
+    {
+      "institution": "同济大学",
+      "location": "Online",
+      "url": "https://www.parchment.com/u/award/89b8f7d9d8198d9d9b0a7217e12612d4",
+      "area": "Computer Science",
+      "studyType": "M.Sc.",
+      "startDate": "2021-01",
+      "endDate": "2022-12"
     },
     {
       "institution": "同济大学",
       "location": "上海, 中国",
       "url": "https://www.tongji.edu.cn/",
       "area": "建筑与土木工程",
-      "studyType": "MEng",
+      "studyType": "M.Eng",
       "startDate": "2016-09",
       "endDate": "2019-06"
+    },
+    {
+      "institution": "同济大学",
+      "location": "上海, 中国",
+      "url": "https://www.tongji.edu.cn/",
+      "area": "土木工程",
+      "studyType": "B.Eng.",
+      "startDate": "2012-09",
+      "endDate": "2016-07"
     }
   ],
   "work": [
@@ -156,29 +174,40 @@
       ]
     }
   ],
-  "languages": [
+  "语言技能": [
     {
-      "language": "German",
-      "fluency": "Native speaker",
-      "icon": ""
+      "language": "中文",
+      "fluency": "母语",
+      "icon": "fa-solid fa-language"
     },
     {
       "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
+      "fluency": "Working Proficiency",
+      "icon": "fa-solid fa-language"
     }
   ],
-  "interests": [
+  "研究兴趣": [
     {
-      "name": "Physics",
+      "name": "计算机图形学",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "几何处理",
+        "微分几何"
+      ]
+    },
+    {
+      "name": "计算机视觉",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "语义分割",
+        "目标检测"
+      ]
+    },
+    {
+      "name": "机器学习",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "深度学习"
       ]
     }
   ],
