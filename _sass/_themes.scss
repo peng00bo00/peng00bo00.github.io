@@ -7,7 +7,7 @@
   --global-code-bg-color: #{$nyu-light-gray-color};
   --global-text-color: #{$black-color};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{lighten($nyu-violet-color, 10%)};
+  --global-theme-color: #{$nyu-violet-color};
   --global-hover-color: #{nyu-violet-color};
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-dark};
@@ -16,7 +16,7 @@
   --global-distill-app-color: #{$grey-color};
   --global-divider-color: rgba(0, 0, 0, 0.1);
   --global-card-bg-color: #{$white-color};
-  --global-highlight-color: #{$nyu-violet-color};
+  --global-highlight-color: #{$nyu-ultra-violet-color};
   --global-back-to-top-bg-color: rgba(#{red($black-color)}, #{green($black-color)}, #{blue($black-color)}, 0.4);
   --global-back-to-top-text-color: #{$white-color};
   --global-newsletter-bg-color: #{$white-color};

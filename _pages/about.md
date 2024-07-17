@@ -6,7 +6,7 @@ subtitle: Ph.D in Civil Engineering | Graduate Research Assistant
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: portrait.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
     <p>Division of Engineering</p>
