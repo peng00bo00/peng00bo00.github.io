@@ -1,11 +1,11 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "彭博",
+    "label": "Ph.D in Civil Engineering",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
+    "email": "bp1657@nyu.edu",
+    "phone": "(+86) 188-1787-8803",
+    "url": "https://peng00bo00.github.io/",
     "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
     "location": {
       "address": "2712 Broadway St",
@@ -22,6 +22,26 @@
       }
     ]
   },
+  "education": [
+    {
+      "institution": "New York University Abu Dhabi",
+      "location": "Abu Dhabi, UAE",
+      "url": "https://nyuad.nyu.edu/en/",
+      "area": "Civil Engineering",
+      "studyType": "PhD",
+      "startDate": "2019-07",
+      "endDate": "2024-05"
+    },
+    {
+      "institution": "同济大学",
+      "location": "上海, 中国",
+      "url": "https://www.tongji.edu.cn/",
+      "area": "建筑与土木工程",
+      "studyType": "MEng",
+      "startDate": "2016-09",
+      "endDate": "2019-06"
+    }
+  ],
   "work": [
     {
       "name": "Institute for Advanced Study, Princeton University",
@@ -43,19 +63,6 @@
       "endDate": "2015-07-01",
       "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
       "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
-    }
-  ],
-  "education": [
-    {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
     }
   ],
   "awards": [
