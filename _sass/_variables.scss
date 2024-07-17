@@ -48,7 +48,8 @@ $nyu-light-gray-color: #f2f2f2 !default;
 // Theme colors
 
 // $code-bg-color-light: rgba($purple-color, 0.05);
-$code-bg-color-light: rgba($nyu-light-gray-color, 0.05);
+$nyu-ultra-light-violet-color: lighten($nyu-light-violet-2-color, 25%);
+$code-bg-color-light: rgba($nyu-ultra-light-violet-color, 0.05);
 $code-bg-color-dark: #2c3237 !default;
 
 // Font awesome location
