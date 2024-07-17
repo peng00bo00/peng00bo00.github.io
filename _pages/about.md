@@ -9,8 +9,8 @@ profile:
   image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-    <p>Division of Engineering | Civil & Urban Engineering</p>
-    <p>New York University Abu Dhabi | NYU Tandon School of Engineering</p>
+    <p>Division of Engineering</p>
+    <p>New York University Abu Dhabi</p>
     <p>Abu Dhabi, UAE</p>
 
 news: false # includes a list of news items
