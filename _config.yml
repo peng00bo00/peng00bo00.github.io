@@ -106,13 +106,12 @@ wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.
 whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
 wikidata_id: # your wikidata id
 wikipedia_id: # your wikipedia id (Case sensitive)
-work_url: https://https://peng00bo00.github.io/ # work page URL
+work_url: # work page URL
 x_username: # your X handle
 youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
-contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+contact_note: # You can even add a little note about which of these is the best way to reach you.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -132,10 +131,10 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
+blog_name: Perstare et Praestare # blog_name will be displayed in your blog page
+blog_description: To Persevere and To Excel
 permalink: /blog/:year/:title/
-lsi: false # produce an index for related posts
+lsi: true # produce an index for related posts
 
 # Pagination
 pagination:
