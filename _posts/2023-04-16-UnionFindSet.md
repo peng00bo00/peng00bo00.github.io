@@ -2,8 +2,8 @@
 layout: post
 title: 并查集
 date: 2023-04-16
-description: blah, blah, blah
-tags: unionfind
+description: LeetCode并查集习题
+tags: code
 categories: LeetCode
 giscus_comments: false
 related_posts: false

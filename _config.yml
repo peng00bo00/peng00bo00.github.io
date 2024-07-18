@@ -311,7 +311,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: ["formatting", "math", "code"] # these tags will be displayed on the front page of your blog
-display_categories: ["external-services", "LeetCode"] # these categories will be displayed on the front page of your blog
+display_categories: ["sample-posts", "LeetCode"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
