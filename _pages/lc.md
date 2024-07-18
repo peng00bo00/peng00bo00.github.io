@@ -21,12 +21,9 @@ pagination:
 {% assign notelist = paginator.leetcode %}
 
 {% for note in notelist %}
+{% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
 {% assign year = note.date | date: "%Y" %}
 {% assign tags = note.tags | join: "" %}
 {% endfor %}
-
-{% if page.pagination.enabled %}
-{% include pagination.liquid %}
-{% endif %}
 
 </div>
