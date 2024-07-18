@@ -3,7 +3,7 @@ layout: default
 permalink: /formatting/
 title: Formatting Guide
 nav: true
-nav_order: 2
+nav_order: 4
 pagination:
   enabled: true
   collection: formatting
