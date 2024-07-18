@@ -1,8 +1,10 @@
 ---
 layout: post
 title: 并查集
-date: 2023-04-16 0:00:00
+date: 2023-04-16 0:00:00-0400
 tags: leetcode
+giscus_comments: false
+related_posts: false
 toc:
   sidebar: left
 ---
