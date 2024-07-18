@@ -8,7 +8,7 @@ pagination:
   enabled: true
   collection: leetcode
   permalink: /page/:num/
-  per_page: 5
+  per_page: 10
   sort_field: date
   sort_reverse: true
   trail:
@@ -17,9 +17,5 @@ pagination:
 ---
 
 <div class="leetcode">
-
-{% if page.pagination.enabled %}
-{% include pagination.liquid %}
-{% endif %}
 
 </div>
