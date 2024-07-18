@@ -2,7 +2,7 @@
 layout: post
 title: 链表
 date: 2023-01-09
-description: LeetCode链表习题
+description: Linked List Exercise
 tags: code
 categories: LeetCode
 giscus_comments: false
