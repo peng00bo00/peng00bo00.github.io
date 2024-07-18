@@ -4,12 +4,6 @@ permalink: /blog/
 title: Post
 nav: true
 nav_order: 1
-dropdown: true
-children:
-  - title: Formatting Guide
-    permalink: /formatting/
-  - title: LeetCode
-    permalink: /leetcode/
 pagination:
   enabled: true
   collection: posts
