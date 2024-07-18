@@ -7,6 +7,8 @@
       value: 博士
     - name: 研究兴趣
       value: 计算机图形学 几何处理 计算机视觉 机器学习
+    - name: 编程语言
+      value: Python C/C++ MATLAB R
 
 - title: 教育经历
   type: time_table
@@ -14,7 +16,7 @@
     - title: Ph.D. in Civil Engineering
       institution: New York University Abu Dhabi
       year: 2019.09 - 2024.05
-    - title: M.Sc. in Computer Science
+    - title: <omscs href="https://www.parchment.com/u/award/89b8f7d9d8198d9d9b0a7217e12612d4">M.Sc. in Computer Science</omscs>
       institution: Georgia Institute of Technology
       year: 2021.01 - 2022.12
     - title: 工程硕士(建筑与土木工程)
@@ -74,25 +76,39 @@
 - title: 获奖情况
   type: time_table
   contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
+    - title: NYUA DGlobal PhD Student Fellowships in Engineering
+      year: 2019 - 2023
+    - title: 中国路桥奖学金
+      year: 2018
+    - title: 同济大学学业奖学金
+      year: 2016 - 2018
+    - title: 同济大学创业谷助梦奖学金
+      year: 2017
+    - title: 同济大学校级奖学金
+      year: 2013, 2015
 
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
+# - title: 获奖情况
+#   type: time_table
+#   contents:
+#     - year: 1921
+#       items:
+#         - Nobel Prize in Physics
+#         - Matteucci Medal
+#     - year: 2029
+#       items:
+#         - Max Planck Medal
+
+# - title: Academic Interests
+#   type: nested_list
+#   contents:
+#     - title: Topic 1.
+#       items:
+#         - Description 1.
+#         - Description 2.
+#     - title: Topic 2.
+#       items:
+#         - Description 1.
+#         - Description 2.
 
 - title: 发表论文
   type: list
