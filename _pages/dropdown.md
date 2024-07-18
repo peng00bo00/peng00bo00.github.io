@@ -8,5 +8,5 @@ children:
   - title: Formatting Guide
     permalink: /blog/tag/formatting
   - title: LeetCode
-    permalink: /blog/
+    permalink: /blog/category/leetcode
 ---

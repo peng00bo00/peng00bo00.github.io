@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 并查集
-date: 2023-04-16 10:14:00-0400
+date: 2023-04-16
 description: blah, blah, blah
 tags: unionfind
 categories: LeetCode
-giscus_comments: true
+giscus_comments: false
 related_posts: false
 toc:
   sidebar: left
