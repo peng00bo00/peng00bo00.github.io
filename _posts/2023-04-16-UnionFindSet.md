@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 并查集
-date: 2023-04-16
+date: 2023-04-16 0:00:00
 tags: leetcode
 toc:
   sidebar: left
