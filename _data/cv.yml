@@ -163,8 +163,13 @@
   contents:
     - title: High performance computing for simulation of the urban microclimate
       year: 2024
-      description: Fitzky, M., Peng, B., Rinaldi, V. and Ghandehari, M.
-      items: 104th AMS Annual Meeting
+      description: Fitzky M., Peng B., Rinaldi V. and Ghandehari M.
+      description: 104th AMS Annual Meeting
+    
+    - title: Design and assessment of NYUAD-1 lunar regolith simulants
+      year: 2023
+      description: Peng B., Thannasi P. and Celik K.
+      description: 74th International Astronautical Congress (IAC 2023)
 
 # - title: 获奖情况
 #   type: time_table

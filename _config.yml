@@ -55,7 +55,7 @@ bib_search: true
 
 # Dimensions
 # max_width: 930px
-max_width: 1000px
+max_width: 1280px
 
 # TODO: add layout settings (single page vs. multi-page)
 
@@ -195,6 +195,9 @@ collections:
     output: true
     permalink: /:collection/:title/
   projects:
+    output: true
+    permalink: /:collection/:title/
+  formatting:
     output: true
     permalink: /:collection/:title/
 
