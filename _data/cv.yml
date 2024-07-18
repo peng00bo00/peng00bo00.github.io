@@ -16,7 +16,7 @@
     - title: Ph.D. in Civil Engineering
       institution: New York University Abu Dhabi
       year: 2019.09 - 2024.05
-    - title: <omscs href="https://www.parchment.com/u/award/89b8f7d9d8198d9d9b0a7217e12612d4">M.Sc. in Computer Science</omscs>
+    - title: <a href="https://www.parchment.com/u/award/89b8f7d9d8198d9d9b0a7217e12612d4">M.Sc. in Computer Science</a>
       institution: Georgia Institute of Technology
       year: 2021.01 - 2022.12
     - title: 工程硕士(建筑与土木工程)
@@ -69,9 +69,72 @@
 - title: CS项目
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: "MIT 6.838: Shape Analysis"
+      description: 
+        - 推导了平面离散曲线的曲率并实现了Curve Shortening Flow算法
+        - 基于显式积分和隐式积分分别实现了Mean Curvature Flow以及Non-Singular Mean Curvature Flow算法
+        - 实现了Maximum Variance Unfolding算法并对Swiss-Roll数据集进行降维
+        - 通过求解热传导方程来计算曲面上的测地距离并实现切向量的平行传输
+        - 实现了Convolutional Wasserstein Distances算法来计算网格上的最优传输
+    
+    - title: "GAMES301: 曲面参数化"
+      description: 
+        - 实现了Tutte's Embedding曲面参数化算法(均匀权重以及保形权重)
+        - 实现了Analytic Eigensystems for Isotropic Distortion Energies曲面参数化算法
+        - 实现了LSCM和MeanValueCoordinates曲面参数化算法
+        - 实现了Boundary First Flattening算法对曲面进行共形参数化
+    
+    - title: <a href="https://github.com/peng00bo00/WillmoreFlow">WillmoreFlow</a>
+      description: 
+        - 实现了Willmore Flow算法对封闭曲面进行球面参数化
+        - 利用Spin Transform实现基于曲率的网格形状生成
+    
+    - title: "GaTech CS 7643: Deep Learning"
+      description: 
+        - 基于Numpy实现了多层感知机MLP和卷积神经网络CNN的前向和反向传播过程
+        - 利用Saliency Map和GradCam可视化网络学习到的特征
+        - 基于Image Style Transfer Using Convolutional Neural Networks实现图片风格迁移
+        - 实现了RNN、LSTM、Seq2Seq以及Transformer并进行机器翻译
+        - 实现了REINFORCE和Actor-Critic算法并在仿真环境中进行强化学习
+        - 实现了神经辐射场NeRF并进行神经渲染与新视角合成
+    
+    - title: "GAMES103: 基于物理的计算机动画入门"
+      description: 
+        - 基于Impulse Method和Shape Matching实现了刚体动力学仿真
+        - 基于隐式积分和Position-Based Dynamics实现了布料仿真
+        - 基于有限体积法FVM实现了弹性体仿真
+        - 基于高度场模型实现了浅水波仿真
+    
+    - title: "GAMES202: 高质量实时渲染"
+      description: 
+        - 基于PCF和PCSS算法实现了实时(软)阴影
+        - 基于Precomputed Radiance Transfer和球面谐波函数Spherical Harmonics实现了实时光照的预计算
+        - 基于Screen Space Reflection实现了屏幕空间的实时全局光照
+        - 实现了Kulla-Conty BRDF用于实时高质量着色
+        - 实现了联合双边滤波Joint Bilateral Filtering用于实时光线追踪的降噪
+    
+    - title: "CMUCS15-458/858: Discrete Differential Geometry"
+      description: 
+        - 实现了(离散)外微分中的常用算子
+        - 推导并实现了网格上的(离散)平均曲率和Gauss曲率(法向)计算公式
+        - 实现了cotan-Laplacian算子并在其基础上实现了平均曲率流MeanCurvatureFlow算法
+        - 实现了Spectral Conformal Parameterization算法对曲面进行无约束共形参数化
+        - 推导并实现了网格上的热传导方程并以此计算曲面上的测地距离
+    
+    - title: "GAMES101: Introduction to Computer Graphics"
+      description: 
+        - 实现了一个简易CPU(软)光栅用以绘制三角形
+        - 实现了Blinn-Phong模型、凹凸贴图和置换贴图
+        - 实现了de Casteljau算法用来绘制Bézier曲线
+        - 实现了Whitted风格的光线追踪
+        - 实现了路径追踪并结合了BVH进行渲染加速
+
+# - title: CS项目
+#   type: time_table
+#   contents:
+#     - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+#       year: 2015-now
+#       description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
 
 - title: 获奖情况
   type: time_table
