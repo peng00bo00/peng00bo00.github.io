@@ -1,9 +1,9 @@
 ---
 layout: default
-permalink: /leetcode/
+permalink: /lc/
 title: LeetCode
 nav: true
-nav_order: 5
+nav_order: 3
 pagination:
   enabled: true
   collection: leetcode
