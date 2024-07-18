@@ -6,9 +6,9 @@
     - name: 学历
       value: 博士
     - name: 研究兴趣
-      value: 计算机图形学 几何处理 计算机视觉 机器学习
+      value: 计算机图形学 | 几何处理 | 计算机视觉 | 机器学习
     - name: 编程语言
-      value: Python C/C++ MATLAB R
+      value: Python | C/C++ | MATLAB | R
 
 - title: 教育经历
   type: time_table
