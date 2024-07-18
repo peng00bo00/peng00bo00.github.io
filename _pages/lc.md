@@ -18,4 +18,15 @@ pagination:
 
 <div class="leetcode">
 
+{% assign notelist = paginator.leetcode %}
+
+{% for note in notelist %}
+{% assign year = note.date | date: "%Y" %}
+{% assign tags = note.tags | join: "" %}
+{% endfor %}
+
+{% if page.pagination.enabled %}
+{% include pagination.liquid %}
+{% endif %}
+
 </div>
