@@ -6,7 +6,7 @@ nav_order: 5
 dropdown: true
 children:
   - title: Formatting Guide
-    permalink: /blog/tag/formatting/
+    permalink: /blog/
   - title: LeetCode
-    permalink: /blog/tag/leetcode/
+    permalink: /blog/
 ---
