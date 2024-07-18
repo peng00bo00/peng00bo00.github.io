@@ -18,10 +18,6 @@ pagination:
 
 <div class="leetcode">
 
-<ul class="post-list">
-
-</ul>
-
 {% if page.pagination.enabled %}
 {% include pagination.liquid %}
 {% endif %}
