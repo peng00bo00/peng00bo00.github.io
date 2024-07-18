@@ -161,15 +161,70 @@
 - title: 发表论文
   type: time_table
   contents:
-    - title: High performance computing for simulation of the urban microclimate
+    - title: High Performance Computing for Simulation of the Urban Microclimate
       year: 2024
-      description: Fitzky M., Peng B., Rinaldi V. and Ghandehari M.
+      item: Matthias Fitzky, Bo Peng, Vivaldi Rinaldi, and Masoud Ghandehari
       description: 104th AMS Annual Meeting
     
-    - title: Design and assessment of NYUAD-1 lunar regolith simulants
+    - title: Design and Assessment of NYUAD-1 Lunar Regolith Simulants
       year: 2023
-      description: Peng B., Thannasi P. and Celik K.
-      description: 74th International Astronautical Congress (IAC 2023)
+      item: Bo Peng, Prabu Thannasi, and Kemal Celik
+      description: 74th International Astronautical Congress 2023
+    
+    - title: 3D Shape Analysis of Lunar Regolith Simulants
+      year: 2023
+      item: Bo Peng, Rotana Hay, and Kemal Celik
+      description: Powder Technology
+    
+    - title: Filler Effects of CaCO₃ Polymorphs Derived from Limestone and Seashell on Hydration and Carbonation of Magnesium Oxide (MgO) Cement (RMC)
+      year: 2022
+      item: Rotana Hay, Bo Peng, and Kemal Celik
+      description: Cement and Concrete Research
+    
+    - title: 3D Shape Analysis of Lunar Regolith Simulants
+      year: 2022
+      item: Bo Peng, Rotana Hay, and Kemal Celik
+      description: 73rd International Astronautical Congress 2022
+    
+    - title: Engineering Practices on Surface Damage Inspection and Performance Evaluation of Concrete Bridges in China
+      year: 2022
+      item: Airong Chen, Xurui Fang, Zichao Pan, Dalei Wang, Yue Pan, and Bo Peng
+      description: Structural Concrete
+
+    - title: "A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China"
+      year: 2021
+      item: Yue Pan, Dalei Wang, Yiqing Dong, and Bo Peng
+      description: IEEE Transactions on Intelligent Transportation Systems
+    
+    - title: Manufacturing and Characterization of Lunar Regolith Simulants
+      year: 2021
+      item: Rotana Hay, Bo Peng, and Kemal Celik
+      description: 72nd International Astronautical Congress 2021
+    
+    - title: An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning
+      year: 2020
+      item: Dalei Wang, Yiquan Zhang, Yue Pan, Bo Peng, Haoran Liu, and Rujin Ma
+      description: IEEE Access
+    
+    - title: 基于深度神经网络的锈蚀图像分割与定量分析
+      year: 2018
+      item: 王达磊, 彭博, 潘玥, 陈艾荣
+      description: 华南理工大学学报 (自然科学版)
+    
+    - title: Steel box-girder bridge diseases identification based on computer vision system
+      year: Dalei Wang, Yue Pan, and Bo Peng
+      item: Peng B., Thannasi P. and Celik K.
+      description: 9th International Association for Bridge Maintenance and Safety
+    
+    - title: Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks
+      year: 2018
+      item: Dalei Wang, Bo Peng, and Yue Pan
+      description: 9th International Association for Bridge Maintenance and Safety
+    
+    - title: Current Status and Thinking of Chinese Ancient Bridges Protection
+      year: 2017
+      item: Peng B., Thannasi P. and Celik K.
+      description: "IABSE Symposium: Engineering the Future"
 
 # - title: 获奖情况
 #   type: time_table

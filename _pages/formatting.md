@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /blog/
+permalink: /formatting/
 title: Formatting Guide
 nav: true
 nav_order: 1
