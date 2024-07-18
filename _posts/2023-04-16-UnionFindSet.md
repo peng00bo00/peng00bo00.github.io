@@ -2,7 +2,7 @@
 layout: post
 title: 并查集
 date: 2023-04-16
-description: Union-Find Set Exercise
+description: LeetCode并查集习题
 tags: code
 categories: LeetCode
 giscus_comments: false
