@@ -19,8 +19,18 @@ strong {
   color: var(--global-text-color);
 }
 
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1,
+h2,
+em,
 strong {
-  font-weight: 700;
+  font-weight: bolder;
 }
 
 hr {
