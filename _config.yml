@@ -487,7 +487,7 @@ third_party_libraries:
   google_fonts:
     url:
       # fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
-      fonts: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      fonts: "https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400..700&display=swap"
   highlightjs:
     integrity:
       css:
