@@ -1,12 +1,10 @@
 ---
 layout: post
 title: 微分几何笔记02-曲线论
-date: 2024-07-31
+date: 2023-07-31
 description: 曲线论相关知识
 tags: CG Math
-categories: "Differential Geometry"
-giscus_comments: false
-related_posts: false
+categories: Differential-Geometry
 toc:
   sidebar: left
 ---

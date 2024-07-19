@@ -1,12 +1,10 @@
 ---
 layout: post
 title: 微分几何笔记01-预备知识
-date: 2024-07-30
+date: 2023-07-30
 description: 微分几何预备知识与常用结论
 tags: CG Math
-categories: "Differential Geometry"
-giscus_comments: false
-related_posts: false
+categories: Differential-Geometry
 toc:
   sidebar: left
 ---
