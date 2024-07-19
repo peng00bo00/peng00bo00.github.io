@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="cn"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://peng00bo00.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://peng00bo00.github.io/" rel="alternate" type="text/html" hreflang="cn"/><updated>2024-07-19T06:38:20+00:00</updated><id>https://peng00bo00.github.io/feed.xml</id><title type="html">Bo’s Blog</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra</title><link href="https://peng00bo00.github.io/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra/" rel="alternate" type="text/html" title="Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra"/><published>2024-05-14T00:00:00+00:00</published><updated>2024-05-14T00:00:00+00:00</updated><id>https://peng00bo00.github.io/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra</id><content type="html" xml:base="https://peng00bo00.github.io/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra/"><![CDATA[]]></content><author><name></name></author><summary type="html"><![CDATA[We’re sharing updates across our Gemini family of models and a glimpse of Project Astra, our vision for the future of AI assistants.]]></summary></entry><entry><title type="html">a post with tabs</title><link href="https://peng00bo00.github.io/blog/2024/tabs/" rel="alternate" type="text/html" title="a post with tabs"/><published>2024-05-01T00:32:13+00:00</published><updated>2024-05-01T00:32:13+00:00</updated><id>https://peng00bo00.github.io/blog/2024/tabs</id><content type="html" xml:base="https://peng00bo00.github.io/blog/2024/tabs/"><![CDATA[<p>This is how a post with <a href="https://github.com/Ovski4/jekyll-tabs">tabs</a> looks like. Note that the tabs could be used for different purposes, not only for code.</p> <h2 id="first-tabs">First tabs</h2> <p>To add tabs, use the following syntax:</p> <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="cn"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://peng00bo00.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://peng00bo00.github.io/" rel="alternate" type="text/html" hreflang="cn"/><updated>2024-07-19T06:57:04+00:00</updated><id>https://peng00bo00.github.io/feed.xml</id><title type="html">Bo’s Blog</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">a post with tabs</title><link href="https://peng00bo00.github.io/blog/2024/tabs/" rel="alternate" type="text/html" title="a post with tabs"/><published>2024-05-01T00:32:13+00:00</published><updated>2024-05-01T00:32:13+00:00</updated><id>https://peng00bo00.github.io/blog/2024/tabs</id><content type="html" xml:base="https://peng00bo00.github.io/blog/2024/tabs/"><![CDATA[<p>This is how a post with <a href="https://github.com/Ovski4/jekyll-tabs">tabs</a> looks like. Note that the tabs could be used for different purposes, not only for code.</p> <h2 id="first-tabs">First tabs</h2> <p>To add tabs, use the following syntax:</p> <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -28,13 +28,13 @@ Content 2
 <span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
 
 <span class="cp">{%</span><span class="w"> </span><span class="nt">endtabs</span><span class="w"> </span><span class="cp">%}</span>
-</pre></td></tr></tbody></table></code></pre></div></div> <p>With this you can generate visualizations like:</p> <ul id="log" class="tab" data-tab="b6d505a5-38a4-4474-bc50-d9df4b1abc78" data-name="log"> <li class="active" id="log-php"> <a href="#">php </a> </li> <li id="log-js"> <a href="#">js </a> </li> <li id="log-ruby"> <a href="#">ruby </a> </li> </ul> <ul class="tab-content" id="b6d505a5-38a4-4474-bc50-d9df4b1abc78" data-name="log"> <li class="active"> <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td></tr></tbody></table></code></pre></div></div> <p>With this you can generate visualizations like:</p> <ul id="log" class="tab" data-tab="2c6a5ec1-2e5c-427b-aa90-81347ab5ac22" data-name="log"> <li class="active" id="log-php"> <a href="#">php </a> </li> <li id="log-js"> <a href="#">js </a> </li> <li id="log-ruby"> <a href="#">ruby </a> </li> </ul> <ul class="tab-content" id="2c6a5ec1-2e5c-427b-aa90-81347ab5ac22" data-name="log"> <li class="active"> <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nx">pputs</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span>
-</pre></td></tr></tbody></table></code></pre></div></div> </li> </ul> <h2 id="another-example">Another example</h2> <ul id="data-struct" class="tab" data-tab="a998c3d3-f38b-4c2e-b6ac-89cdb548b151" data-name="data-struct"> <li class="active" id="data-struct-yaml"> <a href="#">yaml </a> </li> <li id="data-struct-json"> <a href="#">json </a> </li> </ul> <ul class="tab-content" id="a998c3d3-f38b-4c2e-b6ac-89cdb548b151" data-name="data-struct"> <li class="active"> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td></tr></tbody></table></code></pre></div></div> </li> </ul> <h2 id="another-example">Another example</h2> <ul id="data-struct" class="tab" data-tab="34a9f823-90ac-49a5-bfb6-97b3da28e689" data-name="data-struct"> <li class="active" id="data-struct-yaml"> <a href="#">yaml </a> </li> <li id="data-struct-json"> <a href="#">json </a> </li> </ul> <ul class="tab-content" id="34a9f823-90ac-49a5-bfb6-97b3da28e689" data-name="data-struct"> <li class="active"> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre><span class="na">hello</span><span class="pi">:</span>
@@ -46,7 +46,7 @@ Content 2
 </pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
   </span><span class="nl">"hello"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"whatsup"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hi"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></div></div> </li> </ul> <h2 id="tabs-for-something-else">Tabs for something else</h2> <ul id="something-else" class="tab" data-tab="91cb5e6b-5226-47cc-a7cd-7a1c97ee61a0" data-name="something-else"> <li class="active" id="something-else-text"> <a href="#">text </a> </li> <li id="something-else-quote"> <a href="#">quote </a> </li> <li id="something-else-list"> <a href="#">list </a> </li> </ul> <ul class="tab-content" id="91cb5e6b-5226-47cc-a7cd-7a1c97ee61a0" data-name="something-else"> <li class="active"> <p>Regular text</p> </li> <li> <blockquote> <p>A quote</p> </blockquote> </li> <li> <p>Hipster list</p> <ul> <li>brunch</li> <li>fixie</li> <li>raybans</li> <li>messenger bag</li> </ul> </li> </ul>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included tabs in a post could look like]]></summary></entry><entry><title type="html">a post with typograms</title><link href="https://peng00bo00.github.io/blog/2024/typograms/" rel="alternate" type="text/html" title="a post with typograms"/><published>2024-04-29T23:36:10+00:00</published><updated>2024-04-29T23:36:10+00:00</updated><id>https://peng00bo00.github.io/blog/2024/typograms</id><content type="html" xml:base="https://peng00bo00.github.io/blog/2024/typograms/"><![CDATA[<p>This is an example post with some <a href="https://github.com/google/typograms/">typograms</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</span></pre></td></tr></tbody></table></code></pre></div></div> </li> </ul> <h2 id="tabs-for-something-else">Tabs for something else</h2> <ul id="something-else" class="tab" data-tab="059f8395-51dd-40db-8f07-daceadfcd5a4" data-name="something-else"> <li class="active" id="something-else-text"> <a href="#">text </a> </li> <li id="something-else-quote"> <a href="#">quote </a> </li> <li id="something-else-list"> <a href="#">list </a> </li> </ul> <ul class="tab-content" id="059f8395-51dd-40db-8f07-daceadfcd5a4" data-name="something-else"> <li class="active"> <p>Regular text</p> </li> <li> <blockquote> <p>A quote</p> </blockquote> </li> <li> <p>Hipster list</p> <ul> <li>brunch</li> <li>fixie</li> <li>raybans</li> <li>messenger bag</li> </ul> </li> </ul>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included tabs in a post could look like]]></summary></entry><entry><title type="html">a post with typograms</title><link href="https://peng00bo00.github.io/blog/2024/typograms/" rel="alternate" type="text/html" title="a post with typograms"/><published>2024-04-29T23:36:10+00:00</published><updated>2024-04-29T23:36:10+00:00</updated><id>https://peng00bo00.github.io/blog/2024/typograms</id><content type="html" xml:base="https://peng00bo00.github.io/blog/2024/typograms/"><![CDATA[<p>This is an example post with some <a href="https://github.com/google/typograms/">typograms</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -983,4 +983,243 @@ index 3bb754ac..a34839c0 100644
     }
   ]
 }
-</code></pre> <p>Note that this library offer support for both light and dark themes. You can switch between them using the theme switcher in the top right corner of the page.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included echarts code could look like]]></summary></entry></feed>
+</code></pre> <p>Note that this library offer support for both light and dark themes. You can switch between them using the theme switcher in the top right corner of the page.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included echarts code could look like]]></summary></entry><entry><title type="html">a post with chart.js</title><link href="https://peng00bo00.github.io/blog/2024/chartjs/" rel="alternate" type="text/html" title="a post with chart.js"/><published>2024-01-26T01:04:00+00:00</published><updated>2024-01-26T01:04:00+00:00</updated><id>https://peng00bo00.github.io/blog/2024/chartjs</id><content type="html" xml:base="https://peng00bo00.github.io/blog/2024/chartjs/"><![CDATA[<p>This is an example post with some <a href="https://www.chartjs.org/">chart.js</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="rouge-code"><pre><span class="p">```</span><span class="nl">chartjs
+</span><span class="sb">{
+  "type": "line",
+  "data": {
+    "labels": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July"
+    ],
+    "datasets": [
+      {
+        "label": "# of bugs",
+        "fill": false,
+        "lineTension": 0.1,
+        "backgroundColor": "rgba(75,192,192,0.4)",
+        "borderColor": "rgba(75,192,192,1)",
+        "borderCapStyle": "butt",
+        "borderDash": [],
+        "borderDashOffset": 0,
+        "borderJoinStyle": "miter",
+        "pointBorderColor": "rgba(75,192,192,1)",
+        "pointBackgroundColor": "#fff",
+        "pointBorderWidth": 1,
+        "pointHoverRadius": 5,
+        "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+        "pointHoverBorderColor": "rgba(220,220,220,1)",
+        "pointHoverBorderWidth": 2,
+        "pointRadius": 1,
+        "pointHitRadius": 10,
+        "data": [
+          65,
+          59,
+          80,
+          81,
+          56,
+          55,
+          40
+        ],
+        "spanGaps": false
+      }
+    ]
+  },
+  "options": {}
+}</span>
+<span class="p">```</span>
+</pre></td></tr></tbody></table></code></pre></div></div> <p>This is how it looks like:</p> <pre><code class="language-chartjs">{
+  "type": "line",
+  "data": {
+    "labels": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July"
+    ],
+    "datasets": [
+      {
+        "label": "# of bugs",
+        "fill": false,
+        "lineTension": 0.1,
+        "backgroundColor": "rgba(75,192,192,0.4)",
+        "borderColor": "rgba(75,192,192,1)",
+        "borderCapStyle": "butt",
+        "borderDash": [],
+        "borderDashOffset": 0,
+        "borderJoinStyle": "miter",
+        "pointBorderColor": "rgba(75,192,192,1)",
+        "pointBackgroundColor": "#fff",
+        "pointBorderWidth": 1,
+        "pointHoverRadius": 5,
+        "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+        "pointHoverBorderColor": "rgba(220,220,220,1)",
+        "pointHoverBorderWidth": 2,
+        "pointRadius": 1,
+        "pointHitRadius": 10,
+        "data": [
+          65,
+          59,
+          80,
+          81,
+          56,
+          55,
+          40
+        ],
+        "spanGaps": false
+      }
+    ]
+  },
+  "options": {}
+}
+</code></pre> <p>Also another example chart.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="rouge-code"><pre><span class="p">```</span><span class="nl">chartjs
+</span><span class="sb">{
+  "type": "doughnut",
+  "data": {
+    "labels": [
+      "Red",
+      "Blue",
+      "Yellow"
+    ],
+    "datasets": [
+      {
+        "data": [
+          300,
+          50,
+          100
+        ],
+        "backgroundColor": [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ],
+        "hoverBackgroundColor": [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ]
+      }
+    ]
+  },
+  "options": {}
+}</span>
+<span class="p">```</span>
+</pre></td></tr></tbody></table></code></pre></div></div> <p>Which generates:</p> <pre><code class="language-chartjs">{
+  "type": "doughnut",
+  "data": {
+    "labels": [
+      "Red",
+      "Blue",
+      "Yellow"
+    ],
+    "datasets": [
+      {
+        "data": [
+          300,
+          50,
+          100
+        ],
+        "backgroundColor": [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ],
+        "hoverBackgroundColor": [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ]
+      }
+    ]
+  },
+  "options": {}
+}
+</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included chart.js code could look like]]></summary></entry></feed>
