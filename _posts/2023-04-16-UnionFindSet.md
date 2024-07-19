@@ -11,6 +11,7 @@ toc:
   sidebar: left
 ---
 
+
 **并查集(union-find set)**是一种用于管理元素所属集合的数据结构。它的实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。
 
 <div align=center>
