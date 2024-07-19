@@ -7,7 +7,7 @@ subtitle: Ph.D in Civil Engineering | Graduate Research Assistant
 profile:
   align: right
   image: portrait.webp
-  image_circular: true # crops the image to make it circular
+  image_circular: false # crops the image to make it circular
   more_info: >
     <p>Division of Engineering</p>
     <p>New York University Abu Dhabi</p>
