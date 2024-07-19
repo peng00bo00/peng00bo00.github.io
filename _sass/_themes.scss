@@ -114,6 +114,21 @@ html[data-theme="dark"] {
   --global-danger-block-text: #600;
   --global-danger-block-title: #c00;
 
+  --global-preface-block: #{$nyu-medium-violet-1-color};
+  --global-preface-block-bg: #{$nyu-light-violet-2-color};
+  --global-preface-block-text: #{$nyu-deep-violet-color};
+  --global-preface-block-title: #{$nyu-medium-violet-2-color};
+
+  --global-theorem-block: #003399;
+  --global-theorem-block-bg: #e6f0ff;
+  --global-theorem-block-text: #003366;
+  --global-theorem-block-title: #3399ff;
+
+  --global-definition-block: #004d00;
+  --global-definition-block-bg: #e6f5e6;
+  --global-definition-block-text: #003300;
+  --global-definition-block-title: #66cc66;
+
   .repo-img-light {
     display: none;
   }
