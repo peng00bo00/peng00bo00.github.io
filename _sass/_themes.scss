@@ -40,6 +40,16 @@
   --global-preface-block-text: #{$nyu-dark-gray-color};
   --global-preface-block-title: #{$nyu-deep-violet-color};
 
+  --global-theorem-block: #004080;
+  --global-theorem-block-bg: #cce6ff;
+  --global-theorem-block-text: #003366;
+  --global-theorem-block-title: #336699;
+
+  --global-definition-block: #004d00;
+  --global-definition-block-bg: #e0f2e0;
+  --global-definition-block-text: #003300;
+  --global-definition-block-title: #006600;
+
   #light-toggle-system {
     padding-left: 10px;
     padding-top: 12px;

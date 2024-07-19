@@ -138,6 +138,42 @@ blockquote {
       color: var(--global-preface-block-title);
     }
   }
+
+  &.block-theorem {
+    border-color: var(--global-theorem-block);
+    background-color: var(--global-theorem-block-bg);
+
+    p {
+      color: var(--global-theorem-block-text);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-theorem-block-title);
+    }
+  }
+
+  &.block-definition {
+    border-color: var(--global-definition-block);
+    background-color: var(--global-definition-block-bg);
+
+    p {
+      color: var(--global-definition-block-text);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-definition-block-title);
+    }
+  }
 }
 
 // Checklist
