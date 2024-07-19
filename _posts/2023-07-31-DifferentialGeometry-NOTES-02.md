@@ -165,7 +165,7 @@ $$
 
 在大多数情况下我们都无法显式地写出弧长参数的表达式，因此判定已知参数$$t$$是否是弧长参数是十分重要的。我们可以使用如下定理来进行判断：
 
-> ## 定理2.1
+> #### 定理2.1
 > 设$$\boldsymbol{r} = \boldsymbol{r}(t) \ (a \leq t \leq b)$$是$$\mathbb{E}^3$$中的一条正则参数曲线，则$$t$$是它的弧长参数的充要条件是$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$。
 {: .block-theorem }
 
@@ -177,7 +177,7 @@ $$
 
 设曲线$$C$$的方程是$$\boldsymbol{r}(s)$$，其中$$s$$是曲线的弧长参数。令$$\boldsymbol{\alpha}(s) = \boldsymbol{r}'(s)$$，则$$\boldsymbol{\alpha}(s)$$是曲线$$C$$在$$s$$处的方向向量，其方向变化的快慢反映了曲线的弯曲程度，我们可以使用$$\big\vert \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} \big\vert$$来衡量。
 
-> ## 定理2.2 
+> #### 定理2.2 
 > 设$$\boldsymbol{\alpha}(s)$$是曲线$$\boldsymbol{r}(s)$$的单位切向量场，$$s$$是弧长参数，用$$\Delta \theta$$表示切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角，则
 $$
 \lim_{\Delta s \to 0} \bigg \vert \frac{\Delta \theta}{\Delta s} \bigg \vert = \big\vert \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} \big\vert
@@ -200,11 +200,11 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/GhhlaS3.png" width="80%">
 </div>
 
-> ## 定义2.1
+> #### 定义2.1
 > 设曲线$$C$$的方程是$$\boldsymbol{r}(s)$$，其中$$s$$是曲线的弧长参数。令$$\kappa(s) = \big\vert \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} \big\vert = \vert \boldsymbol{r}''(s) \vert$$，则称$$\kappa(s)$$为曲线$$\boldsymbol{r}(s)$$在$$s$$处的**曲率**，并且称$$\frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s}$$为该曲线的**曲率向量**。
 {: .block-definition }
 
-> ## 定理2.3
+> #### 定理2.3
 > 曲线$$C$$是一条直线当且仅当它的曲率$$\kappa(s) \equiv 0$$。
 {: .block-theorem }
 
@@ -353,11 +353,11 @@ $$
 \vert \tau(s) \vert = \vert \boldsymbol{\gamma}'(s) \vert
 $$
 
-> ## 定义2.2
+> #### 定义2.2
 > 设$$\boldsymbol{\beta}$$和$$\boldsymbol{\gamma}$$分别是曲线$$C$$的主法向量和次法向量，其中$$s$$是弧长参数，则$$\tau(s) = -\boldsymbol{\gamma}'(s) \cdot \boldsymbol{\beta} (s)$$称为曲线$$C$$的**挠率**。
 {: .block-definition }
 
-> ## 定理2.4
+> #### 定理2.4
 > 设曲线$$C$$不是直线，则它是平面曲线当且仅当它的挠率为零。
 {: .block-theorem }
 
@@ -490,7 +490,7 @@ $$
 
 结合[定理2.4](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)，我们可以直接得到如下推论
 
-> ## 定理2.5
+> #### 定理2.5
 > 曲线$$\boldsymbol{r} = \boldsymbol{r}(t)$$是一条平面曲线的充分必要条件是$$\big( \boldsymbol{r}'(s), \boldsymbol{r}''(s), \boldsymbol{r}'''(s) \big) \equiv 0$$。
 {: .block-theorem }
 
@@ -498,13 +498,13 @@ $$
 
 前面的讨论指出正则参数曲线的[弧长参数](/2023/07/31/DifferentialGeometry-NOTES-02.html#弧长参数)、[曲率](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)和[挠率](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)都是与曲线的保持定向的容许参数变换无关的，也与欧式空间$$\mathbb{E}^3$$中的笛卡尔直角坐标系的选取无关。当曲线在空间中经受一个刚体运动时，曲线的弧长、曲率和挠率是不变的；反过来说，如果空间$$\mathbb{E}^3$$中有两条曲线且它们的曲率和挠率表示成弧长参数的函数是分别相同的，则这两条曲线的形状是相同的。这个论断可以叙述成下面的基本定理。
 
-> ## 定理2.6 
+> #### 定理2.6 
 > 设$$\boldsymbol{r} = \boldsymbol{r}_1(s)$$和$$\boldsymbol{r} = \boldsymbol{r}_2(s)$$是$$\mathbb{E}^3$$中两条以弧长$$s$$为参数的正则参数曲线。如果它们的曲率处处不为零，并且它们的曲率和挠率分别相等，即$$\boldsymbol{\kappa}_1 (s) =\boldsymbol{\kappa}_2 (s)$$，$$\boldsymbol{\tau}_1 (s) =\boldsymbol{\tau}_2 (s)$$，则有$$\mathbb{E}^3$$中的一个刚体运动$$\sigma$$，它把曲线$$\boldsymbol{r} = \boldsymbol{r}_1(s)$$变成曲线$$\boldsymbol{r} = \boldsymbol{r}_2(s)$$。
 {: .block-theorem }
 
 对于一般的参数曲线，上述定理还可以推导出如下结论。
 
-> ## 定理2.7
+> #### 定理2.7
 > 设$$\boldsymbol{r} = \boldsymbol{r}_1(t)$$和$$\boldsymbol{r} = \boldsymbol{r}_2(u)$$是$$\mathbb{E}^3$$中两条正则参数曲线，它们的曲率处处不为零。如果存在三次以上的连续可微函数$$u = \lambda(t)$$，$$\lambda'(t) \neq 0$$，使得这两条曲线的弧长函数、曲率函数和挠率函数之间有关系式  
 $$s_1(t) = s_2(\lambda(t))$$，
 $$\kappa_1(t) = \kappa_2(\lambda(t))$$，
@@ -516,7 +516,7 @@ $$\tau_1(t) = \tau_2(\lambda(t))$$
 
 除此之外我们还知道在曲率$$\kappa(s)$$处处不为零的正则曲线上有内在的、确定的[Frenet标架场](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)，所以$$\mathbb{E}^3$$中的曲线便变成在$$\mathbb{E}^3$$中的正交标架空间中的一条曲线。而[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)正好是这个标架场的运动方程，其系数恰好是曲线的曲率和挠率，它们完全确定了曲线在空间中的形状。我们的问题是：给定了曲率和挠率作为弧长参数$$s$$的函数$$\kappa(s)$$，$$\tau(s)$$后，在空间$$\mathbb{E}^3$$中是否存在正则参数曲线以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率？我们在$$\mathbb{E}^3$$上由全体正交标架构成的六维空间中考虑，于是[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)成为现成的已知常微分方程组，它的解是依赖参数$$s$$的一族正交标架，其标架原点在$$\mathbb{E}^3$$中描出的轨迹正是我们所需的曲线，而这族正交标架本身应该是曲线的Frenet标架场。
 
-> ## 定理2.8
+> #### 定理2.8
 > 设$$\kappa(s)$$，$$\tau(s)$$是在区间$$[a, b]$$上两个任意给定的连续可微函数，并且$$\kappa(s) \lt 0$$，则在空间$$\mathbb{E}^3$$中存在正则参数曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$，$$a \leq s \leq b$$，以$$s$$为弧长参数，以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率，且这样的曲线在$$\mathbb{E}^3$$中时完全确定的，其差异至多为曲线在空间中的位置不同。
 {: .block-theorem }
 
@@ -678,7 +678,7 @@ $$
 
 则称曲线$$C_1$$和$$C_2$$在交点$$p_0$$处有$$n$$阶**切触**。
 
-> 定理2.9
+> #### 定理2.9
 > 设曲线$$\boldsymbol{r}_1 (s)$$和$$\boldsymbol{r}_2 (s)$$都以$$s$$为它们的弧长参数，且$$\boldsymbol{r}_1 (0) = \boldsymbol{r}_2 (0)$$，则它们在$$s=0$$处有$$n$$阶切触的充分必要条件是
 $$\boldsymbol{r}_1^{(i)} (0) = \boldsymbol{r}_2^{(i)} (0), \ \forall 1 \leq i \leq n ;\ \ \boldsymbol{r}_1^{(n+1)} (0) \neq \boldsymbol{r}_2^{(n+1)} (0)$$ 
 {: .block-theorem }
@@ -730,7 +730,7 @@ $$
 
 类似于曲率圆，我们可以定义曲线的密切球面。
 
-> ## 定理2.10
+> #### 定理2.10
 > 设曲线$$C: \boldsymbol{r} = \boldsymbol{r}(s)$$是曲率和挠率都不为零的正则参数曲线，$$s$$是弧长参数，则在$$s$$处与曲线$$C$$有三阶以上切触的球面$$\Sigma$$的球心是$$\boldsymbol{r}(s) + \frac{1}{\kappa(s)} \boldsymbol{\beta} (s) + \frac{1}{\tau (s)} \bigg( \frac{1}{\kappa(s)} \bigg)' \boldsymbol{\gamma}(s)$$，半径是$$\sqrt{\bigg( \frac{1}{\kappa(s)} \bigg)^2 + \bigg( \frac{1}{\tau(s)} \bigg( \frac{1}{\kappa(s)} \bigg)' \bigg)^2}$$  
 该球面称为曲线$$C$$在$$s$$处的**密切球面**，其球心所在直线
 $$
@@ -773,7 +773,7 @@ $$
 
 所以$$\boldsymbol{n} (s)$$也是曲线$$\boldsymbol{r}_1 (s)$$的法向量场。由此可见，曲线$$\boldsymbol{r}(s)$$和$$\boldsymbol{r}_1 (s)$$在对应点有相同的法向(也是主法线)。因此，寻求Bertrand曲线偶应该在空间挠曲线(即挠率不为零的曲线)中去找。
 
-> ## 定理2.11
+> #### 定理2.11
 > 设曲线$$C_1$$和$$C_2$$是Bertrand曲线偶，则$$C_1$$和$$C_2$$的对应点之间的距离是常数，并且$$C_1$$和$$C_2$$在对应点的切线成定角。
 {: .block-theorem }
 
@@ -812,7 +812,7 @@ $$
 
 故曲线$$C_1$$和$$C_2$$在对应点的切线成定角。证毕∎
 
-> ## 定理2.12 
+> #### 定理2.12 
 > 设正则参数曲线$$C$$的曲率$$\kappa$$和挠率$$\tau$$都不是零，则存在另一条正则参数曲线$$C_1$$使得曲线$$C_1$$和$$C$$成为Bertrand曲线偶的充分必要条件是，存在常数$$\lambda \neq 0$$和$$\mu$$使得$$\lambda \kappa + \mu \tau = 1$$。
 {: .block-theorem }
 
@@ -888,7 +888,7 @@ $$
 
 ### 渐伸线和渐缩线
 
-> ## 定义2.4
+> #### 定义2.4
 > 如果曲线$$C_1$$和$$C_2$$之间存在一个对应，使得曲线$$C_1$$在任意一点的切线恰好是曲线$$C_2$$在对应点的法线，则称曲线$$C_2$$是$$C_1$$的**渐伸线**，同时称曲线$$C_1$$是曲线$$C_2$$的**渐缩线**，如下图所示。
 {: .block-definition }
 
@@ -896,7 +896,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/uv2Yebx.png" width="80%">
 </div>
 
-> ## 定理2.13
+> #### 定理2.13
 > 设正则参数曲线$$C$$的参数方程是$$\boldsymbol{r}(s)$$，$$s$$是弧长参数，则$$C$$的渐伸线的参数方程是$$\boldsymbol{r} = \boldsymbol{r}(s) + (c-s) \boldsymbol{\alpha} (s)$$，其中$$c$$是任意的常数。
 {: .block-theorem }
 
@@ -932,7 +932,7 @@ $$
 
 曲线的渐伸线可以看作是该曲线的切线族的正交轨线，而**定理2.13**可以解释为：将一条软线沿曲线放置，把一端固定，另一端慢慢离开原曲线，并且把软线抻直，使软线抻直的部分是在保持为原曲线的切线，则这另一端描出的曲线就是原曲线渐伸线。
 
-> ## 定理2.14
+> #### 定理2.14
 > 设正则参数曲线$$C$$的参数方程是$$\boldsymbol{r}(s)$$，$$s$$是弧长参数，则$$C$$的渐缩线的参数方程是
 $$\boldsymbol{r} = \boldsymbol{r}(s) + \frac{1}{\kappa (s)} \boldsymbol{\beta} (s) - \frac{1}{\kappa (s)} \bigg( \tan{\int \tau (s) \ ds} \bigg) \boldsymbol{\gamma} (s)
 $$
@@ -1186,7 +1186,7 @@ $$
 
 称为连续可微闭曲线$$C$$的**旋转指标**。
 
-> ## 定理2.15
+> #### 定理2.15
 > 若$$C$$是平面$$\mathbb{E}^2$$上一条连续可微的简单闭曲线，则它的旋转指标$$i(C) = \pm 1$$。
 {: .block-theorem }
 

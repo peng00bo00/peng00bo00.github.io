@@ -363,7 +363,7 @@ $$
 
 上式说明刚体运动可以看作是一种坐标变换。总结一下可以得到如下定理：
 
-> ## 定理1.1
+> #### 定理1.1
 > $$\mathbb{E}^3$$中的刚体运动把一个正交标架映射为另一个正交标架；反过来，$$\mathbb{E}^3$$中的任意两个正交标架，必有一个$$\mathbb{E}^3$$中的刚体运动把其中一个正交标架映射为另一个正交标架。
 {: .block-theorem }
 
@@ -393,7 +393,7 @@ $$
 
 因此向量函数的求导和积分归结于它的分量函数的求导和积分，向量函数的可微性和可积性归结于它它的分量函数的可微性和可积性。
 
-> ## 定理1.2
+> #### 定理1.2
 > 假定$$\boldsymbol{a}(t)$$，$$\boldsymbol{b}(t)$$，$$\boldsymbol{c}(t)$$是三个可微的向量函数，则它们的内积、向量积和混合积的导数有下面的公式：  
 (1) $$(\boldsymbol{a}(t) \cdot \boldsymbol{b}(t))' = \boldsymbol{a}'(t) \cdot \boldsymbol{b}(t) + \boldsymbol{a}(t) \cdot \boldsymbol{b}'(t)$$  
 (2) $$(\boldsymbol{a}(t) \times \boldsymbol{b}(t))' = \boldsymbol{a}'(t) \times \boldsymbol{b}(t) + \boldsymbol{a}(t) \times \boldsymbol{b}'(t)$$  
@@ -402,7 +402,7 @@ $$
 
 除此之外，下面定理给出了具有特殊性质的向量函数所满足的条件，以后会经常用到：
 
-> ## 定理1.3
+> #### 定理1.3
 > 设$$\boldsymbol{a}(t)$$是一个处处非零的连续可微向量函数，则  
 (1) 向量函数$$\boldsymbol{a}(t)$$的长度是常数当且仅当$$\boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) \equiv 0$$  
 (2) 向量函数$$\boldsymbol{a}(t)$$的方向不变当且仅当$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \equiv \boldsymbol{0}$$  
