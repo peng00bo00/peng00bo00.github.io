@@ -120,6 +120,24 @@ blockquote {
       color: var(--global-danger-block-title);
     }
   }
+
+  &.block-preface {
+    border-color: var(--global-preface-block);
+    background-color: var(--global-preface-block-bg);
+
+    p {
+      color: var(--global-preface-block-text);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-preface-block-title);
+    }
+  }
 }
 
 // Checklist

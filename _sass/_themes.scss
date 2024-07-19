@@ -35,6 +35,11 @@
   --global-danger-block-text: #600;
   --global-danger-block-title: #c00;
 
+  --global-preface-block: #{$nyu-medium-gray-1-color};
+  --global-preface-block-bg: #{$nyu-light-gray-color};
+  --global-preface-block-text: #{$nyu-dark-gray-color};
+  --global-preface-block-title: #{$nyu-medium-gray-2-color};
+
   #light-toggle-system {
     padding-left: 10px;
     padding-top: 12px;
