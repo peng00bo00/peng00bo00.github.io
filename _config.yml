@@ -198,12 +198,6 @@ collections:
   projects:
     output: true
     permalink: /:collection/:title/
-  formatting:
-    output: true
-    permalink: /:collection/:title/
-  leetcode:
-    output: true
-    permalink: /:collection/:title/
 
 announcements:
   enabled: false
