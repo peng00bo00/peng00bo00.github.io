@@ -25,11 +25,11 @@ layout: default
             
             <td>
               {% if post.redirect == blank %}
-                <a class="post-link" href="{{ post.url | relative_url }}" style="text-align: center; display: block;">{{ post.title }}</a>
+                <a class="post-link" href="{{ post.url | relative_url }}" style="text-align: left; display: block;">{{ post.title }}</a>
               {% elsif post.redirect contains '://' %}
-                <a class="post-link" href="{{ post.redirect }}" target="_blank" style="text-align: center; display: block;">{{ post.title }}</a>
+                <a class="post-link" href="{{ post.redirect }}" target="_blank" style="text-align: left; display: block;">{{ post.title }}</a>
               {% else %}
-                <a class="post-link" href="{{ post.redirect | relative_url }}" style="text-align: center; display: block;">{{ post.title }}</a>
+                <a class="post-link" href="{{ post.redirect | relative_url }}" style="text-align: left; display: block;">{{ post.title }}</a>
               {% endif %}
             </td>
 
