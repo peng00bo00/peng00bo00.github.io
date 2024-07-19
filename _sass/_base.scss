@@ -50,6 +50,7 @@ table {
 
 a,
 table.table a {
+  font-weight: bold;
   color: var(--global-theme-color);
 
   &:hover {
