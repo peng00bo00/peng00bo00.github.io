@@ -25,7 +25,7 @@ $$
 
 而所有相等的有向线段构成的集合称为一个**向量**，通常使用斜黑体字母来表示如$$\boldsymbol{a}$$。
 
-###### 加法
+#### 加法
 
 向量相加只需要将它们的首尾相接：记$$\overrightarrow{AB}$$和$$\overrightarrow{BC}$$两个向量分别为$$\boldsymbol{a}$$和$$\boldsymbol{b}$$，则连接$$A$$和$$C$$的有向线段$$\overrightarrow{AC}$$就代表向量$$\boldsymbol{a}+\boldsymbol{b}$$。除此之外，我们把起点和终点相同的有向线段集合称为零向量，记作$$\boldsymbol{0}$$。显然任何向量与零向量之和等于其自身：
 
@@ -57,7 +57,7 @@ $$
 
 当且仅当$$A$$，$$B$$，$$C$$三点共线时取等号。
 
-###### 数乘
+#### 数乘
 
 向量$$\boldsymbol{a}$$的长度$$\vert \boldsymbol{a} \vert$$表示它对应有向线段的长度，在此基础上我们可以定义**数乘**运算。对于任意实数$$c$$，它与向量$$\boldsymbol{a}$$的乘积$$c \cdot \boldsymbol{a}$$定义为与$$\boldsymbol{a}$$平行的向量。当$$c \gt 0$$时$$c \cdot \boldsymbol{a}$$与$$\boldsymbol{a}$$同向且其长度$$\vert c \cdot \boldsymbol{a} \vert$$为$$\vert \boldsymbol{a} \vert$$的$$c$$倍；类似地，当$$c \lt 0$$时$$c \cdot \boldsymbol{a}$$与$$\boldsymbol{a}$$反向且长度为$$\vert \boldsymbol{a} \vert$$的$$\vert c \vert$$倍；而当$$c = 0$$时$$c \cdot \boldsymbol{a} = \boldsymbol{0}$$。容易验证向量数乘运算满足如下性质：
 
@@ -75,7 +75,7 @@ $$
 
 其中$$\lambda$$和$$\mu$$为任意实数。
 
-###### 内积
+#### 内积
 
 向量和向量之间的**内积(点乘)**定义为实数
 
@@ -109,7 +109,7 @@ $$
 \boldsymbol{a} \cdot \boldsymbol{b} = 0 \Leftrightarrow \boldsymbol{a} \perp \boldsymbol{b}
 $$
 
-###### 叉乘
+#### 叉乘
 
 当向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$平行时规定它们的**叉乘(向量积)**为零向量；而当它们不平行时，规定叉乘$$\boldsymbol{a} \times \boldsymbol{b}$$为与向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$都垂直的一个向量，其长度为$$\boldsymbol{a}$$和$$\boldsymbol{b}$$所张成的平行四边形面积：
 
@@ -246,7 +246,7 @@ $$
 
 则矩阵$$A$$为行列式等于1的正交矩阵，即$$A \in \text{SO(3)}$$。前面的推导说明$$\mathbb{E}^3$$中的任意标架$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$都对应一个向量和正交阵$$(\boldsymbol{a}, A)$$，因此$$\mathbb{E}^3$$中的全体标架集合等同于$$\mathbb{E}^3 \times \text{SO(3)}$$，这是一个具有**6个自由度**的空间。
 
-###### 坐标变换
+#### 坐标变换
 
 对于空间中已知的两个正交标架$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$和$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$，记点$$q$$在两个标架下的坐标分别为$$(x, y, z)$$和$$(\tilde{x}, \tilde{y}, \tilde{z})$$，则有
 
@@ -301,7 +301,7 @@ z &= a_3 + a_{13} \ \tilde{x} + a_{23} \ \tilde{y} + a_{33} \ \tilde{z} \\
 \end{cases}
 $$
 
-###### 刚体运动
+#### 刚体运动
 
 正交标架的另一个重要应用是用来描述$$\mathbb{E}^3$$中的刚体运动。假设刚体上的正交标架为$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$，在初始时刻它与固定标架$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$重合。刚体经过运动$$\sigma$$后到达了新的位置，此时刚体上的点$$q$$在刚体运动$$\sigma$$的作用下变成了像点
 
@@ -363,7 +363,7 @@ $$
 
 上式说明刚体运动可以看作是一种坐标变换。总结一下可以得到如下定理：
 
-> ###### 定理1.1
+> ##### 定理1.1
 > $$\mathbb{E}^3$$中的刚体运动把一个正交标架映射为另一个正交标架；反过来，$$\mathbb{E}^3$$中的任意两个正交标架，必有一个$$\mathbb{E}^3$$中的刚体运动把其中一个正交标架映射为另一个正交标架。
 {: .block-theorem }
 
@@ -393,7 +393,7 @@ $$
 
 因此向量函数的求导和积分归结于它的分量函数的求导和积分，向量函数的可微性和可积性归结于它它的分量函数的可微性和可积性。
 
-> ###### 定理1.2
+> ##### 定理1.2
 > 假定$$\boldsymbol{a}(t)$$，$$\boldsymbol{b}(t)$$，$$\boldsymbol{c}(t)$$是三个可微的向量函数，则它们的内积、向量积和混合积的导数有下面的公式：  
 (1) $$(\boldsymbol{a}(t) \cdot \boldsymbol{b}(t))' = \boldsymbol{a}'(t) \cdot \boldsymbol{b}(t) + \boldsymbol{a}(t) \cdot \boldsymbol{b}'(t)$$  
 (2) $$(\boldsymbol{a}(t) \times \boldsymbol{b}(t))' = \boldsymbol{a}'(t) \times \boldsymbol{b}(t) + \boldsymbol{a}(t) \times \boldsymbol{b}'(t)$$  
@@ -402,7 +402,7 @@ $$
 
 除此之外，下面定理给出了具有特殊性质的向量函数所满足的条件，以后会经常用到：
 
-> ###### 定理1.3
+> ##### 定理1.3
 > 设$$\boldsymbol{a}(t)$$是一个处处非零的连续可微向量函数，则  
 (1) 向量函数$$\boldsymbol{a}(t)$$的长度是常数当且仅当$$\boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) \equiv 0$$  
 (2) 向量函数$$\boldsymbol{a}(t)$$的方向不变当且仅当$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \equiv \boldsymbol{0}$$  

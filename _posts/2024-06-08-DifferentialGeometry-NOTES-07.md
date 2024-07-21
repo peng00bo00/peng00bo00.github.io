@@ -235,7 +235,7 @@ $$
 
 向量空间$$V$$上的全体$$r$$次外形式集合记为$$\bigwedge^r V^*$$，因为加法和数乘法在集合$$\bigwedge^r V^*$$中是封闭的，因此它自然是一个向量空间。更要紧的一个事实是在外形式之间还能够定义外积运算， 它在实质上是张量积和反对称化运算的复合。
 
-> ###### 定义7.1
+> ##### 定义7.1
 > 设$$f \in \bigwedge^r V^*$$，$$g \in \bigwedge^s V^*$$，则$$f$$和$$g$$的**外积**$$f \wedge g$$是一个$$(r+s)$$次外形式，定义为$$f \wedge g = \frac{(r+s)!}{r! s!} [f \otimes g]$$。
 {: .block-definition }
 
@@ -264,7 +264,7 @@ h(\boldsymbol{x}) & h(\boldsymbol{y}) & h(\boldsymbol{z}) \\
 \end{vmatrix}
 $$
 
-> ###### 定理7.1
+> ##### 定理7.1
 > 外积运算遵循下列运算法则：  
 (1) 分配率：$$(f_1 + f_2) \wedge g = f_1 \wedge g + f_2 \wedge g$$  
 (2) 反交换律：设$$f \in \bigwedge^r V^*$$，$$g \in \bigwedge^s V^*$$，则$$f \wedge g = (-1)^{rs} g \wedge f$$  
@@ -370,7 +370,7 @@ $$
 
 ### 外代数
 
-> ###### 定理7.2
+> ##### 定理7.2
 > 设$$\{ e^1, ..., e^n \}$$是对偶向量空间$$V^*$$的一个基底，则$$\{ e^{j_1} \wedge \cdots \wedge e^{j_r}, 1\leq j_1 \lt \cdots \lt j_r \leq n \}$$是$$r$$次外形式空间$$\bigwedge^r V^*$$的基底。特别是，空间$$\bigwedge^r V^*$$的维数是$$\dim \bigwedge^r V^* = C_n^r$$。当$$r \gt n$$时，$$\bigwedge^r V^* = \{ 0 \}$$。
 {: .block-theorem }
 
@@ -459,7 +459,7 @@ $$
 
 最后，我们叙述一个重要的定理，它在微分几何中是十分有用的。
 
-> ###### 定理7.3 (Cartan引理)
+> ##### 定理7.3 (Cartan引理)
 > 设$$\omega^1, ..., \omega^r$$，$$\theta_1, ..., \theta_r$$是$$n$$维向量空间$$V$$的$$2r$$个一次形式，其中$$\omega^1, ..., \omega^r$$是线性无关的。如果恒等式$$\sum_{\alpha = 1}^r \omega^\alpha \wedge \theta_\alpha = 0$$成立，则每一个$$\theta_\alpha$$必定是$$\omega^1, ..., \omega^r$$的线性组合，即$$\theta_\alpha = \sum_{\beta = 1}^r a_{\alpha \beta} \omega^\beta$$，并且组合系数$$a_{\alpha \beta}$$是对称的，即$$a_{\alpha \beta} = a_{\beta \alpha}$$。
 {: .block-theorem }
 
@@ -615,7 +615,7 @@ $$
 
 现在，我们要给出外微分式的定义。
 
-> ###### 定义7.2
+> ##### 定义7.2
 > 设$$D$$是$$n$$为欧式空间$$\mathbb{E}^n$$中的一个区域，$$(u^1, ..., u^n)$$是区域$$D$$上的曲纹坐标系。如果以连续可微的方式在每一点$$p = (u^1, ..., u^n) \in D$$给定了一个$$r$$次外形式  
 $$
 \begin{aligned}
@@ -791,7 +791,7 @@ $$
 
 区域$$D$$上的任意两个同次的外微分式能够以逐点计算的方式作加法和外积运算。对于外微分式来说，更重要的一种运算是外微分，它把$$r$$次外微分式变为一个$$r+1$$次外微分式。
 
-> ###### 定义7.3
+> ##### 定义7.3
 > 设
 $$
 \varphi = \frac{1}{r!} \varphi_{i_1 \cdots i_r} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
@@ -806,7 +806,7 @@ $$
 称为$$\varphi$$的**外微分**。如果$$\varphi: D \rightarrow \mathbb{R}$$是定义在$$D$$上的连续可微函数(即零次外微分式)，则它的外微分$$\mathrm{d} \varphi$$就是它的普通微分。
 {: .block-definition }
 
-> ###### 定理7.4
+> ##### 定理7.4
 > 外微分运算$$\mathrm{d}$$遵循下面的运算法则：  
 (1) $$\mathrm{d}$$是线性算子，即对于任意的外微分式$$\varphi^1$$、$$\varphi^2$$有
 $$\mathrm{d} (\varphi^1 + \varphi^2) = \mathrm{d} \varphi^1 + \mathrm{d} \varphi^2$$
@@ -837,7 +837,7 @@ $$
 
 外微分运算还有一个更重要的性质，也就是外微分$$\mathrm{d}$$与外微分式的参数表示的方式无关，这称为「外微分$$\mathrm{d}$$的形式不变性」，是微积分学中「一次微分的形式不变性」的推广。确切地说我们有下面的定理。
 
-> ###### 定理7.5
+> ##### 定理7.5
 > 设$$\varphi$$是定义在$$n$$维区域$$D$$上的一个$$r$$次外微分式，它在曲纹坐标系$$(u^1, ..., u^n)$$下的表示是  
 $$
 \varphi = \frac{1}{r!} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
@@ -946,7 +946,7 @@ $$
 
 其中指标$$\alpha_1, ..., \alpha_r$$的取值范围从1到$$m$$，指标$$i_1, ..., i_r$$的取值范围从1到$$n$$，并且上式使用了Einstein和式约定。通常，我们把$$\sigma^* \tilde{\varphi}$$称为区域$$\tilde{D}$$上的$$r$$次外微分式$$\tilde{\varphi}$$通过映射$$\sigma$$在区域$$D$$上的**拉回**。
 
-> ###### 定理7.6
+> ##### 定理7.6
 > 设$$\sigma: \tilde{D} \rightarrow D$$是连续可微映射，则对区域$$\tilde{D}$$上的任意外微分式$$\tilde{\varphi}$$、$$\tilde{\psi}$$有下面的等式：  
 (1) $$\sigma^* (\varphi + \psi) = \sigma^* \varphi + \sigma^* \psi $$  
 (2) $$\sigma^* (\varphi \wedge \psi) = \sigma^* \varphi \wedge \sigma^* \psi $$  
