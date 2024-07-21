@@ -5,7 +5,7 @@ permalink: /projects/
 description: A growing collection of my projects.
 nav: true
 nav_order: 2
-display_categories: [GAMES, OMSCS]
+display_categories: [GAMES, Geometry Processing, OMSCS]
 horizontal: false
 ---
 

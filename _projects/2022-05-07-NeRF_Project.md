@@ -3,7 +3,6 @@ layout: page
 title: NeRF Project
 description: "Course project in CS 7643: Deep Learning. We implemented NeRF from scratch."
 img: https://i.imgur.com/agozP0s.gif
-importance: 1
 category: OMSCS
 toc:
   sidebar: left
