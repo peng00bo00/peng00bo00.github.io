@@ -3,6 +3,7 @@ layout: page
 title: NeRF Project
 description: "Course project in [CS 7643: Deep Learning](https://omscs.gatech.edu/cs-7643-deep-learning)."
 img: https://search.pstatic.net/common?src=https://i.imgur.com/agozP0s.gif
+category: CS
 toc:
   sidebar: left
 ---
