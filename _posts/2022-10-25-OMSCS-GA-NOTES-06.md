@@ -64,7 +64,7 @@ toc:
 
 #### MST
 
-[最小生成树](/2022/10/04/OMSCS-GA-NOTES-03.html#minimum-spanning-tree)同样是NP问题，实际上它还是P问题。
+[最小生成树](/blog/2022/OMSCS-GA-NOTES-03/#minimum-spanning-tree)同样是NP问题，实际上它还是P问题。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/lp1UxVR.png" width="80%">
@@ -73,7 +73,7 @@ toc:
 
 #### Knapsack
 
-而[knapsack问题](/2022/08/23/OMSCS-GA-NOTES-01.html#knapsack)可以利用动态规划进行求解，但目前人们无法证明knapsack问题是否是一个NP问题，也无法证明它是否是一个P问题。
+而[knapsack问题](/blog/2022/OMSCS-GA-NOTES-01/#knapsack)可以利用动态规划进行求解，但目前人们无法证明knapsack问题是否是一个NP问题，也无法证明它是否是一个P问题。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/AN8ou24.png" width="80%">

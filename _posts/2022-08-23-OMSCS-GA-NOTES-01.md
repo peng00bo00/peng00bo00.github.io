@@ -273,7 +273,7 @@ KnapsackNoRepeat(w[], v[], B):
   return K[i, b]
 ```
 
-此时算法的复杂度为$O(nB)$。这里需要说明的是$O(nB)$依赖于限制$B$的值，而要表示$B$则需要$O(\log B)$的空间。因此这个算法并不是一个非常高效的算法。实际上人们已经证明knapsack问题是[NP-complete](/2022/10/25/OMSCS-GA-NOTES-06.html#knapsack)，我们目前无法找到一个高效的解法。
+此时算法的复杂度为$O(nB)$。这里需要说明的是$O(nB)$依赖于限制$B$的值，而要表示$B$则需要$O(\log B)$的空间。因此这个算法并不是一个非常高效的算法。实际上人们已经证明knapsack问题是[NP-complete](/blog/2022/OMSCS-GA-NOTES-06/#knapsack-1)，我们目前无法找到一个高效的解法。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/wETdVXr.png" width="80%">

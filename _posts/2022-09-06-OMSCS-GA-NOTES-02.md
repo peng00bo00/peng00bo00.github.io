@@ -80,7 +80,7 @@ $$
 
 ### Improved Approach
 
-通过减少递归计算的次数可以降低整个算法的复杂度。具体地，我们利用[复数乘法](/2022/09/06/OMSCS-GA-NOTES-02.html#gausss-idea)的技巧来减少一次递归乘法。
+通过减少递归计算的次数可以降低整个算法的复杂度。具体地，我们利用[复数乘法](/blog/2022/OMSCS-GA-NOTES-02/#gausss-idea)的技巧来减少一次递归乘法。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/7Jl4b9D.png" width="80%">

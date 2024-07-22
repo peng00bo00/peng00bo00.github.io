@@ -240,7 +240,7 @@ SCC算法的一个应用是求解**布尔可满足性问题(satisfiability, SAT)
 
 ### k-SAT
 
-根据每个从句的规模我们可以定义k-SAT问题，其中每个从句包含最多k个布尔变量。对于k-SAT问题人们已经证明在k大于2的情况下它是[NP-complete](/2022/10/25/OMSCS-GA-NOTES-06.html#3sat)，而对于2-SAT问题则存在多项式复杂度的解法。
+根据每个从句的规模我们可以定义k-SAT问题，其中每个从句包含最多k个布尔变量。对于k-SAT问题人们已经证明在k大于2的情况下它是[NP-complete](/blog/2022/OMSCS-GA-NOTES-06/#3sat)，而对于2-SAT问题则存在多项式复杂度的解法。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/bs0xoCX.png" width="80%">
@@ -310,7 +310,7 @@ SCC算法的一个应用是求解**布尔可满足性问题(satisfiability, SAT)
 
 ### Greedy Approach
 
-**贪心(greedy)**是经典的算法设计思想，在贪心算法中我们把整个问题分解为若干个子问题然后通过最优化每一个子问题来试图优化原始问题。当然并不是所有的问题都可以使用贪心这样的方法来进行优化，比如说[knapsack问题](/2022/08/23/OMSCS-GA-NOTES-01.html#knapsack)就无法通过贪心来进行求解。
+**贪心(greedy)**是经典的算法设计思想，在贪心算法中我们把整个问题分解为若干个子问题然后通过最优化每一个子问题来试图优化原始问题。当然并不是所有的问题都可以使用贪心这样的方法来进行优化，比如说[knapsack问题](/blog/2022/OMSCS-GA-NOTES-01/#knapsack)就无法通过贪心来进行求解。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/cYqRFpX.png" width="80%">

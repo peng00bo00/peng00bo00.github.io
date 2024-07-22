@@ -92,7 +92,7 @@ Ford-Fulkerson算法的复杂度为$O(mC)$。
 
 ### Min-Cut Problem
 
-回忆[图割](/2022/10/04/OMSCS-GA-NOTES-03.html#cuts)的概念是把图划分为两部分L和R，连接它们的边称为cut。对于最大流问题我们可以把图根据源点s和终点t进行划分，此时的图割问题称为**st-cut**。完成划分后L和R的capacity定义为连接它们的所有从L到R的边权重之和。
+回忆[图割](/blog/2022/OMSCS-GA-NOTES-03/#cuts)的概念是把图划分为两部分L和R，连接它们的边称为cut。对于最大流问题我们可以把图根据源点s和终点t进行划分，此时的图割问题称为**st-cut**。完成划分后L和R的capacity定义为连接它们的所有从L到R的边权重之和。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/sC2VTlz.png" width="80%">
@@ -273,7 +273,7 @@ Edmonds-Karp算法的复杂度为$O(m^2 n)$。
 
 ### Max Feasible Flow
 
-因此原始图G存在feasible flow等价于G'具有saturating flow，因此我们只需要在G'上通过最大流算法寻找saturating flow即可。得到了一个feasible flow之后可以通过在residual network上添加augment path的方式来进行最大化，不过需要注意的是此时构造residual network的方式与[Ford-Fulkerson算法](/2022/10/05/OMSCS-GA-NOTES-04.html#ford-fulkerson-algorithm)有所不同。
+因此原始图G存在feasible flow等价于G'具有saturating flow，因此我们只需要在G'上通过最大流算法寻找saturating flow即可。得到了一个feasible flow之后可以通过在residual network上添加augment path的方式来进行最大化，不过需要注意的是此时构造residual network的方式与[Ford-Fulkerson算法](#ford-fulkerson-algorithm)有所不同。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/oamskOF.png" width="80%">

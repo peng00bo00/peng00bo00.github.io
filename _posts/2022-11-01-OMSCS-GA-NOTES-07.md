@@ -27,7 +27,7 @@ toc:
 
 #### Max-Flow via LP
 
-前面介绍过的[最大流](/2022/10/05/OMSCS-GA-NOTES-04.html)问题可以等价地表示为一个优化问题：我们为每条边上的流量设置一个变量$f_e$，这样优化目标即为所有变量之和$\sum_{e \in E} f_e$，而对应的约束包括$f_e$非负且小于等于容量$c_e$以及除源点和终点外所有节点的流入量等于流出量等。
+前面介绍过的[最大流](/blog/2022/OMSCS-GA-NOTES-04/)问题可以等价地表示为一个优化问题：我们为每条边上的流量设置一个变量$f_e$，这样优化目标即为所有变量之和$\sum_{e \in E} f_e$，而对应的约束包括$f_e$非负且小于等于容量$c_e$以及除源点和终点外所有节点的流入量等于流出量等。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/qZ37Vmv.png" width="80%">
@@ -166,7 +166,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/xSshKtw.png" width="80%">
 </div>
 
-对于如何检查是否无界的情况我们留到[对偶性](/2022/11/01/OMSCS-GA-NOTES-07.html#unbounded-lp)中进行讲解。
+对于如何检查是否无界的情况我们留到[对偶性](/blog/2022/OMSCS-GA-NOTES-07/#dual-lp)中进行讲解。
 
 ## Duality
 
