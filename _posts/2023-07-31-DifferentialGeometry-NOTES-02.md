@@ -168,10 +168,11 @@ $$
 > ##### 定理2.1
 > 设$$\boldsymbol{r} = \boldsymbol{r}(t) \ (a \leq t \leq b)$$是$$\mathbb{E}^3$$中的一条正则参数曲线，则$$t$$是它的弧长参数的充要条件是$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$。
 {: .block-theorem }
+<a id="theorem2.1"></a>
 
 这里简单证明如下：当$$t$$为弧长参数$$s$$时有$$\mathrm{d} s = \mathrm{d} t$$，所以必有$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$，反之亦然。
 
-[定理2.1](/2023/07/31/DifferentialGeometry-NOTES-02.html#弧长参数)的几何意义是曲线以弧长为参数的充要条件是它的切向量场为单位向量场。
+[定理2.1](#theorem2.1)的几何意义是曲线以弧长为参数的充要条件是它的切向量场为单位向量场。
 
 ## 曲线的曲率和Frenet标架
 
@@ -230,7 +231,7 @@ $$
 
 这就是说，曲线的曲率$$\kappa(s)$$是曲线切线像的弧长元素与曲线弧长元素之比。
 
-因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的**主法向量**。于是，曲率向量$$\boldsymbol{\alpha}'(s)$$可以表示为
+因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3](//blog/2023/DifferentialGeometry-NOTES-01/#theorem1.3)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的**主法向量**。于是，曲率向量$$\boldsymbol{\alpha}'(s)$$可以表示为
 
 $$
 \boldsymbol{\alpha}'(s) = \kappa(s) \ \boldsymbol{\beta}(s)
@@ -314,7 +315,7 @@ $$
 
 ## 曲线的挠率和Frenet公式
 
-[上一节](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)介绍了曲线在一点切线和主法线张成的平面称为曲线的密切平面，它的法向是曲线的次法向量$$\boldsymbol{\gamma}$$。如果曲线本身落在一个平面内，则该平面就是曲线的密切平面，于是它的次法向量$$\boldsymbol{\gamma}$$是常向量；如果曲线不是平面曲线，则$$\boldsymbol{\gamma}$$必定不是常向量。根据**定理2.2**，单位切向量$$\boldsymbol{\alpha}$$关于弧长参数$$s$$的导数的长度$$\vert \boldsymbol{\alpha}'(s) \vert$$反映了曲线切线方向转动的快慢；同理，次法向量$$\boldsymbol{\gamma}$$关于弧长参数$$s$$的导数的长度$$\vert \boldsymbol{\gamma}'(s) \vert$$反映了曲线的密切平面方向转动的快慢，因而它刻画了曲线偏离平面曲线程度，反映了曲线扭曲的程度，即曲线的「挠率」。
+[上一节](#曲线的曲率和frenet标架)介绍了曲线在一点切线和主法线张成的平面称为曲线的密切平面，它的法向是曲线的次法向量$$\boldsymbol{\gamma}$$。如果曲线本身落在一个平面内，则该平面就是曲线的密切平面，于是它的次法向量$$\boldsymbol{\gamma}$$是常向量；如果曲线不是平面曲线，则$$\boldsymbol{\gamma}$$必定不是常向量。根据**定理2.2**，单位切向量$$\boldsymbol{\alpha}$$关于弧长参数$$s$$的导数的长度$$\vert \boldsymbol{\alpha}'(s) \vert$$反映了曲线切线方向转动的快慢；同理，次法向量$$\boldsymbol{\gamma}$$关于弧长参数$$s$$的导数的长度$$\vert \boldsymbol{\gamma}'(s) \vert$$反映了曲线的密切平面方向转动的快慢，因而它刻画了曲线偏离平面曲线程度，反映了曲线扭曲的程度，即曲线的「挠率」。
 
 因为$$\boldsymbol{\gamma} (s)$$是单位向量场，故$$\boldsymbol{\gamma}' (s) \perp \boldsymbol{\gamma} (s)$$。此外根据Frenet标架的定义有
 
@@ -360,6 +361,7 @@ $$
 > ##### 定理2.4
 > 设曲线$$C$$不是直线，则它是平面曲线当且仅当它的挠率为零。
 {: .block-theorem }
+<a id="theorem2.4"></a>
 
 **证明** 前面已经证明过平面曲线的次法向量$$\boldsymbol{\gamma}$$是常向量，因此其挠率必为零；接下来证明挠率为零的曲线是平面曲线。设曲线$$C$$的参数方程为$$\boldsymbol{r} = \boldsymbol{r}(s)$$，$$s$$是弧长参数，并且$$\kappa(s) \neq 0$$，$$\tau(s) \equiv 0$$。此时曲线有确定的Frenet标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$，并且
 $$
@@ -488,7 +490,7 @@ $$
 \tau(s) = \frac{\big( \boldsymbol{r}'(s), \boldsymbol{r}''(s), \boldsymbol{r}'''(s) \big)}{ \vert \boldsymbol{r}''(s) \vert^2}
 $$
 
-结合[定理2.4](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)，我们可以直接得到如下推论
+结合[定理2.4](#theorem2.4)，我们可以直接得到如下推论
 
 > ##### 定理2.5
 > 曲线$$\boldsymbol{r} = \boldsymbol{r}(t)$$是一条平面曲线的充分必要条件是$$\big( \boldsymbol{r}'(s), \boldsymbol{r}''(s), \boldsymbol{r}'''(s) \big) \equiv 0$$。
@@ -496,7 +498,7 @@ $$
 
 ## 曲线论基本定理
 
-前面的讨论指出正则参数曲线的[弧长参数](/2023/07/31/DifferentialGeometry-NOTES-02.html#弧长参数)、[曲率](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)和[挠率](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)都是与曲线的保持定向的容许参数变换无关的，也与欧式空间$$\mathbb{E}^3$$中的笛卡尔直角坐标系的选取无关。当曲线在空间中经受一个刚体运动时，曲线的弧长、曲率和挠率是不变的；反过来说，如果空间$$\mathbb{E}^3$$中有两条曲线且它们的曲率和挠率表示成弧长参数的函数是分别相同的，则这两条曲线的形状是相同的。这个论断可以叙述成下面的基本定理。
+前面的讨论指出正则参数曲线的[弧长参数](#弧长参数)、[曲率](#曲线的曲率和frenet标架)和[挠率](#曲线的挠率和frenet公式)都是与曲线的保持定向的容许参数变换无关的，也与欧式空间$$\mathbb{E}^3$$中的笛卡尔直角坐标系的选取无关。当曲线在空间中经受一个刚体运动时，曲线的弧长、曲率和挠率是不变的；反过来说，如果空间$$\mathbb{E}^3$$中有两条曲线且它们的曲率和挠率表示成弧长参数的函数是分别相同的，则这两条曲线的形状是相同的。这个论断可以叙述成下面的基本定理。
 
 > ##### 定理2.6 
 > 设$$\boldsymbol{r} = \boldsymbol{r}_1(s)$$和$$\boldsymbol{r} = \boldsymbol{r}_2(s)$$是$$\mathbb{E}^3$$中两条以弧长$$s$$为参数的正则参数曲线。如果它们的曲率处处不为零，并且它们的曲率和挠率分别相等，即$$\boldsymbol{\kappa}_1 (s) =\boldsymbol{\kappa}_2 (s)$$，$$\boldsymbol{\tau}_1 (s) =\boldsymbol{\tau}_2 (s)$$，则有$$\mathbb{E}^3$$中的一个刚体运动$$\sigma$$，它把曲线$$\boldsymbol{r} = \boldsymbol{r}_1(s)$$变成曲线$$\boldsymbol{r} = \boldsymbol{r}_2(s)$$。
@@ -514,7 +516,7 @@ $$\tau_1(t) = \tau_2(\lambda(t))$$
 
 ### 曲线的内在方程
 
-除此之外我们还知道在曲率$$\kappa(s)$$处处不为零的正则曲线上有内在的、确定的[Frenet标架场](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)，所以$$\mathbb{E}^3$$中的曲线便变成在$$\mathbb{E}^3$$中的正交标架空间中的一条曲线。而[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)正好是这个标架场的运动方程，其系数恰好是曲线的曲率和挠率，它们完全确定了曲线在空间中的形状。我们的问题是：给定了曲率和挠率作为弧长参数$$s$$的函数$$\kappa(s)$$，$$\tau(s)$$后，在空间$$\mathbb{E}^3$$中是否存在正则参数曲线以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率？我们在$$\mathbb{E}^3$$上由全体正交标架构成的六维空间中考虑，于是[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)成为现成的已知常微分方程组，它的解是依赖参数$$s$$的一族正交标架，其标架原点在$$\mathbb{E}^3$$中描出的轨迹正是我们所需的曲线，而这族正交标架本身应该是曲线的Frenet标架场。
+除此之外我们还知道在曲率$$\kappa(s)$$处处不为零的正则曲线上有内在的、确定的[Frenet标架场](#曲线的曲率和frenet标架)，所以$$\mathbb{E}^3$$中的曲线便变成在$$\mathbb{E}^3$$中的正交标架空间中的一条曲线。而[Frenet公式](#曲线的挠率和frenet公式)正好是这个标架场的运动方程，其系数恰好是曲线的曲率和挠率，它们完全确定了曲线在空间中的形状。我们的问题是：给定了曲率和挠率作为弧长参数$$s$$的函数$$\kappa(s)$$，$$\tau(s)$$后，在空间$$\mathbb{E}^3$$中是否存在正则参数曲线以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率？我们在$$\mathbb{E}^3$$上由全体正交标架构成的六维空间中考虑，于是[Frenet公式](#曲线的挠率和frenet公式)成为现成的已知常微分方程组，它的解是依赖参数$$s$$的一族正交标架，其标架原点在$$\mathbb{E}^3$$中描出的轨迹正是我们所需的曲线，而这族正交标架本身应该是曲线的Frenet标架场。
 
 > ##### 定理2.8
 > 设$$\kappa(s)$$，$$\tau(s)$$是在区间$$[a, b]$$上两个任意给定的连续可微函数，并且$$\kappa(s) \lt 0$$，则在空间$$\mathbb{E}^3$$中存在正则参数曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$，$$a \leq s \leq b$$，以$$s$$为弧长参数，以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率，且这样的曲线在$$\mathbb{E}^3$$中时完全确定的，其差异至多为曲线在空间中的位置不同。
@@ -590,7 +592,7 @@ $$
 \lim_{s \to 0} \frac{\vert \boldsymbol{o} (s^3) \vert}{s^3} = 0
 $$
 
-根据[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)，我们有
+根据[Frenet公式](#曲线的挠率和frenet公式)，我们有
 
 $$
 \begin{aligned}
@@ -783,7 +785,7 @@ $$
 \boldsymbol{r}_2 (s) = \boldsymbol{r}_1 (s) + \lambda (s) \boldsymbol{\beta}_1 (s)
 $$
 
-并且$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_2 (s)$$。利用[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)对上式求导得到
+并且$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_2 (s)$$。利用[Frenet公式](#曲线的挠率和frenet公式)对上式求导得到
 
 $$
 \begin{aligned}
@@ -982,7 +984,7 @@ $$
 
 ## 平面曲线
 
-根据[定理2.4](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)，平面曲线可以看作是挠率为零的空间曲线，因此关于空间曲线的各种结论同样适用于平面曲线的情形。不过平面曲线有它自身的特点，因此本节只限于平面本身(而不考虑外围的空间)研究其中曲线的弯曲性质。
+根据[定理2.4](#theorem2.4)，平面曲线可以看作是挠率为零的空间曲线，因此关于空间曲线的各种结论同样适用于平面曲线的情形。不过平面曲线有它自身的特点，因此本节只限于平面本身(而不考虑外围的空间)研究其中曲线的弯曲性质。
 
 ### 平面曲线的Frenet标架
 
@@ -1148,7 +1150,7 @@ $$
 \tilde{\theta} (b) - \tilde{\theta} (a) = \theta (b) - \theta (a)
 $$
 
-根据[相对曲率](/2023/07/31/DifferentialGeometry-NOTES-02.html#相对曲率)的几何意义得知
+根据[相对曲率](#相对曲率)的几何意义得知
 
 $$
 \theta (b) - \theta (a) = \int_a^b \kappa_r (s) \ \mathrm{d} s
