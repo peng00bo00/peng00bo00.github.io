@@ -255,7 +255,7 @@ $$
 \boldsymbol{r} = \boldsymbol{r} (u(t), v(t))
 $$
 
-> ##### 定义3.2<a id="theorem3.2"></a>
+> ##### 定义3.2
 > 曲面$$S$$上经过点$$p$$的任意一条连续可微曲线在该点的切向量称为曲面$$S$$在点$$p$$的**切向量**。
 {: .block-definition }
 
@@ -859,7 +859,7 @@ $$
 
 下面我们利用引理证明一个比正交参数系的存在性更一般的命题：
 
-> ##### 定理3.2 
+> ##### 定理3.2<a id="theorem3.2"></a>
 > 假定在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上两个处处线性无关的连续可微的切向量场$$\boldsymbol{a} (u, v)$$，$$\boldsymbol{b} (u, v)$$，则对于每一点$$p \in S$$必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$分别与$$\boldsymbol{a}$$，$$\boldsymbol{b}$$平行，即$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{b}$$。
 {: .block-theorem }
 
