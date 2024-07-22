@@ -354,8 +354,6 @@ $$
 \vert \tau(s) \vert = \vert \boldsymbol{\gamma}'(s) \vert
 $$
 
-<a id="theorem2.4"></a>
-
 > ##### 定义2.2
 > 设$$\boldsymbol{\beta}$$和$$\boldsymbol{\gamma}$$分别是曲线$$C$$的主法向量和次法向量，其中$$s$$是弧长参数，则$$\tau(s) = -\boldsymbol{\gamma}'(s) \cdot \boldsymbol{\beta} (s)$$称为曲线$$C$$的**挠率**。
 {: .block-definition }
@@ -492,7 +490,7 @@ $$
 \tau(s) = \frac{\big( \boldsymbol{r}'(s), \boldsymbol{r}''(s), \boldsymbol{r}'''(s) \big)}{ \vert \boldsymbol{r}''(s) \vert^2}
 $$
 
-结合[定理2.4](#theorem2.4)，我们可以直接得到如下推论
+结合[定理2.4](#定理2.4)，我们可以直接得到如下推论
 
 > ##### 定理2.5
 > 曲线$$\boldsymbol{r} = \boldsymbol{r}(t)$$是一条平面曲线的充分必要条件是$$\big( \boldsymbol{r}'(s), \boldsymbol{r}''(s), \boldsymbol{r}'''(s) \big) \equiv 0$$。
@@ -986,7 +984,7 @@ $$
 
 ## 平面曲线
 
-根据[定理2.4](#theorem2.4)，平面曲线可以看作是挠率为零的空间曲线，因此关于空间曲线的各种结论同样适用于平面曲线的情形。不过平面曲线有它自身的特点，因此本节只限于平面本身(而不考虑外围的空间)研究其中曲线的弯曲性质。
+根据[定理2.4](#定理2.4)，平面曲线可以看作是挠率为零的空间曲线，因此关于空间曲线的各种结论同样适用于平面曲线的情形。不过平面曲线有它自身的特点，因此本节只限于平面本身(而不考虑外围的空间)研究其中曲线的弯曲性质。
 
 ### 平面曲线的Frenet标架
 
