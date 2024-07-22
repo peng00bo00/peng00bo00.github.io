@@ -255,7 +255,7 @@ $$
 \boldsymbol{r} = \boldsymbol{r} (u(t), v(t))
 $$
 
-> ##### 定义3.2
+> ##### 定义3.2<a id="theorem3.2"></a>
 > 曲面$$S$$上经过点$$p$$的任意一条连续可微曲线在该点的切向量称为曲面$$S$$在点$$p$$的**切向量**。
 {: .block-definition }
 
@@ -1782,7 +1782,7 @@ $$
 
 前面的讨论说明，柱面、锥面和一条空间曲线的切线面都是可展曲面。下面的命题给出了一个直纹面是可展曲面的条件。
 
-> ##### 定理3.9
+> ##### 定理3.9<a id="theorem3.9"></a>
 > 设直纹面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{a} (u) + v \boldsymbol{l} (u)$$，则$$S$$是可展曲面的充分必要条件是向量函数$$\boldsymbol{a} (u)$$，$$\boldsymbol{l} (u)$$满足方程
 $$
 \big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0
