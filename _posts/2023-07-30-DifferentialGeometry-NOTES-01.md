@@ -401,9 +401,8 @@ $$
 (3) $$(\boldsymbol{a}(t), \boldsymbol{b}(t), \boldsymbol{c}(t))' = (\boldsymbol{a}'(t), \boldsymbol{b}(t), \boldsymbol{c}(t)) + (\boldsymbol{a}(t), \boldsymbol{b}'(t), \boldsymbol{c}(t)) + (\boldsymbol{a}(t), \boldsymbol{b}(t), \boldsymbol{c}'(t))$$
 {: .block-theorem }
 
-除此之外，下面定理给出了具有特殊性质的向量函数所满足的条件，以后会经常用到：
-
 <a id="theorem1.3"></a>
+除此之外，下面定理给出了具有特殊性质的向量函数所满足的条件，以后会经常用到：
 
 > ##### 定理1.3
 > 设$$\boldsymbol{a}(t)$$是一个处处非零的连续可微向量函数，则  

@@ -166,15 +166,13 @@ $$
 
 在大多数情况下我们都无法显式地写出弧长参数的表达式，因此判定已知参数$$t$$是否是弧长参数是十分重要的。我们可以使用如下定理来进行判断：
 
-<a id="theorem2.1"></a>
-
 > ##### 定理2.1
 > 设$$\boldsymbol{r} = \boldsymbol{r}(t) \ (a \leq t \leq b)$$是$$\mathbb{E}^3$$中的一条正则参数曲线，则$$t$$是它的弧长参数的充要条件是$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$。
 {: .block-theorem }
 
 这里简单证明如下：当$$t$$为弧长参数$$s$$时有$$\mathrm{d} s = \mathrm{d} t$$，所以必有$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$，反之亦然。
 
-[定理2.1](#theorem2.1)的几何意义是曲线以弧长为参数的充要条件是它的切向量场为单位向量场。
+定理2.1的几何意义是曲线以弧长为参数的充要条件是它的切向量场为单位向量场。
 
 ## 曲线的曲率和Frenet标架
 
@@ -356,12 +354,12 @@ $$
 \vert \tau(s) \vert = \vert \boldsymbol{\gamma}'(s) \vert
 $$
 
+<a id="theorem2.4"></a>
+
 > ##### 定义2.2
 > 设$$\boldsymbol{\beta}$$和$$\boldsymbol{\gamma}$$分别是曲线$$C$$的主法向量和次法向量，其中$$s$$是弧长参数，则$$\tau(s) = -\boldsymbol{\gamma}'(s) \cdot \boldsymbol{\beta} (s)$$称为曲线$$C$$的**挠率**。
 {: .block-definition }
 
-
-<a id="theorem2.4"></a>
 > ##### 定理2.4
 > 设曲线$$C$$不是直线，则它是平面曲线当且仅当它的挠率为零。
 {: .block-theorem }
@@ -421,6 +419,7 @@ $$
 \boldsymbol{\beta}'(s) = -\kappa(s) \boldsymbol{\alpha}(s) + \tau(s) \boldsymbol{\gamma}(s)
 $$
 
+<a id="frenet-formula"></a>
 总结一下可以得到Frenet标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$沿曲线$$C$$的运动公式
 
 $$
@@ -519,7 +518,7 @@ $$\tau_1(t) = \tau_2(\lambda(t))$$
 
 ### 曲线的内在方程
 
-除此之外我们还知道在曲率$$\kappa(s)$$处处不为零的正则曲线上有内在的、确定的[Frenet标架场](#曲线的曲率和frenet标架)，所以$$\mathbb{E}^3$$中的曲线便变成在$$\mathbb{E}^3$$中的正交标架空间中的一条曲线。而[Frenet公式](#曲线的挠率和frenet公式)正好是这个标架场的运动方程，其系数恰好是曲线的曲率和挠率，它们完全确定了曲线在空间中的形状。我们的问题是：给定了曲率和挠率作为弧长参数$$s$$的函数$$\kappa(s)$$，$$\tau(s)$$后，在空间$$\mathbb{E}^3$$中是否存在正则参数曲线以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率？我们在$$\mathbb{E}^3$$上由全体正交标架构成的六维空间中考虑，于是[Frenet公式](#曲线的挠率和frenet公式)成为现成的已知常微分方程组，它的解是依赖参数$$s$$的一族正交标架，其标架原点在$$\mathbb{E}^3$$中描出的轨迹正是我们所需的曲线，而这族正交标架本身应该是曲线的Frenet标架场。
+除此之外我们还知道在曲率$$\kappa(s)$$处处不为零的正则曲线上有内在的、确定的[Frenet标架场](#曲线的曲率和frenet标架)，所以$$\mathbb{E}^3$$中的曲线便变成在$$\mathbb{E}^3$$中的正交标架空间中的一条曲线。而[Frenet公式](#frenet-formula)正好是这个标架场的运动方程，其系数恰好是曲线的曲率和挠率，它们完全确定了曲线在空间中的形状。我们的问题是：给定了曲率和挠率作为弧长参数$$s$$的函数$$\kappa(s)$$，$$\tau(s)$$后，在空间$$\mathbb{E}^3$$中是否存在正则参数曲线以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率？我们在$$\mathbb{E}^3$$上由全体正交标架构成的六维空间中考虑，于是[Frenet公式](#frenet-formula)成为现成的已知常微分方程组，它的解是依赖参数$$s$$的一族正交标架，其标架原点在$$\mathbb{E}^3$$中描出的轨迹正是我们所需的曲线，而这族正交标架本身应该是曲线的Frenet标架场。
 
 > ##### 定理2.8
 > 设$$\kappa(s)$$，$$\tau(s)$$是在区间$$[a, b]$$上两个任意给定的连续可微函数，并且$$\kappa(s) \lt 0$$，则在空间$$\mathbb{E}^3$$中存在正则参数曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$，$$a \leq s \leq b$$，以$$s$$为弧长参数，以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率，且这样的曲线在$$\mathbb{E}^3$$中时完全确定的，其差异至多为曲线在空间中的位置不同。
@@ -595,7 +594,7 @@ $$
 \lim_{s \to 0} \frac{\vert \boldsymbol{o} (s^3) \vert}{s^3} = 0
 $$
 
-根据[Frenet公式](#曲线的挠率和frenet公式)，我们有
+根据[Frenet公式](#frenet-formula)，我们有
 
 $$
 \begin{aligned}
@@ -788,7 +787,7 @@ $$
 \boldsymbol{r}_2 (s) = \boldsymbol{r}_1 (s) + \lambda (s) \boldsymbol{\beta}_1 (s)
 $$
 
-并且$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_2 (s)$$。利用[Frenet公式](#曲线的挠率和frenet公式)对上式求导得到
+并且$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_2 (s)$$。利用[Frenet公式](#frenet-formula)对上式求导得到
 
 $$
 \begin{aligned}
