@@ -48,7 +48,7 @@ Explore(z):
       Explore(w)
 ```
 
-DFS的复杂度为$O(n+m)$。
+DFS的复杂度为$$O(n+m)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/hz0Sfru.png" width="80%">
@@ -266,7 +266,7 @@ SCC算法的一个应用是求解**布尔可满足性问题(satisfiability, SAT)
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/yNMISSg.png" width="80%">
 </div>
 
-如果语句是可满足的，那么graph of implications上不能存在任意变量$x$到$\bar{x}$的路径，否则会产生矛盾。换句话说，如果$x$和$\bar{x}$位于同一个SCC中，则语句是无法满足的。
+如果语句是可满足的，那么graph of implications上不能存在任意变量$$x$$到$$\bar{x}$$的路径，否则会产生矛盾。换句话说，如果$$x$$和$$\bar{x}$$位于同一个SCC中，则语句是无法满足的。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/OXvX2Gn.png" width="80%">
@@ -280,13 +280,13 @@ SCC算法的一个应用是求解**布尔可满足性问题(satisfiability, SAT)
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/BSbd4nA.png" width="80%">
 </div>
 
-首先我们在图上寻找一个sink SCC，记为$S$。然后满足$S$中的所有条件，从图上删除SCC并不断重复上面的过程。这个算法的缺陷在于没有考虑S的补集$\bar{S}$，当$S$得到满足时$\bar{S}$可能是无法满足的。
+首先我们在图上寻找一个sink SCC，记为$$S$$。然后满足$$S$$中的所有条件，从图上删除SCC并不断重复上面的过程。这个算法的缺陷在于没有考虑S的补集$$\bar{S}$$，当$$S$$得到满足时$$\bar{S}$$可能是无法满足的。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/wjwNeSz.png" width="80%">
 </div>
 
-为了解决这样的问题，我们可以考虑在图上寻找一个source SCC，记为$S'$。然后把$S'$设为False，并且从图上删除$S'$。最后寻找$S'$的补集$\bar{S'}$，其必为一个sink SCC，然后将其设为True即可。
+为了解决这样的问题，我们可以考虑在图上寻找一个source SCC，记为$$S'$$。然后把$$S'$$设为False，并且从图上删除$$S'$$。最后寻找$$S'$$的补集$$\bar{S'}$$，其必为一个sink SCC，然后将其设为True即可。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/Z5nvgok.png" width="80%">
@@ -324,7 +324,7 @@ SCC算法的一个应用是求解**布尔可满足性问题(satisfiability, SAT)
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/SgyiwM6.png" width="80%">
 </div>
 
-在介绍计算MST的算法前我们先来回顾一下树这种数据结构的性质。首先树是一个DAG，而且对于包含n个节点的树其边的数量为n-1，同时树上任意两个节点之间有且只有一条路径连接它们。关于树最重要的一条性质是如果一张图的边和节点数满足$\vert E \vert = \vert V \vert - 1$，那么它一定是一棵树。
+在介绍计算MST的算法前我们先来回顾一下树这种数据结构的性质。首先树是一个DAG，而且对于包含n个节点的树其边的数量为n-1，同时树上任意两个节点之间有且只有一条路径连接它们。关于树最重要的一条性质是如果一张图的边和节点数满足$$\vert E \vert = \vert V \vert - 1$$，那么它一定是一棵树。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/Tl0RmUX.png" width="80%">
@@ -332,7 +332,7 @@ SCC算法的一个应用是求解**布尔可满足性问题(satisfiability, SAT)
 
 ### Greedy Approach for MST
 
-MST可以使用贪心的思想来进行计算。我们可以不断地在添加图上具有最小权重的边，同时保证生成的图是一棵树即可。这种计算MST的算法称为**Kruskal算法(Kruskal's algorithm)**，它的复杂度为$O(m \log{n})$。
+MST可以使用贪心的思想来进行计算。我们可以不断地在添加图上具有最小权重的边，同时保证生成的图是一棵树即可。这种计算MST的算法称为**Kruskal算法(Kruskal's algorithm)**，它的复杂度为$$O(m \log{n})$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/WYYmazs.png" width="80%">
@@ -347,7 +347,7 @@ Kruskal算法的正确性则可以使用归纳法来进行证明。
 
 ### Cuts
 
-我们还可以借助**图割(cut)**的概念来处理MST问题。cut是指把图上的节点分为两个集合$S$和$\bar{S}$，其中连接两个集合的边称为cut edge。
+我们还可以借助**图割(cut)**的概念来处理MST问题。cut是指把图上的节点分为两个集合$$S$$和$$\bar{S}$$，其中连接两个集合的边称为cut edge。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/2lASuxt.png" width="80%">
@@ -384,7 +384,7 @@ Kruskal算法的正确性则可以使用归纳法来进行证明。
 
 ### Markov Chains
 
-Markov链是一种概率模型，它可以表示为一张有向图。此时图上的顶点表示系统可能的状态，图上的边和权重分别表示状态转移的方向和概率。具体来说，节点$i$到$j$的有向边权重表示系统从状态$i$转移到状态$j$的概率：
+Markov链是一种概率模型，它可以表示为一张有向图。此时图上的顶点表示系统可能的状态，图上的边和权重分别表示状态转移的方向和概率。具体来说，节点$$i$$到$$j$$的有向边权重表示系统从状态$$i$$转移到状态$$j$$的概率：
 
 $$
 P(i, j) = Pr(j \vert i)
@@ -412,13 +412,13 @@ $$
 
 #### k-Step Transition
 
-如果我们忽略状态转移矩阵中具体的概率，将全部非零项设置为1，就能得到图的**邻接矩阵(adjacency matrix)**。邻接矩阵的一个重要性质是它的$k$次幂$A^k$中任意元素$A^k(i, j)$表示从$i$出发经过$k$步移动到$j$的路径数量。
+如果我们忽略状态转移矩阵中具体的概率，将全部非零项设置为1，就能得到图的**邻接矩阵(adjacency matrix)**。邻接矩阵的一个重要性质是它的$$k$$次幂$$A^k$$中任意元素$$A^k(i, j)$$表示从$$i$$出发经过$$k$$步移动到$$j$$的路径数量。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/2fVoxDt.png" width="80%">
 </div>
 
-状态转移矩阵也有类似的性质：$P^k$中任意元素$P^k(i, j)$表示从$i$出发经过$k$步移动到$j$的概率。
+状态转移矩阵也有类似的性质：$$P^k$$中任意元素$$P^k(i, j)$$表示从$$i$$出发经过$$k$$步移动到$$j$$的概率。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/r8AuVFS.png" width="80%">
@@ -427,13 +427,13 @@ $$
 
 #### Stationary Distribution
 
-当步数$k$比较大时$P^k$中每一行都会收敛到同一个行向量上。
+当步数$$k$$比较大时$$P^k$$中每一行都会收敛到同一个行向量上。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/TDWtpOC.png" width="80%">
 </div>
 
-实际上可以证明当步数趋于无穷时，$P^k$中每一行都会收敛到某个向量$\pi$上。这表示无论从图上的哪个节点出发，经过足够多的步数后落到状态$j$的概率都是$\pi(j)$。这个行向量(概率分布)称为Markov链的**平稳分布(stationary distribution)**。
+实际上可以证明当步数趋于无穷时，$$P^k$$中每一行都会收敛到某个向量$$\pi$$上。这表示无论从图上的哪个节点出发，经过足够多的步数后落到状态$$j$$的概率都是$$\pi(j)$$。这个行向量(概率分布)称为Markov链的**平稳分布(stationary distribution)**。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/gY9INtW.png" width="80%">
@@ -447,19 +447,19 @@ $$
 
 #### Linear Algebra View
 
-从线性代数的角度来看，从初始状态分布$\mu_0$通过Markov链进行状态转移相当于行向量$\mu_0$与矩阵$P$的乘积：
+从线性代数的角度来看，从初始状态分布$$\mu_0$$通过Markov链进行状态转移相当于行向量$$\mu_0$$与矩阵$$P$$的乘积：
 
 $$
 \mu_0 P = \mu_1
 $$
 
-对于平稳分布$\pi$则有：
+对于平稳分布$$\pi$$则有：
 
 $$
 \pi P = \pi
 $$
 
-即$\pi$是矩阵(线性变换)$P$的一个不动点，或者说$\pi$是矩阵$P$对应特征值1的特征向量。实际上1还是矩阵$P$的最大特征值，即$\pi$是矩阵$P$的**主特征向量(principal eigenvector)**。需要额外说明的是矩阵$P$可能有多个主特征向量，即平稳分布$\pi$可能是不唯一的。
+即$$\pi$$是矩阵(线性变换)$$P$$的一个不动点，或者说$$\pi$$是矩阵$$P$$对应特征值1的特征向量。实际上1还是矩阵$$P$$的最大特征值，即$$\pi$$是矩阵$$P$$的**主特征向量(principal eigenvector)**。需要额外说明的是矩阵$$P$$可能有多个主特征向量，即平稳分布$$\pi$$可能是不唯一的。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/Yl0R0Ox.png" width="80%">
@@ -467,7 +467,7 @@ $$
 
 #### Bipartite Markov Chain
 
-当Markov链具有如下所示的二分图结构时，初始状态会决定最终收敛到的平稳分布。要避免这种情况可以为图上的每个节点添加一个自循环边，这相当于为矩阵$P$添加了对角元。我们称此时的Markov链是**非周期(aperiodic)**的。
+当Markov链具有如下所示的二分图结构时，初始状态会决定最终收敛到的平稳分布。要避免这种情况可以为图上的每个节点添加一个自循环边，这相当于为矩阵$$P$$添加了对角元。我们称此时的Markov链是**非周期(aperiodic)**的。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/hT99qlB.png" width="80%">
@@ -483,14 +483,14 @@ $$
 
 #### Ergodic MC
 
-当Markov链满足非周期和不可约条件时称其为**遍历(ergodic)**的，此时的Markov链具有唯一的平稳分布$\pi$。对于PageRank算法来说，它相当于在一张由网页组成的巨型图上进行随机游走，当这张图满足相应的条件时无论从何处开始游走最终都会收敛到平稳分布$\pi$上。此时某个页面的重要性即为$\pi$对应位置的概率。
+当Markov链满足非周期和不可约条件时称其为**遍历(ergodic)**的，此时的Markov链具有唯一的平稳分布$$\pi$$。对于PageRank算法来说，它相当于在一张由网页组成的巨型图上进行随机游走，当这张图满足相应的条件时无论从何处开始游走最终都会收敛到平稳分布$$\pi$$上。此时某个页面的重要性即为$$\pi$$对应位置的概率。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/u4xI2sF.png" width="80%">
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/dphlVuj.png" width="80%">
 </div>
 
-当然大多数情况下平稳分布$\pi$是没有办法通过解析的手段来求解的。不过对于对称的状态转移矩阵，其平稳分布有非常简单的形式：
+当然大多数情况下平稳分布$$\pi$$是没有办法通过解析的手段来求解的。不过对于对称的状态转移矩阵，其平稳分布有非常简单的形式：
 
 $$
 \pi(i) = \frac{1}{N}
@@ -508,7 +508,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/lBk1Nuw.png" width="80%">
 </div>
 
-同时还需要说明的是互联网上的网页可以表示为一张图，每一个页面对应图上的一个顶点，而页面之间跳转的超链接则对应图上的有向边。记$\pi(x)$表示页面$x$的重要性，它可以使用节点的入度或是出度来进行描述。
+同时还需要说明的是互联网上的网页可以表示为一张图，每一个页面对应图上的一个顶点，而页面之间跳转的超链接则对应图上的有向边。记$$\pi(x)$$表示页面$$x$$的重要性，它可以使用节点的入度或是出度来进行描述。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/TadFqN0.png" width="80%">
@@ -539,7 +539,7 @@ $$
 
 #### Rank Definition
 
-因此更合理的做法是让有价值的节点为与它相邻的节点赋予更多的重要性，这样我们可以得到价值向量$\pi$需要满足的方程：
+因此更合理的做法是让有价值的节点为与它相邻的节点赋予更多的重要性，这样我们可以得到价值向量$$\pi$$需要满足的方程：
 
 $$
 \pi(x) = \sum_{y \in \text{In} (x)} \frac{\pi(y)}{\vert \text{Out} (y) \vert}
@@ -549,25 +549,25 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/eTTWIJt.png" width="80%">
 </div>
 
-实际上$\pi$的递归定义与Markov链有着深刻的联系。首先不难发现网页之间的跳转等价于图上的随机游走。
+实际上$$\pi$$的递归定义与Markov链有着深刻的联系。首先不难发现网页之间的跳转等价于图上的随机游走。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/hGNn9pw.png" width="80%">
 </div>
 
-这个随机游走对应一个平稳分布$\pi(x)$。从线性代数的角度来看，平稳分布满足矩阵方程：
+这个随机游走对应一个平稳分布$$\pi(x)$$。从线性代数的角度来看，平稳分布满足矩阵方程：
 
 $$
 \pi(x) = \sum_{y \in V} \pi(y) P(y, x)
 $$
 
-这表示$\pi$的每一位都是状态转移矩阵$P$的对应列按照$\pi$加权的和。如果进一步假定节点$j$转移到相邻节点上的概率是相同的，我们就可以推导出价值向量的定义：
+这表示$$\pi$$的每一位都是状态转移矩阵$$P$$的对应列按照$$\pi$$加权的和。如果进一步假定节点$$j$$转移到相邻节点上的概率是相同的，我们就可以推导出价值向量的定义：
 
 $$
 \pi(x) = \sum_{y \in V} \pi(y) P(y, x) = \sum_{y \in \text{In} (x)} \frac{\pi(y)}{\vert \text{Out} (y) \vert}
 $$
 
-这表示价值向量$\pi$即为图上随机游走的平稳分布。
+这表示价值向量$$\pi$$即为图上随机游走的平稳分布。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/E2u4OPv.png" width="80%">
@@ -576,7 +576,7 @@ $$
 
 #### Random Surfer
 
-在上一小节我们讨论过何时Markov链有唯一的平稳分布。为了保证PageRank的正确性，我们需要为图上每一对顶点添加一对边，这相当于假设用户在浏览网页时会以概率$1-\alpha$进行随机跳转。
+在上一小节我们讨论过何时Markov链有唯一的平稳分布。为了保证PageRank的正确性，我们需要为图上每一对顶点添加一对边，这相当于假设用户在浏览网页时会以概率$$1-\alpha$$进行随机跳转。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/6fdMcLp.png" width="80%">
@@ -590,7 +590,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/wDuKFbY.png" width="80%">
 </div>
 
-对于某些没有指向其它页面的网页，我们可以通过引入自循环边、删除节点或是将$\alpha$置为0的方式来进行处理。
+对于某些没有指向其它页面的网页，我们可以通过引入自循环边、删除节点或是将$$\alpha$$置为0的方式来进行处理。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/bpvxlTZ.png" width="80%">
@@ -598,7 +598,7 @@ $$
 
 #### Ergodic
 
-显然$\alpha$对于随机游走的行为起着重要的作用。当$\alpha$趋于1时随机游走会接近于在原始图上的行为，而当$\alpha$趋于0时随机游走会接近于在一张全联通图上的行为。除此之外，当$\alpha$比较小时随机游走的收敛速度往往比较快。
+显然$$\alpha$$对于随机游走的行为起着重要的作用。当$$\alpha$$趋于1时随机游走会接近于在原始图上的行为，而当$$\alpha$$趋于0时随机游走会接近于在一张全联通图上的行为。除此之外，当$$\alpha$$比较小时随机游走的收敛速度往往比较快。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/HqJfz6a.png" width="80%">

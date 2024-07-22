@@ -67,7 +67,7 @@ toc:
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/79EFD7G.png" width="80%">
 </div>
 
-Ford-Fulkerson算法的复杂度为$O(mC)$。
+Ford-Fulkerson算法的复杂度为$$O(mC)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/06De6CP.png" width="80%">
@@ -205,7 +205,7 @@ Edmonds-Karp算法与Ford-Fulkerson算法非常类似，其主要区别在于寻
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/nJlSQNr.png" width="80%">
 </div>
 
-Edmonds-Karp算法的复杂度为$O(m^2 n)$。
+Edmonds-Karp算法的复杂度为$$O(m^2 n)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/TbR7Sm9.png" width="80%">

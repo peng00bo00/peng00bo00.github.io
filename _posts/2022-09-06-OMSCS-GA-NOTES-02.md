@@ -66,7 +66,7 @@ EasyMultiply(x, y):
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/VXV71gO.png" width="80%">
 </div>
 
-利用主定理可以得到`EasyMultiply(x, y)`的复杂度为$O(n^2)$：
+利用主定理可以得到`EasyMultiply(x, y)`的复杂度为$$O(n^2)$$：
 
 $$
 T(n) = 4T(n/2) + O(n) = O(n^2)
@@ -108,7 +108,7 @@ FastMultiply(x[], y[]):
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/EQfdgzn.png" width="80%">
 </div>
 
-改进后的计算复杂度为$O(n^{\log_2 3})$：
+改进后的计算复杂度为$$O(n^{\log_2 3})$$：
 
 $$
 T(n) = 3T(n/2) + O(n) = O(n^{\log_2 3})
@@ -120,7 +120,7 @@ $$
 
 ## Linear-Time Median
 
-分治算法的另一个经典应用是用来寻找数组的中位数。对于更一般的情况，我们可以使用分治的思想来寻找数组中第k个最小的数值。最直接的实现方法是首先对数组进行排序然后选择第k个值，此时算法的复杂度为$O(n \log{n})$；而实际上通过合理的设计算法可以在$O(n)$时间内实现查询。
+分治算法的另一个经典应用是用来寻找数组的中位数。对于更一般的情况，我们可以使用分治的思想来寻找数组中第k个最小的数值。最直接的实现方法是首先对数组进行排序然后选择第k个值，此时算法的复杂度为$$O(n \log{n})$$；而实际上通过合理的设计算法可以在$$O(n)$$时间内实现查询。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/2rnFXNu.png" width="80%">
@@ -169,13 +169,13 @@ Select(A[], k):
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/zKB3oRJ.png" width="80%">
 </div>
 
-在快速选择算法中我们要求pivot位于数组的25%到75%范围中，同时选取pivot的代价不超过$O(n)$。
+在快速选择算法中我们要求pivot位于数组的25%到75%范围中，同时选取pivot的代价不超过$$O(n)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/mph57qz.png" width="80%">
 </div>
 
-假设我们随机选择数组中的一个元素作为pivot，则它位于25%到75%范围中的概率为1/2。通过对数组进行遍历我们可以在$O(n)$时间内验证pivot是否满足我们的需求，如果不满足则可以再随机选择一个pivot，理论上我们需要2次随机选择就可以得到合适的pivot。由于随机选择以及验证的复杂度不超过$O(n)$，这样设计的快速选择算法已经能够满足线性时间的需求。
+假设我们随机选择数组中的一个元素作为pivot，则它位于25%到75%范围中的概率为1/2。通过对数组进行遍历我们可以在$$O(n)$$时间内验证pivot是否满足我们的需求，如果不满足则可以再随机选择一个pivot，理论上我们需要2次随机选择就可以得到合适的pivot。由于随机选择以及验证的复杂度不超过$$O(n)$$，这样设计的快速选择算法已经能够满足线性时间的需求。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/cNfQJLA.png" width="80%">
@@ -183,7 +183,7 @@ Select(A[], k):
 
 ### Recursive Pivot
 
-对于随机选择pviot的策略，其单步算法的平均复杂度为$O(n)$，而我们希望能够在最差的情况下也能有$O(n)$复杂度的pivot选择方法。这样整个算法设计就归结于寻找一个在$O(n)$时间内寻找合适pivot的问题。具体来说，在快速选择算法中会额外抽样出一个原始数组大小1/5的子数组，然后在子数组上寻找中位数作为原始数组的pivot，这样整个算法的复杂度仍然是$O(n)$。
+对于随机选择pviot的策略，其单步算法的平均复杂度为$$O(n)$$，而我们希望能够在最差的情况下也能有$$O(n)$$复杂度的pivot选择方法。这样整个算法设计就归结于寻找一个在$$O(n)$$时间内寻找合适pivot的问题。具体来说，在快速选择算法中会额外抽样出一个原始数组大小1/5的子数组，然后在子数组上寻找中位数作为原始数组的pivot，这样整个算法的复杂度仍然是$$O(n)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/s2QcL7j.png" width="80%">
@@ -195,7 +195,7 @@ Select(A[], k):
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/s7S3GzY.png" width="80%">
 </div>
 
-显然我们希望子数组可以在某种程度上代表原来的数组。具体来说我们每5个元素一组将原始数组划分为n/5组，然后在每一组上选择其中的中位数重新构成子数组。由于每一组上只有5个元素，选择中位数的复杂度为$O(1)$。这样构造的子数组就是原始数组的一个好的代表。
+显然我们希望子数组可以在某种程度上代表原来的数组。具体来说我们每5个元素一组将原始数组划分为n/5组，然后在每一组上选择其中的中位数重新构成子数组。由于每一组上只有5个元素，选择中位数的复杂度为$$O(1)$$。这样构造的子数组就是原始数组的一个好的代表。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/b1hXA5s.png" width="80%">
@@ -229,7 +229,7 @@ FastSelect(A[], k):
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/uYr3ZgH.png" width="80%">
 </div>
 
-此时的算法复杂度仍然为$O(n)$。
+此时的算法复杂度仍然为$$O(n)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/XabEiAG.png" width="80%">
@@ -269,13 +269,13 @@ FastSelect(A[], k):
 
 ### Polynomial Multiplication
 
-前面我们介绍过高位数字以及矩阵乘法的加速算法，而对于多项式我们使用它的系数来进行表示。此时两个$n-1$次多项式的乘法是一个$2n-2$次多项式，其系数可以使用两个多项式系数的卷积来计算：
+前面我们介绍过高位数字以及矩阵乘法的加速算法，而对于多项式我们使用它的系数来进行表示。此时两个$$n-1$$次多项式的乘法是一个$$2n-2$$次多项式，其系数可以使用两个多项式系数的卷积来计算：
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/21gGrnL.png" width="80%">
 </div>
 
-对于更一般的情况，我们定义多项式的乘法为对应系数的卷积。显然可以在$O(n^2)$的时间内来完成计算，但实际上我们可以在$O(n \log n)$时间内完成卷积。
+对于更一般的情况，我们定义多项式的乘法为对应系数的卷积。显然可以在$$O(n^2)$$的时间内来完成计算，但实际上我们可以在$$O(n \log n)$$时间内完成卷积。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/Y9HQBHd.png" width="80%">
@@ -306,7 +306,7 @@ FastSelect(A[], k):
 
 ### FFT
 
-FFT的核心是选择合适的采样点。我们假设采样点是对称布置的$x_{i+n}=-x_i$，然后把多项式的系数$a$拆分成奇次项$a_\text{odd}$和偶次项$a_\text{even}$。这样我们可以构造两个新的多项式：
+FFT的核心是选择合适的采样点。我们假设采样点是对称布置的$$x_{i+n}=-x_i$$，然后把多项式的系数$$a$$拆分成奇次项$$a_\text{odd}$$和偶次项$$a_\text{even}$$。这样我们可以构造两个新的多项式：
 
 $$
 A_\text{even} (y) = a_0 + a_2 y + \dots + a_{n-2} y^{\frac{n-2}{2}}
@@ -316,7 +316,7 @@ $$
 A_\text{odd} (y) = a_1 + a_3 y + \dots + a_{n-1} y^{\frac{n-2}{2}}
 $$
 
-而原始多项式$A(x)$可以表示为两个新多项式的和：
+而原始多项式$$A(x)$$可以表示为两个新多项式的和：
 
 $$
 A(x) = A_\text{even} (x^2) + x A_\text{odd} (x^2)
@@ -364,7 +364,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/jFnoloH.png" width="80%">
 </div>
 
-这样多项式方程$z^n = 1$的根就可以用复平面上的角度来理解。
+这样多项式方程$$z^n = 1$$的根就可以用复平面上的角度来理解。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/IHhXdxR.png" width="80%">
@@ -372,7 +372,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/qDNusHp.png" width="80%">
 </div>
 
-同时不难发现$z^n = 1$的根还具有对称性和平方性质，因此我们可以把这些根作为FFT的采样点。
+同时不难发现$$z^n = 1$$的根还具有对称性和平方性质，因此我们可以把这些根作为FFT的采样点。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/B4POOC1.png" width="80%">

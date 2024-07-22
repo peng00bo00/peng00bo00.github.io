@@ -153,7 +153,7 @@ toc:
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/B3kZ8oa.png" width="80%">
 </div>
 
-首先我们需要证明3SAT是NP问题。显然验证3SAT的解只需要$O(m)$的时间复杂度，因此3SAT是NP问题。
+首先我们需要证明3SAT是NP问题。显然验证3SAT的解只需要$$O(m)$$的时间复杂度，因此3SAT是NP问题。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/Am3iGQn.png" width="80%">
@@ -166,26 +166,26 @@ toc:
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/JA1bOeJ.png" width="80%">
 </div>
 
-假设有一个包含4个变量的从句$C$：
+假设有一个包含4个变量的从句$$C$$：
 
 $$
 C = ( \bar{x}_2 \vee x_3 \vee \bar{x}_1 \vee \bar{x}_4 )
 $$
 
-我们定义一个新的从句$C'$，它由2个只包含3个变量的从句构成：
+我们定义一个新的从句$$C'$$，它由2个只包含3个变量的从句构成：
 
 $$
 C' = ( \bar{x}_2 \vee x_3 \vee y ) \wedge ( \bar{y} \vee \bar{x}_1 \vee \bar{x}_4 )
 $$
 
-可以证明$C$和$C'$是等价的，这样一个4SAT问题就转换成了3SAT。
+可以证明$$C$$和$$C'$$是等价的，这样一个4SAT问题就转换成了3SAT。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/1ztyGfr.png" width="80%">
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/lGxX2C8.png" width="80%">
 </div>
 
-实际上对于包含k个变量的从句$C$我们都可以把它转换为只包含3个变量的从句$C'$：
+实际上对于包含k个变量的从句$$C$$我们都可以把它转换为只包含3个变量的从句$$C'$$：
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/IUVHmN5.png" width="80%">
@@ -308,7 +308,7 @@ $$
 
 ### Subset-Sum
 
-首先我们需要证明subset-sum是NP完备问题。subset-sum问题是指在正整数集合$$S = \{ a_1, ..., a_n \}$$中找出和为$t$的一个子集。显然这个问题可以使用动态规划进行求解，它的复杂度为$O(nt)$。不过需要注意的是类似于knapsack问题，subset-sum不是一个P问题。
+首先我们需要证明subset-sum是NP完备问题。subset-sum问题是指在正整数集合$$S = \{ a_1, ..., a_n \}$$中找出和为$$t$$的一个子集。显然这个问题可以使用动态规划进行求解，它的复杂度为$$O(nt)$$。不过需要注意的是类似于knapsack问题，subset-sum不是一个P问题。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/GmN1cwP.png" width="80%">

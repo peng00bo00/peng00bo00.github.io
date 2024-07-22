@@ -26,7 +26,7 @@ F_0 = 0, \ F_1 = 1 \\
 F_n = F_{n-2} + F_{n-1}, \ \text{for} \ n \geq 2
 $$
 
-我们的目标是对于任意的整数$n \geq 0$，输出第$n$项数值$F_n$。
+我们的目标是对于任意的整数$$n \geq 0$$，输出第$$n$$项数值$$F_n$$。
 
 ### Recursive Algorithm
 
@@ -50,7 +50,7 @@ $$
 T(n) \geq F_n \approx \frac{\phi^n}{\sqrt{5}}
 $$
 
-其中$\phi=\frac{1+\sqrt{5}}{2} \approx 1.618$，即该算法有指数级的复杂度。
+其中$$\phi=\frac{1+\sqrt{5}}{2} \approx 1.618$$，即该算法有指数级的复杂度。
 
 显然`Fib1(n)`不是一个好的算法，其问题在于它会反复计算数列前面的项。
 
@@ -73,7 +73,7 @@ Fib2(n):
   return F[n]
 ```
 
-显然此时算法的复杂度为$O(n)$，远小于之前的复杂度。
+显然此时算法的复杂度为$$O(n)$$，远小于之前的复杂度。
 
 从这个例子可以看出动态规划的特点：
 
@@ -137,7 +137,7 @@ LIS(a[]):
   return max
 ```
 
-此时算法的复杂度为$O(n^2)$。
+此时算法的复杂度为$$O(n^2)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/AhZwakT.png" width="80%">
@@ -200,7 +200,7 @@ LCS(X[], Y[]):
   return L[n, n]
 ```
 
-此时算法的复杂度为$O(n^2)$。
+此时算法的复杂度为$$O(n^2)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/ycZbes0.png" width="80%">
@@ -237,7 +237,7 @@ knapsack是经典的优化问题，我们希望在一定的重量约束下最大
 
 ### Attempt2
 
-求解knapsack的核心在于构造一个二维数组$K[i, b]$，它表示使用物品序列$$\{ 1, \dots, i \}$$且重量约束为$b$条件下背包中物品的最大价值。显然knapsack问题的解即为数组的最后一个元素$K[n, B]$，而子问题$K[i, b]$的递归形式则依赖于$i$号物品的重量。当$w_i \leq b$时我们可以尝试在背包中加入$i$号物品，否则只能放弃添加它并使用前一个子问题的最大价值$K[i-1, b]$。因此子问题的递归形式为：
+求解knapsack的核心在于构造一个二维数组$$K[i, b]$$，它表示使用物品序列$$\{ 1, \dots, i \}$$且重量约束为$$b$$条件下背包中物品的最大价值。显然knapsack问题的解即为数组的最后一个元素$$K[n, B]$$，而子问题$$K[i, b]$$的递归形式则依赖于$$i$$号物品的重量。当$$w_i \leq b$$时我们可以尝试在背包中加入$$i$$号物品，否则只能放弃添加它并使用前一个子问题的最大价值$$K[i-1, b]$$。因此子问题的递归形式为：
 
 $$
 K[i, b] =
@@ -273,7 +273,7 @@ KnapsackNoRepeat(w[], v[], B):
   return K[i, b]
 ```
 
-此时算法的复杂度为$O(nB)$。这里需要说明的是$O(nB)$依赖于限制$B$的值，而要表示$B$则需要$O(\log B)$的空间。因此这个算法并不是一个非常高效的算法。实际上人们已经证明knapsack问题是[NP-complete](/blog/2022/OMSCS-GA-NOTES-06/#knapsack-1)，我们目前无法找到一个高效的解法。
+此时算法的复杂度为$$O(nB)$$。这里需要说明的是$$O(nB)$$依赖于限制$$B$$的值，而要表示$$B$$则需要$$O(\log B)$$的空间。因此这个算法并不是一个非常高效的算法。实际上人们已经证明knapsack问题是[NP-complete](/blog/2022/OMSCS-GA-NOTES-06/#knapsack-1)，我们目前无法找到一个高效的解法。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/wETdVXr.png" width="80%">
@@ -282,13 +282,13 @@ KnapsackNoRepeat(w[], v[], B):
 
 ### Knapsack Repetition
 
-knapsack问题的一个变体是假设每个物品都可以无限地进行添加。在这种情况下我们同样可以使用一个二维数组$K[i, b]$来进行递推，不过递推关系为：
+knapsack问题的一个变体是假设每个物品都可以无限地进行添加。在这种情况下我们同样可以使用一个二维数组$$K[i, b]$$来进行递推，不过递推关系为：
 
 $$
 K[i, b] = \max ( K[i-1, b], v_i+K[i, b-w_i] ), \ \text{if } w_i \leq b
 $$
 
-上式表示我们可以尝试在当前的背包中添加一个物品$i$以记录此时背包中的最大价值，此时的算法复杂度为$O(nB)$。
+上式表示我们可以尝试在当前的背包中添加一个物品$$i$$以记录此时背包中的最大价值，此时的算法复杂度为$$O(nB)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/rqmYLCe.png" width="80%">
@@ -297,13 +297,13 @@ $$
 
 #### Simpler Subproblem
 
-实际上对于允许重复的情况我们可以设计更简洁的算法。记$K[b]$为使用所有物品在重量约束为$b$情况下背包中的最大价值，此时的递推关系为：
+实际上对于允许重复的情况我们可以设计更简洁的算法。记$$K[b]$$为使用所有物品在重量约束为$$b$$情况下背包中的最大价值，此时的递推关系为：
 
 $$
 K[b] = \max \{ v_i + K[b-w_i] \vert 1 \leq i \leq n, w_i \leq b \}
 $$
 
-它表示当重量约束为$b$时，我们尝试在背包中添加1个$i$号物品从而记录下当前条件下背包的最大价值。
+它表示当重量约束为$$b$$时，我们尝试在背包中添加1个$$i$$号物品从而记录下当前条件下背包的最大价值。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/zxxW6cI.png" width="80%">
@@ -323,13 +323,13 @@ KnapsackRepeat(w[], v[], B):
   return K[B]
 ```
 
-此时算法的复杂度为$O(nB)$，仍然不是一个高效的解法。
+此时算法的复杂度为$$O(nB)$$，仍然不是一个高效的解法。
 
 ## Chain Matrix Multiply
 
 ### Motivation
 
-动态规划还可以用来处理矩阵乘法。回忆矩阵乘法的运算规则，新矩阵的每个元素都是$A$和$B$矩阵对应行列的内积。
+动态规划还可以用来处理矩阵乘法。回忆矩阵乘法的运算规则，新矩阵的每个元素都是$$A$$和$$B$$矩阵对应行列的内积。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/6uXt8oz.png" width="80%">
@@ -341,7 +341,7 @@ KnapsackRepeat(w[], v[], B):
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/w1C3UOG.png" width="80%">
 </div>
 
-具体地，对于矩阵乘法$Z_{a \times c} = W_{a \times b} \cdot Y_{b \times c}$的计算复杂度为$O(abc)$。
+具体地，对于矩阵乘法$$Z_{a \times c} = W_{a \times b} \cdot Y_{b \times c}$$的计算复杂度为$$O(abc)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/ujk2c9q.png" width="80%">
@@ -365,13 +365,13 @@ KnapsackRepeat(w[], v[], B):
 
 ### Substring
 
-这里我们引入substring的概念，它是原始序列中一段连续的子列。记$C[i, j]$表示矩阵$A_i$到$A_j$进行联乘的最小计算代价，根据二叉树我们可以得到递推形式：
+这里我们引入substring的概念，它是原始序列中一段连续的子列。记$$C[i, j]$$表示矩阵$$A_i$$到$$A_j$$进行联乘的最小计算代价，根据二叉树我们可以得到递推形式：
 
 $$
 C[i, j] = \min \{ C[i, l] + C[l+1, j] + m_{i-1} m_l m_j \vert 1 \leq l \leq j-1 \}
 $$
 
-其中$C[i, l]$和$C[l+1, j]$分别表示左子树和右子树的最小计算代价，而$m_{i-1} m_l m_j$则是合并两个子树的代价。
+其中$$C[i, l]$$和$$C[l+1, j]$$分别表示左子树和右子树的最小计算代价，而$$m_{i-1} m_l m_j$$则是合并两个子树的代价。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/w40ZPsG.png" width="80%">
@@ -403,7 +403,7 @@ ChainMultiply(m0, m1, ..., mn):
   return C[1, n]
 ```
 
-整个算法的复杂度为$O(n^3)$。
+整个算法的复杂度为$$O(n^3)$$。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/m7cWQsf.png" width="80%">
@@ -427,13 +427,13 @@ Dijkstra算法的一个局限性在于它不能处理带负边的情况。对于
 
 ### Single Source
 
-首先考虑单源最短路径问题。由于此时图上包含负边，我们不能直接使用Dijkstra算法进行求解。同时为了避免出现无限循环的问题，我们还要求每个节点最多被访问一次。对于包含$m$个节点和$n$条边的图，记$D[i, z]$为使用最多$i$条边从起点出发到达节点$z$的最小代价。此时$D[i, z]$的递推关系为：
+首先考虑单源最短路径问题。由于此时图上包含负边，我们不能直接使用Dijkstra算法进行求解。同时为了避免出现无限循环的问题，我们还要求每个节点最多被访问一次。对于包含$$m$$个节点和$$n$$条边的图，记$$D[i, z]$$为使用最多$$i$$条边从起点出发到达节点$$z$$的最小代价。此时$$D[i, z]$$的递推关系为：
 
 $$
 D[i, z] = \min \big\{ D[i-1, y], \min \{ D[i-1, y] + w[y, z] \vert yz \in E \} \big\}
 $$
 
-其中$w[y, z]$为节点$y$到节点$z$的代价，而$$\min \{ D[i-1, y] + w[y, z] \vert yz \in E \}$$则是添加一条边后起点到节点$z$的最小代价。因此上式意为当我们增加一条可用边时，起点到$z$的最小代价是前一步的代价和添加一条边后路径代价中较小的那个。
+其中$$w[y, z]$$为节点$$y$$到节点$$z$$的代价，而$$\min \{ D[i-1, y] + w[y, z] \vert yz \in E \}$$则是添加一条边后起点到节点$$z$$的最小代价。因此上式意为当我们增加一条可用边时，起点到$$z$$的最小代价是前一步的代价和添加一条边后路径代价中较小的那个。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/utgmT6Z.png" width="80%">
@@ -441,7 +441,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/cEXxH1G.png" width="80%">
 </div>
 
-这种利用动态规划来解决带负边的单源最短路径问题的算法称为**Bellman-Ford算法**，它的复杂度为$O(mn)$：
+这种利用动态规划来解决带负边的单源最短路径问题的算法称为**Bellman-Ford算法**，它的复杂度为$$O(mn)$$：
 
 ```
 Bellman-Ford(G, s, w):
@@ -475,14 +475,14 @@ Bellman-Ford(G, s, w):
 
 ### All Pairs
 
-除了单源最短路径问题之外，在很多情况下我们希望计算图上任意两个节点之间的最短路径。对于这样的问题同样可以使用动态规划来进行建模和处理。记三维数组$D[i,s,t]$为最多使用$$\{ 1, 2, \dots, i \}$$的子集作为中间节点从节点$s$出发到达节点$t$的最小代价，当$s$和$t$直接相连时有$D[0, s, t] = w[s, t]$，否则将代价初始化为无穷大。
+除了单源最短路径问题之外，在很多情况下我们希望计算图上任意两个节点之间的最短路径。对于这样的问题同样可以使用动态规划来进行建模和处理。记三维数组$$D[i,s,t]$$为最多使用$$\{ 1, 2, \dots, i \}$$的子集作为中间节点从节点$$s$$出发到达节点$$t$$的最小代价，当$$s$$和$$t$$直接相连时有$$D[0, s, t] = w[s, t]$$，否则将代价初始化为无穷大。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/n9rQbHR.png" width="80%">
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/qIrRCLy.png" width="80%">
 </div>
 
-$D[i,s,t]$的递推关系取决于节点$i$是否位于$s$到$t$的最短路径上。当节点$i$不在最短路径上时有：
+$$D[i,s,t]$$的递推关系取决于节点$$i$$是否位于$$s$$到$$t$$的最短路径上。当节点$$i$$不在最短路径上时有：
 
 $$
 D[i, s, t] = D[i-1, s, t]
@@ -492,7 +492,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/j4qdxpN.png" width="80%">
 </div>
 
-否则$D[i, s, t]$等于$s$到$i$与$i$到$t$两段路径最小代价之和：
+否则$$D[i, s, t]$$等于$$s$$到$$i$$与$$i$$到$$t$$两段路径最小代价之和：
 
 $$
 D[i, s, t] = D[i-1, s, i]+D[i-1, i, t]
@@ -536,7 +536,7 @@ Floyd-Warshall(G, w):
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/K0ZTLpJ.png" width="80%">
 </div>
 
-Floyd-Warshall算法的计算复杂度为$O(n^3)$，其中$n$为图上节点数。需要注意的是Floyd-Warshall算法假设图上没有权重为负的环，因此在使用时需要首先对图进行检测。
+Floyd-Warshall算法的计算复杂度为$$O(n^3)$$，其中$$n$$为图上节点数。需要注意的是Floyd-Warshall算法假设图上没有权重为负的环，因此在使用时需要首先对图进行检测。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/CZ6c72t.png" width="80%">
