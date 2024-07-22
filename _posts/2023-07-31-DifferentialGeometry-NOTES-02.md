@@ -5,6 +5,7 @@ date: 2023-07-31
 description: 曲线论相关知识
 tags: CG Math
 categories: Differential-Geometry
+pretty_table: true
 toc:
   sidebar: left
 ---
@@ -165,10 +166,10 @@ $$
 
 在大多数情况下我们都无法显式地写出弧长参数的表达式，因此判定已知参数$$t$$是否是弧长参数是十分重要的。我们可以使用如下定理来进行判断：
 
+<a id="theorem2.1"></a>
 > ##### 定理2.1
 > 设$$\boldsymbol{r} = \boldsymbol{r}(t) \ (a \leq t \leq b)$$是$$\mathbb{E}^3$$中的一条正则参数曲线，则$$t$$是它的弧长参数的充要条件是$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$。
 {: .block-theorem }
-<a id="theorem2.1"></a>
 
 这里简单证明如下：当$$t$$为弧长参数$$s$$时有$$\mathrm{d} s = \mathrm{d} t$$，所以必有$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$，反之亦然。
 
@@ -231,7 +232,7 @@ $$
 
 这就是说，曲线的曲率$$\kappa(s)$$是曲线切线像的弧长元素与曲线弧长元素之比。
 
-因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3](//blog/2023/DifferentialGeometry-NOTES-01/#theorem1.3)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的**主法向量**。于是，曲率向量$$\boldsymbol{\alpha}'(s)$$可以表示为
+因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-01/#theorem1.3)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的**主法向量**。于是，曲率向量$$\boldsymbol{\alpha}'(s)$$可以表示为
 
 $$
 \boldsymbol{\alpha}'(s) = \kappa(s) \ \boldsymbol{\beta}(s)
@@ -358,10 +359,11 @@ $$
 > 设$$\boldsymbol{\beta}$$和$$\boldsymbol{\gamma}$$分别是曲线$$C$$的主法向量和次法向量，其中$$s$$是弧长参数，则$$\tau(s) = -\boldsymbol{\gamma}'(s) \cdot \boldsymbol{\beta} (s)$$称为曲线$$C$$的**挠率**。
 {: .block-definition }
 
+
+<a id="theorem2.4"></a>
 > ##### 定理2.4
 > 设曲线$$C$$不是直线，则它是平面曲线当且仅当它的挠率为零。
 {: .block-theorem }
-<a id="theorem2.4"></a>
 
 **证明** 前面已经证明过平面曲线的次法向量$$\boldsymbol{\gamma}$$是常向量，因此其挠率必为零；接下来证明挠率为零的曲线是平面曲线。设曲线$$C$$的参数方程为$$\boldsymbol{r} = \boldsymbol{r}(s)$$，$$s$$是弧长参数，并且$$\kappa(s) \neq 0$$，$$\tau(s) \equiv 0$$。此时曲线有确定的Frenet标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$，并且
 $$
@@ -567,9 +569,25 @@ $$
 
 显然在一般情况下求解曲线内在方程和常微分方程组来获得曲线的表达式是比较困难的。对于一些常见曲线我们总结了其内在方程有如下特征：
 
+
+| Left aligned | Center aligned | Right aligned |
+| :----------- | :------------: | ------------: |
+| Left 1       |    center 1    |       right 1 |
+| Left 2       |    center 2    |       right 2 |
+| Left 3       |    center 3    |       right 3 |
+
+
+|         |  曲率   | 挠率  |
+|  :----: |  :----:  | :----:  |
+| 直线    | - | - |
+| 圆  | 为常数 | - |
+| 平面曲线  | - | - |
+| 圆柱螺线  | 为常数 | 为常数 |
+
+
 |         |  曲率$$\kappa(s)$$   | 挠率$$\tau(s)$$  |
-|  :----:   |  :----:  | :----:  |
-| 直线  | $$\kappa(s) \equiv 0$$ | - |
+|  :----: |  :----:  | :----:  |
+| 直线    | $$\kappa(s) \equiv 0$$ | - |
 | 圆  | $$\kappa(s) \gt 0$$为常数 | $$\tau(s) \equiv 0$$ |
 | 平面曲线  | - | $$\tau(s) \equiv 0$$ |
 | 圆柱螺线  | $$\kappa(s) \gt 0$$为常数 | $$\kappa(s) \neq 0$$为常数 |
