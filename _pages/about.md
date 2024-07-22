@@ -6,7 +6,7 @@ subtitle: Ph.D in Civil Engineering | Graduate Research Assistant
 
 profile:
   align: right
-  image: portrait.webp
+  image: https://i.imgur.com/oY76FXK.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Division of Engineering</p>
