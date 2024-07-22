@@ -27,7 +27,7 @@ $$
 \boldsymbol{r} = \boldsymbol{r} (s) = \boldsymbol{r} (u^1 (s), u^2 (s))
 $$
 
-在[曲线论](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)中我们曾经沿空间曲线$$C$$建立了Frenet标架$$\{ \boldsymbol{r} (s); \boldsymbol{\alpha} (s), \boldsymbol{\beta} (s), \boldsymbol{\gamma}(s) \}$$。但是，曲线$$C$$的Frenet标架场没有考虑到目前的曲线$$C$$落在曲面$$S$$上的事实，因此Frenet标架及其运动公式(Frenet公式)自然不会反映曲线$$C$$和曲面$$S$$之间相互约束的关系。现在，我们要沿曲线$$C$$建立一个新的正交标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$，使得它兼顾曲线$$C$$和曲面$$S$$，其定义是
+在[曲线论]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-02/#曲线的曲率和frenet标架)中我们曾经沿空间曲线$$C$$建立了Frenet标架$$\{ \boldsymbol{r} (s); \boldsymbol{\alpha} (s), \boldsymbol{\beta} (s), \boldsymbol{\gamma}(s) \}$$。但是，曲线$$C$$的Frenet标架场没有考虑到目前的曲线$$C$$落在曲面$$S$$上的事实，因此Frenet标架及其运动公式(Frenet公式)自然不会反映曲线$$C$$和曲面$$S$$之间相互约束的关系。现在，我们要沿曲线$$C$$建立一个新的正交标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$，使得它兼顾曲线$$C$$和曲面$$S$$，其定义是
 
 $$
 \begin{aligned}
@@ -41,7 +41,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/DjV5ATz.png" width="80%">
 </div>
 
-直观上，向量$$\boldsymbol{e}_2$$是将曲线$$C$$的切向量$$\boldsymbol{e}_1 = \boldsymbol{\alpha}$$围绕曲面$$S$$的单位法向量$$\boldsymbol{n}$$按正向旋转90°得到的。与[平面曲线的Frenet标架](/2023/07/31/DifferentialGeometry-NOTES-02.html#平面曲线的frenet标架)相对照不难发现，我们在这里对于曲面$$S$$上的曲线$$C$$建立正交标架场的做法和平面曲线建立正交标架场的做法是一致的。换言之我们现在的目标是把平面上的曲线论推广成为曲面$$S$$上的曲线论。
+直观上，向量$$\boldsymbol{e}_2$$是将曲线$$C$$的切向量$$\boldsymbol{e}_1 = \boldsymbol{\alpha}$$围绕曲面$$S$$的单位法向量$$\boldsymbol{n}$$按正向旋转90°得到的。与[平面曲线的Frenet标架]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-02/#平面曲线的frenet标架)相对照不难发现，我们在这里对于曲面$$S$$上的曲线$$C$$建立正交标架场的做法和平面曲线建立正交标架场的做法是一致的。换言之我们现在的目标是把平面上的曲线论推广成为曲面$$S$$上的曲线论。
 
 首先我们要建立曲面$$S$$上沿曲线$$C$$的正交标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$的运动公式。因为这是单位正交标架场，所以可以假设
 
@@ -62,7 +62,7 @@ $$
 \kappa_n = \frac{\mathrm{d} \boldsymbol{e}_1 (s)}{\mathrm{d} s} \cdot \boldsymbol{e}_3 (s) = \boldsymbol{r}'' (s) \cdot \boldsymbol{n}
 $$
 
-所以$$\kappa_n$$恰好是曲面$$S$$沿曲线$$C$$的切方向的[法曲率](/2023/11/10/DifferentialGeometry-NOTES-04.html#法曲率)。类似地，将运动方程的第二式两边同时和$$\boldsymbol{e}_2$$作内积得到
+所以$$\kappa_n$$恰好是曲面$$S$$沿曲线$$C$$的切方向的[法曲率]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-04/#法曲率)。类似地，将运动方程的第二式两边同时和$$\boldsymbol{e}_2$$作内积得到
 
 $$
 \kappa_g = \frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2} \cdot \boldsymbol{e}_2 = \boldsymbol{r}'' (s) \cdot (\boldsymbol{n} (s) \times \boldsymbol{r}' (s)) = \big( \boldsymbol{n} (s), \boldsymbol{r}' (s), \boldsymbol{r}'' (s) \big)
@@ -103,7 +103,7 @@ $$
 \kappa^2 = \kappa_g^2 + \kappa_n^2
 $$
 
-根据[法曲率](/2023/11/10/DifferentialGeometry-NOTES-04.html#法曲率)的定义，我们已经知道
+根据[法曲率]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-04/#法曲率)的定义，我们已经知道
 
 $$
 \kappa_n = \kappa \cos{\theta}
@@ -155,7 +155,7 @@ $$
 \boldsymbol{e}_1 (s) = \boldsymbol{\alpha} (s) = \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} = \boldsymbol{r}_\alpha \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s}
 $$
 
-于是，根据[Gauss公式](/2023/12/27/DifferentialGeometry-NOTES-05.html#自然标架场的运动公式)有
+于是，根据[Gauss公式]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-05/#自然标架场的运动公式)有
 
 $$
 \begin{aligned}
@@ -360,7 +360,7 @@ $$
 
 ### 测地挠率
 
-最后，我们来讨论测地挠率。由[自然标架的运动公式](/2023/12/27/DifferentialGeometry-NOTES-05.html#自然标架场的运动公式)得到
+最后，我们来讨论测地挠率。由[自然标架的运动公式]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-05/#自然标架场的运动公式)得到
 
 $$
 \frac{\mathrm{d} \boldsymbol{n} (s)}{\mathrm{d} s} = \frac{\partial \boldsymbol{n}}{\partial u^\alpha} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} = -b_\alpha^\beta \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \boldsymbol{r}_\beta
@@ -418,7 +418,7 @@ $$
 
 从测地挠率的表达式可以看出，曲面$$S$$上的曲线$$C$$的测地挠率$$\tau_g$$和法曲率一样，只是曲面$$S$$上的切方向的函数，反映的是曲面$$S$$本身的性质，而不只是曲面$$S$$上的曲线$$C$$的性质。特别是，如果曲面$$S$$上有两条在一点相切的曲线，则这两条曲线在该点有相同的测地挠率。很明显，测地挠率$$\tau_g$$**不是**曲面$$S$$的内蕴几何量。
 
-与[曲率线所满足的微分方程](/2023/11/10/DifferentialGeometry-NOTES-04.html#平均曲率和gauss曲率)相对照不难发现，主方向恰好是曲面上使测地挠率为零的切方向。因此，曲面上的曲率线正好是沿其切方向的测地挠率为零的曲线。换言之，曲率线的微分方程是$$\tau_g = 0$$。实际上可以证明切平面上与主方向$$\boldsymbol{e}_1$$成$$\theta$$角度的切方向的测地曲率是
+与[曲率线所满足的微分方程]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-04/#平均曲率和gauss曲率)相对照不难发现，主方向恰好是曲面上使测地挠率为零的切方向。因此，曲面上的曲率线正好是沿其切方向的测地挠率为零的曲线。换言之，曲率线的微分方程是$$\tau_g = 0$$。实际上可以证明切平面上与主方向$$\boldsymbol{e}_1$$成$$\theta$$角度的切方向的测地曲率是
 
 $$
 \tau_g = \frac{1}{2} (\kappa_2 - \kappa_1) \sin{2 \theta} = \frac{1}{2} \frac{\mathrm{d} \kappa_n (\theta)}{\mathrm{d} \theta}
@@ -802,7 +802,7 @@ $$
 
 首先叙述在曲面上覆盖了一个区域的测地线族的概念。假定在曲面$$S$$上有依赖一个参数的测地线族$$\Sigma$$，如果对于区域$$D \subset S$$上的每一个点$$p$$，有且只有一条属于$$\Sigma$$的测地线经过点$$p$$，则称$$\Sigma$$是在曲面$$S$$上覆盖了区域$$D$$的一个测地线族。很明显，如果把$$\Sigma$$中的测地线都限制在区域$$D$$上，则覆盖了区域$$D$$的测地线族$$\Sigma$$中的任意两条不同的测地线都不会彼此相交。
 
-如果$$\Sigma$$是曲面$$S$$上覆盖了区域$$D$$的一个测地线族，则在$$D$$内有另一个曲线族记为$$\Sigma_1$$，它是由$$\Sigma$$的正交轨线构成的。于是区域$$D$$内的任意一点$$p$$必有一个邻域$$U \subset D$$和参数系$$(u, v)$$，使得$$\Sigma$$和$$\Sigma_1$$中的曲线在$$U$$上的限制分别是曲面的$$u$$-曲线族和$$v$$-曲线族。实际上，测地线族$$\Sigma$$中的每一条测地线的切向量构成区域$$D$$上的一个处处非零的切向量场$$\boldsymbol{a}$$, 同时它也在区域$$D$$上决定了与之正交的另一个处处非零的切向量场$$\boldsymbol{b}$$，后者与$$\Sigma_1$$中的曲线处处相切。[定理3.2](/2023/10/18/DifferentialGeometry-NOTES-03.html#曲面上正交参数曲线网的存在性)断言：在区域$$D$$内的任意一点$$p$$的一个邻域$$U \subset D$$内必存在参数系$$(u, v)$$，使得$$u$$-曲线和$$v$$-曲线分别和切向量场$$\boldsymbol{a}$$和$$\boldsymbol{b}$$相切，这就是说，$$\Sigma$$是由$$u$$-曲线组成的(至多每一条曲线差一个重新参数化)，而$$\Sigma_1$$是由$$v$$-曲线组成的(至多每一条曲线差一个重新参数化)。由于曲线族$$\Sigma$$和$$\Sigma_1$$是彼此正交的，故曲面$$S$$的第一基本形式可以写成
+如果$$\Sigma$$是曲面$$S$$上覆盖了区域$$D$$的一个测地线族，则在$$D$$内有另一个曲线族记为$$\Sigma_1$$，它是由$$\Sigma$$的正交轨线构成的。于是区域$$D$$内的任意一点$$p$$必有一个邻域$$U \subset D$$和参数系$$(u, v)$$，使得$$\Sigma$$和$$\Sigma_1$$中的曲线在$$U$$上的限制分别是曲面的$$u$$-曲线族和$$v$$-曲线族。实际上，测地线族$$\Sigma$$中的每一条测地线的切向量构成区域$$D$$上的一个处处非零的切向量场$$\boldsymbol{a}$$, 同时它也在区域$$D$$上决定了与之正交的另一个处处非零的切向量场$$\boldsymbol{b}$$，后者与$$\Sigma_1$$中的曲线处处相切。[定理3.2]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-03/#theorem3.2)断言：在区域$$D$$内的任意一点$$p$$的一个邻域$$U \subset D$$内必存在参数系$$(u, v)$$，使得$$u$$-曲线和$$v$$-曲线分别和切向量场$$\boldsymbol{a}$$和$$\boldsymbol{b}$$相切，这就是说，$$\Sigma$$是由$$u$$-曲线组成的(至多每一条曲线差一个重新参数化)，而$$\Sigma_1$$是由$$v$$-曲线组成的(至多每一条曲线差一个重新参数化)。由于曲线族$$\Sigma$$和$$\Sigma_1$$是彼此正交的，故曲面$$S$$的第一基本形式可以写成
 
 $$
 \mathrm{I} = E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2
@@ -1341,7 +1341,7 @@ $$
 
 ## 常曲率曲面
 
-Gauss曲率为常数的曲面称为**常曲率曲面**。在[Gauss曲率为常数的曲面](/2023/11/10/DifferentialGeometry-NOTES-04.html#gauss曲率为常数的曲面)一节我们已经根据常曲率旋转曲面所满足的微分方程算出它的参数方程。在本节，我们将利用测地坐标系决定常曲率曲面的第一基本形式。由此可见，有相同常Gauss曲率的常曲率曲面在局部上是彼此等距的。
+Gauss曲率为常数的曲面称为**常曲率曲面**。在[Gauss曲率为常数的曲面]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-04/#gauss曲率为常数的曲面)一节我们已经根据常曲率旋转曲面所满足的微分方程算出它的参数方程。在本节，我们将利用测地坐标系决定常曲率曲面的第一基本形式。由此可见，有相同常Gauss曲率的常曲率曲面在局部上是彼此等距的。
 
 假定曲面$$S$$的Gauss曲率$$K$$是常数。在曲面$$S$$上取测地平行坐标系$$(u, v)$$，因而它的第一基本形式为
 
@@ -1355,7 +1355,7 @@ $$
 G(0, v) = 1, \ \ \ \frac{\partial G}{\partial u} (0, v) = 0
 $$
 
-根据Gauss曲率$$K$$的[内蕴表达式](/2023/12/27/DifferentialGeometry-NOTES-05.html#gauss定理)，我们有
+根据Gauss曲率$$K$$的[内蕴表达式]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-05/#gauss定理)，我们有
 
 $$
 K = -\frac{1}{\sqrt{EG}} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg] = -\frac{1}{\sqrt{G}} (\sqrt{G})_{uu}
@@ -1444,7 +1444,7 @@ $$
 
 在1854年，Riemann把Gauss内蕴微分几何的思想一举推广到任意维数$$n$$的情形，开创了现在所称的Riemann几何学。于是，Gauss内蕴微分几何学就是二维的Riemann几何学。在这样的抽象曲面上除了计算上面所述的几何量以外，最主要的几何量是Gauss曲率$$K$$, 以及曲面上的曲线的测地曲率和曲面上的测地线等等由此可见，在抽象曲面上仍然有丰富的几何学可供研究。
 
-最简单的一类抽象曲面就是常曲率曲面，它的第一基本形式是由它的常数Gauss曲率$$K$$完全确定的。非欧几何学的出现是人类思想史的划时代进展。从现代数学的观点来看，从欧氏几何学到非欧几何学的发展实际上就是把平面几何学推广到常曲率曲面上的几何学，更进一步可以推广到一般的Riemann几何学。欧氏几何学和非欧几何学的本质差别在于空间的弯曲程度不同。欧氏空间是平坦的空间，其Gauss曲率$$K$$为零。非欧空间是常弯曲的空间，其Gauss曲率$$K$$是非零常数。空间的弯曲性质的不同决定了该空间中的直线(即测地线)的性状的不同，从而决定了该空间中的(测地)三角形的内角和的不同。在[后面](/2024/04/15/DifferentialGeometry-NOTES-06.html#gauss-bonnet公式)要介绍的Gauss-Bonnet定理将会清晰地揭示这个事实。在本节，我们将进一步讨论常曲率曲面上测地线的性状。
+最简单的一类抽象曲面就是常曲率曲面，它的第一基本形式是由它的常数Gauss曲率$$K$$完全确定的。非欧几何学的出现是人类思想史的划时代进展。从现代数学的观点来看，从欧氏几何学到非欧几何学的发展实际上就是把平面几何学推广到常曲率曲面上的几何学，更进一步可以推广到一般的Riemann几何学。欧氏几何学和非欧几何学的本质差别在于空间的弯曲程度不同。欧氏空间是平坦的空间，其Gauss曲率$$K$$为零。非欧空间是常弯曲的空间，其Gauss曲率$$K$$是非零常数。空间的弯曲性质的不同决定了该空间中的直线(即测地线)的性状的不同，从而决定了该空间中的(测地)三角形的内角和的不同。在[后面](#gauss-bonnet公式)要介绍的Gauss-Bonnet定理将会清晰地揭示这个事实。在本节，我们将进一步讨论常曲率曲面上测地线的性状。
 
 直接计算表明，度量形式
 
@@ -1486,7 +1486,7 @@ $$
 
 在球面上，测地线就是大圆周。很明显，这些大圆周在球极投影下的像是在$$uv$$平面上以原点为中心、以$$\frac{2}{\sqrt{K}}$$为半径的圆周$$C$$，以及经过圆周$$C$$的的任意一对对径点的所有圆周和直线。由此可见，在这个抽象曲面上，任意两条「直线」是彼此相交的。
 
-[前面](/2023/11/10/DifferentialGeometry-NOTES-04.html#负gauss曲率曲面)所介绍的伪球面是负常曲率曲面的例子，但是在该曲面上不是所有的测地线都能够无限地延伸的。要给出常数$$K \lt 0$$时，区域为$$D$$、第一基本形式为$$(\mathrm{d} s)^2 = \frac{(\mathrm{d} u)^2 + (\mathrm{d} v)^2}{\bigg(1 + \frac{K}{4} (u^2 + v^2) \bigg)^2}$$的抽象曲面(称为Klein圆)的具体模型，在三维欧式空间$$\mathbb{E}^3$$中是做不到的。我们引进所谓的洛伦兹空间$$L^3$$，其中的点仍然是一组3个有序的实数$$(x, y ,z)$$，但是任意两个向量$$\boldsymbol{a} = (x_1, y_1, z_1)$$和$$\boldsymbol{b} = (x_2, y_2, z_2)$$的内积定义为
+[前面]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-04/#负gauss曲率曲面)所介绍的伪球面是负常曲率曲面的例子，但是在该曲面上不是所有的测地线都能够无限地延伸的。要给出常数$$K \lt 0$$时，区域为$$D$$、第一基本形式为$$(\mathrm{d} s)^2 = \frac{(\mathrm{d} u)^2 + (\mathrm{d} v)^2}{\bigg(1 + \frac{K}{4} (u^2 + v^2) \bigg)^2}$$的抽象曲面(称为Klein圆)的具体模型，在三维欧式空间$$\mathbb{E}^3$$中是做不到的。我们引进所谓的洛伦兹空间$$L^3$$，其中的点仍然是一组3个有序的实数$$(x, y ,z)$$，但是任意两个向量$$\boldsymbol{a} = (x_1, y_1, z_1)$$和$$\boldsymbol{b} = (x_2, y_2, z_2)$$的内积定义为
 
 $$
 \boldsymbol{a} \cdot \boldsymbol{b} = x_1 x_2 + y_1 y_2 - z_1 z_2
@@ -1809,7 +1809,7 @@ $$
 
 ### 二维流形
 
-从[定义3.1](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则曲面)得到启发，所谓的整体的抽象曲面是一些参数曲面片粘合的结果，要求两个参数曲面片$$(U_i; (u_i^1, u_i^2))$$和$$(U_j; (u_j^1, u_j^2))$$在其交集$$U_i \cap U_j \neq \varnothing$$的情况下，坐标变换
+从[定义3.1]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-03/#theorem3.1)得到启发，所谓的整体的抽象曲面是一些参数曲面片粘合的结果，要求两个参数曲面片$$(U_i; (u_i^1, u_i^2))$$和$$(U_j; (u_j^1, u_j^2))$$在其交集$$U_i \cap U_j \neq \varnothing$$的情况下，坐标变换
 
 $$
 u_i^\alpha = u_i^\alpha (u_j^1, u_j^2), \ \ \ u_j^\alpha = u_j^\alpha (u_i^1, u_i^2), \ \ \ \alpha = 1, 2
@@ -2068,7 +2068,7 @@ $$
 A(D) = \int_{\varphi_i^{-1}} \sqrt{g_{11}^{(1)} g_{22}^{(1)} - \big( g_{12}^{(1)} \big)^2} \ \mathrm{d} u_i^1 \mathrm{d} u_i^2
 $$
 
-上式右端的数值与坐标卡$$(U_i, \varphi_i)$$的选择无关。实际上，若有另一个属于$$M$$的定向的容许坐标卡$$(U_j, \varphi_j)$$，使得$$D \subset U_j$$，则$$\frac{\partial (u_i^1, u_i^2)}{\partial (u_j^1, u_j^2)} \gt 0$$，并且由[度量形式的双重线性变换关系式](/2024/04/15/DifferentialGeometry-NOTES-06.html#度量形式)得到
+上式右端的数值与坐标卡$$(U_i, \varphi_i)$$的选择无关。实际上，若有另一个属于$$M$$的定向的容许坐标卡$$(U_j, \varphi_j)$$，使得$$D \subset U_j$$，则$$\frac{\partial (u_i^1, u_i^2)}{\partial (u_j^1, u_j^2)} \gt 0$$，并且由[度量形式的双重线性变换关系式](#度量形式)得到
 
 $$
 \begin{pmatrix}
@@ -2263,11 +2263,11 @@ $$
 
 叫作$$\boldsymbol{Y}$$的协变微分。
 
-对比[前面](/2024/04/15/DifferentialGeometry-NOTES-06.html#协变微分)协变微分的定义知道，此处切向量场的协变微分公式和前面是一致的。不过之前引进切向量场的协变微分是通过「外在的途径」，在这里则是完全采用内在的方式，不涉及曲面的外在形状。
+对比[前面](#协变微分)协变微分的定义知道，此处切向量场的协变微分公式和前面是一致的。不过之前引进切向量场的协变微分是通过「外在的途径」，在这里则是完全采用内在的方式，不涉及曲面的外在形状。
 
 ### 切向量沿光滑曲线的平行移动
 
-这一段内容是[曲面上切向量的平行移动](/2024/04/15/DifferentialGeometry-NOTES-06.html#曲面上切向量的平行移动)的重复，不多赘述了，只是提及主要的定义和公式。
+这一段内容是[曲面上切向量的平行移动](#曲面上切向量的平行移动)的重复，不多赘述了，只是提及主要的定义和公式。
 
 设$$\gamma: [a, b] \rightarrow M$$是$$(M, g)$$中的一条光滑曲线，$$\boldsymbol{X}$$是$$M$$上的一个光滑切向量场。假定曲线$$\gamma$$落在坐标卡$$(U, \varphi)$$内，设$$\gamma$$的参数方程是$$u^\alpha = u^\alpha (t)$$，$$\alpha = 1, 2$$，故$$\gamma'(t) = \frac{\mathrm{d} u^\alpha (t)}{\mathrm{d} t} \frac{\partial}{\partial u^\alpha} \bigg\vert_{\gamma(t)}$$。设$$\boldsymbol{X} (t) = \boldsymbol{X} \vert_{\gamma (t)} = X^\alpha (t) \frac{\partial}{\partial u^\alpha} \bigg\vert_{\gamma (t)}$$。那么
 
@@ -2480,7 +2480,7 @@ $$
 R_{\gamma \beta \alpha}^\delta = \frac{\partial \Gamma_{\gamma \beta}^\delta}{\partial u^\alpha} - \frac{\partial \Gamma_{\gamma \alpha}^\delta}{\partial u^\beta} + \Gamma_{\gamma \beta}^\mu \Gamma_{\mu \alpha}^\delta - \Gamma_{\gamma \alpha}^\mu \Gamma_{\mu \beta}^\delta
 $$
 
-注意到这个量的表达式和前面介绍的[Riemann记号](/2023/12/27/DifferentialGeometry-NOTES-05.html#riemann记号)是一样的，称为度量形式$$g$$的Riemann记号。重要的是，当坐标卡变换时，它是按照4重线性变换的规律进行变换的，因此它是否等于零与坐标卡的选择无关。由此可见，在欧氏平面上取笛卡儿直角坐标系时这个量显然是零，而在欧氏平面上取一般的曲纹坐标系时，这个量也恒等于零。这就是说，这个量是否为零是判断该抽象曲面是不是欧氏平面的特征。我们把这个Riemann记号称为抽象曲面的**曲率张量**，它在不同坐标卡下的变换公式为
+注意到这个量的表达式和前面介绍的[Riemann记号]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-05/#riemann记号)是一样的，称为度量形式$$g$$的Riemann记号。重要的是，当坐标卡变换时，它是按照4重线性变换的规律进行变换的，因此它是否等于零与坐标卡的选择无关。由此可见，在欧氏平面上取笛卡儿直角坐标系时这个量显然是零，而在欧氏平面上取一般的曲纹坐标系时，这个量也恒等于零。这就是说，这个量是否为零是判断该抽象曲面是不是欧氏平面的特征。我们把这个Riemann记号称为抽象曲面的**曲率张量**，它在不同坐标卡下的变换公式为
 
 $$
 R_{\gamma \beta \alpha}^{(i) \delta} \cdot \frac{\partial u_j^\xi}{\partial u_i^\delta} = R_{\zeta \eta \mu}^{(j) \xi} \cdot \frac{\partial u_j^\zeta}{\partial u_i^\gamma} \cdot \frac{\partial u_j^\eta}{\partial u_i^\beta} \cdot \frac{\partial u_j^\mu}{\partial u_i^\alpha}
@@ -2594,7 +2594,7 @@ $$
 
 欧氏平面上的平行公设等价于「三角形的内角和等于180°」，或者「三角形的外角和等于360°」。在Klein圆内，欧氏几何的平行公理不再成立，与之等价的是测地三角形的内角和不再等于180°，或者测地三角形的外角和不再等于360°，原因是Klein 圆不再是平坦的空间，它有非零的曲率(事实上，它的Gauss曲率是负常数)。对于一般的曲面测地三角形的内角和(或者外角和)如何?这是本节要研究的问题。我们先讨论一般的Gauss-Bonnet公式，然后将它用于测地三角形，得到测地三角形的外角和的公式。
 
-在[平面曲线](/2023/07/31/DifferentialGeometry-NOTES-02.html#平面曲线)一节中我们巳经叙述过平面上分段光滑的简单闭曲线的概念。现在假定$$C$$是曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$上的一条曲线，它的参数方程是$$u^1 = u^1 (s)$$，$$u^2 = u^2 (s)$$，其中$$s$$是弧长参数，$$0 \leq s \leq L$$。如果函数$$u^\alpha (s)$$是连续的，并且区间$$[0, L]$$有一个分割$$0 = s_0 \lt s_1 \lt \cdots \lt s_n = L$$，使得函数$$u^\alpha (s)$$在每一个小区间$$(s_{i-1}, s_i)$$内部是光滑的，则称$$C$$是分段光滑曲线，而$$s = s_1, \cdots, s_{n-1}$$称为曲线$$C$$的角点。如果$$u^\alpha (0) = u^\alpha (L)$$，$$\alpha = 1, 2$$，则称曲线$$C$$是封闭曲线。一般说来，端点$$s = s_0$$或$$s_n$$也是封闭曲线$$C$$的角点。如果曲线$$C$$除了端点外没有其他自交点，即对于任意的$$0 \leq a \lt b \lt L$$都有$$\boldsymbol{r} (a) \neq \boldsymbol{r} (b)$$则称该曲线是简单的。如果$$C$$是光滑的简单封闭曲线，则有
+在[平面曲线]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-02/#平面曲线)一节中我们巳经叙述过平面上分段光滑的简单闭曲线的概念。现在假定$$C$$是曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$上的一条曲线，它的参数方程是$$u^1 = u^1 (s)$$，$$u^2 = u^2 (s)$$，其中$$s$$是弧长参数，$$0 \leq s \leq L$$。如果函数$$u^\alpha (s)$$是连续的，并且区间$$[0, L]$$有一个分割$$0 = s_0 \lt s_1 \lt \cdots \lt s_n = L$$，使得函数$$u^\alpha (s)$$在每一个小区间$$(s_{i-1}, s_i)$$内部是光滑的，则称$$C$$是分段光滑曲线，而$$s = s_1, \cdots, s_{n-1}$$称为曲线$$C$$的角点。如果$$u^\alpha (0) = u^\alpha (L)$$，$$\alpha = 1, 2$$，则称曲线$$C$$是封闭曲线。一般说来，端点$$s = s_0$$或$$s_n$$也是封闭曲线$$C$$的角点。如果曲线$$C$$除了端点外没有其他自交点，即对于任意的$$0 \leq a \lt b \lt L$$都有$$\boldsymbol{r} (a) \neq \boldsymbol{r} (b)$$则称该曲线是简单的。如果$$C$$是光滑的简单封闭曲线，则有
 
 $$
 \lim_{s \rightarrow s_i - 0} \boldsymbol{r}' (s) = \lim_{s \rightarrow s_i + 0} \boldsymbol{r}' (s), \ \ \
@@ -2649,7 +2649,7 @@ $$
 \end{aligned}
 $$
 
-因为$$\theta$$是由连续可微的曲线$$C$$与$$u$$-曲线所构成的方向角，因此它能够从方向角$$\theta$$内取出连续分支$$\theta (s)$$，它是$$s$$的可微函数。由此可见，积分$$\oint_C \mathrm{d} \theta$$是$$\theta$$的一个连续分支$$\theta (s)$$在起、终点的值之差$$\theta (L) - \theta (0)$$，也就是连续可微的曲线$$C$$的方向角的总变差。但是，曲线$$C$$在$$s = O$$和$$s = L$$处的切向量是同一个，故曲线$$C$$的方向角的总变差$$\theta (L) - \theta (0)$$必定是$$2 \pi$$的整数倍。此外，方向角是根据曲面$$S$$的第一类基本量$$E$$，$$G$$计算出来的，当曲面$$S$$的第一类基本量$$E$$，$$G$$作连续变化时，方向角$$\theta$$必然作连续的变化，于是积分$$\oint_C \mathrm{d} \theta$$的值也作连续的变化，因而这个整数值必定保持不变。现在已知$$E \gt 0$$，$$G \gt 0$$，因此$$E$$，$$G$$可以保持在正值的情况下连续地变为1。实际上只要取$$E_t = 1 + t (E-1)$$，$$G_t = 1 + t (G-1)$$，$$0 \leq t \leq 1$$ (需要指出的是，当$$E_t$$，$$G_t$$在$$t$$于区间$$[0,1]$$之间变动时，区域$$U$$，$$D$$以及曲线$$C$$都原地不动)。很明显，$$E_t \gt 0$$，$$G_t \gt 0$$。这样，当$$t = 0$$时该曲面成为一张平面，$$C$$是该平面上的一条简单封闭曲线；而在$$t = 1$$时则回到原来的曲面$$S$$的情形，但是对于$$\mathrm{I} = E_t (\mathrm{d} u)^2 + G_t (\mathrm{d} v)$$计算积分$$\oint_C \mathrm{d} \theta$$，无论是在$$t=0$$时计算，还是在$$t = 1$$时计算，其结果都是一样的。而在平面的情形，$$C$$的正向是使区域$$D$$始终在行进者的左侧，故由[旋转指标定理](/2023/07/31/DifferentialGeometry-NOTES-02.html#旋转指标)得到
+因为$$\theta$$是由连续可微的曲线$$C$$与$$u$$-曲线所构成的方向角，因此它能够从方向角$$\theta$$内取出连续分支$$\theta (s)$$，它是$$s$$的可微函数。由此可见，积分$$\oint_C \mathrm{d} \theta$$是$$\theta$$的一个连续分支$$\theta (s)$$在起、终点的值之差$$\theta (L) - \theta (0)$$，也就是连续可微的曲线$$C$$的方向角的总变差。但是，曲线$$C$$在$$s = O$$和$$s = L$$处的切向量是同一个，故曲线$$C$$的方向角的总变差$$\theta (L) - \theta (0)$$必定是$$2 \pi$$的整数倍。此外，方向角是根据曲面$$S$$的第一类基本量$$E$$，$$G$$计算出来的，当曲面$$S$$的第一类基本量$$E$$，$$G$$作连续变化时，方向角$$\theta$$必然作连续的变化，于是积分$$\oint_C \mathrm{d} \theta$$的值也作连续的变化，因而这个整数值必定保持不变。现在已知$$E \gt 0$$，$$G \gt 0$$，因此$$E$$，$$G$$可以保持在正值的情况下连续地变为1。实际上只要取$$E_t = 1 + t (E-1)$$，$$G_t = 1 + t (G-1)$$，$$0 \leq t \leq 1$$ (需要指出的是，当$$E_t$$，$$G_t$$在$$t$$于区间$$[0,1]$$之间变动时，区域$$U$$，$$D$$以及曲线$$C$$都原地不动)。很明显，$$E_t \gt 0$$，$$G_t \gt 0$$。这样，当$$t = 0$$时该曲面成为一张平面，$$C$$是该平面上的一条简单封闭曲线；而在$$t = 1$$时则回到原来的曲面$$S$$的情形，但是对于$$\mathrm{I} = E_t (\mathrm{d} u)^2 + G_t (\mathrm{d} v)$$计算积分$$\oint_C \mathrm{d} \theta$$，无论是在$$t=0$$时计算，还是在$$t = 1$$时计算，其结果都是一样的。而在平面的情形，$$C$$的正向是使区域$$D$$始终在行进者的左侧，故由[旋转指标定理]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-02/#旋转指标)得到
 
 $$
 \oint_C \mathrm{d} \theta = 2 \pi

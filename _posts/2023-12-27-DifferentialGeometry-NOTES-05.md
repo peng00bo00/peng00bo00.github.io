@@ -415,7 +415,7 @@ $$
 \end{aligned}
 $$
 
-并且$$\{ \boldsymbol{r}^{(i)} (u_0); \boldsymbol{r}_1^{(i)} (u_0), \boldsymbol{r}_2^{(i)} (u_0), \boldsymbol{n}^{(i)} (u_0) \}$$，$$i=1,2$$，都是右手系。这就是说，这两个标架具有相同的度量系数和定向，因而在空间$$\mathbb{E}^3$$中存在一个刚体运动$$\sigma$$，把标架$$\{ \boldsymbol{r}^{(2)} (u_0); \boldsymbol{r}_1^{(2)} (u_0), \boldsymbol{r}_2^{(2)} (u_0), \boldsymbol{n}^{(2)} (u_0) \}$$变成标架$$\{ \boldsymbol{r}^{(1)} (u_0); \boldsymbol{r}_1^{(1)} (u_0), \boldsymbol{r}_2^{(1)} (u_0), \boldsymbol{n}^{(1)} (u_0) \}$$ (参见[定理1.1]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-01/#正交标架))。用$$\sigma (S_2)$$表示曲面$$S_2$$在刚体运动$$\sigma$$的作用下得到的新曲面，那么这个新的曲面与曲面$$S_1$$在点$$u_0$$处有相同的自然标架，并且由于曲面的第一类基本量和第二类基本量在曲面作刚体运动时是保持不变的，所以新的曲面$$\sigma (S_2)$$与曲面$$S_1$$在所有对应于同一个参数值的点，仍旧有相同的第一类基本量和第二类基本量。由此可见，它们的自然标架场适合同一组偏微分方程
+并且$$\{ \boldsymbol{r}^{(i)} (u_0); \boldsymbol{r}_1^{(i)} (u_0), \boldsymbol{r}_2^{(i)} (u_0), \boldsymbol{n}^{(i)} (u_0) \}$$，$$i=1,2$$，都是右手系。这就是说，这两个标架具有相同的度量系数和定向，因而在空间$$\mathbb{E}^3$$中存在一个刚体运动$$\sigma$$，把标架$$\{ \boldsymbol{r}^{(2)} (u_0); \boldsymbol{r}_1^{(2)} (u_0), \boldsymbol{r}_2^{(2)} (u_0), \boldsymbol{n}^{(2)} (u_0) \}$$变成标架$$\{ \boldsymbol{r}^{(1)} (u_0); \boldsymbol{r}_1^{(1)} (u_0), \boldsymbol{r}_2^{(1)} (u_0), \boldsymbol{n}^{(1)} (u_0) \}$$ (参见[定理1.1]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-01/#theorem1.1))。用$$\sigma (S_2)$$表示曲面$$S_2$$在刚体运动$$\sigma$$的作用下得到的新曲面，那么这个新的曲面与曲面$$S_1$$在点$$u_0$$处有相同的自然标架，并且由于曲面的第一类基本量和第二类基本量在曲面作刚体运动时是保持不变的，所以新的曲面$$\sigma (S_2)$$与曲面$$S_1$$在所有对应于同一个参数值的点，仍旧有相同的第一类基本量和第二类基本量。由此可见，它们的自然标架场适合同一组偏微分方程
 
 $$
 \begin{cases}

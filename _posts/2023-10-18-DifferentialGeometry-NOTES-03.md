@@ -724,6 +724,7 @@ $$
 E \mathrm{d} u \delta u + F (\mathrm{d} u \delta v + \mathrm{d} v \delta u) + G \mathrm{d} v \delta v = 0
 $$
 
+<a id="theorem3.1"></a>
 > ##### 定理3.1
 > 在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上参数曲线网是正交曲线网的充分必要条件是$$F(u, v) \equiv 0$$。
 {: .block-theorem }
