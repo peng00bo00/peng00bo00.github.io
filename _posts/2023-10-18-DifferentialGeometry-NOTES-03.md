@@ -516,7 +516,7 @@ $$
 
 事实上，根据一次微分的形式不变性，$$\mathrm{d} \boldsymbol{r} (u, v)$$与正则参数曲面$$S$$的参数的选取无关，因此$$\mathrm{I}$$作为$$\mathrm{d} \boldsymbol{r} (u, v)$$与其自身的内积当然也与正则参数曲面$$S$$的参数的选取无关。这个事实也能够从另一个方面进行解释。
 
-假定正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$有一个[容许的参数变换](/2023/10/18/DifferentialGeometry-NOTES-03.html#容许的参数变换)
+假定正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$有一个[容许的参数变换](#容许的参数变换)
 
 $$
 \begin{cases}
@@ -748,7 +748,7 @@ $$
 \bigg\vert \frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t} \bigg\vert = \sqrt{E \bigg( \frac{\mathrm{d} u(t)}{\mathrm{d} t} \bigg)^2 + 2F \frac{\mathrm{d} u(t)}{\mathrm{d} t} \frac{\mathrm{d} v(t)}{\mathrm{d} t}  + G \bigg( \frac{\mathrm{d} v(t)}{\mathrm{d} t} \bigg)^2 }
 $$
 
-在根据[曲线的弧长公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的弧长)可以得到曲线的长度是
+在根据[曲线的弧长公式]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-02/#曲线的弧长)可以得到曲线的长度是
 
 $$
 \begin{aligned}
@@ -789,9 +789,9 @@ $$
 A = \iint_D \sqrt{EG - F^2} \mathrm{d} u \mathrm{d} v
 $$
 
-根据重积分的变量替换法则以及第一类基本量的[变换规律](/2023/10/18/DifferentialGeometry-NOTES-03.html#第一基本形式的不变性)，不难知道上式右端与曲面$$S$$是容许的参数变换是无关的。
+根据重积分的变量替换法则以及第一类基本量的[变换规律](#第一基本形式的不变性)，不难知道上式右端与曲面$$S$$是容许的参数变换是无关的。
 
-事实上，若有[容许的参数变换](/2023/10/18/DifferentialGeometry-NOTES-03.html#容许的参数变换)则曲面的参数方程成为
+事实上，若有[容许的参数变换](#容许的参数变换)则曲面的参数方程成为
 
 $$
 \boldsymbol{r} = \boldsymbol{r} (\tilde{u}, \tilde{v}) \equiv \boldsymbol{r} (u(\tilde{u}, \tilde{v}), v(\tilde{u}, \tilde{v})), \ \ \forall (\tilde{u}, \tilde{v}) \in D
@@ -803,7 +803,7 @@ $$
 \iint_D \sqrt{EG - F^2} \mathrm{d} u \mathrm{d} v = \iint_{\tilde{D}} \sqrt{EG - F^2} \bigg\vert \frac{\partial u}{\partial \tilde{u}} \frac{\partial v}{\partial \tilde{v}} - \frac{\partial u}{\partial \tilde{v}} \frac{\partial v}{\partial \tilde{u}} \bigg\vert \mathrm{d} \tilde{u} \mathrm{d} \tilde{v}
 $$
 
-根据第一类基本量之间的[变换关系](/2023/10/18/DifferentialGeometry-NOTES-03.html#第一基本形式的不变性)可以得知
+根据第一类基本量之间的[变换关系](#第一基本形式的不变性)可以得知
 
 $$
 \det {
@@ -883,7 +883,7 @@ b_1 (u, v) & b_2 (u, v) \\
 \neq 0
 $$
 
-我们先对问题做一些分析。如果有[容许的参数变换](/2023/10/18/DifferentialGeometry-NOTES-03.html#容许的参数变换)
+我们先对问题做一些分析。如果有[容许的参数变换](#容许的参数变换)
 
 $$
 \begin{cases}
@@ -1072,7 +1072,7 @@ $$
 
 定理3.2的意思是在曲面上存在局部适用的参数系，使得参数曲线分别与预先给定的处处线性无关的切向量场相切(即以已知的切向量场作为参数曲线的方向场)。但是，一般来说，要使已知的切向量场恰好是参数曲线的切向量场(即$$\boldsymbol{r}_{\tilde{u}} = \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{v}} = \boldsymbol{b}$$)是做不到的。
 
-> ##### 定理3.3
+> ##### 定理3.3<a id="theorem3.3"></a>
 > 在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的每一点$$p \in S$$，必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$是彼此正交的，即$$(\tilde{u}, \tilde{v})$$是曲面$$S$$在$$U$$上的正交参数系。
 {: .block-theorem }
 
@@ -1265,7 +1265,7 @@ $$
 \neq 0
 $$
 
-> ##### 定理3.4
+> ##### 定理3.4<a id="theorem3.4"></a>
 > 设$$\sigma: S_1 \rightarrow S_2$$是从正则参数曲面$$S_1$$到正则参数曲面$$S_2$$的3次以上的连续可微映射。如果在点$$p \in S_1$$，切映射$$\sigma_{*p}: T_p S_1 \rightarrow T_{\sigma(p)} S_2$$是切空间$$T_p S_1$$和$$T_{\sigma(p)} S_2$$之间的同构，则有点$$p$$在$$S_1$$中的邻域$$U_1$$和点$$\sigma(p)$$在$$S_2$$中的邻域$$U_2$$，以及相应的参数系$$(u_1, v_1)$$和$$(u_2, v_2)$$，使得$$\sigma(U_1) \subset U_2$$，并且映射$$\sigma \vert_{U_1}$$是由$$u_2 = u_1$$，$$v_2 = v_1$$给出的。换言之，适当地选取曲面$$S_1$$和$$S_2$$上的参数系之后，映射$$\sigma\vert_{U_1}$$是从参数域$$U_1$$到$$U_2$$的、有相同参数值的点之间的对应。使映射$$\sigma$$能够由$$u_2 = u_1$$，$$v_2 = v_1$$给出的参数系$$(u_1, v_1)$$和$$(u_2, v_2)$$称为在曲面$$S_1$$和$$S_2$$上关于映射$$\sigma$$的**适用参数系**。
 {: .block-theorem }
 
@@ -1382,7 +1382,7 @@ $$
 \sigma_{*p} (\boldsymbol{X}) \cdot \sigma_{*p} (\boldsymbol{Y}) = \boldsymbol{X} \cdot \boldsymbol{Y}
 $$
 
-在[前面](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则参数曲面的微分)介绍过，曲面$$S_1$$在点$$\boldsymbol{r} = \boldsymbol{r}_1 (u_1, v_1)$$处的任意一个切向量可以用它的微分
+在[前面](#正则参数曲面的微分)介绍过，曲面$$S_1$$在点$$\boldsymbol{r} = \boldsymbol{r}_1 (u_1, v_1)$$处的任意一个切向量可以用它的微分
 
 $$
 \mathrm{d} \boldsymbol{r}_1 (u_1, v_1) = \mathrm{d} u_1 \frac{\partial \boldsymbol{r}_1}{\partial u_1} + \mathrm{d} v_1 \frac{\partial \boldsymbol{r}_1}{\partial v_1}
@@ -1542,7 +1542,7 @@ $$
 \end{aligned}
 $$
 
-反过来，假定$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保角对应，则根据定义$$\sigma$$必定是一一对应。故根据[定理3.4](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则参数曲面之间的对应)在曲面$$S_1$$和$$S_2$$上能够取适用参数系，都记成$$(u, v)$$，使得在这样的参数系下$$\sigma$$是有相同参数值的点之间的对应，即
+反过来，假定$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保角对应，则根据定义$$\sigma$$必定是一一对应。故根据[定理3.4](#theorem3.4)在曲面$$S_1$$和$$S_2$$上能够取适用参数系，都记成$$(u, v)$$，使得在这样的参数系下$$\sigma$$是有相同参数值的点之间的对应，即
 
 $$
 \sigma(\boldsymbol{r}_1 (u, v)) = \boldsymbol{r}_2 (u, v)
@@ -1630,7 +1630,7 @@ $$
 
 这是一个十分深刻的定理。在曲面的参数方程是解析的情形，首先是Gauss凭借着把实解析函数看作复解析函数的技巧，利用两个变量的一次微分形式的积分因子的存在性证明了这个定理。当曲面的参数方程是光滑的情形，证明比较复杂。另外，当曲面的参数方程有2阶以上的连续可微性时，定理仍然成立。下面我们在曲面的参数方程是解析函数的假定下，给出定理的简要证明。
 
-**证明** 假定正则参数曲面$$S$$的方程$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$是$$u$$，$$v$$的解析函数，于是曲面的第一类基本量$$E$$，$$F$$，$$G$$都是$$u$$，$$v$$的解析函数。根据[定理3.3](/2023/10/18/DifferentialGeometry-NOTES-03.html#曲面上正交参数曲线网的存在性)，可以假定$$(u, v)$$给出曲面$$S$$的正交参数曲线网，即$$F(u, v) = 0$$，于是曲面$$S$$的第一基本形式成为
+**证明** 假定正则参数曲面$$S$$的方程$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$是$$u$$，$$v$$的解析函数，于是曲面的第一类基本量$$E$$，$$F$$，$$G$$都是$$u$$，$$v$$的解析函数。根据[定理3.3](#theorem3.3)，可以假定$$(u, v)$$给出曲面$$S$$的正交参数曲线网，即$$F(u, v) = 0$$，于是曲面$$S$$的第一基本形式成为
 
 $$
 \begin{aligned}
@@ -1843,7 +1843,7 @@ $$
 \big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0
 $$
 
-如果$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u) \equiv \boldsymbol{0}$$，则根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)，向量$$\boldsymbol{l} (u)$$有确定的方向。因此直母线互相平行，$$S$$是一个柱面。
+如果$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u) \equiv \boldsymbol{0}$$，则根据[定理1.3]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-01/#theorem1.3)，向量$$\boldsymbol{l} (u)$$有确定的方向。因此直母线互相平行，$$S$$是一个柱面。
 
 当$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u) \not\equiv \boldsymbol{0}$$时，可以假设在$$u$$的一个小区间内$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u)$$恒不为零，于是$$\boldsymbol{l} (u)$$和$$\boldsymbol{l}' (u)$$在该区间内处处线性无关。那么条件$$\big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0$$意味着向量$$\boldsymbol{a}' (u)$$和$$\boldsymbol{l} (u)$$，$$\boldsymbol{l}' (u)$$共面，因而是它们的线性组合。不妨设为
 
@@ -1902,7 +1902,7 @@ $$
 
 容易看出，在函数$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u)$$，或$$\alpha (u) - \beta' (u)$$的例外零点，正好是柱面、锥面和曲线的切线面沿直母线的拼接之处。证毕∎
 
-可展曲面的另一个特征是它和平面在局部上可以建立[保长对应](/2023/10/18/DifferentialGeometry-NOTES-03.html#保长对应)。在直观上，柱面和锥面都能够在不作伸缩的情况下展开成平面,正好体现了上面所述的特征。它的逆命题也成立，留待后面再来证明。
+可展曲面的另一个特征是它和平面在局部上可以建立[保长对应](#保长对应)。在直观上，柱面和锥面都能够在不作伸缩的情况下展开成平面,正好体现了上面所述的特征。它的逆命题也成立，留待后面再来证明。
 
 > ##### 定理3.11
 > 可展曲面在局部上可以和平面建立保长对应。
@@ -2082,7 +2082,7 @@ $$
 \mathrm{I} = (1 + t^2 \kappa^2) (\mathrm{d} s)^2 + 2 \mathrm{d} s \mathrm{d} t + (\mathrm{d} t)^2
 $$
 
-注意到在切线面的第一基本形式中不含有曲线$$C$$的挠率，这就是说如果$$C$$，$$C_1$$是空间$$\mathbb{E}^3$$中任意两条有相同的弧长参数和相同的曲率函数的正则参数曲线，则它们的切线面必有相同的第一基本形式，因此这两个切线面必定是保长的。根据[曲线论基本定理](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的内在方程)，可以作一条平面曲线$$C_1$$，使它以$$s$$为弧长参数，以$$\kappa (s)$$为曲率函数而挠率为零，那么它的切线面是平面的一部分。由此可见，曲线$$C$$的切线面能够和平面在局部上建立保长对应。证毕∎
+注意到在切线面的第一基本形式中不含有曲线$$C$$的挠率，这就是说如果$$C$$，$$C_1$$是空间$$\mathbb{E}^3$$中任意两条有相同的弧长参数和相同的曲率函数的正则参数曲线，则它们的切线面必有相同的第一基本形式，因此这两个切线面必定是保长的。根据[曲线论基本定理]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-02/#曲线的内在方程)，可以作一条平面曲线$$C_1$$，使它以$$s$$为弧长参数，以$$\kappa (s)$$为曲率函数而挠率为零，那么它的切线面是平面的一部分。由此可见，曲线$$C$$的切线面能够和平面在局部上建立保长对应。证毕∎
 
 ### 包络
 

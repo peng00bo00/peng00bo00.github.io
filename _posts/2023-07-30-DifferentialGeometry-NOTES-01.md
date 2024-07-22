@@ -401,10 +401,9 @@ $$
 (3) $$(\boldsymbol{a}(t), \boldsymbol{b}(t), \boldsymbol{c}(t))' = (\boldsymbol{a}'(t), \boldsymbol{b}(t), \boldsymbol{c}(t)) + (\boldsymbol{a}(t), \boldsymbol{b}'(t), \boldsymbol{c}(t)) + (\boldsymbol{a}(t), \boldsymbol{b}(t), \boldsymbol{c}'(t))$$
 {: .block-theorem }
 
-<a id="theorem1.3"></a>
 除此之外，下面定理给出了具有特殊性质的向量函数所满足的条件，以后会经常用到：
 
-> ##### 定理1.3
+> ##### 定理1.3<a id="theorem1.3"></a>
 > 设$$\boldsymbol{a}(t)$$是一个处处非零的连续可微向量函数，则  
 (1) 向量函数$$\boldsymbol{a}(t)$$的长度是常数当且仅当$$\boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) \equiv 0$$  
 (2) 向量函数$$\boldsymbol{a}(t)$$的方向不变当且仅当$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \equiv \boldsymbol{0}$$  
