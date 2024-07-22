@@ -5,6 +5,7 @@ date: 2024-06-08
 description: 微分几何中的外微分方法
 tags: CG Math
 categories: Differential-Geometry
+pretty_table: true
 toc:
   sidebar: left
 ---

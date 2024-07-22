@@ -5,6 +5,7 @@ date: 2024-05-15
 description: 曲面的内蕴几何
 tags: CG Math
 categories: Differential-Geometry
+pretty_table: true
 toc:
   sidebar: left
 ---

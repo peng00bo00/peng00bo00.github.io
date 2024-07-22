@@ -5,6 +5,7 @@ date: 2023-12-27
 description: 曲面论基本定理
 tags: CG Math
 categories: Differential-Geometry
+pretty_table: true
 toc:
   sidebar: left
 ---

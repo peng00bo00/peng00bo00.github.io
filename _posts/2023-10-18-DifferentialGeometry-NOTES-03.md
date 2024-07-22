@@ -5,6 +5,7 @@ date: 2023-10-18
 description: 曲面的第一基本形式
 tags: CG Math
 categories: Differential-Geometry
+pretty_table: true
 toc:
   sidebar: left
 ---
