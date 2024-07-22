@@ -17,7 +17,7 @@ toc:
 
 ## 自然标架的运动公式
 
-在研究空间曲线时，我们在曲线上曲率不为零的每一个点处附加了一个确定的[Frenet标架](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)，那么Frenet标架沿曲线运动的状况便反映出曲线本身的弯曲情况。Frenet标架可以通过曲线的参数方程的导数和适当的代数运算显式地表示出来，从而$$\mathbb{E}^3$$中一条曲线可以转化为$$\mathbb{E}^3$$上所有的标架构成的空间中的一条曲线。曲线论的基本定理和存在定理都是通过标架空间中的这个单参数标架族进行证明的，因为只有这个单参数标架族在运动时给出的信息才完整地表达曲线的弯曲形状。对于空间中的正则参数曲面$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$，我们也需要以某种确定的方式在每一点附加一个标架，这个标架就是自然标架$$\{ \boldsymbol{r}; \boldsymbol{r}_u, \boldsymbol{r}_v, \boldsymbol{n} \}$$。与曲线的情形不同的是，自然标架和曲面的参数选择是有关系的，而且一般来说自然标架不是正交标架，更不是单位正交标架。当然，我们可以在曲面上取单位正交标架场，如$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{n} \}$$，其中$$\boldsymbol{e}_1$$, $$\boldsymbol{e}_2$$是曲面在该点的彼此正交的主方向单位向量。但是，主方向本身并不能够像曲线的Frenet标架那样从曲面的参数方程$$\boldsymbol{r} = \boldsymbol{r}(u, v)$$的偏导数直截了当地显式表示出来。即使我们假定在曲面上取了正交曲率线网作为曲面的参数曲线网，也只能做到$$\boldsymbol{r}_u \parallel \boldsymbol{e}_1$$，$$\boldsymbol{r}_v \parallel \boldsymbol{e}_2$$，而不是$$\boldsymbol{r}_u = \boldsymbol{e}_1$$，$$\boldsymbol{r}_v = \boldsymbol{e}_2$$。由此可见，从自然标架场出发展开我们的理论比较方便。后来Cartan发展了活动标架理论来研究微分几何学，在曲面上可以取任意的标架场，包括单位正交标架场，此时要用「微分」替代「偏导数」，因而相应地要用到外微分方法。我们将在后面介绍Cartan的活动标架和外微分法。
+在研究空间曲线时，我们在曲线上曲率不为零的每一个点处附加了一个确定的[Frenet标架]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-02/#曲线的曲率和frenet标架)，那么Frenet标架沿曲线运动的状况便反映出曲线本身的弯曲情况。Frenet标架可以通过曲线的参数方程的导数和适当的代数运算显式地表示出来，从而$$\mathbb{E}^3$$中一条曲线可以转化为$$\mathbb{E}^3$$上所有的标架构成的空间中的一条曲线。曲线论的基本定理和存在定理都是通过标架空间中的这个单参数标架族进行证明的，因为只有这个单参数标架族在运动时给出的信息才完整地表达曲线的弯曲形状。对于空间中的正则参数曲面$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$，我们也需要以某种确定的方式在每一点附加一个标架，这个标架就是自然标架$$\{ \boldsymbol{r}; \boldsymbol{r}_u, \boldsymbol{r}_v, \boldsymbol{n} \}$$。与曲线的情形不同的是，自然标架和曲面的参数选择是有关系的，而且一般来说自然标架不是正交标架，更不是单位正交标架。当然，我们可以在曲面上取单位正交标架场，如$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{n} \}$$，其中$$\boldsymbol{e}_1$$, $$\boldsymbol{e}_2$$是曲面在该点的彼此正交的主方向单位向量。但是，主方向本身并不能够像曲线的Frenet标架那样从曲面的参数方程$$\boldsymbol{r} = \boldsymbol{r}(u, v)$$的偏导数直截了当地显式表示出来。即使我们假定在曲面上取了正交曲率线网作为曲面的参数曲线网，也只能做到$$\boldsymbol{r}_u \parallel \boldsymbol{e}_1$$，$$\boldsymbol{r}_v \parallel \boldsymbol{e}_2$$，而不是$$\boldsymbol{r}_u = \boldsymbol{e}_1$$，$$\boldsymbol{r}_v = \boldsymbol{e}_2$$。由此可见，从自然标架场出发展开我们的理论比较方便。后来Cartan发展了活动标架理论来研究微分几何学，在曲面上可以取任意的标架场，包括单位正交标架场，此时要用「微分」替代「偏导数」，因而相应地要用到外微分方法。我们将在后面介绍Cartan的活动标架和外微分法。
 
 ### Einstein求和约定
 
@@ -317,7 +317,7 @@ $$
 \end{cases}
 $$
 
-称为曲面$$S$$上自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$的**运动公式**。通常把第二式$$\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} = \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n}$$称为曲面的**Gauss公式**，把第三式$$\frac{\partial \boldsymbol{n}}{\partial u^\beta} = -b_\beta^\gamma \boldsymbol{r}_\gamma$$称为曲面的**Weingarten公式**。容易知道，Weingarten公式正是[Weingarten映射$$W$$的表达式](/2023/11/10/DifferentialGeometry-NOTES-04.html#gauss曲率的几何意义)：
+称为曲面$$S$$上自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$的**运动公式**。通常把第二式$$\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} = \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n}$$称为曲面的**Gauss公式**，把第三式$$\frac{\partial \boldsymbol{n}}{\partial u^\beta} = -b_\beta^\gamma \boldsymbol{r}_\gamma$$称为曲面的**Weingarten公式**。容易知道，Weingarten公式正是[Weingarten映射$$W$$的表达式]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-04/#gauss曲率的几何意义)：
 
 $$
 \begin{pmatrix}
@@ -398,6 +398,7 @@ $$
 
 利用上一节所介绍的曲面上的自然标架场的运动公式，可以直接地证明，曲面在不计空间位置的情况下是由它的第一基本形式和第二基本形式唯一地确定的。
 
+<a id="theorem5.1"></a>
 > ##### 定理5.1 
 > 设$$S_1$$、$$S_2$$是定义在同一个参数区域$$D \subset \mathbb{E}^2$$上的两个正则参数曲面。若在每一点$$(u^1, u^2) \in D$$，曲面$$S_1$$、$$S_2$$都有相同的第一基本形式和第二基本形式，则曲面$$S_1$$、$$S_2$$在空间$$\mathbb{E}^3$$的一个刚体运动下是彼此重合的。
 {: .block-theorem }
@@ -414,7 +415,7 @@ $$
 \end{aligned}
 $$
 
-并且$$\{ \boldsymbol{r}^{(i)} (u_0); \boldsymbol{r}_1^{(i)} (u_0), \boldsymbol{r}_2^{(i)} (u_0), \boldsymbol{n}^{(i)} (u_0) \}$$，$$i=1,2$$，都是右手系。这就是说，这两个标架具有相同的度量系数和定向，因而在空间$$\mathbb{E}^3$$中存在一个刚体运动$$\sigma$$，把标架$$\{ \boldsymbol{r}^{(2)} (u_0); \boldsymbol{r}_1^{(2)} (u_0), \boldsymbol{r}_2^{(2)} (u_0), \boldsymbol{n}^{(2)} (u_0) \}$$变成标架$$\{ \boldsymbol{r}^{(1)} (u_0); \boldsymbol{r}_1^{(1)} (u_0), \boldsymbol{r}_2^{(1)} (u_0), \boldsymbol{n}^{(1)} (u_0) \}$$ (参见[定理1.1](/2023/07/30/DifferentialGeometry-NOTES-01.html#正交标架))。用$$\sigma (S_2)$$表示曲面$$S_2$$在刚体运动$$\sigma$$的作用下得到的新曲面，那么这个新的曲面与曲面$$S_1$$在点$$u_0$$处有相同的自然标架，并且由于曲面的第一类基本量和第二类基本量在曲面作刚体运动时是保持不变的，所以新的曲面$$\sigma (S_2)$$与曲面$$S_1$$在所有对应于同一个参数值的点，仍旧有相同的第一类基本量和第二类基本量。由此可见，它们的自然标架场适合同一组偏微分方程
+并且$$\{ \boldsymbol{r}^{(i)} (u_0); \boldsymbol{r}_1^{(i)} (u_0), \boldsymbol{r}_2^{(i)} (u_0), \boldsymbol{n}^{(i)} (u_0) \}$$，$$i=1,2$$，都是右手系。这就是说，这两个标架具有相同的度量系数和定向，因而在空间$$\mathbb{E}^3$$中存在一个刚体运动$$\sigma$$，把标架$$\{ \boldsymbol{r}^{(2)} (u_0); \boldsymbol{r}_1^{(2)} (u_0), \boldsymbol{r}_2^{(2)} (u_0), \boldsymbol{n}^{(2)} (u_0) \}$$变成标架$$\{ \boldsymbol{r}^{(1)} (u_0); \boldsymbol{r}_1^{(1)} (u_0), \boldsymbol{r}_2^{(1)} (u_0), \boldsymbol{n}^{(1)} (u_0) \}$$ (参见[定理1.1]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-01/#正交标架))。用$$\sigma (S_2)$$表示曲面$$S_2$$在刚体运动$$\sigma$$的作用下得到的新曲面，那么这个新的曲面与曲面$$S_1$$在点$$u_0$$处有相同的自然标架，并且由于曲面的第一类基本量和第二类基本量在曲面作刚体运动时是保持不变的，所以新的曲面$$\sigma (S_2)$$与曲面$$S_1$$在所有对应于同一个参数值的点，仍旧有相同的第一类基本量和第二类基本量。由此可见，它们的自然标架场适合同一组偏微分方程
 
 $$
 \begin{cases}
@@ -503,7 +504,7 @@ $$
 
 这说明曲面$$S_1$$和$$S_2$$是重合的。证毕∎
 
-上面的定理称为**曲面的唯一性定理**，在理论上有十分重要的意义，以后我们还要给出它的一些应用。要判断采用不同参数系的两个曲面在空间$$\mathbb{E}^3$$的一个刚体运动下是否能够重合，综合[定理3.4](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则参数曲面之间的对应)和这里的曲面唯一性定理，我们有下面的结论。
+上面的定理称为**曲面的唯一性定理**，在理论上有十分重要的意义，以后我们还要给出它的一些应用。要判断采用不同参数系的两个曲面在空间$$\mathbb{E}^3$$的一个刚体运动下是否能够重合，综合[定理3.4]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-03/#theorem3.4)和这里的曲面唯一性定理，我们有下面的结论。
 
 > ##### 定理5.2
 > 设$$S_1$$、$$S_2$$是空间$$\mathbb{E}^3$$的两个正则参数曲面，其第一基本形式和第二基本形式分别是$$\mathrm{I}_i$$和$$\mathrm{II}_i$$。如果有光滑映射$$\sigma: S_1 \rightarrow S_2$$，使得$$\sigma^* \mathrm{I}_2 = \mathrm{I}_1$$且$$\sigma^* \mathrm{II}_2 = \mathrm{II}_1$$，则曲面$$S_1$$、$$S_2$$经过$$\mathbb{E}^3$$的一个刚体运动是彼此重合的。
@@ -522,7 +523,7 @@ $$
 \end{cases}
 $$
 
-其中$$\alpha, \beta = 1, 2$$，$$g_{\alpha \beta} = g_{\beta \alpha}$$，$$b_{\alpha \beta} = b_{\beta \alpha}$$，并且$$\varphi$$是正定的，那么我们的问题是：在空间$$\mathbb{E}^3$$中是否存在参数曲面$$f: D \rightarrow \mathbb{E}^3$$，使得它以已知的微分形式$$\varphi$$、$$\psi$$作为它的第一基本形式和第二基本形式？这个问题比较复杂，需要作比较深入的分析。首先我们会看到，曲面上的第一基本形式和第二基本形式有一定的联系，并不是彼此独立的；它们必须适合一定的相容性条件，这就是我们在本节要讨论的**曲面论基本方程**。在[下一节](/2023/12/27/DifferentialGeometry-NOTES-05.html#曲面的存在性定理)要进一步证明，如果两个微分形式$$\varphi$$、$$\psi$$满足这些相容性条件，则上述问题的答案是肯定的。
+其中$$\alpha, \beta = 1, 2$$，$$g_{\alpha \beta} = g_{\beta \alpha}$$，$$b_{\alpha \beta} = b_{\beta \alpha}$$，并且$$\varphi$$是正定的，那么我们的问题是：在空间$$\mathbb{E}^3$$中是否存在参数曲面$$f: D \rightarrow \mathbb{E}^3$$，使得它以已知的微分形式$$\varphi$$、$$\psi$$作为它的第一基本形式和第二基本形式？这个问题比较复杂，需要作比较深入的分析。首先我们会看到，曲面上的第一基本形式和第二基本形式有一定的联系，并不是彼此独立的；它们必须适合一定的相容性条件，这就是我们在本节要讨论的**曲面论基本方程**。在[下一节](#曲面的存在性定理)要进一步证明，如果两个微分形式$$\varphi$$、$$\psi$$满足这些相容性条件，则上述问题的答案是肯定的。
 
 ### Riemann记号
 
@@ -636,7 +637,7 @@ R_{\alpha \delta \beta \gamma} &= g_{\delta \eta} \bigg( \frac{\partial}{\partia
 \end{aligned}
 $$
 
-上式右端的前两项用[Christoffel记号](/2023/12/27/DifferentialGeometry-NOTES-05.html#christoffel记号)的表达式代入，经整理得到
+上式右端的前两项用[Christoffel记号](#christoffel记号)的表达式代入，经整理得到
 
 $$
 \begin{aligned}
@@ -684,7 +685,7 @@ $$
 \end{cases}
 $$
 
-需要强调指出的是Gauss方程和Codazzi方程是$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的**两次偏导数与求导次序的无关性**的推论。反过来，如果Gauss方程和Codazzi方程成立，则$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的两次偏导数与求导的次序无关性也成立。这就是说，如果给定了两个二次微分形式$$\varphi = g_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，$$\psi = b_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，它们具有相应的对称性和正定性，那么我们可以利用[自然标架场的运动公式](/2023/12/27/DifferentialGeometry-NOTES-05.html#自然标架场的运动公式)构造一阶偏微分方程组，其中$$\boldsymbol{r}$$、$$\boldsymbol{r}_1$$、$$\boldsymbol{r}_2$$、$$\boldsymbol{n}$$是向量形式的未知函数(一共是12个数量未知函数)。当已知函数$$g_{\alpha \beta}$$和$$b_{\alpha \beta}$$满足Gauss-Codazzi方程时，则自然标架场的运动公式的相容性条件
+需要强调指出的是Gauss方程和Codazzi方程是$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的**两次偏导数与求导次序的无关性**的推论。反过来，如果Gauss方程和Codazzi方程成立，则$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的两次偏导数与求导的次序无关性也成立。这就是说，如果给定了两个二次微分形式$$\varphi = g_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，$$\psi = b_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，它们具有相应的对称性和正定性，那么我们可以利用[自然标架场的运动公式](#自然标架场的运动公式)构造一阶偏微分方程组，其中$$\boldsymbol{r}$$、$$\boldsymbol{r}_1$$、$$\boldsymbol{r}_2$$、$$\boldsymbol{n}$$是向量形式的未知函数(一共是12个数量未知函数)。当已知函数$$g_{\alpha \beta}$$和$$b_{\alpha \beta}$$满足Gauss-Codazzi方程时，则自然标架场的运动公式的相容性条件
 
 $$
 \begin{cases}
@@ -782,7 +783,7 @@ $$
 ，则在任意一点$$(u_0^1, u_0^2) \in D$$必有它的一个邻域$$U \subset D$$，以及在空间$$\mathbb{E}^3$$中定义在该邻域$$U$$上的一个正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$，其中$$(u^1, u^2) \in D$$，使得它的第一基本形式和第二基本形式分别是$$\varphi \vert_U$$和$$\psi \vert_U$$，并且在$$\mathbb{E}^3$$中任意两块满足上述条件的曲面必定能够在$$\mathbb{E}^3$$的一个刚体运动下彼此重合。
 {: .block-theorem }
 
-**证明** 此定理的唯一性部分正是[定理5.1](/2023/12/27/DifferentialGeometry-NOTES-05.html#曲面的唯一性定理)，所以在这里只要证明满足上述条件的曲面的存在性。利用$$\varphi$$、$$\psi$$的系数及其导数可以列出如下的一阶线性齐次偏微分方程组
+**证明** 此定理的唯一性部分正是[定理5.1](#theorem5.1)，所以在这里只要证明满足上述条件的曲面的存在性。利用$$\varphi$$、$$\psi$$的系数及其导数可以列出如下的一阶线性齐次偏微分方程组
 
 $$
 \begin{cases}
@@ -931,7 +932,7 @@ $$
 
 ### Guass绝妙定理
 
-Gauss方程本身蕴涵着一个十分精彩的结果。[曲面论基本方程](/2023/12/27/DifferentialGeometry-NOTES-05.html#gauss-codazzi方程)已经导出
+Gauss方程本身蕴涵着一个十分精彩的结果。[曲面论基本方程](#gauss-codazzi方程)已经导出
 
 $$
 b_{1 1} b_{2 2} - (b_{1 2})^2 = R_{1 2 1 2}
@@ -943,7 +944,7 @@ $$
 \frac{b_{1 1} b_{2 2} - (b_{1 2})^2}{g_{11} g_{22} - (g_{12})^2} = \frac{R_{1 2 1 2}}{g_{11} g_{22} - (g_{12})^2}
 $$
 
-注意到上式的左端是曲面$$S$$的[Gauss曲率](/2023/11/10/DifferentialGeometry-NOTES-04.html#平均曲率和gauss曲率)
+注意到上式的左端是曲面$$S$$的[Gauss曲率]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-04/#平均曲率和gauss曲率)
 
 $$
 K = \frac{b_{1 1} b_{2 2} - (b_{1 2})^2}{g_{11} g_{22} - (g_{12})^2} = \kappa_1 \kappa_2
@@ -955,7 +956,7 @@ $$
 K = \kappa_1 \kappa_2 = \frac{R_{1 2 1 2}}{g_{11} g_{22} - (g_{12})^2}
 $$
 
-这就是说，虽然曲面$$S$$的主曲率$$\kappa_1$$、$$\kappa_2$$是由曲面$$S$$在空间$$\mathbb{E}^3$$中的形状确定的，即它们是通过曲面$$S$$的第一基本形式和第二基本形式计算出来的，但是它们的乘积$$K = \kappa_1 \kappa_2$$却只依赖曲面$$S$$的第一基本形式，而与第二基本形式无关。换句话说，如果$$\mathbb{E}^3$$中的两个曲面$$S_1$$和$$S_2$$有相同的第一基本形式，而它们的第二基本形式却未必相同，则它们仍然有相同的Gauss曲率$$K$$。[定理3.5](/2023/10/18/DifferentialGeometry-NOTES-03.html#保长对应)断言，两个曲面能够建立保长对应的充分必要条件是，它们的第一基本形式相同。因此获得下面的**Guass绝妙定理(Egregium Theorem)**：
+这就是说，虽然曲面$$S$$的主曲率$$\kappa_1$$、$$\kappa_2$$是由曲面$$S$$在空间$$\mathbb{E}^3$$中的形状确定的，即它们是通过曲面$$S$$的第一基本形式和第二基本形式计算出来的，但是它们的乘积$$K = \kappa_1 \kappa_2$$却只依赖曲面$$S$$的第一基本形式，而与第二基本形式无关。换句话说，如果$$\mathbb{E}^3$$中的两个曲面$$S_1$$和$$S_2$$有相同的第一基本形式，而它们的第二基本形式却未必相同，则它们仍然有相同的Gauss曲率$$K$$。[定理3.5]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-03/#theorem3.5)断言，两个曲面能够建立保长对应的充分必要条件是，它们的第一基本形式相同。因此获得下面的**Guass绝妙定理(Egregium Theorem)**：
 
 > ##### 定理5.4
 > 曲面的Gauss 曲率是曲面在保长变换下的不变量。
@@ -971,7 +972,7 @@ $$
 
 ### 可展曲面
 
-[前面](/2023/12/27/DifferentialGeometry-NOTES-05.html#gauss-codazzi方程)提到过，当曲面$$S$$上取正交参数曲线网$$(u, v)$$时，$$F \equiv 0$$，并且
+[前面](#gauss-codazzi方程)提到过，当曲面$$S$$上取正交参数曲线网$$(u, v)$$时，$$F \equiv 0$$，并且
 
 $$
 R_{1 2 1 2} = -\sqrt{EG} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg]
@@ -983,13 +984,13 @@ $$
 K = -\frac{1}{\sqrt{EG}} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg]
 $$
 
-特别地，如果在曲面$$S$$上取[等温参数系](/2023/10/18/DifferentialGeometry-NOTES-03.html#保角对应)$$(u, v)$$，则曲面$$S$$的第一基本形式成为$$\mathrm{I} = \lambda^2 ((\mathrm{d} u)^2 + (\mathrm{d} v)^2)$$，于是它的Gauss曲率是
+特别地，如果在曲面$$S$$上取[等温参数系]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-03/#保角对应)$$(u, v)$$，则曲面$$S$$的第一基本形式成为$$\mathrm{I} = \lambda^2 ((\mathrm{d} u)^2 + (\mathrm{d} v)^2)$$，于是它的Gauss曲率是
 
 $$
 K = -\frac{1}{\lambda^2} \bigg( \frac{\partial^2}{\partial u^2} + \frac{\partial^2}{\partial v^2} \bigg) \log \lambda
 $$
 
-根据[定理3.11](/2023/10/18/DifferentialGeometry-NOTES-03.html#可展曲面-1)，可展曲面在局部上总是可以和平面的一个区域建立保长对应。因此，根据Gauss绝妙定理得知，可展曲面的Gauss曲率$$K$$恒等于零。另外，可展曲面的直母线是曲率线，因此可展曲面沿直母线的主曲率为零，由此也能得知它的Gauss曲率为零。反过来，这个条件也是判断已知曲面是可展曲面的充分条件。
+根据[定理3.11]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-03/#theorem3.11)，可展曲面在局部上总是可以和平面的一个区域建立保长对应。因此，根据Gauss绝妙定理得知，可展曲面的Gauss曲率$$K$$恒等于零。另外，可展曲面的直母线是曲率线，因此可展曲面沿直母线的主曲率为零，由此也能得知它的Gauss曲率为零。反过来，这个条件也是判断已知曲面是可展曲面的充分条件。
 
 > ##### 定理5.5
 > 空间$$\mathbb{E}^3$$的一块无脐点的曲面$$S$$是可展曲面的充分必要条件是，它的Gauss曲率$$K$$恒等于零。
@@ -1060,11 +1061,11 @@ $$
 > 无脐点曲面$$S$$是可展曲面的充分必要条件是是它能够和一块平面建立保长对应。
 {: .block-theorem }
 
-**证明** [定理3.11](/2023/10/18/DifferentialGeometry-NOTES-03.html#可展曲面-1)已经证明可展曲面可以和一块平面建立保长对应。现在假定曲面$$S$$能够和一块平面建立保长对应，则根据Gauss绝妙定理，曲面$$S$$的Gauss曲率恒等于零，因而由定理5.5得知曲面$$S$$是可展曲面。证毕∎
+**证明** [定理3.11]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-03/#theorem3.11)已经证明可展曲面可以和一块平面建立保长对应。现在假定曲面$$S$$能够和一块平面建立保长对应，则根据Gauss绝妙定理，曲面$$S$$的Gauss曲率恒等于零，因而由定理5.5得知曲面$$S$$是可展曲面。证毕∎
 
 ### 法曲率
 
-下面我们要证明一个重要的定理，它说明在一般情形下曲面的[法曲率](/2023/11/10/DifferentialGeometry-NOTES-04.html#法曲率)的确包含了曲面形状的全部信息。
+下面我们要证明一个重要的定理，它说明在一般情形下曲面的[法曲率]({{ site.baseurl }}/blog/2023/DifferentialGeometry-NOTES-04/#法曲率)的确包含了曲面形状的全部信息。
 
 > ##### 定理5.7
 > 设$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到$$S_2$$的连续可微映射，其中曲面$$S_1$$没有脐点，并且它的Gauss曲率$$K$$不为零。如果曲面$$S_1$$和$$S_2$$在所有的对应点、沿所有的对应切方向的法曲率保持不变，则有空间$$\mathbb{E}^3$$中的一个刚体运动$$\tilde{\sigma}: \mathbb{E}^3 \rightarrow \mathbb{E}^3$$使得$$\sigma = \tilde{\sigma} \vert_{S_1}$$。
@@ -1177,4 +1178,4 @@ $$
 \lambda = 1
 $$
 
-由此可见，曲面$$S_1$$和$$S_2$$有相同的第一基本形式和第二基本形式。根据[定理5.2](/2023/12/27/DifferentialGeometry-NOTES-05.html#曲面的唯一性定理)，在空间$$\mathbb{E}^3$$中存在一个刚体运动$$\tilde{\sigma}$$使得$$\sigma = \tilde{\sigma} \vert_{S_1}$$。证毕∎
+由此可见，曲面$$S_1$$和$$S_2$$有相同的第一基本形式和第二基本形式。根据[定理5.2](#曲面的唯一性定理)，在空间$$\mathbb{E}^3$$中存在一个刚体运动$$\tilde{\sigma}$$使得$$\sigma = \tilde{\sigma} \vert_{S_1}$$。证毕∎

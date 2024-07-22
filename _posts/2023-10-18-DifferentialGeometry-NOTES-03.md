@@ -859,7 +859,8 @@ $$
 
 下面我们利用引理证明一个比正交参数系的存在性更一般的命题：
 
-> ##### 定理3.2<a id="theorem3.2"></a>
+<a id="theorem3.2"></a>
+> ##### 定理3.2
 > 假定在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上两个处处线性无关的连续可微的切向量场$$\boldsymbol{a} (u, v)$$，$$\boldsymbol{b} (u, v)$$，则对于每一点$$p \in S$$必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$分别与$$\boldsymbol{a}$$，$$\boldsymbol{b}$$平行，即$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{b}$$。
 {: .block-theorem }
 
@@ -1072,7 +1073,8 @@ $$
 
 定理3.2的意思是在曲面上存在局部适用的参数系，使得参数曲线分别与预先给定的处处线性无关的切向量场相切(即以已知的切向量场作为参数曲线的方向场)。但是，一般来说，要使已知的切向量场恰好是参数曲线的切向量场(即$$\boldsymbol{r}_{\tilde{u}} = \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{v}} = \boldsymbol{b}$$)是做不到的。
 
-> ##### 定理3.3<a id="theorem3.3"></a>
+<a id="theorem3.3"></a>
+> ##### 定理3.3
 > 在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的每一点$$p \in S$$，必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$是彼此正交的，即$$(\tilde{u}, \tilde{v})$$是曲面$$S$$在$$U$$上的正交参数系。
 {: .block-theorem }
 
@@ -1265,7 +1267,8 @@ $$
 \neq 0
 $$
 
-> ##### 定理3.4<a id="theorem3.4"></a>
+<a id="theorem3.4"></a>
+> ##### 定理3.4
 > 设$$\sigma: S_1 \rightarrow S_2$$是从正则参数曲面$$S_1$$到正则参数曲面$$S_2$$的3次以上的连续可微映射。如果在点$$p \in S_1$$，切映射$$\sigma_{*p}: T_p S_1 \rightarrow T_{\sigma(p)} S_2$$是切空间$$T_p S_1$$和$$T_{\sigma(p)} S_2$$之间的同构，则有点$$p$$在$$S_1$$中的邻域$$U_1$$和点$$\sigma(p)$$在$$S_2$$中的邻域$$U_2$$，以及相应的参数系$$(u_1, v_1)$$和$$(u_2, v_2)$$，使得$$\sigma(U_1) \subset U_2$$，并且映射$$\sigma \vert_{U_1}$$是由$$u_2 = u_1$$，$$v_2 = v_1$$给出的。换言之，适当地选取曲面$$S_1$$和$$S_2$$上的参数系之后，映射$$\sigma\vert_{U_1}$$是从参数域$$U_1$$到$$U_2$$的、有相同参数值的点之间的对应。使映射$$\sigma$$能够由$$u_2 = u_1$$，$$v_2 = v_1$$给出的参数系$$(u_1, v_1)$$和$$(u_2, v_2)$$称为在曲面$$S_1$$和$$S_2$$上关于映射$$\sigma$$的**适用参数系**。
 {: .block-theorem }
 
@@ -1478,6 +1481,7 @@ $$
 
 这里$$E_2$$，$$F_2$$，$$G_2$$是曲面$$S_2$$的第一类基本量。由此得到下面的定理：
 
+<a id="theorem3.5"></a>
 > ##### 定理3.5
 > 假定正则参数曲面$$S_1$$和$$S_2$$的第一基本形式分别是$$\mathrm{I}_1$$和$$\mathrm{I}_2$$，则$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保长对应的充分必要条件是$$\mathrm{I}_1 = \sigma^* \mathrm{I}_2$$，换言之
 $$
@@ -1782,7 +1786,8 @@ $$
 
 前面的讨论说明，柱面、锥面和一条空间曲线的切线面都是可展曲面。下面的命题给出了一个直纹面是可展曲面的条件。
 
-> ##### 定理3.9<a id="theorem3.9"></a>
+<a id="theorem3.9"></a>
+> ##### 定理3.9
 > 设直纹面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{a} (u) + v \boldsymbol{l} (u)$$，则$$S$$是可展曲面的充分必要条件是向量函数$$\boldsymbol{a} (u)$$，$$\boldsymbol{l} (u)$$满足方程
 $$
 \big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0
@@ -1904,6 +1909,7 @@ $$
 
 可展曲面的另一个特征是它和平面在局部上可以建立[保长对应](#保长对应)。在直观上，柱面和锥面都能够在不作伸缩的情况下展开成平面,正好体现了上面所述的特征。它的逆命题也成立，留待后面再来证明。
 
+<a id="theorem3.11"></a>
 > ##### 定理3.11
 > 可展曲面在局部上可以和平面建立保长对应。
 {: .block-theorem }

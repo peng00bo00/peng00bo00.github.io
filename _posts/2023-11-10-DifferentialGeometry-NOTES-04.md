@@ -372,7 +372,8 @@ $$
 
 ### 球面的第二基本形式
 
-> ##### 定理4.2<a id="theorem4.2"></a>
+<a id="theorem4.2"></a>
+> ##### 定理4.2
 > 一块正则曲面是球面的一部分，当且仅当在曲面上的每一点，它的第二基本形式是第一基本形式的非零倍数。
 {: .block-theorem }
 
@@ -996,7 +997,8 @@ $$
 
 现在可以把[Euler公式](#euler公式)重新叙述成如下定理：
 
-> ##### 定理4.10 (Euler公式)<a id="euler-formula"></a>
+<a id="euler-formula"></a>
+> ##### 定理4.10 (Euler公式)
 > 设$$\boldsymbol{e}_1$$、$$\boldsymbol{e}_2$$是曲面$$S$$在点$$p$$处的两个彼此正交的主方向单位向量，对应的主曲率是$$\kappa_1$$、$$\kappa_2$$，则曲面$$S$$在点$$p$$处沿任意一个切向量$$\boldsymbol{e} = \cos{\theta} \boldsymbol{e}_1 + \sin{\theta} \boldsymbol{e}_2$$的法曲率是
 $$
 \kappa_n (\theta) = \kappa_1 \cos^2{\theta} + \kappa_2 \sin^2{\theta}
@@ -1293,7 +1295,8 @@ $$
 
 对于固定的点，上式是求主方向$$(\mathrm{d} u, \mathrm{d} v)$$的方程；而如果把$$(u, v)$$看作动点，则上式是曲面上曲率线所满足的微分方程。
 
-> ##### 定理4.14<a id="theorem4.14"></a>
+<a id="theorem4.14"></a>
+> ##### 定理4.14
 > 在曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的任意一个固定点$$(u, v)$$，参数曲线的方向是彼此正交的主方向当且仅当在该点有$$F = M = 0$$。此时，$$u$$-曲线方向的主曲率是$$\kappa_1 = \frac{L}{E}$$，$$v$$-曲线方向的主曲率是$$\kappa_2 = \frac{N}{G}$$。
 {: .block-theorem }
 

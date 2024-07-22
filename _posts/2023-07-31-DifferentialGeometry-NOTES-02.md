@@ -358,7 +358,8 @@ $$
 > 设$$\boldsymbol{\beta}$$和$$\boldsymbol{\gamma}$$分别是曲线$$C$$的主法向量和次法向量，其中$$s$$是弧长参数，则$$\tau(s) = -\boldsymbol{\gamma}'(s) \cdot \boldsymbol{\beta} (s)$$称为曲线$$C$$的**挠率**。
 {: .block-definition }
 
-> ##### 定理2.4<a id="theorem2.4"></a>
+<a id="theorem2.4"></a>
+> ##### 定理2.4
 > 设曲线$$C$$不是直线，则它是平面曲线当且仅当它的挠率为零。
 {: .block-theorem }
 
