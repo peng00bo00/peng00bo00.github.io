@@ -1188,10 +1188,43 @@ $$
 因此欧式空间$$\mathbb{E}^3$$上的单位正交活动标架的相对分量在实质上只有6个，它们是
 
 $$
-\Omega^1, \Omega^2, \Omega^3, \Omega_1^2 = -\Omega_2^1, \Omega_1^3 = -\Omega_3^1, \Omega_2^3 = -\Omega_3^2
+\Omega^1, \ \ \ \Omega^2, \ \ \ \Omega^3, \\ \Omega_1^2 = -\Omega_2^1, \ \ \ \Omega_1^3 = -\Omega_3^1, \ \ \ \Omega_2^3 = -\Omega_3^2
 $$
 
 这些一次微分式定义在$$\mathbb{R}^{12}$$中的6维曲面$$\tilde{\mathfrak{F}}$$上。
+
+### 标架空间的结构方程
+
+> ##### 定理7.7
+> 欧式空间$$\mathbb{E}^3$$上的活动标架的相对分量$$\Omega^j$$，$$\Omega_i^j$$满足下列方程式:  
+> $$\mathrm{d} \Omega^j = \Omega^k \wedge \Omega_k^j, \ \ \ \mathrm{d} \Omega_i^j = \Omega_i^k \wedge \Omega_k^j$$  
+> 这组方程称为欧氏空间$$\mathbb{E}^3$$上的标架空间$$\mathfrak{F}$$的**结构方程**。
+{: .block-theorem }
+
+**证明** 标架的位置向量$$\mathrm{d}(\overrightarrow{Op})$$相当于函数$$a_1$$，$$a_2$$，$$a_3$$，而每一个标架向量$$\boldsymbol{e}_i$$相当于函数$$a_{i1}$$，$$a_{i2}$$，$$a_{i3}$$，所以$$\mathrm{d}(\overrightarrow{Op})$$和$$\boldsymbol{e}_i$$实际上是标架空间$$\mathfrak{F}$$中的12个坐标函数。根据外微分的性质得到
+
+$$
+\mathrm{d} (\mathrm{d} (\overrightarrow{Op}) ) = \boldsymbol{0}, \ \ \
+\mathrm{d} (\mathrm{d} \boldsymbol{e}_i ) = \boldsymbol{0}
+$$
+
+代入[活动标架的运动方程](#equation-of-moving-frame)得到
+
+$$
+\begin{aligned}
+\boldsymbol{0} &= \mathrm{d} (\mathrm{d} (\overrightarrow{Op}) ) = \sum_{j=1}^3 \mathrm{d} (\Omega^j \boldsymbol{e}_j) = \sum_{j=1}^3 ( \mathrm{d} \Omega^j \boldsymbol{e}_j - \Omega^j \wedge \mathrm{d} \boldsymbol{e}_j ) \\
+&= \sum_{j=1}^3 \bigg( \mathrm{d} \Omega^j - \sum_{k=1}^3 \Omega^k \wedge \Omega_k^j \bigg) \boldsymbol{e}_j
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\boldsymbol{0} &= \mathrm{d} (\mathrm{d} \boldsymbol{e}_i) = \sum_{j=1}^3 \mathrm{d} ( \Omega_i^j \boldsymbol{e}_j ) = \sum_{j=1}^3 (\mathrm{d} \Omega_i^j \boldsymbol{e}_j - \Omega_i^j \wedge \mathrm{d} \boldsymbol{e}_j) \\
+&= \sum_{j=1}^3 \bigg( \mathrm{d} \Omega_i^j - \sum_{k=1}^3 \Omega_i^k \wedge \Omega_k^j  \bigg) \boldsymbol{e}_j
+\end{aligned}
+$$
+
+因为$$\boldsymbol{e}_1$$，$$\boldsymbol{e}_2$$，$$\boldsymbol{e}_3$$是线性无关的，因此上式终端的系数必须为零。证毕∎
 
 ## 曲面上的正交标架场
 
