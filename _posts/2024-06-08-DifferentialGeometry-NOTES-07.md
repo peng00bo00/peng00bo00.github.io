@@ -991,6 +991,208 @@ $$
 
 ## E³中的标架族
 
+### 活动标架的运动公式
+
+在[第一章](/blog/2023/DifferentialGeometry-NOTES-01/#正交标架)中， 我们已经讨论过由$$\mathbb{E}^3$$中的标架的全体所组成的12维空间。具体一点说，就是在$$\mathbb{E}^3$$中取定一个右手单位正交标架$$\{ O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$，那么在$$\mathbb{E}^3$$中的任意一个右手标架$$\{ p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$都可以表示成
+
+$$
+\begin{pmatrix}
+\overrightarrow{Op} \\ \boldsymbol{e}_1 \\ \boldsymbol{e}_2 \\ \boldsymbol{e}_3
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_1 & a_2 & a_3 \\
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{i} \\ \boldsymbol{j} \\ \boldsymbol{k}
+\end{pmatrix}
+$$
+
+并且条件
+
+$$
+\begin{vmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+\end{vmatrix}
+\gt 0
+$$
+
+成立。因此，$$\mathbb{E}^3$$中全体右手标架的集合$$\mathfrak{F}$$是$$\mathbb{R}^{12}$$中满足行列式大于0条件的区域$$D$$，位于区域中的点的坐标就是
+
+$$
+(a_1, a_2, a_3, a_{11}, a_{12}, \cdots, a_{33})
+$$
+
+如果$$\{ p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$是右手单位正交标架，则除了满足行列式大于0条件外，它还要满足方程
+
+$$
+\boldsymbol{e}_i \cdot \boldsymbol{e}_j = \delta_{ij}, \ \ \ 1 \leq i, j \leq 3
+$$
+
+即
+
+$$
+\begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\ 
+a_{21} & a_{22} & a_{23} \\ 
+a_{31} & a_{32} & a_{33} \\ 
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+a_{11} & a_{12} & a_{33} \\ 
+a_{12} & a_{22} & a_{32} \\ 
+a_{13} & a_{22} & a_{33} \\ 
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0 & 0 \\ 
+0 & 1 & 0 \\ 
+0 & 0 & 1 \\ 
+\end{pmatrix}
+$$
+
+因此$$\mathbb{E}^3$$中全体右手标架的集合$$\mathfrak{F}$$是$$\mathbb{R}^{12}$$中满足上述条件的一张6维(代数)曲面。
+
+现在我们来考察标架$$\{ p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$的无穷小位移，也就是标架原点$$p$$和标架向量$$\boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3$$的微分，则有
+
+$$
+\begin{pmatrix}
+\mathrm{d}(\overrightarrow{Op}) \\ \mathrm{d} \boldsymbol{e}_1 \\ \mathrm{d} \boldsymbol{e}_2 \\ \mathrm{d} \boldsymbol{e}_3
+\end{pmatrix}
+=
+\begin{pmatrix}
+\mathrm{d} a_1 & \mathrm{d} a_2 & \mathrm{d} a_3 \\
+\mathrm{d} a_{11} & \mathrm{d} a_{12} & \mathrm{d} a_{13} \\
+\mathrm{d} a_{21} & \mathrm{d} a_{22} & \mathrm{d} a_{23} \\
+\mathrm{d} a_{31} & \mathrm{d} a_{32} & \mathrm{d} a_{33} \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{i} \\ \boldsymbol{j} \\ \boldsymbol{k}
+\end{pmatrix}
+$$
+
+但是$$\{ \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$是线性无关的，因此基底$$\{ \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$反过来可以用$$\{ \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$来表示，即
+
+$$
+\begin{pmatrix}
+\boldsymbol{i} \\ \boldsymbol{j} \\ \boldsymbol{k}
+\end{pmatrix}
+=
+\begin{pmatrix}
+b_{11} & b_{12} & b_{13} \\ 
+b_{21} & b_{22} & b_{23} \\ 
+b_{31} & b_{32} & b_{33} \\ 
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2 \\ \boldsymbol{e}_3
+\end{pmatrix}
+$$
+
+其中系数矩阵
+
+$$
+\begin{pmatrix}
+b_{11} & b_{12} & b_{13} \\ 
+b_{21} & b_{22} & b_{23} \\ 
+b_{31} & b_{32} & b_{33} \\ 
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\ 
+a_{21} & a_{22} & a_{23} \\ 
+a_{31} & a_{32} & a_{33} \\ 
+\end{pmatrix}^{-1}
+$$
+
+将上式代入标架向量的微分得到
+
+$$
+\begin{pmatrix}
+\mathrm{d}(\overrightarrow{Op}) \\ \mathrm{d} \boldsymbol{e}_1 \\ \mathrm{d} \boldsymbol{e}_2 \\ \mathrm{d} \boldsymbol{e}_3
+\end{pmatrix}
+=
+\begin{pmatrix}
+\mathrm{d} a_1 & \mathrm{d} a_2 & \mathrm{d} a_3 \\
+\mathrm{d} a_{11} & \mathrm{d} a_{12} & \mathrm{d} a_{13} \\
+\mathrm{d} a_{21} & \mathrm{d} a_{22} & \mathrm{d} a_{23} \\
+\mathrm{d} a_{31} & \mathrm{d} a_{32} & \mathrm{d} a_{33} \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+b_{11} & b_{12} & b_{13} \\ 
+b_{21} & b_{22} & b_{23} \\ 
+b_{31} & b_{32} & b_{33} \\ 
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2 \\ \boldsymbol{e}_3
+\end{pmatrix}
+$$
+
+展开以后得到
+
+<a id="equation-of-moving-frame"></a>
+$$
+\mathrm{d} (\overrightarrow{Op}) = \Omega^1 \boldsymbol{e}_1 + \Omega^2 \boldsymbol{e}_2 + \Omega^3 \boldsymbol{e}_3 \\
+\mathrm{d} \boldsymbol{e}_i = \Omega_i^1 \boldsymbol{e}_1 + \Omega_i^2 \boldsymbol{e}_2 + \Omega_i^3 \boldsymbol{e}_3
+$$
+
+其中
+
+$$
+\Omega^j = \sum_{k=1}^3 \mathrm{d} a_k \cdot b_{kj}, \ \ \
+\Omega_i^j = \sum_{k=1}^3 \mathrm{d} a_{ik} \cdot b_{kj}, \ \ \
+1 \leq i, j \leq 3
+$$
+
+向这里的$$\Omega^j$$，$$\Omega_i^j$$是区域$$D$$上的12个一次微分式，称为欧式空间$$\mathbb{E}^3$$上的活动标架的**相对分量**。[方程](#equation-of-moving-frame)称为活动标架的运动公式。
+
+上面的讨论对于欧氏空间$$\mathbb{E}^3$$上的单位正交活动标架也是适用的，只是现在要求矩阵$$(a_{ij})$$是正交矩阵，即
+
+$$
+\begin{pmatrix}
+b_{11} & b_{12} & b_{13} \\ 
+b_{21} & b_{22} & b_{23} \\ 
+b_{31} & b_{32} & b_{33} \\ 
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11} & a_{21} & a_{31} \\ 
+a_{12} & a_{22} & a_{32} \\ 
+a_{13} & a_{23} & a_{33} \\ 
+\end{pmatrix}
+$$
+
+因此欧式空间$$\mathbb{E}^3$$上的单位正交活动标架的相对分量是
+
+$$
+\Omega^j = \sum_{k=1}^3 a_{jk} \cdot \mathrm{d} a_k, \ \ \
+\Omega_i^j = \sum_{k=1}^3 a_{jk} \cdot \mathrm{d} a_{ik}, \ \ \
+1 \leq i, j \leq 3
+$$
+
+另外，容易得知
+
+$$
+\Omega_i^j = - \Omega_j^i, \ \ \ 1 \leq i, j \leq 3
+$$
+
+因此欧式空间$$\mathbb{E}^3$$上的单位正交活动标架的相对分量在实质上只有6个，它们是
+
+$$
+\Omega^1, \Omega^2, \Omega^3, \Omega_1^2 = -\Omega_2^1, \Omega_1^3 = -\Omega_3^1, \Omega_2^3 = -\Omega_3^2
+$$
+
+这些一次微分式定义在$$\mathbb{R}^{12}$$中的6维曲面$$\tilde{\mathfrak{F}}$$上。
+
 ## 曲面上的正交标架场
 
 ## 曲面上的曲线
