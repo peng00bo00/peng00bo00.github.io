@@ -1141,8 +1141,10 @@ $$
 
 <a id="equation-of-moving-frame"></a>
 $$
+\begin{cases}
 \mathrm{d} (\overrightarrow{Op}) = \Omega^1 \boldsymbol{e}_1 + \Omega^2 \boldsymbol{e}_2 + \Omega^3 \boldsymbol{e}_3 \\
 \mathrm{d} \boldsymbol{e}_i = \Omega_i^1 \boldsymbol{e}_1 + \Omega_i^2 \boldsymbol{e}_2 + \Omega_i^3 \boldsymbol{e}_3
+\end{cases}
 $$
 
 其中
@@ -1188,7 +1190,7 @@ $$
 因此欧式空间$$\mathbb{E}^3$$上的单位正交活动标架的相对分量在实质上只有6个，它们是
 
 $$
-\Omega^1, \ \ \ \Omega^2, \ \ \ \Omega^3, \\ \Omega_1^2 = -\Omega_2^1, \ \ \ \Omega_1^3 = -\Omega_3^1, \ \ \ \Omega_2^3 = -\Omega_3^2
+\Omega^1, \ \ \ \Omega^2, \ \ \ \Omega^3, \ \ \ \Omega_1^2 = -\Omega_2^1, \ \ \ \Omega_1^3 = -\Omega_3^1, \ \ \ \Omega_2^3 = -\Omega_3^2
 $$
 
 这些一次微分式定义在$$\mathbb{R}^{12}$$中的6维曲面$$\tilde{\mathfrak{F}}$$上。
