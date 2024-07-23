@@ -1200,7 +1200,7 @@ $$
 
 > ##### 定理7.7
 > 欧式空间$$\mathbb{E}^3$$上的活动标架的相对分量$$\Omega^j$$，$$\Omega_i^j$$满足下列方程式:  
-> $$\mathrm{d} \Omega^j = \Omega^k \wedge \Omega_k^j, \ \ \ \mathrm{d} \Omega_i^j = \Omega_i^k \wedge \Omega_k^j$$  
+> <center> $$\mathrm{d} \Omega^j = \Omega^k \wedge \Omega_k^j, \ \ \ \mathrm{d} \Omega_i^j = \Omega_i^k \wedge \Omega_k^j$$ </center>  
 > 这组方程称为欧氏空间$$\mathbb{E}^3$$上的标架空间$$\mathfrak{F}$$的**结构方程**。
 {: .block-theorem }
 
