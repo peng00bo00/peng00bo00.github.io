@@ -946,6 +946,8 @@ $$
 
 其中指标$$\alpha_1, ..., \alpha_r$$的取值范围从1到$$m$$，指标$$i_1, ..., i_r$$的取值范围从1到$$n$$，并且上式使用了Einstein和式约定。通常，我们把$$\sigma^* \tilde{\varphi}$$称为区域$$\tilde{D}$$上的$$r$$次外微分式$$\tilde{\varphi}$$通过映射$$\sigma$$在区域$$D$$上的**拉回**。
 
+<a id="theorem7.6"></a>
+
 > ##### 定理7.6
 > 设$$\sigma: \tilde{D} \rightarrow D$$是连续可微映射，则对区域$$\tilde{D}$$上的任意外微分式$$\tilde{\varphi}$$、$$\tilde{\psi}$$有下面的等式：  
 (1) $$\sigma^* (\varphi + \psi) = \sigma^* \varphi + \sigma^* \psi $$  
@@ -1280,9 +1282,26 @@ $$
 
 > ##### 定理7.8
 > 欧式空间$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的任意一个标架族$$\{ p(u^\alpha); \boldsymbol{e}_1(u^\alpha), \boldsymbol{e}_2(u^\alpha), \boldsymbol{e}_3(u^\alpha) \}$$的相对分量$$\omega^j$$，$$\omega_i^j$$必定满足结构方程    
-> <center> $$\mathrm{d} \omega^j = \sum_{k=1}^3 \omega^k \wedge \omega_k^j, \ \ \ \mathrm{d} \omega_i^j = \sum_{k=1}^3 \omega_i^k \wedge \omega_k^j$$ </center>  
-> 。
+> <center> $$\mathrm{d} \omega^j = \sum_{k=1}^3 \omega^k \wedge \omega_k^j, \ \ \ \mathrm{d} \omega_i^j = \sum_{k=1}^3 \omega_i^k \wedge \omega_k^j$$ </center>
 {: .block-theorem }
+
+**证明** 根据[定理7.6](#theorem7.6)可以得到
+
+$$
+\begin{aligned}
+\mathrm{d} \omega^j &= \mathrm{d} (\sigma^* \Omega^j) = \sigma^* \mathrm{d} \Omega^j = \sigma^* \bigg( \sum_{k=1}^3 \Omega^k \wedge \Omega_k^j \bigg) \\
+&= \sum_{k=1}^3 \sigma^* \Omega^k \wedge \sigma^* \Omega_k^j = \sum_{k=1}^3 \omega^k \wedge \omega_k^j
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\mathrm{d} \omega_i^j &= \mathrm{d} (\sigma^* \Omega_i^j) = \sigma^* \mathrm{d} \Omega_i^j = \sigma^* \bigg( \sum_{k=1}^3 \Omega_i^k \wedge \Omega_k^j \bigg) \\
+&= \sum_{k=1}^3 \sigma^* \Omega_i^k \wedge \sigma^* \Omega_k^j = \sum_{k=1}^3 \omega_i^k \wedge \omega_k^j
+\end{aligned}
+$$
+
+证毕∎
 
 结构方程的重要性在于上述定理的逆定理成立，即结构方程成立是使标架族存在、且以给定的一组一次微分式$$\omega^j$$，$$\omega_i^j$$，$$1 \leq i, j \leq 3$$为其相对分最的充分条件。具体地说，我们有下面的定理：
 
@@ -1300,7 +1319,7 @@ $$
 > 则在欧式空间$$\mathbb{E}^3$$中有依赖$$r$$个参数$$u^1, \cdots, u^r$$的右手单位正交标架族$$\{ p(u^\alpha); \boldsymbol{e}_1(u^\alpha), \boldsymbol{e}_2(u^\alpha), \boldsymbol{e}_3(u^\alpha) \}$$以$$\omega^j$$，$$\omega_i^j$$为它的相对分量，并且任意两个这样的右手单位正交标架族可以通过空间$$\mathbb{E}^3$$的一个刚体运动彼此重合。
 {: .block-theorem }
 
-定理7.9和定理7.9′，实际上要化为在证明曲面存在定理时用到的一阶线性齐次偏微分方程组的求解问题，而结构方程相当于这组偏微分方程组的完全可积条件。
+定理7.9和定理7.9′的证明，实际上要化为在证明曲面存在定理时用到的一阶线性齐次偏微分方程组的求解问题，而结构方程相当于这组偏微分方程组的完全可积条件。
 
 ## 曲面上的正交标架场
 
