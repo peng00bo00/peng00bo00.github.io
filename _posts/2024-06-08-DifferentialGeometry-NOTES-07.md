@@ -994,6 +994,8 @@ $$
 
 在[第一章](/blog/2023/DifferentialGeometry-NOTES-01/#正交标架)中， 我们已经讨论过由$$\mathbb{E}^3$$中的标架的全体所组成的12维空间。具体一点说，就是在$$\mathbb{E}^3$$中取定一个右手单位正交标架$$\{ O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$，那么在$$\mathbb{E}^3$$中的任意一个右手标架$$\{ p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$都可以表示成
 
+<a id="frame-definition"></a>
+
 $$
 \begin{pmatrix}
 \overrightarrow{Op} \\ \boldsymbol{e}_1 \\ \boldsymbol{e}_2 \\ \boldsymbol{e}_3
@@ -1141,10 +1143,10 @@ $$
 <a id="equation-of-moving-frame"></a>
 
 $$
-\begin{cases}
-\mathrm{d} (\overrightarrow{Op}) = \Omega^1 \boldsymbol{e}_1 + \Omega^2 \boldsymbol{e}_2 + \Omega^3 \boldsymbol{e}_3 \\
-\mathrm{d} \boldsymbol{e}_i = \Omega_i^1 \boldsymbol{e}_1 + \Omega_i^2 \boldsymbol{e}_2 + \Omega_i^3 \boldsymbol{e}_3
-\end{cases}
+\begin{aligned}
+\mathrm{d} (\overrightarrow{Op}) &= \Omega^1 \boldsymbol{e}_1 + \Omega^2 \boldsymbol{e}_2 + \Omega^3 \boldsymbol{e}_3 \\
+\mathrm{d} \boldsymbol{e}_i &= \Omega_i^1 \boldsymbol{e}_1 + \Omega_i^2 \boldsymbol{e}_2 + \Omega_i^3 \boldsymbol{e}_3
+\end{aligned}
 $$
 
 其中
@@ -1199,7 +1201,7 @@ $$
 
 > ##### 定理7.7
 > 欧式空间$$\mathbb{E}^3$$上的活动标架的相对分量$$\Omega^j$$，$$\Omega_i^j$$满足下列方程式:  
-> <center> $$\mathrm{d} \Omega^j = \Omega^k \wedge \Omega_k^j, \ \ \ \mathrm{d} \Omega_i^j = \Omega_i^k \wedge \Omega_k^j$$ </center>  
+> <center> $$\mathrm{d} \Omega^j = \sum_{k=1}^3 \Omega^k \wedge \Omega_k^j, \ \ \ \mathrm{d} \Omega_i^j = \sum_{k=1}^3 \Omega_i^k \wedge \Omega_k^j$$ </center>  
 > 这组方程称为欧氏空间$$\mathbb{E}^3$$上的标架空间$$\mathfrak{F}$$的**结构方程**。
 {: .block-theorem }
 
@@ -1227,6 +1229,78 @@ $$
 $$
 
 因为$$\boldsymbol{e}_1$$，$$\boldsymbol{e}_2$$，$$\boldsymbol{e}_3$$是线性无关的，因此上式终端的系数必须为零。证毕∎
+
+欧式空间$$\mathbb{E}^3$$上的单位正交标架空间$$\tilde{\mathfrak{F}}$$有相同的结构方程，但是由于外微分式$$\Omega_i^j$$关于指标有反对称性，故结构方程成为
+
+<a id="equation-of-moving-frame-E3"></a>
+
+$$
+\begin{aligned}
+\mathrm{d} \Omega^j &= \sum_{i=1}^3 \Omega^k \wedge \Omega_k^j \\
+\mathrm{d} \Omega_1^2 &= \Omega_1^3 \wedge \Omega_3^2 = -\Omega_1^3 \wedge \Omega_2^3 \\
+\mathrm{d} \Omega_1^3 &= \Omega_1^2 \wedge \Omega_2^3 \\
+\mathrm{d} \Omega_2^3 &= \Omega_2^1 \wedge \Omega_1^3 = \Omega_1^3 \wedge \Omega_1^2 \\
+\end{aligned}
+$$
+
+下面我们考虑欧氏空间$$\mathbb{E}^3$$中依赖$$r$$个参数的标架族。设变量$$(u^1, \cdots, u^r)$$的定义域是空间$$\mathbb{R}^r$$中的一个区域$$\tilde{D}$$，那么所谓的$$\mathbb{E}^3$$中依赖$$r$$个参数的标架族是指从$$r$$维区域$$\tilde{D}$$到标架空间$$\mathfrak{F}$$中的一个连续可微映射$$\sigma: \tilde{D} \rightarrow \mathfrak{F}$$，即有12个连续可微函数
+
+$$
+a_i = a_i (u^1, \cdots, u^r), \ \ \
+a_{ij} = a_{ij} (u^1, \cdots, u^r)
+$$
+
+其中$$\det{(a_{ij}(u^\alpha))} \gt 0$$。把$$u^1, \cdots, u^r$$看作自变量，将上式代入[标架的定义方程](#frame-definition)并求微分，故有
+
+$$
+\mathrm{d} (\overrightarrow{Op}) = \sum_{i=1}^3 \omega^k \boldsymbol{e}_k, \ \ \
+\mathrm{d} \boldsymbol{e}_i = \sum_{i=1}^3 \omega_i^k \boldsymbol{e}_k
+$$
+
+很明显
+
+$$
+\omega^k = \sigma^* \Omega^k, \ \ \ 
+\omega_i^k = \sigma^* \Omega_i^k
+$$
+
+它们是$$r$$维区域$$\tilde{D}$$上的一次微分式，称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的相对分量。[上式](#equation-of-moving-frame-E3)称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的运动公式。
+
+如果考虑欧式空间$$\mathbb{E}^3$$中依赖$$r$$个参数的单位正交标架族，则它是从$$r$$维区域$$\tilde{D}$$到标架空间$$\tilde{\mathfrak{F}}$$中的一个连续可微映射$$\sigma: \tilde{D} \rightarrow \tilde{\mathfrak{F}}$$，换言之，这12个函数$$a_i = a_i (u^1, \cdots, u^r)$$，$$a_{ij} = a_{ij} (u^1, \cdots, u^r)$$还要满足条件
+
+$$
+\sum_{k=1}^3 a_{ik} (u^1, \cdots, u^r) a_{jk} (u^1, \cdots, u^r) = \delta_{ij}
+$$
+
+相应地，相对分量$$\omega^j$$，$$\Omega_i^j$$满足关系式
+
+$$
+\omega_i^j + \omega_j^i = 0
+$$
+
+> ##### 定理7.8
+> 欧式空间$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的任意一个标架族$$\{ p(u^\alpha); \boldsymbol{e}_1(u^\alpha), \boldsymbol{e}_2(u^\alpha), \boldsymbol{e}_3(u^\alpha) \}$$的相对分量$$\omega^j$$，$$\omega_i^j$$必定满足结构方程    
+> <center> $$\mathrm{d} \omega^j = \sum_{k=1}^3 \omega^k \wedge \omega_k^j, \ \ \ \mathrm{d} \omega_i^j = \sum_{k=1}^3 \omega_i^k \wedge \omega_k^j$$ </center>  
+> 。
+{: .block-theorem }
+
+结构方程的重要性在于上述定理的逆定理成立，即结构方程成立是使标架族存在、且以给定的一组一次微分式$$\omega^j$$，$$\omega_i^j$$，$$1 \leq i, j \leq 3$$为其相对分最的充分条件。具体地说，我们有下面的定理：
+
+> ##### 定理7.9
+> 任意给定12个依赖自变量$$(u^1, \cdots, u^r) \in \tilde{D} \subset \mathbb{R}^r$$的一次微分式$$\omega^j$$，$$\omega_i^j$$，$$1 \leq i, j \leq 3$$，如果它们满足结构方程  
+> <center> $$\mathrm{d} \omega^j = \sum_{k=1}^3 \omega^k \wedge \omega_k^j, \ \ \ \mathrm{d} \omega_i^j = \sum_{k=1}^3 \omega_i^k \wedge \omega_k^j$$ </center>  
+> 则在欧式空间$$\mathbb{E}^3$$中有依赖$$r$$个参数$$u^1, \cdots, u^r$$的右手标架族$$\{ p(u^\alpha); \boldsymbol{e}_1(u^\alpha), \boldsymbol{e}_2(u^\alpha), \boldsymbol{e}_3(u^\alpha) \}$$以$$\omega^j$$，$$\omega_i^j$$为它的相对分量。
+{: .block-theorem }
+
+> ##### 定理7.9′
+> 任意给定6个依赖自变量$$(u^1, \cdots, u^r) \in \tilde{D} \subset \mathbb{R}^r$$的一次微分式
+> <center> $$\omega^1, \omega^2, \omega^3, \omega_1^2 = - \omega_2^1, \omega_1^3 = - \omega_3^1, \omega_2^3 = - \omega_3^2$$ </center>  
+> 如果它们满足结构方程  
+> <center> $$\mathrm{d} \omega^j = \sum_{k=1}^3 \omega^k \wedge \omega_k^j, \ \ \ \mathrm{d} \omega_i^j = \sum_{k=1}^3 \omega_i^k \wedge \omega_k^j$$ </center>  
+> 则在欧式空间$$\mathbb{E}^3$$中有依赖$$r$$个参数$$u^1, \cdots, u^r$$的右手单位正交标架族$$\{ p(u^\alpha); \boldsymbol{e}_1(u^\alpha), \boldsymbol{e}_2(u^\alpha), \boldsymbol{e}_3(u^\alpha) \}$$以$$\omega^j$$，$$\omega_i^j$$为它的相对分量，并且任意两个这样的右手单位正交标架族可以通过空间$$\mathbb{E}^3$$的一个刚体运动彼此重合。
+{: .block-theorem }
+
+定理7.9和定理7.9′，实际上要化为在证明曲面存在定理时用到的一阶线性齐次偏微分方程组的求解问题，而结构方程相当于这组偏微分方程组的完全可积条件。
 
 ## 曲面上的正交标架场
 
