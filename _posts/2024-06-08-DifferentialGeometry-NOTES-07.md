@@ -1140,6 +1140,7 @@ $$
 展开以后得到
 
 <a id="equation-of-moving-frame"></a>
+
 $$
 \begin{cases}
 \mathrm{d} (\overrightarrow{Op}) = \Omega^1 \boldsymbol{e}_1 + \Omega^2 \boldsymbol{e}_2 + \Omega^3 \boldsymbol{e}_3 \\
