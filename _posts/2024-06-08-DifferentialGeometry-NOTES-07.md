@@ -618,14 +618,13 @@ $$
 
 > ##### 定义7.2
 > 设$$D$$是$$n$$为欧式空间$$\mathbb{E}^n$$中的一个区域，$$(u^1, ..., u^n)$$是区域$$D$$上的曲纹坐标系。如果以连续可微的方式在每一点$$p = (u^1, ..., u^n) \in D$$给定了一个$$r$$次外形式  
-$$
+> <center> $$
 \begin{aligned}
 \varphi (p) &= \frac{1}{r!} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
 &= \sum_{1 \leq i_1 \lt \cdots \lt i_r \leq n} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
 \end{aligned}
-$$
-，  
-其中假定系数函数$$\varphi_{i_1 \cdots i_r} (u^1, ..., u^n)$$对于下指标是反对称的，则称$$\varphi$$是定义在$$D$$上的**$$r$$次外微分式**。
+$$ </center>  
+> 其中假定系数函数$$\varphi_{i_1 \cdots i_r} (u^1, ..., u^n)$$对于下指标是反对称的，则称$$\varphi$$是定义在$$D$$上的**$$r$$次外微分式**。
 {: .block-definition }
 
 在这里，所谓的「以连续可微的方式」是指系数$$\varphi_{i_1 \cdots i_r} (u^1, ..., u^n)$$，$$1 \leq i_1 \lt \cdots \lt i_r \leq n$$是$$u^1, ..., u^n$$的连续可微函数，即$$\varphi_{i_1 \cdots i_r} (u^1, ..., u^n)$$是$$u^1, ..., u^n$$的光滑函数。
@@ -797,14 +796,14 @@ $$
 $$
 \varphi = \frac{1}{r!} \varphi_{i_1 \cdots i_r} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
 $$
-是定义在区域$$D$$上的一个$$r$$次外微分式。用如下的方式定义$$r+1$$次外微分式：  
-$$
+> 是定义在区域$$D$$上的一个$$r$$次外微分式。用如下的方式定义$$r+1$$次外微分式：  
+> <center> $$
 \begin{aligned}
 \mathrm{d} \varphi &= \frac{1}{r!} \mathrm{d} \varphi_{i_1 \cdots i_r} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
 &= \frac{1}{r!} \frac{\partial \varphi_{i_1 \cdots i_r}}{\partial u^j} \mathrm{d} u^j \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
 \end{aligned}
-$$  
-称为$$\varphi$$的**外微分**。如果$$\varphi: D \rightarrow \mathbb{R}$$是定义在$$D$$上的连续可微函数(即零次外微分式)，则它的外微分$$\mathrm{d} \varphi$$就是它的普通微分。
+$$ </center>  
+> 称为$$\varphi$$的**外微分**。如果$$\varphi: D \rightarrow \mathbb{R}$$是定义在$$D$$上的连续可微函数(即零次外微分式)，则它的外微分$$\mathrm{d} \varphi$$就是它的普通微分。
 {: .block-definition }
 
 > ##### 定理7.4
