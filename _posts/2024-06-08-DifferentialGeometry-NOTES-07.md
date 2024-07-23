@@ -1207,7 +1207,7 @@ $$
 > 这组方程称为欧氏空间$$\mathbb{E}^3$$上的标架空间$$\mathfrak{F}$$的**结构方程**。
 {: .block-theorem }
 
-**证明** 标架的位置向量$$\mathrm{d}(\overrightarrow{Op})$$相当于函数$$a_1$$，$$a_2$$，$$a_3$$，而每一个标架向量$$\boldsymbol{e}_i$$相当于函数$$a_{i1}$$，$$a_{i2}$$，$$a_{i3}$$，所以$$\mathrm{d}(\overrightarrow{Op})$$和$$\boldsymbol{e}_i$$实际上是标架空间$$\mathfrak{F}$$中的12个坐标函数。根据外微分的性质得到
+**证明** 标架族的位置向量$$\mathrm{d}(\overrightarrow{Op})$$相当于函数$$a_1$$，$$a_2$$，$$a_3$$，而每一个标架向量$$\boldsymbol{e}_i$$相当于函数$$a_{i1}$$，$$a_{i2}$$，$$a_{i3}$$，所以$$\mathrm{d}(\overrightarrow{Op})$$和$$\boldsymbol{e}_i$$实际上是标架空间$$\mathfrak{F}$$中的12个坐标函数。根据外微分的性质得到
 
 $$
 \mathrm{d} (\mathrm{d} (\overrightarrow{Op}) ) = \boldsymbol{0}, \ \ \
@@ -1238,7 +1238,7 @@ $$
 
 $$
 \begin{aligned}
-\mathrm{d} \Omega^j &= \sum_{i=1}^3 \Omega^k \wedge \Omega_k^j \\
+\mathrm{d} \Omega^j &= \sum_{k=1}^3 \Omega^k \wedge \Omega_k^j \\
 \mathrm{d} \Omega_1^2 &= \Omega_1^3 \wedge \Omega_3^2 = -\Omega_1^3 \wedge \Omega_2^3 \\
 \mathrm{d} \Omega_1^3 &= \Omega_1^2 \wedge \Omega_2^3 \\
 \mathrm{d} \Omega_2^3 &= \Omega_2^1 \wedge \Omega_1^3 = \Omega_1^3 \wedge \Omega_1^2 \\
@@ -1274,7 +1274,7 @@ $$
 \sum_{k=1}^3 a_{ik} (u^1, \cdots, u^r) a_{jk} (u^1, \cdots, u^r) = \delta_{ij}
 $$
 
-相应地，相对分量$$\omega^j$$，$$\Omega_i^j$$满足关系式
+相应地，相对分量$$\omega^j$$，$$\omega_i^j$$满足关系式
 
 $$
 \omega_i^j + \omega_j^i = 0
