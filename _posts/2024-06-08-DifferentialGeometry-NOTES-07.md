@@ -1434,4 +1434,186 @@ $$
 
 ### 曲面上的正交标架场
 
+下面我们来讨论曲面$$S$$上的单位正交标架场。首先我们要指出，从曲面$$S$$的自然标架场得到单位正交标架场的最简单的方法是所谓的Schmidt正交化步骤。假定曲面$$S$$的第一基本形式是(采用Gauss记号)
+
+$$
+\mathrm{I} = E (\mathrm{d} u)^2 + 2 F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2
+$$
+
+则从$$\{ \boldsymbol{r}_u, \boldsymbol{r}_v \}$$经过Schmidt正交化得到
+
+$$
+\boldsymbol{e}_1 = \frac{\boldsymbol{r}_u}{\sqrt{E}}, \ \ \
+\boldsymbol{e}_2 = \frac{1}{\sqrt{EG - F^2}} \bigg( -\frac{F}{\sqrt{E}} \boldsymbol{r}_u + \sqrt{E} \boldsymbol{r}_v \bigg)
+$$
+
+命$$g = EG - F^2$$，则上式可以用矩阵表示为
+
+$$
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{1}{\sqrt{E}} & 0 \\
+-\frac{F}{\sqrt{Eg}} & \frac{\sqrt{E}}{\sqrt{g}}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{r}_u \\ \boldsymbol{r}_v
+\end{pmatrix}
+$$
+
+命
+
+$$
+\boldsymbol{e}_3 = \boldsymbol{e}_1 \times \boldsymbol{e}_2 = \boldsymbol{n}
+$$
+
+现在，$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$是定义在曲面$$S$$上的单位正交标架场，其中$$\boldsymbol{e}_1$$和$$\boldsymbol{e}_2$$是曲面$$S$$的切向量。这时欧式空间$$\mathbb{E}^3$$中依赖参数$$u$$，$$v$$的正交标架族。为求该标架族的相对分量$$\omega^i$$，注意到$$\mathrm{d} \boldsymbol{r}$$是曲面$$S$$的切向量，所以
+
+$$
+\omega^3 = \mathrm{d} \boldsymbol{r} \cdot \boldsymbol{e}_3 = \boldsymbol{r} \cdot \boldsymbol{n} = 0
+$$
+
+另外，根据相对分量$$\omega^i$$的定义得到
+
+$$
+\begin{aligned}
+\mathrm{d} \boldsymbol{r} &= \omega^1 \boldsymbol{e}_1 + \omega^2 \boldsymbol{e}_2
+=
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\frac{1}{\sqrt{E}} & 0 \\
+-\frac{F}{\sqrt{Eg}} & \frac{\sqrt{E}}{\sqrt{g}}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{r}_u \\ \boldsymbol{r}_v
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\mathrm{d} u & \mathrm{d} v
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+\boldsymbol{r}_u \\ \boldsymbol{r}_v
+\end{pmatrix}
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{pmatrix}
+\mathrm{d} u & \mathrm{d} v
+\end{pmatrix}
+=
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\frac{1}{\sqrt{E}} & 0 \\
+-\frac{F}{\sqrt{Eg}} & \frac{\sqrt{E}}{\sqrt{g}}
+\end{pmatrix}
+$$
+
+或者
+
+$$
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\mathrm{d} u & \mathrm{d} v
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\sqrt{E} & 0 \\
+\frac{F}{\sqrt{E}} & \frac{\sqrt{g}}{\sqrt{E}}
+\end{pmatrix}
+$$
+
+即
+
+$$
+\omega^1 = \sqrt{E} \mathrm{d} u + \frac{F}{\sqrt{E}} \mathrm{d} v, \ \ \
+\omega^2 = \frac{\sqrt{g}}{\sqrt{E}} \mathrm{d} v
+$$
+
+上面求曲面$$S$$上的单位正交标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$的相对分量$$\omega^1$$，$$\omega^2$$的过程，可以简单地归结为曲面$$S$$的第一基本形式配平方的过程。实际上，将第一基本形式配平得到
+
+$$
+\begin{aligned}
+\mathrm{I} &= E (\mathrm{d} u)^2 + 2 F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 \\
+&= \bigg( \sqrt{E} \mathrm{d} u + \frac{F}{\sqrt{E}} \mathrm{d} v \bigg)^2 + \bigg( \frac{\sqrt{EG - F^2}}{\sqrt{E}} \mathrm{d} v \bigg)^2
+\end{aligned}
+$$
+
+把等式终端的第一个括号内的式子记为$$\omega^1$$，第二个括号内的式子记为$$\omega^2$$即可。
+
+### 曲面上的一阶标架场
+
+一般地，如果曲面$$S$$上的单位正交标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$中的成员$$\boldsymbol{e}_1$$，$$\boldsymbol{e}_2$$是曲面$$S$$的切向量，则称这样的标架场为曲面$$S$$的**一阶标架场**。对于曲面$$S$$的任意一个一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$必定有
+
+$$
+\mathrm{d} \boldsymbol{r} = \omega^1 \boldsymbol{e}_1 + \omega^2 \boldsymbol{e}_2
+$$
+
+因此$$\omega^3 = 0$$并且
+
+$$
+\mathrm{I} = \mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{r} = (\omega^1 \boldsymbol{e}_1 + \omega^2 \boldsymbol{e}_2)^2 = (\omega^1)^2 + (\omega^2)^2
+$$
+
+反过来，只要将曲面$$S$$的第一基本形式作任意的配平方，把它写成两个一次微分式的平方和，并且把这两个一次微分式分别记为$$\omega^1$$和$$\omega^2$$，而让$$\omega^3 = 0$$，则我们便得到曲面$$S$$的某个一阶标架场的相对分量，并且由此可以得到曲面$$S$$的一阶标架场关于自然标架场的表达式。这个看法为在曲面$$S$$上选用一阶标架场带来方便，在实践中是十分有用的。
+
+下面我们来求曲面$$S$$的一阶标架场相对分量的其他成员。假定我们有曲面$$S$$的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$，换言之，我们有一次微分式$$\omega^1$$，$$\omega^2$$，$$\omega^3=0$$，使得
+
+$$
+\mathrm{I} = (\omega^1)^2 + (\omega^2)^2
+$$
+
+因为$$\mathrm{I}$$是正定的，容易证明$$\omega^1$$和$$\omega^2$$是处处线性无关的。首先我们断言：一次微分式$$\omega_1^2 = -\omega_2^1$$是由$$\omega^1$$，$$\omega^2$$根据结构方程唯一确定的。确切地说，我们有下面的定理。
+
+> ##### 定理7.10
+> 假定$$\omega^1$$，$$\omega^2$$是依赖自变量$$u$$，$$v$$的两个处处线性无关的一次微分式，则存在唯一的一个一次微分式$$\omega_1^2 = -\omega_2^1$$满足条件  
+> <center> $$\mathrm{d} \omega^1 = \omega^2 \wedge \omega_2^1, \ \ \ \mathrm{d} \omega^2 = \omega^1 \wedge \omega_1^2$$ </center>
+{: .block-theorem }
+
+**证明** 因为曲面$$S$$的一阶标架场是空间$$\mathbb{E}^3$$中依赖参数$$u$$，$$v$$的单位正交标架族，它的相对分量必定是自变量$$u$$，$$v$$的一次微分式，但是$$\omega^1$$，$$\omega^2$$是$$u$$，$$v$$的处处线性无关的一次微分式，故可设
+
+$$
+\omega_1^2 = - \omega_2^1 = p \omega^1 + q \omega^2
+$$
+
+将上式代入结构方程得到
+
+$$
+\mathrm{d} \omega^1 = p \omega^1 \wedge \omega^2, \ \ \ 
+\mathrm{d} \omega^2 = q \omega^1 \wedge \omega^2
+$$
+
+因为$$\mathrm{d} \omega^1$$，$$\mathrm{d} \omega^2$$是自变量$$u$$，$$v$$的二次微分式，所以它们必定是$$\mathrm{d} u \wedge \mathrm{d} v$$的倍数，其系数是$$u$$，$$v$$的函数。同时因为$$\omega^1$$，$$\omega^2$$是$$u$$，$$v$$的处处线性无关的一次微分式，故二次微分式$$\omega^1 \wedge \omega^2$$是$$\mathrm{d} u \wedge \mathrm{d} v$$的非零函数倍，这样，$$\mathrm{d} \omega^1$$，$$\mathrm{d} \omega^2$$必定是$$\omega^1 \wedge \omega^2$$的倍数，其系数恰好是我们要确定的$$p$$，$$q$$，即
+
+$$
+p = \frac{\mathrm{d} \omega^1}{\omega^1 \wedge \omega^2}, \ \ \
+q = \frac{\mathrm{d} \omega^2}{\omega^1 \wedge \omega^2}
+$$
+
+由此可见，一次微分式$$\omega_1^2 = -\omega_2^1$$是由$$\omega^1$$和$$\omega^2$$借助于结构方程唯一确定的。证毕∎
+
 ## 曲面上的曲线
