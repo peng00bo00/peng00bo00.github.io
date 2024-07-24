@@ -460,6 +460,8 @@ $$
 
 最后，我们叙述一个重要的定理，它在微分几何中是十分有用的。
 
+<a id="cartan-lemma"></a>
+
 > ##### 定理7.3 (Cartan引理)
 > 设$$\omega^1, ..., \omega^r$$，$$\theta_1, ..., \theta_r$$是$$n$$维向量空间$$V$$的$$2r$$个一次形式，其中$$\omega^1, ..., \omega^r$$是线性无关的。如果恒等式$$\sum_{\alpha = 1}^r \omega^\alpha \wedge \theta_\alpha = 0$$成立，则每一个$$\theta_\alpha$$必定是$$\omega^1, ..., \omega^r$$的线性组合，即$$\theta_\alpha = \sum_{\beta = 1}^r a_{\alpha \beta} \omega^\beta$$，并且组合系数$$a_{\alpha \beta}$$是对称的，即$$a_{\alpha \beta} = a_{\beta \alpha}$$。
 {: .block-theorem }
@@ -1589,6 +1591,8 @@ $$
 
 因为$$\mathrm{I}$$是正定的，容易证明$$\omega^1$$和$$\omega^2$$是处处线性无关的。首先我们断言：一次微分式$$\omega_1^2 = -\omega_2^1$$是由$$\omega^1$$，$$\omega^2$$根据结构方程唯一确定的。确切地说，我们有下面的定理。
 
+<a id="theorem7.10"></a>
+
 > ##### 定理7.10
 > 假定$$\omega^1$$，$$\omega^2$$是依赖自变量$$u$$，$$v$$的两个处处线性无关的一次微分式，则存在唯一的一个一次微分式$$\omega_1^2 = -\omega_2^1$$满足条件  
 > <center> $$\mathrm{d} \omega^1 = \omega^2 \wedge \omega_2^1, \ \ \ \mathrm{d} \omega^2 = \omega^1 \wedge \omega_1^2$$ </center>
@@ -1615,5 +1619,48 @@ q = \frac{\mathrm{d} \omega^2}{\omega^1 \wedge \omega^2}
 $$
 
 由此可见，一次微分式$$\omega_1^2 = -\omega_2^1$$是由$$\omega^1$$和$$\omega^2$$借助于结构方程唯一确定的。证毕∎
+
+关于曲面$$S$$的一阶标架场的相对分量，还需要求出$$\omega_1^3 = -\omega_3^1$$和$$\omega_2^3 = -\omega_3^2$$，它们与曲面$$S$$的第二基本形式有关。根据结构方程
+
+$$
+0 = \mathrel{d} \omega^3 = \omega^1 \wedge \omega_1^3 + \omega^2 \wedge \omega_2^3
+$$
+
+以及$$\omega^1$$和$$\omega^2$$的线性无关性，由[Cartan引理](#cartan-lemma)得知
+
+$$
+\begin{pmatrix}
+\omega_1^3 & \omega_2^3
+\end{pmatrix}
+=
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+a & b \\
+b & c
+\end{pmatrix}
+$$
+
+根据曲面$$S$$的第二基本形式的定义
+
+$$
+\begin{aligned}
+\mathrm{II} &= -\mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{e}_3 = - (\omega^1 \boldsymbol{e}_1 + \omega^2 \boldsymbol{e}_2) \cdot (\omega_3^1 \boldsymbol{e}_1 + \omega_3^2 \boldsymbol{e}_2) \\
+&= - (\omega^1 \omega_3^1 + \omega^2 \omega_3^2) = \omega^1 \omega_1^3 + \omega^2 \omega_2^3 \\
+&= a (\omega^1)^2 + 2b \omega^1 \omega^2 + c (\omega^2)^2
+\end{aligned}
+$$
+
+如果已知曲面$$S$$的第二基本形式是
+
+$$
+\mathrm{II} = L (\mathrm{d} u)^2 + 2 M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2
+$$
+
+则将$$\mathrm{d} u$$，$$\mathrm{d} v$$关于$$\omega^1$$，$$\omega^2$$的表达式代入上式就能够得到待定系数$$a$$，$$b$$，$$c$$。
+
+将上面的讨论综合起来，我们有下面的结论：如果给定曲面$$S$$的第一基本形式$$\mathrm{I}$$和第一基本形式$$\mathrm{II}$$，将$$\mathrm{I}$$作任意一个配平方，写成两个一次微分式$$\omega^1$$，$$\omega^2$$的平方和，那么$$\omega^1$$，$$\omega^2$$，$$\omega^3=0$$一定是曲面$$S$$的某个一阶标架场的相对分量。根据[定理7.10](#theorem7.10)，相对分量$$\omega_1^2 = -\omega_2^1$$由$$\omega^1$$，$$\omega^2$$借助于结构方程唯一地确定。至此，尚未涉及曲面$$S$$的另一组结构方程$$\mathrm{d} \omega_i^j = \omega_i^k \wedge \omega_k^i$$，它们恰好是曲面$$S$$的Gauss-Codazzi方程。
 
 ## 曲面上的曲线
