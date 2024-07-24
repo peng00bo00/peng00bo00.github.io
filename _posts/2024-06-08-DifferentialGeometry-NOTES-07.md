@@ -1254,6 +1254,8 @@ $$
 
 其中$$\det{(a_{ij}(u^\alpha))} \gt 0$$。把$$u^1, \cdots, u^r$$看作自变量，将上式代入[标架的定义方程](#frame-definition)并求微分，故有
 
+<a id="相对分量"></a>
+
 $$
 \mathrm{d} (\overrightarrow{Op}) = \sum_{i=1}^3 \omega^k \boldsymbol{e}_k, \ \ \
 \mathrm{d} \boldsymbol{e}_i = \sum_{i=1}^3 \omega_i^k \boldsymbol{e}_k
@@ -1303,7 +1305,7 @@ $$
 
 证毕∎
 
-结构方程的重要性在于上述定理的逆定理成立，即结构方程成立是使标架族存在、且以给定的一组一次微分式$$\omega^j$$，$$\omega_i^j$$，$$1 \leq i, j \leq 3$$为其相对分最的充分条件。具体地说，我们有下面的定理：
+结构方程的重要性在于上述定理的逆定理成立，即结构方程成立是使标架族存在、且以给定的一组一次微分式$$\omega^j$$，$$\omega_i^j$$，$$1 \leq i, j \leq 3$$为其相对分量的充分条件。具体地说，我们有下面的定理：
 
 > ##### 定理7.9
 > 任意给定12个依赖自变量$$(u^1, \cdots, u^r) \in \tilde{D} \subset \mathbb{R}^r$$的一次微分式$$\omega^j$$，$$\omega_i^j$$，$$1 \leq i, j \leq 3$$，如果它们满足结构方程  
@@ -1322,5 +1324,58 @@ $$
 定理7.9和定理7.9′的证明，实际上要化为在证明曲面存在定理时用到的一阶线性齐次偏微分方程组的求解问题，而结构方程相当于这组偏微分方程组的完全可积条件。
 
 ## 曲面上的正交标架场
+
+本节的目的是把$$\mathbb{E}^3$$中的标架族的理论用于曲面论的研究。首先我们求曲面上自然标架场的相对分量，然后把曲面论的Gauss-Codazzi方程和自然标架场的结构方程等同起来。我们所着眼的重点还是如何在曲面上取单位正交标架场，并且把曲面的有关几何量用曲面上的一阶标架场的相对分量表示出来，为在曲面上用活动标架法创造条件。
+
+### 曲面上的一阶标架场
+
+设欧式空间$$\mathbb{E}^3$$中曲面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{r}(u^1, u^2)$$，相应的自然标架场是$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$，其中
+
+$$
+\boldsymbol{r}_\alpha = \frac{\partial \boldsymbol{r}}{\partial u^\alpha}, \ \ \ \alpha = 1,2; \ \ \
+\boldsymbol{n} = \frac{\boldsymbol{r}_1 \times \boldsymbol{r}_2}{\vert \boldsymbol{r}_1 \times \boldsymbol{r}_2 \vert}
+$$
+
+因此，自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$是空间$$\mathbb{E}^3$$中依赖参数$$u^1$$，$$u^2$$的标架族。
+
+现在求这个标架族的相对分量$$\omega^j$$，$$\omega_i^j$$。假定曲面$$S$$的两个基本形式分别是
+
+$$
+\mathrm{I} = g_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta, \ \ \ 
+\mathrm{II} = b_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta
+$$
+
+由于
+
+$$
+\mathrm{d} \boldsymbol{r} = \boldsymbol{r}_1 \mathrm{d} u^1 + \boldsymbol{r}_2 \mathrm{d} u^2
+$$
+
+与[相对分量的定义式](#相对分量)对照得到
+
+$$
+\omega^1 = \mathrm{d} u^1, \ \ \ 
+\omega^2 = \mathrm{d} u^2, \ \ \ 
+\omega^3 = 0
+$$
+
+由曲面论的[Gauss-Weingarten公式](/blog/2023/DifferentialGeometry-NOTES-05/#自然标架场的运动公式)得到
+
+$$
+\mathrm{d} \boldsymbol{r}_\alpha = \frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} \mathrm{d} u^\beta = \Gamma_{\alpha \beta}^\gamma \mathrm{d} u^\beta \boldsymbol{r}_\gamma + b_{\alpha \beta} \mathrm{d} u^\beta \boldsymbol{n}
+$$
+
+$$
+\mathrm{d} \boldsymbol{n} = \frac{\partial \boldsymbol{n}}{\partial u^\beta} \mathrm{d} u^\beta = -b_\beta^\gamma \mathrm{d} u^\beta \boldsymbol{r}_\gamma
+$$
+
+其中$$\Gamma_{\alpha \beta}^\gamma$$是度量矩阵$$(g_{\alpha \beta})$$的Christoffel记号。与[相对分量的定义式](#相对分量)对照得到
+
+$$
+\omega_\alpha^\gamma = \Gamma_{\alpha \beta}^\gamma \mathrm{d} u^\beta, \ \ \ 
+\omega_\alpha^3 = b_{\alpha \beta} \mathrm{d} u^\beta, \ \ \
+\omega_3^\gamma =-b_\beta^\gamma \mathrm{d} u^\beta \\
+\omega_3^3 = 0, \ \ \ \alpha = 1, 2
+$$
 
 ## 曲面上的曲线
