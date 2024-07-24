@@ -306,7 +306,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: ["code", "CG", "CS6476-CV", "CS6515-GA", "CS7641-ML", "C++", "Geometry-Processing", "formatting", "Math"] # these tags will be displayed on the front page of your blog
-display_categories: ["DDG", "Differential-Geometry", "GAMES001", "LeetCode", "OMSCS", "STL", "sample-posts"] # these categories will be displayed on the front page of your blog
+display_categories: ["DDG", "Differential-Geometry", "GAMES001", "GNN", "LeetCode", "OMSCS", "STL", "sample-posts"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
