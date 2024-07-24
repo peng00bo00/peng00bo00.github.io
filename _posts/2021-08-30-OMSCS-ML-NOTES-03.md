@@ -69,10 +69,6 @@ $$
 
 我们把神经元按照一定的拓扑关系连接起来就形成了神经网络。一般而言网络可分为输入层、隐层和输出层，其中隐层和输出层对应网络的主要计算过程。同时由于网络的每一层都是可导的，我们可以从后向前计算输出对输入的导数，这就为神经网络的训练提供了理论保证。
 
-<div align=center>
-<img src="https://1.cms.s81c.com/sites/default/files/2021-01-06/ICLH_Diagram_Batch_01_03-DeepNeuralNetwork-WHITEBG.png" width="80%">
-</div>
-
 ## Training
 
 ### Perceptron Training
