@@ -1270,7 +1270,7 @@ $$
 \omega_i^k = \sigma^* \Omega_i^k
 $$
 
-它们是$$r$$维区域$$\tilde{D}$$上的一次微分式，称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的相对分量。[上式](#equation-of-moving-frame-E3)称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的运动公式。
+它们是$$r$$维区域$$\tilde{D}$$上的一次微分式，称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的相对分量。[上式](#相对分量)称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的运动公式。
 
 如果考虑欧式空间$$\mathbb{E}^3$$中依赖$$r$$个参数的单位正交标架族，则它是从$$r$$维区域$$\tilde{D}$$到标架空间$$\tilde{\mathfrak{F}}$$中的一个连续可微映射$$\sigma: \tilde{D} \rightarrow \tilde{\mathfrak{F}}$$，换言之，这12个函数$$a_i = a_i (u^1, \cdots, u^r)$$，$$a_{ij} = a_{ij} (u^1, \cdots, u^r)$$还要满足条件
 
