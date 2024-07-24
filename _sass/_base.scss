@@ -957,6 +957,13 @@ html.transition *:after {
       }
     }
   }
+
+    // Markdown style
+    ul, ol {
+      li {
+        font-weight: 400; // 设置列表项的字体粗细
+      }
+    }
 }
 
 progress {
