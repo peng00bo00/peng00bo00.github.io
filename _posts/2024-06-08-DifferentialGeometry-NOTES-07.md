@@ -1327,7 +1327,7 @@ $$
 
 本节的目的是把$$\mathbb{E}^3$$中的标架族的理论用于曲面论的研究。首先我们求曲面上自然标架场的相对分量，然后把曲面论的Gauss-Codazzi方程和自然标架场的结构方程等同起来。我们所着眼的重点还是如何在曲面上取单位正交标架场，并且把曲面的有关几何量用曲面上的一阶标架场的相对分量表示出来，为在曲面上用活动标架法创造条件。
 
-### 曲面上的一阶标架场
+### 曲面上的自然标架场
 
 设欧式空间$$\mathbb{E}^3$$中曲面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{r}(u^1, u^2)$$，相应的自然标架场是$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$，其中
 
@@ -1374,8 +1374,64 @@ $$
 $$
 \omega_\alpha^\gamma = \Gamma_{\alpha \beta}^\gamma \mathrm{d} u^\beta, \ \ \ 
 \omega_\alpha^3 = b_{\alpha \beta} \mathrm{d} u^\beta, \ \ \
-\omega_3^\gamma =-b_\beta^\gamma \mathrm{d} u^\beta \\
-\omega_3^3 = 0, \ \ \ \alpha = 1, 2
+\omega_3^\gamma =-b_\beta^\gamma \mathrm{d} u^\beta, \ \ \
+\omega_3^3 = 0, \ \ \ \alpha, \gamma = 1, 2
 $$
+
+下面考察该标架族的结构方程。根据$$\omega^1 = \mathrm{d} u^1$$，$$\omega^2 = \mathrm{d} u^2$$，$$\omega^3 = 0$$得知$$\mathrm{d} \omega^j = 0$$。而在另一方面，由于$$\Gamma_{\alpha \beta}^\gamma$$和$$b_{\alpha \beta}$$关于下指标的对称性我们有
+
+$$
+\sum_{k=1}^3 \omega^k \wedge \omega_k^\gamma = \sum_{\alpha, \beta=1}^2 \mathrm{d} u^\alpha \wedge \Gamma_{\alpha \beta}^\gamma \mathrm{d} u^\beta = (\Gamma_{12}^\gamma - \Gamma_{21}^\gamma) \mathrm{d} u^1 \wedge \mathrm{d} u^2 = 0
+$$
+
+$$
+\sum_{k=1}^3 \omega^k \wedge \omega_k^3 = \sum_{\alpha, \beta=1}^2 \mathrm{d} u^\alpha \wedge b_{\alpha \beta} \mathrm{d} u^\beta = (b_{12}^\gamma - b_{21}^\gamma) \mathrm{d} u^1 \wedge \mathrm{d} u^2 = 0
+$$
+
+因此第一组结构方程
+
+$$
+\mathrm{d} \omega^j = \sum_{k=1}^3 \omega^k \wedge \omega_k^j, \ \ \ 1 \leq j \leq 3
+$$
+
+是自动成立的。第二组结构方程可以写成
+
+$$
+\mathrm{d} \omega_\alpha^\gamma = \omega_\alpha^\beta \wedge \omega_\beta^\gamma + \omega_\alpha^3 \wedge \omega_3^\gamma, \ \ \
+\mathrm{d} \omega_\alpha^3 = \omega_\alpha^\beta \wedge \omega_\beta^3,
+$$
+
+$$
+\mathrm{d} \omega_3^\gamma = \omega_3^\beta \wedge \omega_\beta^\gamma, \ \ \
+\mathrm{d} \omega_3^3 = \omega_3^\beta \wedge \omega_\beta^3
+$$
+
+可以验证，上面的前两个式子分别是[Gauss方程和Codazzi方程](/blog/2023/DifferentialGeometry-NOTES-05/#gauss-codazzi方程)。
+
+总起来说，在曲面$$S$$上取自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$，则它的相对分量为
+
+$$
+\omega^1 = \mathrm{d} u^1, \ \ \ 
+\omega^2 = \mathrm{d} u^2, \ \ \ 
+\omega^3 = 0
+$$
+
+$$
+\omega_\alpha^\gamma = \Gamma_{\alpha \beta}^\gamma \mathrm{d} u^\beta, \ \ \ 
+\omega_\alpha^3 = b_{\alpha \beta} \mathrm{d} u^\beta, \ \ \
+\omega_3^\gamma =-b_\beta^\gamma \mathrm{d} u^\beta, \ \ \
+\omega_3^3 = 0, \ \ \ \alpha, \gamma = 1, 2
+$$
+
+它们所满足的结构方程恰好是曲面$$S$$所满足的Gauss-Codazzi方程。由此可见，如果已知两个二次微分形式
+
+$$
+\varphi = g_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta, \ \ \
+\psi = b_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta
+$$
+
+其中$$\varphi$$是正定的，要验证它们是否满足Gauss-Codazzi方程，只要构造一次微分式$$\omega^j$$，$$\omega_i^j$$，然后验证它们是否满足结构方程就行了。由于结构方程比Gauss-Codazzi方程容易记忆，所以验证结构方程显然是比较方便的。
+
+### 曲面上的正交标架场
 
 ## 曲面上的曲线
