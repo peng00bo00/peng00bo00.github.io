@@ -17,7 +17,7 @@ toc:
 
 ## Linear SVM
 
-**支持向量机(support vector machine, SVM)**是经典的二分类模型。从几何的角度上讲，二分类问题可以理解为在空间中寻找一个**超平面(hyperplane)**来将数据划分为两部分。在数据集是线性可分的情况下存在无数个可行的超平面将数据集正确划分，如下图中的$$H_2$$和$$H_3$$所示。显然我们希望从这些超平面中选择一个"最好"的使得模型对于噪声和扰动都具有足够的鲁棒性。
+**支持向量机(support vector machine, SVM)**是经典的二分类模型。从几何的角度上讲，二分类问题可以理解为在空间中寻找一个**超平面(hyperplane)**来将数据划分为两部分。在数据集是线性可分的情况下存在无数个可行的超平面将数据集正确划分，如下图中的$$H_2$$和$$H_3$$所示。显然我们希望从这些超平面中选择一个「最好」的使得模型对于噪声和扰动都具有足够的鲁棒性。
 
 <div align=center>
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Svm_separating_hyperplanes_%28SVG%29.svg" width="40%">

@@ -40,7 +40,7 @@ wrapping的特点是在每次进行特征选择时需要等待学习器来告诉
 
 ### Relevance and Usefulness
 
-无论是使用filtering还是使用wrapping进行特征选择都需要面对一个问题，那就是如何衡量所选择的特征是否是一个"好"的特征。我们可以使用relevance的概念来描述一个特征$$x$$的好坏：
+无论是使用filtering还是使用wrapping进行特征选择都需要面对一个问题，那就是如何衡量所选择的特征是否是一个「好」的特征。我们可以使用relevance的概念来描述一个特征$$x$$的好坏：
 
 - 称特征$$x$$是strong relevance的如果移除它后贝叶斯最优分类器的性能会下降；
 - 称特征$$x$$是weak relevance的如果把它加入到特征集合$$S$$后能提高贝叶斯最优分类器的性能；
