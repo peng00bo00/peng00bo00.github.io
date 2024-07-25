@@ -1663,4 +1663,50 @@ $$
 
 将上面的讨论综合起来，我们有下面的结论：如果给定曲面$$S$$的第一基本形式$$\mathrm{I}$$和第一基本形式$$\mathrm{II}$$，将$$\mathrm{I}$$作任意一个配平方，写成两个一次微分式$$\omega^1$$，$$\omega^2$$的平方和，那么$$\omega^1$$，$$\omega^2$$，$$\omega^3=0$$一定是曲面$$S$$的某个一阶标架场的相对分量。根据[定理7.10](#theorem7.10)，相对分量$$\omega_1^2 = -\omega_2^1$$由$$\omega^1$$，$$\omega^2$$借助于结构方程唯一地确定。至此，尚未涉及曲面$$S$$的另一组结构方程$$\mathrm{d} \omega_i^j = \omega_i^k \wedge \omega_k^i$$，它们恰好是曲面$$S$$的Gauss-Codazzi方程。
 
+[定理7.10](#theorem7.10)说明，对于曲面$$S$$的一阶标架场来说，相对分量$$\omega_1^2 = -\omega_2^2$$是由$$\omega^1$$，$$\omega^2$$借助于结构方程唯一确定的。这个事实可以用来证实$$S$$上切向量场的协变微分和沿曲线的平行移动是属于曲面$$S$$的内蕴几何的概念。设$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$是曲面$$S$$的一阶标架场，则
+
+$$
+\mathrm{d} \boldsymbol{e}_1 = \omega_1^2 \boldsymbol{e}_2 + \omega_1^3 \boldsymbol{e}_3, \ \ \ 
+\mathrm{d} \boldsymbol{e}_2 = \omega_2^1 \boldsymbol{e}_1 + \omega_2^3 \boldsymbol{e}_3,
+$$
+
+根据曲面$$S$$上切向量场[协变微分](/blog/2024/DifferentialGeometry-NOTES-06/#协变微分)的定义，我们有
+
+$$
+\mathrm{D} \boldsymbol{e}_1 = (\mathrm{d} \boldsymbol{e}_1)^{\perp} = \omega_1^2 \boldsymbol{e}_2, \ \ \
+\mathrm{D} \boldsymbol{e}_2 = (\mathrm{d} \boldsymbol{e}_2)^{\perp} = \omega_2^1 \boldsymbol{e}_1
+$$
+
+假定
+
+$$
+\boldsymbol{X} = x^1 \boldsymbol{e}_1 + x^2 \boldsymbol{e}_2
+$$
+
+是曲面$$S$$上的一个连续可微切向量场，则它的协变微分是
+
+$$
+\begin{aligned}
+\mathrm{D} \boldsymbol{X} &= \mathrm{d} x^1 \boldsymbol{e}_1 + x^1 \mathrm{D} \boldsymbol{e}_1 + \mathrm{d} x^2 \boldsymbol{e}_2 + x^2 \mathrm{D} \boldsymbol{e}_2 \\
+&= (\mathrm{d} x^1 + x^2 \omega_2^1) \boldsymbol{e}_1 + (\mathrm{d} x^2 + x^1 \omega_1^2) \boldsymbol{e}_2
+\end{aligned}
+$$
+
+命
+
+$$
+\mathrm{D} x^1 = \mathrm{d} x^1 + x^2 \omega_2^1, \ \ \
+\mathrm{D} x^2 = \mathrm{d} x^2 + x^1 \omega_1^2
+$$
+
+分别称为切向量场$$\boldsymbol{X}$$的分量$$x^1$$，$$x^2$$的协变微分。注意到协变微分$$\mathrm{D} \boldsymbol{e}_1$$，$$\mathrm{D} \boldsymbol{e}_2$$中只用到相对分量$$\omega_1^2 = - \omega_2^1$$，而它们是由$$\omega^1$$，$$\omega^2$$确定的，与曲面$$S$$的第二基本形式无关，所以协变微分是曲面$$S$$的内蕴几何的概念，在曲面$$S$$作保长变换时它是保持不变的。在曲面的内蕴微分几何学中，一次微分形式
+
+$$
+\omega_1^2 = - \omega_2^1
+$$
+
+通常称为**联络形式**。
+
+
+
 ## 曲面上的曲线
