@@ -1661,7 +1661,11 @@ $$
 
 则将$$\mathrm{d} u$$，$$\mathrm{d} v$$关于$$\omega^1$$，$$\omega^2$$的表达式代入上式就能够得到待定系数$$a$$，$$b$$，$$c$$。
 
-将上面的讨论综合起来，我们有下面的结论：如果给定曲面$$S$$的第一基本形式$$\mathrm{I}$$和第一基本形式$$\mathrm{II}$$，将$$\mathrm{I}$$作任意一个配平方，写成两个一次微分式$$\omega^1$$，$$\omega^2$$的平方和，那么$$\omega^1$$，$$\omega^2$$，$$\omega^3=0$$一定是曲面$$S$$的某个一阶标架场的相对分量。根据[定理7.10](#theorem7.10)，相对分量$$\omega_1^2 = -\omega_2^1$$由$$\omega^1$$，$$\omega^2$$借助于结构方程唯一地确定。至此，尚未涉及曲面$$S$$的另一组结构方程$$\mathrm{d} \omega_i^j = \omega_i^k \wedge \omega_k^i$$，它们恰好是曲面$$S$$的Gauss-Codazzi方程。
+将上面的讨论综合起来，我们有下面的结论：如果给定曲面$$S$$的第一基本形式$$\mathrm{I}$$和第一基本形式$$\mathrm{II}$$，将$$\mathrm{I}$$作任意一个配平方，写成两个一次微分式$$\omega^1$$，$$\omega^2$$的平方和，那么$$\omega^1$$，$$\omega^2$$，$$\omega^3=0$$一定是曲面$$S$$的某个一阶标架场的相对分量。根据[定理7.10](#theorem7.10)，相对分量$$\omega_1^2 = -\omega_2^1$$由$$\omega^1$$，$$\omega^2$$借助于结构方程$$
+\mathrm{d} \omega^1 = \omega^2 \wedge \omega_2^1, \ \ \ \mathrm{d} \omega^2 = \omega^1 \wedge \omega_1^2
+$$唯一地确定，$$\omega_1^3 = -\omega_3^1$$和$$\omega_2^3 = -\omega_3^2$$由曲面$$S$$的第二基本形式$$\mathrm{II}$$借助于结构方程$$
+0 = \mathrm{d} \omega^3 = \omega^1 \wedge \omega_1^3 + \omega^2 \wedge \omega_2^3
+$$唯一地确定。至此，尚未涉及曲面$$S$$的另一组结构方程$$\mathrm{d} \omega_i^j = \omega_i^k \wedge \omega_k^i$$，它们恰好是曲面$$S$$的Gauss-Codazzi方程。
 
 [定理7.10](#theorem7.10)说明，对于曲面$$S$$的一阶标架场来说，相对分量$$\omega_1^2 = -\omega_2^2$$是由$$\omega^1$$，$$\omega^2$$借助于结构方程唯一确定的。这个事实可以用来证实$$S$$上切向量场的协变微分和沿曲线的平行移动是属于曲面$$S$$的内蕴几何的概念。设$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$是曲面$$S$$的一阶标架场，则
 
