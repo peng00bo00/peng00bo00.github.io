@@ -1979,8 +1979,7 @@ $$
 \boldsymbol{e}_1 \\ \boldsymbol{e}_2
 \end{pmatrix}, \ \ \ 
 \tilde{\boldsymbol{e}}_3 = \boldsymbol{e}_3
-$$
-</center>  
+$$ </center>  
 > 则对应的相对分量按下列规律进行变换  
 > <center>
 $$
