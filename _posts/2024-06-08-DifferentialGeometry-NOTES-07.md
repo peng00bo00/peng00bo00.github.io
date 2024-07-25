@@ -841,18 +841,17 @@ $$
 
 > ##### 定理7.5
 > 设$$\varphi$$是定义在$$n$$维区域$$D$$上的一个$$r$$次外微分式，它在曲纹坐标系$$(u^1, ..., u^n)$$下的表示是  
-$$
+> <center> $$
 \varphi = \frac{1}{r!} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
-$$  
-在另一个曲纹坐标系$$(\tilde{u}^1, ..., \tilde{u}^n)$$下的表示是
-$$
+$$ </center>  
+> 在另一个曲纹坐标系$$(\tilde{u}^1, ..., \tilde{u}^n)$$下的表示是
+> <center> $$
 \varphi = \frac{1}{r!} \tilde{\varphi}_{i_1 \cdots i_r} (\tilde{u}^1, ..., \tilde{u}^n) \mathrm{d} \tilde{u}^{i_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{i_r}
-$$
-，  
-其中假定$$\varphi_{i_1 \cdots i_r}$$和$$\tilde{\varphi}_{i_1 \cdots i_r}$$对下指标都是反对称的，则有  
-$$
+$$ </center>  
+> 其中假定$$\varphi_{i_1 \cdots i_r}$$和$$\tilde{\varphi}_{i_1 \cdots i_r}$$对下指标都是反对称的，则有  
+> <center> $$
 \mathrm{d} \varphi_{i_1 \cdots i_r} \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} = \mathrm{d} \tilde{\varphi}_{i_1 \cdots i_r} \wedge \mathrm{d} \tilde{u}^{i_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{i_r}
-$$
+$$ </center>  
 {: .block-theorem }
 
 **证明** 由于不同的曲纹坐标系之间有容许的坐标变换，设为
@@ -1671,7 +1670,7 @@ $$唯一地确定。至此，尚未涉及曲面$$S$$的另一组结构方程$$\m
 
 $$
 \mathrm{d} \boldsymbol{e}_1 = \omega_1^2 \boldsymbol{e}_2 + \omega_1^3 \boldsymbol{e}_3, \ \ \ 
-\mathrm{d} \boldsymbol{e}_2 = \omega_2^1 \boldsymbol{e}_1 + \omega_2^3 \boldsymbol{e}_3,
+\mathrm{d} \boldsymbol{e}_2 = \omega_2^1 \boldsymbol{e}_1 + \omega_2^3 \boldsymbol{e}_3
 $$
 
 根据曲面$$S$$上切向量场[协变微分](/blog/2024/DifferentialGeometry-NOTES-06/#协变微分)的定义，我们有
