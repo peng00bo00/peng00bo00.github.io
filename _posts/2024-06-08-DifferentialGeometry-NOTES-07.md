@@ -1256,7 +1256,7 @@ $$
 
 其中$$\det{(a_{ij}(u^\alpha))} \gt 0$$。把$$u^1, \cdots, u^r$$看作自变量，将上式代入[标架的定义方程](#frame-definition)并求微分，故有
 
-<a id="相对分量"></a>
+<a id="标架族的运动公式"></a>
 
 $$
 \mathrm{d} (\overrightarrow{Op}) = \sum_{i=1}^3 \omega^k \boldsymbol{e}_k, \ \ \
@@ -1270,7 +1270,7 @@ $$
 \omega_i^k = \sigma^* \Omega_i^k
 $$
 
-它们是$$r$$维区域$$\tilde{D}$$上的一次微分式，称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的相对分量。[上式](#相对分量)称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的运动公式。
+它们是$$r$$维区域$$\tilde{D}$$上的一次微分式，称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的相对分量。[上式](标架族的运动公式)称为$$\mathbb{E}^3$$中依赖$$r$$个参数$$u^1, \cdots, u^r$$的标架族的运动公式。
 
 如果考虑欧式空间$$\mathbb{E}^3$$中依赖$$r$$个参数的单位正交标架族，则它是从$$r$$维区域$$\tilde{D}$$到标架空间$$\tilde{\mathfrak{F}}$$中的一个连续可微映射$$\sigma: \tilde{D} \rightarrow \tilde{\mathfrak{F}}$$，换言之，这12个函数$$a_i = a_i (u^1, \cdots, u^r)$$，$$a_{ij} = a_{ij} (u^1, \cdots, u^r)$$还要满足条件
 
@@ -1353,7 +1353,7 @@ $$
 \mathrm{d} \boldsymbol{r} = \boldsymbol{r}_1 \mathrm{d} u^1 + \boldsymbol{r}_2 \mathrm{d} u^2
 $$
 
-与[相对分量的定义式](#相对分量)对照得到
+与[活动标架的运动公式](标架族的运动公式)对照得到
 
 $$
 \omega^1 = \mathrm{d} u^1, \ \ \ 
@@ -1371,7 +1371,7 @@ $$
 \mathrm{d} \boldsymbol{n} = \frac{\partial \boldsymbol{n}}{\partial u^\beta} \mathrm{d} u^\beta = -b_\beta^\gamma \mathrm{d} u^\beta \boldsymbol{r}_\gamma
 $$
 
-其中$$\Gamma_{\alpha \beta}^\gamma$$是度量矩阵$$(g_{\alpha \beta})$$的Christoffel记号。与[相对分量的定义式](#相对分量)对照得到
+其中$$\Gamma_{\alpha \beta}^\gamma$$是度量矩阵$$(g_{\alpha \beta})$$的Christoffel记号。与[活动标架的运动公式](标架族的运动公式)对照得到
 
 $$
 \omega_\alpha^\gamma = \Gamma_{\alpha \beta}^\gamma \mathrm{d} u^\beta, \ \ \ 
@@ -1556,7 +1556,7 @@ $$
 \omega^2 = \frac{\sqrt{g}}{\sqrt{E}} \mathrm{d} v
 $$
 
-上面求曲面$$S$$上的单位正交标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$的相对分量$$\omega^1$$，$$\omega^2$$的过程，可以简单地归结为曲面$$S$$的第一基本形式配平方的过程。实际上，将第一基本形式配平得到
+上面求曲面$$S$$上的单位正交标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$的相对分量$$\omega^1$$，$$\omega^2$$的过程，可以简单地归结为曲面$$S$$的第一基本形式配平方的过程。实际上，将第一基本形式配平方得到
 
 $$
 \begin{aligned}
