@@ -2002,8 +2002,9 @@ $$
 $$ </center>  
 > <center>
 $$
-\tilde{\omega}_1^2 = \omega_1^2 = \mathrm{d} \theta
+\tilde{\omega}_1^2 = \omega_1^2 + \mathrm{d} \theta
 $$ </center>  
+> <center>
 $$
 \begin{pmatrix}
 \tilde{\omega}_1^3 & \tilde{\omega}_2^3
