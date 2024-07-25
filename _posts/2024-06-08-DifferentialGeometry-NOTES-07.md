@@ -1623,7 +1623,7 @@ $$
 关于曲面$$S$$的一阶标架场的相对分量，还需要求出$$\omega_1^3 = -\omega_3^1$$和$$\omega_2^3 = -\omega_3^2$$，它们与曲面$$S$$的第二基本形式有关。根据结构方程
 
 $$
-0 = \mathrel{d} \omega^3 = \omega^1 \wedge \omega_1^3 + \omega^2 \wedge \omega_2^3
+0 = \mathrm{d} \omega^3 = \omega^1 \wedge \omega_1^3 + \omega^2 \wedge \omega_2^3
 $$
 
 以及$$\omega^1$$和$$\omega^2$$的线性无关性，由[Cartan引理](#cartan-lemma)得知
@@ -1707,6 +1707,319 @@ $$
 
 通常称为**联络形式**。
 
+曲面的一阶标架场是与曲面有密切关系的标架场，曲面的一些几何量应该能够用一阶标架场的相对分量来表示。但是曲面的一阶标架场的选取又有相当大的随意性，因为让曲面$$S$$的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$在每一点绕法向量$$\boldsymbol{e}_3$$转过一个角度$$\theta$$得到的仍然是曲面$$S$$的一阶标架场。换言之，曲面$$S$$的一阶标架场容许作如下的变换：
 
+$$
+\begin{aligned}
+\tilde{\boldsymbol{e}}_1 &= \cos{\theta} \boldsymbol{e}_1 + \sin{\theta} \boldsymbol{e}_2 \\ 
+\tilde{\boldsymbol{e}}_2 &=-\sin{\theta} \boldsymbol{e}_1 + \cos{\theta} \boldsymbol{e}_2
+\end{aligned}
+$$
+
+其中$$\theta$$是曲面$$S$$上的连续可微函数。正是因为曲面$$S$$的一阶标架场的选取享有这种自由度，使得它与曲面$$S$$的参数系的关系比较松弛，从而为处理曲面的问题带来很多便利，这就是所谓的活动标架的优越性。当然，曲面的几何量在用一阶标架场的相对分量表示时应该与一阶标架场的容许变换无关。
+
+我们先考虑曲面$$S$$的一阶标架场的相对分量在一阶标架场经受容许变换时的变换规律。用$$\tilde{\omega}^j$$，$$\tilde{\omega}_i^j$$记一阶标架场$$\{ \boldsymbol{r}; \tilde{\boldsymbol{e}}_1, \tilde{\boldsymbol{e}}_2, \tilde{\boldsymbol{e}}_3 \}$$的相对分量。容易得知
+
+$$
+\tilde{\boldsymbol{e}}_3 = \tilde{\boldsymbol{e}}_1 \times \tilde{\boldsymbol{e}}_2 = \boldsymbol{e}_1 \times \boldsymbol{e}_2 = \boldsymbol{e}_3
+$$
+
+因此
+
+$$
+\begin{aligned}
+\mathrm{d} \boldsymbol{r} &=
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\tilde{\omega}^1 & \tilde{\omega}^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\tilde{\boldsymbol{e}}_1 \\ \tilde{\boldsymbol{e}}_2
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\tilde{\omega}^1 & \tilde{\omega}^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & \sin{\theta} \\ 
+-\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2
+\end{pmatrix}
+\end{aligned}
+$$
+
+所以$$\tilde{\omega}_3 = \omega_3 = 0$$，并且
+
+$$
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\tilde{\omega}^1 & \tilde{\omega}^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & \sin{\theta} \\ 
+-\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+$$
+
+$$
+\begin{pmatrix}
+\tilde{\omega}^1 & \tilde{\omega}^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & -\sin{\theta} \\ 
+\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+$$
+
+根据协变微分，我们有
+
+$$
+\mathrm{D} \tilde{\boldsymbol{e}}_1 = \tilde{\omega}_1^2 \tilde{\boldsymbol{e}}_2
+$$
+
+因此
+
+$$
+\begin{aligned}
+\tilde{\omega}_1^2 &= \mathrm{D} \tilde{\boldsymbol{e}}_1 \cdot \tilde{\boldsymbol{e}}_2 = \mathrm{D} (\cos{\theta} \boldsymbol{e}_1 + \sin{\theta} \boldsymbol{e}_2) \cdot (-\sin{\theta} \boldsymbol{e}_1 + \cos{\theta} \boldsymbol{e}_2) \\
+&= [(-\sin{\theta} \boldsymbol{e}_1 + \cos{\theta} \boldsymbol{e}_2) \mathrm{d} \theta + \cos{\theta} \mathrm{D} \boldsymbol{e}_1 + \sin{\theta} \mathrm{D} \boldsymbol{e}_2] \\
+&\cdot (-\sin{\theta} \boldsymbol{e}_1 + \cos{\theta} \boldsymbol{e}_2) \\
+&= \mathrm{d} \theta + \omega_1^2
+\end{aligned}
+$$
+
+同理，因为$$\tilde{\boldsymbol{e}}_3 = \boldsymbol{e}_3$$，故
+
+$$
+\begin{aligned}
+\mathrm{d} \tilde{\boldsymbol{e}}_3 &= \mathrm{d} \boldsymbol{e}_3 = 
+\begin{pmatrix}
+\omega_3^1 & \omega_3^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\tilde{\omega}_3^1 & \tilde{\omega}_3^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\tilde{\boldsymbol{e}}_1 \\ \tilde{\boldsymbol{e}}_2
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\tilde{\omega}_3^1 & \tilde{\omega}_3^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & \sin{\theta} \\ 
+-\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2
+\end{pmatrix}
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{pmatrix}
+\omega_3^1 & \omega_3^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\tilde{\omega}_3^1 & \tilde{\omega}_3^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & \sin{\theta} \\ 
+-\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+$$
+
+$$
+\begin{pmatrix}
+\tilde{\omega}_1^3 & \tilde{\omega}_2^3
+\end{pmatrix}
+=
+\begin{pmatrix}
+\omega_1^3 & \omega_2^3
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & -\sin{\theta} \\ 
+\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+$$
+
+假定
+
+$$
+\begin{pmatrix}
+\tilde{\omega}_1^3 & \tilde{\omega}_2^3
+\end{pmatrix}
+=
+\begin{pmatrix}
+\tilde{\omega}^1 & \tilde{\omega}^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\tilde{a} & \tilde{b} \\ 
+\tilde{b} & \tilde{c} \\
+\end{pmatrix}
+$$
+
+通过计算可以得到
+
+$$
+\begin{aligned}
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+&\cdot
+\begin{pmatrix}
+\cos{\theta} & -\sin{\theta} \\ 
+\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+\tilde{a} & \tilde{b} \\ 
+\tilde{b} & \tilde{c} \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\omega_1^3 & \omega_2^3
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & -\sin{\theta} \\ 
+\sin{\theta} & \cos{\theta}
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+a & b \\ 
+b & c \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & -\sin{\theta} \\ 
+\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{pmatrix}
+\tilde{a} & \tilde{b} \\ 
+\tilde{b} & \tilde{c} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos{\theta} & \sin{\theta} \\ 
+-\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+a & b \\ 
+b & c \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & -\sin{\theta} \\ 
+\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+$$
+
+即$$(\omega_1^3, \omega_2^3)$$用$$(\omega^1, \omega^2)$$表示时其系数矩阵在变换下经受一个相似变换(或合同变换)，其过渡矩阵就是标架场容许变换对应的旋转矩阵。
+
+> ##### 定理7.11
+> 若曲面$$S$$上的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$经受如下的变换  
+> <center>
+$$
+\begin{pmatrix}
+\tilde{\boldsymbol{e}}_1 \\ \tilde{\boldsymbol{e}}_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos{\theta} & \sin{\theta} \\ 
+-\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2
+\end{pmatrix}, \ \ \ 
+\tilde{\boldsymbol{e}}_3 = \boldsymbol{e}_3
+$$
+</center>  
+> 则对应的相对分量按下列规律进行变换  
+> <center>
+$$
+\begin{pmatrix}
+\tilde{\omega}^1 & \tilde{\omega}^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\omega^1 & \omega^2
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & -\sin{\theta} \\ 
+\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+$$ </center>  
+> <center>
+$$
+\tilde{\omega}^3 = \omega^3 = 0
+$$ </center>  
+> <center>
+$$
+\tilde{\omega}_1^2 = \omega_1^2 = \mathrm{d} \theta
+$$ </center>  
+$$
+\begin{pmatrix}
+\tilde{\omega}_1^3 & \tilde{\omega}_2^3
+\end{pmatrix}
+=
+\begin{pmatrix}
+\omega_1^3 & \omega_2^3
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\cos{\theta} & -\sin{\theta} \\ 
+\sin{\theta} & \cos{\theta}
+\end{pmatrix}
+$$ </center>  
+{: .block-theorem }
 
 ## 曲面上的曲线
