@@ -1964,7 +1964,7 @@ $$
 即$$(\omega_1^3, \omega_2^3)$$用$$(\omega^1, \omega^2)$$表示时其系数矩阵在变换下经受一个相似变换(或合同变换)，其过渡矩阵就是标架场容许变换对应的旋转矩阵。
 
 > ##### 定理7.11
-> 若曲面$$S$$上的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$经受如下的变换
+> 若曲面$$S$$上的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$经受如下的变换  
 > <center> $$
 \begin{pmatrix}
 \tilde{\boldsymbol{e}}_1 \\ \tilde{\boldsymbol{e}}_2
