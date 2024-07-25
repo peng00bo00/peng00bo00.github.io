@@ -1965,8 +1965,7 @@ $$
 
 > ##### 定理7.11
 > 若曲面$$S$$上的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$经受如下的变换  
-> <center>
-$$
+> <center> $$
 \begin{pmatrix}
 \tilde{\boldsymbol{e}}_1 \\ \tilde{\boldsymbol{e}}_2
 \end{pmatrix}
