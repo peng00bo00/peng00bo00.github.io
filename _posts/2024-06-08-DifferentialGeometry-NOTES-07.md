@@ -2149,3 +2149,60 @@ $$
 2 H = \kappa_1 + \kappa_2 = a + c, \ \ \ 
 K = \kappa_1 \cdot \kappa_2 = ac - b^2
 $$
+
+[法曲率公式](#normal-curvature)还能够进一步写成
+
+$$
+\begin{aligned}
+\kappa_n &= \frac{a+c}{2} + \sqrt{\bigg( \frac{a-c}{2} \bigg)^2 + b^2} \cdot (\cos^2{(\theta - \theta_0)} - \sin^2{(\theta - \theta_0)}) \\
+&= \bigg( \frac{a+c}{2} + \sqrt{\bigg( \frac{a-c}{2} \bigg)^2 + b^2} \bigg ) \cos^2{(\theta - \theta_0)} \\
+&+ \bigg( \frac{a+c}{2} - \sqrt{\bigg( \frac{a-c}{2} \bigg)^2 + b^2} \bigg) \sin^2{(\theta - \theta_0)} \\
+&= \kappa_1 \cos^2{(\theta - \theta_0)} + \kappa_2 \sin^2{(\theta - \theta_0)}
+\end{aligned}
+$$
+
+这正是[Euler公式](/blog/2023/DifferentialGeometry-NOTES-04/#euler公式)的一般情形。如果取曲面$$S$$的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3 \}$$使得$$\boldsymbol{\alpha}_1$$，$$\boldsymbol{\alpha}_2$$是曲面$$S$$的主方向，则这样的标架场称为曲面$$S$$的**二阶标架场**。对于曲面$$S$$的二阶标架场$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3 \}$$，显然有$$\theta_0 = 0$$，因此Euler公式称为
+
+$$
+\kappa_n = \kappa_1 \cos^2{\theta} + \kappa_2 \sin^2{\theta}
+$$
+
+这就是关于曲面$$S$$的法曲率的标准Euler公式。
+
+另外，当$$\frac{a - c}{2}$$，$$b$$不同时为零时，测地挠率能够改写成
+
+$$
+\begin{aligned}
+\tau_g &= b (\cos^2{\theta} - \sin^2{\theta}) + (c-a) \sin{\theta} \cos{\theta} \\
+&= b \cos{2 \theta} + \frac{c-a}{2} \sin{2 \theta} \\
+&= \sqrt{\bigg( \frac{a-c}{2} \bigg)^2 + b^2} \cdot (\sin{2 \theta_0} \cos{2 \theta} - \cos{2 \theta_0} \sin{2 \theta}) \\
+&= \frac{1}{2} (\kappa_2 - \kappa_1) \sin{2(\theta - \theta_0)}
+\end{aligned}
+$$
+
+所以，曲面$$S$$在任意一点沿主方向$$\theta = \theta_0$$时总是有测地挠率$$\tau_g = 0$$。反之亦然，由此可见
+
+$$
+\omega^1 \omega_2^3 - \omega^2 \omega_1^3 = 0
+$$
+
+是曲面$$S$$上曲率线的微分方程。比较上式和[法曲率计算公式](#normal-curvature)，不难知道
+
+$$
+\frac{\mathrm{d} \kappa_n (\theta)}{\mathrm{d} \theta} = 2 \tau_g (\theta)
+$$
+
+曲面$$S$$上的二阶标架场是与曲面$$S$$有更加密切关系的标架场。假定$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3 \}$$是曲面$$S$$的二阶标架场，则$$\theta_0 = 0$$，故$$b=0$$，因此
+
+$$
+\omega_1^3 = a \omega^1, \ \ \
+\omega_2^3 = c \omega^1
+$$
+
+在$$a \geq c$$的假设下，我们有$$\kappa_1 = a$$，$$\kappa_2 = c$$，并且曲面$$S$$的第二基本形式成为
+
+$$
+\mathrm{II} = \omega^1 \omega_1^3 + \omega^2 \omega_2^3 = \kappa_1 (\omega^1)^2 + \kappa_2 (\omega^2)^2
+$$
+
+由此可见在曲面$$S$$的二阶标架场下，它的第一基本形式和第二基本形式有最简单的表达式。
