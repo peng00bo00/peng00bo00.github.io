@@ -2088,8 +2088,64 @@ $$
 
 法曲率是$$\kappa_n = \frac{\mathrm{d} \boldsymbol{e}_1}{\mathrm{d} s} \cdot \boldsymbol{n}$$，即
 
+<a id="normal-curvature"></a>
+
 $$
 \kappa_n = \frac{\omega^1 \omega_1^3 + \omega^2 \omega_2^3}{\mathrm{d} s^2} = a \cos^2{\theta} + 2b \sin{\theta} \cos{\theta} + c \sin^2{\theta}
 $$
 
-其中$$a$$，$$b$$，$$c$$是相对分量$$\omega_1^3$$，$$\omega_2^3$$用$$\omega^1$$，$$\omega^2$$线性表示时的[系数](#相对分量的线性表示)。
+其中$$a$$，$$b$$，$$c$$是相对分量$$\omega_1^3$$，$$\omega_2^3$$用$$\omega^1$$，$$\omega^2$$线性表示时的[系数](#相对分量的线性表示)。为求得沿曲线$$C$$的单位正交标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$的运动公式，还需要作如下计算：
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} \boldsymbol{e}_2}{\mathrm{d} s} &= -(\cos{\theta} \boldsymbol{\alpha}_1 + \sin{\theta} \boldsymbol{\alpha}_2) \frac{\mathrm{d} \theta}{\mathrm{d} s} - \sin{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} + \cos{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s} \\
+&= \bigg( \frac{\mathrm{d} \theta}{\mathrm{d} s} + \frac{\omega_1^2}{\mathrm{d} s}\bigg) \boldsymbol{e}_1 + \frac{\omega^1 \omega_2^3 - \omega^2 \omega_1^3}{\mathrm{d} s^2} \boldsymbol{e}_3
+\end{aligned}
+$$
+
+所以曲面$$S$$上的曲线$$C$$的测地挠率是
+
+$$
+\tau_g = \frac{\omega^1 \omega_2^3 - \omega^2 \omega_1^3}{\mathrm{d} s^2} = b \cos^2{\theta} + (c-a) \cos{\theta} \sin{\theta} - b \sin^2{\theta}
+$$
+
+前面推导的[法曲率公式](#normal-curvature)可以看作切方向的方向角$$\theta$$的函数，使我们能够容易地考虑$$\kappa_n$$的极值性质。根据法曲率计算公式得到
+
+$$
+\begin{aligned}
+\kappa_n &= a \cdot \frac{1 + \cos{2 \theta}}{2} + b \sin{2 \theta} + c \cdot \frac{1 - \cos{2 \theta}}{2} \\
+&= \frac{a + c}{2} + \frac{a - c}{2} \cos{2 \theta} + b \sin{2 \theta}
+\end{aligned}
+$$
+
+如果$$\frac{a - c}{2}$$，$$b$$同时为零，则$$\kappa_n = \frac{a+c}{2}$$与方向角$$\theta$$无关，即曲面$$S$$在该点沿各个切方向的法曲率都相同，因此该点是曲面$$S$$的脐点。假定$$\frac{a - c}{2}$$，$$b$$不同时为零，则可取$$\theta_0$$使得
+
+$$
+\cos{2 \theta_0} = \frac{a-c}{\sqrt{(a-c)^2 + 4b^2}}, \ \ \ 
+\sin{2 \theta_0} = \frac{2b}{\sqrt{(a-c)^2 + 4b^2}}
+$$
+
+于是曲面$$S$$的法曲率$$\kappa_n$$可以写成
+
+$$
+\kappa_n = \frac{a+c}{2} + \sqrt{\bigg( \frac{a-c}{2} \bigg)^2 + b^2} \cdot \cos{2 (\theta - \theta_0)}
+$$
+
+由此可见，曲面$$S$$在一点的法曲率$$\kappa_n$$在$$\theta = \theta_0$$，$$\theta = \theta_0 + \pi$$时达到最大值
+
+$$
+\kappa_1 = \frac{a+c}{2} + \sqrt{\bigg( \frac{a-c}{2} \bigg)^2 + b^2}
+$$
+
+在$$\theta = \theta_0 + \frac{\pi}{2}$$，$$\theta = \theta_0 + \frac{3 \pi}{2}$$时达到最小值
+
+$$
+\kappa_2 = \frac{a+c}{2} - \sqrt{\bigg( \frac{a-c}{2} \bigg)^2 + b^2}
+$$
+
+换句话说，$$\kappa_1$$，$$\kappa_2$$是曲面$$S$$在一点的主曲率，$$\theta_0 + \frac{k \pi}{2}$$是曲面$$S$$在该点的主方向，而且对应于不同主曲率的主方向必定是彼此正交的。另外，从主曲率两个计算式得到
+
+$$
+2 H = \kappa_1 + \kappa_2 = a + c, \ \ \ 
+K = \kappa_1 \cdot \kappa_2 = ac - b^2
+$$
