@@ -2158,7 +2158,7 @@ $$
 \end{aligned}
 $$
 
-这正是[Euler公式](/blog/2023/DifferentialGeometry-NOTES-04/#euler公式)的一般情形。如果取曲面$$S$$的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3 \}$$使得$$\boldsymbol{\alpha}_1$$，$$\boldsymbol{\alpha}_2$$是曲面$$S$$的主方向，则这样的标架场称为曲面$$S$$的**二阶标架场**。对于曲面$$S$$的二阶标架场$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3 \}$$，显然有$$\theta_0 = 0$$，因此Euler公式称为
+这正是[Euler公式](/blog/2023/DifferentialGeometry-NOTES-04/#euler公式)的一般情形。如果取曲面$$S$$的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3 \}$$使得$$\boldsymbol{\alpha}_1$$，$$\boldsymbol{\alpha}_2$$是曲面$$S$$的主方向，则这样的标架场称为曲面$$S$$的**二阶标架场**。对于曲面$$S$$的二阶标架场$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3 \}$$，显然有$$\theta_0 = 0$$，因此Euler公式成为
 
 $$
 \kappa_n = \kappa_1 \cos^2{\theta} + \kappa_2 \sin^2{\theta}
