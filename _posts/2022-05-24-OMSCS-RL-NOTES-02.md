@@ -17,7 +17,7 @@ toc:
 
 ## Reinforcement Learning Basics
 
-在上一节课中我们介绍过[MDP](/2022/05/21/OMSCS-RL-NOTES-01.html#markov-decision-process)的相关概念。MDP与我们通常意义下的强化学习还是有一些区别的，其主要区别在于MDP中模型的状态转移是已知而且固定的，而在强化学习中我们认为智能体对环境是一无所知的。这一区别造就了强化学习算法会使用不同的方法来估计环境的模型，或是完全脱离具体的环境直接进行学习。前者称为**基于模型的强化学习(model-based RL)**，而后者则称为**无模型强化学习(model-free RL)**。
+在上一节课中我们介绍过[MDP](/blog/2022/OMSCS-RL-NOTES-01/#markov-decision-process)的相关概念。MDP与我们通常意义下的强化学习还是有一些区别的，其主要区别在于MDP中模型的状态转移是已知而且固定的，而在强化学习中我们认为智能体对环境是一无所知的。这一区别造就了强化学习算法会使用不同的方法来估计环境的模型，或是完全脱离具体的环境直接进行学习。前者称为**基于模型的强化学习(model-based RL)**，而后者则称为**无模型强化学习(model-free RL)**。
 
 ## Behavior Structures
 

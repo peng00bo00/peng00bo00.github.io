@@ -45,7 +45,7 @@ $$
 
 ## Value Iteration in POMDP
 
-我们可以对[价值迭代](/2022/05/21/OMSCS-RL-NOTES-01.html#finding-policies)进行推广，使用估计$$b$$来代替状态$$s$$得到POMDP中的价值迭代算法。实际上这样进行更新得到的价值函数还具有**分片线性和凸性(piecewise linear & convex)**。
+我们可以对[价值迭代](/blog/2022/OMSCS-RL-NOTES-01/#finding-policies)进行推广，使用估计$$b$$来代替状态$$s$$得到POMDP中的价值迭代算法。实际上这样进行更新得到的价值函数还具有**分片线性和凸性(piecewise linear & convex)**。
 
 <div align=center>
 <img src="https://i.imgur.com/OBiwNJ1.png" width="80%">

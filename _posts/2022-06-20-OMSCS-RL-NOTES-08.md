@@ -25,7 +25,7 @@ toc:
 
 ## Basic Update Rule
 
-以[Q-learning算法](/2022/05/31/OMSCS-RL-NOTES-04.html#bellman-equations-with-actions)为例，Q-learning的迭代过程实际上可以理解为对TD error使用梯度下降法进行更新：
+以[Q-learning算法](/blog/2022/OMSCS-RL-NOTES-04/#bellman-equations-with-actions)为例，Q-learning的迭代过程实际上可以理解为对TD error使用梯度下降法进行更新：
 
 <div align=center>
 <img src="https://i.imgur.com/RVch9Np.png" width="80%">

@@ -102,7 +102,7 @@ $$
 
 ### Q-Learning with Potentials
 
-对于[Q-learning算法](/2022/05/31/OMSCS-RL-NOTES-04.html#bellman-equations-with-actions)，我们可以把势函数定义为最优状态价值函数，这样可以得到迭代步骤：
+对于[Q-learning算法](/blog/2022/OMSCS-RL-NOTES-04/#bellman-equations-with-actions)，我们可以把势函数定义为最优状态价值函数，这样可以得到迭代步骤：
 
 $$
 Q(s, a) \leftarrow Q(s, a) + \alpha_t \bigg[ r - \psi(s) + \gamma \cdot \psi(s') + \gamma \cdot \max_{a'} Q(s', a') - Q(s, a) \bigg]

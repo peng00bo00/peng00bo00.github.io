@@ -55,7 +55,7 @@ $$
 显然`Fib1(n)`不是一个好的算法，其问题在于它会反复计算数列前面的项。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/QBssznj.png" width="80%">
+<img src="https://i.imgur.com/QBssznj.png" width="80%">
 </div>
 
 ### DP Algorithm
@@ -78,7 +78,7 @@ Fib2(n):
 从这个例子可以看出动态规划的特点：
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/MmQlu6J.png" width="80%">
+<img src="https://i.imgur.com/MmQlu6J.png" width="80%">
 </div>
 
 ## Longest Increasing Subsequence
@@ -86,7 +86,7 @@ Fib2(n):
 LIS问题的目标是在给定序列中寻找递增子列的长度，注意这里我们允许对原始序列进行删减来获得子列。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/InNHqpl.png" width="80%">
+<img src="https://i.imgur.com/InNHqpl.png" width="80%">
 </div>
 
 ### Subproblem Attempt
@@ -94,13 +94,13 @@ LIS问题的目标是在给定序列中寻找递增子列的长度，注意这�
 使用DP的步骤是首先定义一个subproblem，然后依次求解subproblem。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/OrvDRcO.png" width="80%">
+<img src="https://i.imgur.com/OrvDRcO.png" width="80%">
 </div>
 
 对于LIS问题可以进行形式化如下：
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/nH3zrPE.png" width="80%">
+<img src="https://i.imgur.com/nH3zrPE.png" width="80%">
 </div>
 
 ### Recurrence Attempt
@@ -108,12 +108,12 @@ LIS问题的目标是在给定序列中寻找递增子列的长度，注意这�
 求解LIS问题的核心在于记录下序列中每个元素结尾时递增子列的长度。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/UpO1clv.png" width="80%">
+<img src="https://i.imgur.com/UpO1clv.png" width="80%">
 </div>
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/wecKkrK.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/mSrPH3M.png" width="80%">
+<img src="https://i.imgur.com/wecKkrK.png" width="80%">
+<img src="https://i.imgur.com/mSrPH3M.png" width="80%">
 </div>
 
 ### DP Algorithm
@@ -140,7 +140,7 @@ LIS(a[]):
 此时算法的复杂度为$$O(n^2)$$。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/AhZwakT.png" width="80%">
+<img src="https://i.imgur.com/AhZwakT.png" width="80%">
 </div>
 
 ## Longest Common Subsequence
@@ -148,35 +148,35 @@ LIS(a[]):
 LCS问题的目标是计算两个序列中最长的公共子列：
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/bA8GydQ.png" width="80%">
+<img src="https://i.imgur.com/bA8GydQ.png" width="80%">
 </div>
 
 ### Subproblem Attempt1
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/7kqzCSh.png" width="80%">
+<img src="https://i.imgur.com/7kqzCSh.png" width="80%">
 </div>
 
 ### Recurrence Attempt1
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/2q0zgaA.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/JTJvkbb.png" width="80%">
+<img src="https://i.imgur.com/2q0zgaA.png" width="80%">
+<img src="https://i.imgur.com/JTJvkbb.png" width="80%">
 </div>
 
 ### Subproblem Attempt2
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/7ts0xtJ.png" width="80%">
+<img src="https://i.imgur.com/7ts0xtJ.png" width="80%">
 </div>
 
 ### Recurrence Attempt2
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/hW9KwqY.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/YJjLKVP.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/YueOEWA.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/dLDg8o9.png" width="80%">
+<img src="https://i.imgur.com/hW9KwqY.png" width="80%">
+<img src="https://i.imgur.com/YJjLKVP.png" width="80%">
+<img src="https://i.imgur.com/YueOEWA.png" width="80%">
+<img src="https://i.imgur.com/dLDg8o9.png" width="80%">
 </div>
 
 ### DP Algorithm
@@ -203,13 +203,13 @@ LCS(X[], Y[]):
 此时算法的复杂度为$$O(n^2)$$。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/ycZbes0.png" width="80%">
+<img src="https://i.imgur.com/ycZbes0.png" width="80%">
 </div>
 
 如果想要获得最长公共子列，还可以从L的右下角开始向上进行追溯：
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/6KeLTki.png" width="80%">
+<img src="https://i.imgur.com/6KeLTki.png" width="80%">
 </div>
 
 ## Knapsack
@@ -217,7 +217,7 @@ LCS(X[], Y[]):
 knapsack是经典的优化问题，我们希望在一定的重量约束下最大化背包中物品的价值：
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/AqMxn1p.png" width="80%">
+<img src="https://i.imgur.com/AqMxn1p.png" width="80%">
 </div>
 
 ### Greedy Algorithm
@@ -225,14 +225,14 @@ knapsack是经典的优化问题，我们希望在一定的重量约束下最大
 贪心算法是求解knapsack问题的一种经典解法，不过需要注意的是贪心算法往往不能得到问题的最优解。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/4RaHtnI.png" width="80%">
+<img src="https://i.imgur.com/4RaHtnI.png" width="80%">
 </div>
 
 ### Attempt1
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/rGEnwFr.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/l53NiJl.png" width="80%">
+<img src="https://i.imgur.com/rGEnwFr.png" width="80%">
+<img src="https://i.imgur.com/l53NiJl.png" width="80%">
 </div>
 
 ### Attempt2
@@ -248,8 +248,8 @@ K[i-1, b], &\text{otherwise}
 $$
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/hvBRfA4.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/zllCzsN.png" width="80%">
+<img src="https://i.imgur.com/hvBRfA4.png" width="80%">
+<img src="https://i.imgur.com/zllCzsN.png" width="80%">
 </div>
 
 ### DP Algorithm
@@ -276,8 +276,8 @@ KnapsackNoRepeat(w[], v[], B):
 此时算法的复杂度为$$O(nB)$$。这里需要说明的是$$O(nB)$$依赖于限制$$B$$的值，而要表示$$B$$则需要$$O(\log B)$$的空间。因此这个算法并不是一个非常高效的算法。实际上人们已经证明knapsack问题是[NP-complete](/blog/2022/OMSCS-GA-NOTES-06/#knapsack-1)，我们目前无法找到一个高效的解法。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/wETdVXr.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/CHzHAfM.png" width="80%">
+<img src="https://i.imgur.com/wETdVXr.png" width="80%">
+<img src="https://i.imgur.com/CHzHAfM.png" width="80%">
 </div>
 
 ### Knapsack Repetition
@@ -291,8 +291,8 @@ $$
 上式表示我们可以尝试在当前的背包中添加一个物品$$i$$以记录此时背包中的最大价值，此时的算法复杂度为$$O(nB)$$。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/rqmYLCe.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/edTQSrR.png" width="80%">
+<img src="https://i.imgur.com/rqmYLCe.png" width="80%">
+<img src="https://i.imgur.com/edTQSrR.png" width="80%">
 </div>
 
 #### Simpler Subproblem
@@ -306,7 +306,7 @@ $$
 它表示当重量约束为$$b$$时，我们尝试在背包中添加1个$$i$$号物品从而记录下当前条件下背包的最大价值。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/zxxW6cI.png" width="80%">
+<img src="https://i.imgur.com/zxxW6cI.png" width="80%">
 </div>
 
 因此对于允许重复的knapsack问题可以按照如下过程进行求解：
@@ -332,19 +332,19 @@ KnapsackRepeat(w[], v[], B):
 动态规划还可以用来处理矩阵乘法。回忆矩阵乘法的运算规则，新矩阵的每个元素都是$$A$$和$$B$$矩阵对应行列的内积。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/6uXt8oz.png" width="80%">
+<img src="https://i.imgur.com/6uXt8oz.png" width="80%">
 </div>
 
 由于矩阵乘法的结合性，对于链式相乘的矩阵我们可以调整矩阵乘法的计算顺序从而改变整个乘法的计算复杂度。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/w1C3UOG.png" width="80%">
+<img src="https://i.imgur.com/w1C3UOG.png" width="80%">
 </div>
 
 具体地，对于矩阵乘法$$Z_{a \times c} = W_{a \times b} \cdot Y_{b \times c}$$的计算复杂度为$$O(abc)$$。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/ujk2c9q.png" width="80%">
+<img src="https://i.imgur.com/ujk2c9q.png" width="80%">
 </div>
 
 ### General Problem
@@ -352,7 +352,7 @@ KnapsackRepeat(w[], v[], B):
 因此，连续矩阵相乘的问题就可以使用动态规划的思路进行建模。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/vXBBgca.png" width="80%">
+<img src="https://i.imgur.com/vXBBgca.png" width="80%">
 </div>
 
 ### Graphical View
@@ -360,7 +360,7 @@ KnapsackRepeat(w[], v[], B):
 同时我们也可以使用二叉树来理解计算的过程，从这个角度来看我们的目标则是找到总体代价最小的树。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/s2l9PYS.png" width="80%">
+<img src="https://i.imgur.com/s2l9PYS.png" width="80%">
 </div>
 
 ### Substring
@@ -374,11 +374,11 @@ $$
 其中$$C[i, l]$$和$$C[l+1, j]$$分别表示左子树和右子树的最小计算代价，而$$m_{i-1} m_l m_j$$则是合并两个子树的代价。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/w40ZPsG.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/k6jcry4.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/gMQp4mA.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/5PLssSE.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/2IiCARh.png" width="80%">
+<img src="https://i.imgur.com/w40ZPsG.png" width="80%">
+<img src="https://i.imgur.com/k6jcry4.png" width="80%">
+<img src="https://i.imgur.com/gMQp4mA.png" width="80%">
+<img src="https://i.imgur.com/5PLssSE.png" width="80%">
+<img src="https://i.imgur.com/2IiCARh.png" width="80%">
 </div>
 
 ### DP Algorithm
@@ -406,7 +406,7 @@ ChainMultiply(m0, m1, ..., mn):
 整个算法的复杂度为$$O(n^3)$$。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/m7cWQsf.png" width="80%">
+<img src="https://i.imgur.com/m7cWQsf.png" width="80%">
 </div>
 
 ## Shortest Path Algorithms
@@ -414,7 +414,7 @@ ChainMultiply(m0, m1, ..., mn):
 动态规划的一个重要应用是计算最短路径，实际上经典的Dijkstra算法就是基于动态规划来进行设计的。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/kdv3aLQ.png" width="80%">
+<img src="https://i.imgur.com/kdv3aLQ.png" width="80%">
 </div>
 
 ### Negative Weight Cycles
@@ -422,7 +422,7 @@ ChainMultiply(m0, m1, ..., mn):
 Dijkstra算法的一个局限性在于它不能处理带负边的情况。对于更一般的图结构，我们希望能够找到图上权重和为负的环，同时计算出任意两个顶点之间的最短路径。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/ruFCOBY.png" width="80%">
+<img src="https://i.imgur.com/ruFCOBY.png" width="80%">
 </div>
 
 ### Single Source
@@ -436,9 +436,9 @@ $$
 其中$$w[y, z]$$为节点$$y$$到节点$$z$$的代价，而$$\min \{ D[i-1, y] + w[y, z] \vert yz \in E \}$$则是添加一条边后起点到节点$$z$$的最小代价。因此上式意为当我们增加一条可用边时，起点到$$z$$的最小代价是前一步的代价和添加一条边后路径代价中较小的那个。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/utgmT6Z.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/AZhFsqV.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/cEXxH1G.png" width="80%">
+<img src="https://i.imgur.com/utgmT6Z.png" width="80%">
+<img src="https://i.imgur.com/AZhFsqV.png" width="80%">
+<img src="https://i.imgur.com/cEXxH1G.png" width="80%">
 </div>
 
 这种利用动态规划来解决带负边的单源最短路径问题的算法称为**Bellman-Ford算法**，它的复杂度为$$O(mn)$$：
@@ -462,7 +462,7 @@ Bellman-Ford(G, s, w):
 ```
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/ZlFiZrV.png" width="80%">
+<img src="https://i.imgur.com/ZlFiZrV.png" width="80%">
 </div>
 
 ### Finding Negative Weight Cycle
@@ -470,7 +470,7 @@ Bellman-Ford(G, s, w):
 当图上有权重为负的环时还需要找到这样的环，此时该环上的路径其代价会更小一些。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/JoiX2hV.png" width="80%">
+<img src="https://i.imgur.com/JoiX2hV.png" width="80%">
 </div>
 
 ### All Pairs
@@ -478,8 +478,8 @@ Bellman-Ford(G, s, w):
 除了单源最短路径问题之外，在很多情况下我们希望计算图上任意两个节点之间的最短路径。对于这样的问题同样可以使用动态规划来进行建模和处理。记三维数组$$D[i,s,t]$$为最多使用$$\{ 1, 2, \dots, i \}$$的子集作为中间节点从节点$$s$$出发到达节点$$t$$的最小代价，当$$s$$和$$t$$直接相连时有$$D[0, s, t] = w[s, t]$$，否则将代价初始化为无穷大。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/n9rQbHR.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/qIrRCLy.png" width="80%">
+<img src="https://i.imgur.com/n9rQbHR.png" width="80%">
+<img src="https://i.imgur.com/qIrRCLy.png" width="80%">
 </div>
 
 $$D[i,s,t]$$的递推关系取决于节点$$i$$是否位于$$s$$到$$t$$的最短路径上。当节点$$i$$不在最短路径上时有：
@@ -489,7 +489,7 @@ D[i, s, t] = D[i-1, s, t]
 $$
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/j4qdxpN.png" width="80%">
+<img src="https://i.imgur.com/j4qdxpN.png" width="80%">
 </div>
 
 否则$$D[i, s, t]$$等于$$s$$到$$i$$与$$i$$到$$t$$两段路径最小代价之和：
@@ -499,8 +499,8 @@ D[i, s, t] = D[i-1, s, i]+D[i-1, i, t]
 $$
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/G5wVlUi.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/vv7ZyT4.png" width="80%">
+<img src="https://i.imgur.com/G5wVlUi.png" width="80%">
+<img src="https://i.imgur.com/vv7ZyT4.png" width="80%">
 </div>
 
 整理后可以得到递推关系：
@@ -510,7 +510,7 @@ D[i, s, t] = \min \big( D[i-1, s, t], D[i-1, s, i]+D[i-1, i, t] \big)
 $$
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/eTOb0IX.png" width="80%">
+<img src="https://i.imgur.com/eTOb0IX.png" width="80%">
 </div>
 
 因此计算图上所有节点之间最短路径的**Floyd-Warshall算法**如下：
@@ -533,14 +533,14 @@ Floyd-Warshall(G, w):
 ```
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/K0ZTLpJ.png" width="80%">
+<img src="https://i.imgur.com/K0ZTLpJ.png" width="80%">
 </div>
 
 Floyd-Warshall算法的计算复杂度为$$O(n^3)$$，其中$$n$$为图上节点数。需要注意的是Floyd-Warshall算法假设图上没有权重为负的环，因此在使用时需要首先对图进行检测。
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/CZ6c72t.png" width="80%">
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/FvSIHcG.png" width="80%">
+<img src="https://i.imgur.com/CZ6c72t.png" width="80%">
+<img src="https://i.imgur.com/FvSIHcG.png" width="80%">
 </div>
 
 ## Reference
