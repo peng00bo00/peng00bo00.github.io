@@ -2028,14 +2028,14 @@ $$ </center>
 
 ## 曲面上的曲线
 
-在[前面](/blog/2024/DifferentialGeometry-NOTES-06/#测地曲率和测地挠率)我们曾经指出，落在曲面$$S$$上的曲线$$C$$收到曲面的制约，它的弯曲性质必然在某种程度上反映了曲面的弯曲情况。现在，我们要把上一节所建立的曲面的一阶标架场理论用于曲面上曲线的研究。
+在[前面](/blog/2024/DifferentialGeometry-NOTES-06/#测地曲率和测地挠率)我们曾经指出，落在曲面$$S$$上的曲线$$C$$受到曲面的制约，它的弯曲性质必然在某种程度上反映了曲面的弯曲情况。现在，我们要把上一节所建立的曲面的一阶标架场理论用于曲面上曲线的研究。
 
 假定在曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$上取定一个一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3 \}$$，其中$$\boldsymbol{\alpha}_3 = \boldsymbol{n}$$。设它的相对分量是$$\omega^1$$，$$\omega^2$$，$$\omega^3=0$$以及$$\omega_i^j = -\omega_j^i$$，它们都是参数$$u^1$$，$$u^2$$的一次微分式。
 
 设$$C$$是曲面$$S$$上的一条连续可微曲线，其参数方程为$$u^\alpha = u^\alpha (s)$$，$$\alpha = 1, 2$$，$$s$$为弧长参数。因此，曲线$$C$$的单位切向量是
 
 $$
-\boldsymbol{e}_1 = \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} = \frac{\omega^1}{\mathrm{d} s} \boldsymbol{\alpha}_1 + \frac{\omega^2}{\mathrm{d} s} \boldsymbol{\alpha}_2
+\boldsymbol{e}_1 = \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} = \frac{\omega^1}{\mathrm{d} s} \boldsymbol{\alpha}_1 + \frac{\omega^2}{\mathrm{d} s} \boldsymbol{\alpha}_2
 $$
 
 这里的$$\omega^1$$，$$\omega^2$$是曲面$$S$$的相对分量在曲线$$C$$上的限制。设$$\theta$$是$$\boldsymbol{e}_1$$与$$\boldsymbol{\alpha}_1$$所构成的方向角，即
@@ -2057,19 +2057,16 @@ $$
 \begin{aligned}
 \boldsymbol{e}_2 &= \boldsymbol{n} \times \boldsymbol{e}_1 = \boldsymbol{\alpha}_3 \times (\cos{\theta} \boldsymbol{\alpha}_1 + \sin{\theta} \boldsymbol{\alpha}_2) \\
 &= -\sin{\theta} \boldsymbol{\alpha}_1 + \cos{\theta} \boldsymbol{\alpha}_2 \\
-&= -\frac{\omega^2}{\mathrm{d} s} \boldsymbol{\alpha}_1 + \frac{\omega^1}{\mathrm{d} s} \boldsymbol{\alpha}_2
+&= -\frac{\omega^2}{\mathrm{d} s} \boldsymbol{\alpha}_1 + \frac{\omega^1}{\mathrm{d} s} \boldsymbol{\alpha}_2 \\
+\boldsymbol{e}_3 &= \boldsymbol{\alpha}_3 = \boldsymbol{n}
 \end{aligned}
-$$
-
-$$
-\boldsymbol{e}_3 = \boldsymbol{\alpha}_3 = \boldsymbol{n}
 $$
 
 于是$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$是沿曲面$$S$$上的曲线$$C$$所定义的单位正交标架场，它是曲面$$S$$的一阶标架场$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3 \}$$在曲线$$C$$上的限制、并在每一点转过一个角度$$\theta$$得到的。根据定义，曲线$$C$$的曲率向量是
 
 $$
 \begin{aligned}
-\frac{\mathrm{d} \boldsymbol{e}_1}{\mathrm{d} s} &= (-\sin{\theta} \boldsymbol{\alpha}_1 + \cos{\theta} \boldsymbol{\alpha}_2) \frac{\mathrm{d} \theta}{\mathrm{d} s} + \cos{\theta} {\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} + \sin{\theta} {\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s} \\
+\frac{\mathrm{d} \boldsymbol{e}_1}{\mathrm{d} s} &= (-\sin{\theta} \boldsymbol{\alpha}_1 + \cos{\theta} \boldsymbol{\alpha}_2) \frac{\mathrm{d} \theta}{\mathrm{d} s} + \cos{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} + \sin{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s} \\
 &= \bigg( \frac{\mathrm{d} \theta}{\mathrm{d} s} + \frac{\omega_1^2}{\mathrm{d} s}\bigg) \boldsymbol{e}_2 + \frac{\omega^1 \omega_1^3 + \omega^2 \omega_2^3}{\mathrm{d} s^2} \boldsymbol{e}_3
 \end{aligned}
 $$
