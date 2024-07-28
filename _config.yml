@@ -305,7 +305,7 @@ jekyll-archives:
     tag: "/blog/tag/:name/"
     category: "/blog/category/:name/"
 
-display_tags: ["code", "CG", "CS6476-CV", "CS6515-GA", "CS7641-ML", "CS7642-RL", "CS7643-DL", "C++", "ISYE6644-SIM", "Geometry-Processing", "Simulation", "formatting", "Math"] # these tags will be displayed on the front page of your blog
+display_tags: ["CG", "CS6476-CV", "CS6515-GA", "CS7641-ML", "CS7642-RL", "CS7643-DL", "C++", "ISYE6644-SIM", "Geometry-Processing", "Simulation", "formatting", "Math"] # these tags will be displayed on the front page of your blog
 display_categories: ["DDG", "Differential-Geometry", "GAMES001", "GAMES103", "GNN", "LeetCode", "OMSCS", "STL", "sample-posts"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
