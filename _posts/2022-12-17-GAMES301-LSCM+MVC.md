@@ -17,7 +17,7 @@ toc:
 
 ## LSCM
 
-**LSCM(least squares conformal map)**是经典的自由边界共形参数化算法。我们在课程中介绍过共形映射需要满足[Cauchy-Riemann方程](/2022/11/11/GAMES301-NOTES-10.html#plane-to-plane)：
+**LSCM(least squares conformal map)**是经典的自由边界共形参数化算法。我们在课程中介绍过共形映射需要满足[Cauchy-Riemann方程](/blog/2022/GAMES301-NOTES-10/#plane-to-plane)：
 
 $$
 \begin{cases}
@@ -360,7 +360,7 @@ $$
 
 ### Implementation
 
-整个LSCM算法可参考下面`LSCM()`函数的实现。整个算法流程包括计算网格三角形面积、计算初始构型、构造稀疏线性方程组、固定网格上两个点、以及最后求解线性方程组得到参数坐标等步骤。其中计算初始构型的`project2Plane()`函数与作业2完全相同，可以参见之前的[代码片断](/2022/12/10/GAMES301-AES.html#compute-rest-pose)。
+整个LSCM算法可参考下面`LSCM()`函数的实现。整个算法流程包括计算网格三角形面积、计算初始构型、构造稀疏线性方程组、固定网格上两个点、以及最后求解线性方程组得到参数坐标等步骤。其中计算初始构型的`project2Plane()`函数与作业2完全相同，可以参见之前的[代码片断](/blog/2022/GAMES301-AES/#compute-rest-pose)。
 
 ```matlab
 function uv = LSCM(V, F)
