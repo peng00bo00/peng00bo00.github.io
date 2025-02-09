@@ -119,7 +119,7 @@
         - 实现了Kulla-Conty BRDF用于实时高质量着色
         - 实现了联合双边滤波Joint Bilateral Filtering用于实时光线追踪的降噪
     
-    - title: "CMUCS15-458/858: Discrete Differential Geometry"
+    - title: "CMU CS15-458/858: Discrete Differential Geometry"
       year: 2021
       description: 
         - 实现了(离散)外微分中的常用算子
