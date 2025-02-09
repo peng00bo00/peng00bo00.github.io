@@ -161,6 +161,24 @@
 - title: 发表论文
   type: time_table
   contents:
+    - title: 3D Shape Reconstruction and Generation of Natural Pozzolan Particles
+      year: 2025
+      description: 
+        - Bo Peng, Prabu Thannasi, and Kemal Celik
+        - Powder Technology
+
+    - title: Development and Characterization of a Regional Lunar Soil Simulant for Emirates Lunar Missions
+      year: 2024
+      description: 
+        - Bo Peng, Prabu Thannasi, Waleed El-Sekelly, Tarek Abdoun, and Kemal Celik
+        - International Journal of Mining Science and Technology
+
+    - title: The Microscope Camera CAM-M on-Board the Rashid-1 Lunar Rover
+      year: 2024
+      description: 
+        - Sebastian G. Els, Nancy Ageorges, Milan Bogosavljevic, Dirk Kampf, Zach Ioannou, Santhosh K. Amilineni, Ahmed Salem Belal, Amna Busoud, Salem M. AlMulla, Sarath P. Mohan, Prateek Garg, Bo Peng, Christian Wöhler, Valerian Lalucaa, Cedric Virmontois, Sara Almaeeni, Hamad Almarzooqi, and the ELM science collaboration
+        - Space Science Reviews
+
     - title: High Performance Computing for Simulation of the Urban Microclimate
       year: 2024
       description: 
