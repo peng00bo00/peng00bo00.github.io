@@ -218,6 +218,7 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
+  smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
   syntax_highlighter_opts:
     css_class: "highlight"
     span:
