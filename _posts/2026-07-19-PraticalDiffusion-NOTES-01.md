@@ -49,7 +49,7 @@ toc:
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/ulFb5Ew.png" width="100%">
 </div>
 
-VAE的一个基本假设是存在一个隐变量$z$来控制数据$$x$$的生成。因此我们可以设计一个编码器$$g(x, l)$$将输入数据$$(x, l)$$映射为隐变量$$z$$，再利用一个解码器$$h(z, l)$$来恢复原始数据$$x$$。VAE的具体推导过程比较复杂，这里直接给出结论:我们不再直接优化原始的似然函数，而是去优化它的下界[ELBO](https://en.wikipedia.org/wiki/Evidence_lower_bound)。一般地，我们可以假设隐变量$$z$$关联的分布都是正态分布，这样VAE的损失函数可以表示为一个标准自编码器的损失以及一个正则项。
+VAE的一个基本假设是存在一个隐变量$$z$$来控制数据$$x$$的生成。因此我们可以设计一个编码器$$g(x, l)$$将输入数据$$(x, l)$$映射为隐变量$$z$$，再利用一个解码器$$h(z, l)$$来恢复原始数据$$x$$。VAE的具体推导过程比较复杂，这里直接给出结论:我们不再直接优化原始的似然函数，而是去优化它的下界[ELBO](https://en.wikipedia.org/wiki/Evidence_lower_bound)。一般地，我们可以假设隐变量$$z$$关联的分布都是正态分布，这样VAE的损失函数可以表示为一个标准自编码器的损失以及一个正则项。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/s5rhItK.png" width="100%">
