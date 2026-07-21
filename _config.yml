@@ -225,11 +225,6 @@ kramdown:
     block:
       line_numbers: true
       start_line: 1
-  smart_quotes:
-    lsquo: "'"
-    rsquo: "'"
-    ldquo: "\""
-    rdquo: "\""
 
 # Includes & excludes
 include: ["_pages"]
