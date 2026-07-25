@@ -32,9 +32,11 @@ toc:
 为了方便叙述，我们首先来梳理一下相关的概念。在上一节介绍扩散模型时使用了离散的生成过程，为了数学推导上的方便这里统一使用连续视角下的扩散过程。此时扩散模型的变量都会被规范化到$$[0, 1]$$的区间上，而前向过程则可以表示为
 
 $$
-x(t) = x(0) + \sigma (t) \epsilon \\
-\epsilon \sim \mathcal{N} (0, I) \\
-\sigma(0) = 0
+x(t) = x(0) + \sigma (t) \epsilon
+$$
+
+$$
+\epsilon \sim \mathcal{N} (0, I), \ \sigma(0) = 0
 $$
 
 <div align=center>
@@ -155,7 +157,7 @@ $$
 f(x, t) = v(x, t) - \rho(t) \nabla \log p_t(x)
 $$
 
-其中，对数项的梯度$$\nabla \log p_t(x)$$也称为score function。
+其中，$$\nabla \log p_t(x)$$这一项也称为score function。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/p50OqZ2.png" width="100%">
@@ -179,7 +181,7 @@ $$
 \end{aligned}
 $$
 
-同时，Tweedie's Formula指出
+同时，[Tweedie's Formula](https://pmc.ncbi.nlm.nih.gov/articles/PMC3325056/)指出在已知$$x_t$$条件下初始状态$$x_0$$的后验期望为
 
 $$
 \mathbb{E} [x_0 \vert x_t] = x_t + \sigma_t^2 \nabla \log{p(x_t)}
