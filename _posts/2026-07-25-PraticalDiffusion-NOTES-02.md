@@ -212,7 +212,7 @@ f(x, t) &= v(x, t) - \rho(t) \nabla \log p_t(x) \\
 \end{aligned}
 $$
 
-在离散形式下对上式进行积分就得到了DDPM的采样公式。
+在离散形式下对反向SDE进行积分就可以得到DDPM的采样公式。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/piFVwjI.png" width="100%">
