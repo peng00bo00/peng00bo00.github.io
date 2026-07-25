@@ -87,7 +87,7 @@ $$
 
 ### DDIM Sampler
 
-对于期望函数$$\mathbb{E} [\epsilon \vert x_t]$$我们可以使用训练的denoiser进行表示，这样通过Euler前向积分就可以得到初始时刻的数据分布，而这一过程的离散形式即为DDIM的积分公式：
+对于期望函数$$\mathbb{E} [\epsilon \vert x_t]$$我们可以使用训练的denoiser进行表示，这样通过Euler前向积分就可以得到初始时刻的数据分布，而这一过程的离散形式即为DDIM的采样公式。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/TQBnYSA.png" width="100%">
