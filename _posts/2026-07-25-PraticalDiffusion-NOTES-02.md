@@ -151,7 +151,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/5m2lcXg.png" width="100%">
 </div>
 
-对比一下ODE版本的约束方程，在SDE中我们的目标是寻找一个合适的漂移项$$f(x, t)$$使得概率密度函数$$p_t(x)$$同时满足两个方程。显然这样的$$f(x, t)$$按下式进行定义
+对比一下ODE版本的约束方程，在SDE中我们的目标是寻找一个合适的漂移项$$f(x, t)$$使得它能够满足Fokker-Planck Equation。假设ODE和SDE对应同一个扩散过程，此时可以定义出满足约束条件的$$f(x, t)$$如下
 
 $$
 f(x, t) = v(x, t) - \rho(t) \nabla \log p_t(x)
