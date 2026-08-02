@@ -235,3 +235,5 @@ $$
 ## Reference
 
 - [Lecture 2: Perspectives on Diffusion](https://www.youtube.com/watch?v=-ML7zwmUjvo)
+- [What are Diffusion Models?](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)
+- [Generative Modeling by Estimating Gradients of the Data Distribution](https://yang-song.net/blog/2021/score/)
