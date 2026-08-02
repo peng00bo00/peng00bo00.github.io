@@ -73,13 +73,84 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/eI3DweQ.png" width="100%">
 </div>
 
-因此，考虑扩散过程的score function损失函数实际上就是去计算无条件情况下的score function。
+因此，考虑扩散过程的score function损失函数实际上就是去计算(学习)无条件情况下的score function，这使得我们计算通用情况下的score function变成了可能。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/EXgX0au.png" width="100%">
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/xpaMzzQ.png" width="100%">
 </div>
 
+## Unconditional to Conditional Sampling and Training
+
+回到最开始的条件生成问题上，在很多场景中我们的需求是用户输入一些条件信息来引导模型从这些给定的信息中进行生成，这样的方式可以让我们对生成的结果有更多的控制。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/Tykttkh.png" width="100%">
+</div>
+
+对于这样的问题只需要把数据$$x_0$$以及对应的条件$$c$$一起作为模型输入进行训练即可，本质和无条件的生成模型没有什么区别。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/McI2hyP.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/b46RIqZ.png" width="100%">
+</div>
+
+然而遗憾的是，在实践中这样训练出的模型在生成高维数据时的效果并不好。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/V0LWEhp.png" width="100%">
+</div>
+
+## Classifier Guidance and Classifier Free Guidance
+
+### Classifier Guidance
+
+回顾一下条件生成模型的score function，利用Bayes公式对它进行展开得到
+
+$$
+\nabla_x \log{p_t (x_t \vert c)} = \nabla_x \log{p_t (x_t)} + \nabla_x \log{p_t (c \vert x_t)}
+$$
+
+其中第一项$$\nabla_x \log{p_t (x_t)}$$是无条件情况下的score function，而第二项$$\nabla_x \log{p_t (c \vert x_t)}$$则对应一个分类器将数据映射为对应标签的概率，这表明我们可以在训练模型时同步训练一个分类器来指导条件生成模型。在实际操作中一般会在分类器一项加入一个系数$$\gamma$$表示来自分类器这一项的"强度"。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/cxFyZF9.png" width="100%">
+</div>
+
+### Classifier Free Guidance
+
+更进一步对分类器一项使用Bayes公式，实际上我们可以把训练分类器的步骤也给省略掉。此时只需要训练一个模型，这样的方式称为**Classifier Free Guidance**。在实践中通常会为无条件的情况设置一个专门的标签$$c=\emptyset$$，这样在训练时只需要按照概率随机将原始标签替换为空标签即可。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/Lf9FBpx.png" width="100%">
+</div>
+
+目前主流的图片生成模型大多是基于Classifier Free Guidance的思路来进行训练的，和Classifier Guidance的结果相比它往往能够得到更加稳定和高质量的图片结果。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/tSxac7b.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/NYW2d9w.png" width="100%">
+</div>
+
+至于为什么Classifier Free Guidance能够得到更高的生成质量，目前学术界也没有明确的结论，相关的理论仍在发展中。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/G92YVBv.png" width="100%">
+</div>
+
+## Introduction to Inverse Problems
+
+本节课最后介绍了一下**逆问题(inverse problem)**。逆问题在工程中是一类非常常见的问题，在很多场景中我们无法获取原始数据$$x_0$$而只能获取被污染后的数据$$y = \mathcal{A}(x_0) + \sigma_y z$$，而我们的目标则是从污染后的数据$$y$$上来恢复原始数据$$x_0$$。像是黑白图像上色、图像编辑以及超分辨率这样的任务都可以归类为逆问题。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/a8JFSaA.png" width="100%">
+</div>
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/Ru6VFKF.png" width="100%">
+</div>
+
 ## Reference
 
 - [Lecture 3 - Conditioning and Guidance](https://www.youtube.com/watch?v=HYIhJGUycjQ)
+- [Guidance: a cheat code for diffusion models](https://sander.ai/2022/05/26/guidance.html)
