@@ -48,6 +48,37 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/WfEfQb5.png" width="100%">
 </div>
 
+## Training (Unconditional) Score Function
+
+接下来考虑如何去训练score function。一个直观的想法是使用L2损失去度量真实数据和模型输出的差异，但这种思路的问题在于我们无法计算真实数据的概率分布，也无法计算对应的score function。不过对于扩散过程，我们实际上是知道给定0时刻数据分布，在$$t$$时刻的概率分布满足$$p_{t \vert 0} (x_t \vert x_0) \sim \mathcal{N} (x_0, \sigma_t^2 I)$$，其对应的score function有解析形式
+
+$$
+\nabla \log{p_{t \vert 0} (x_t \vert x_0)} = - \frac{x_t - x_0}{\sigma_t^2}
+$$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/PhRC9BL.png" width="100%">
+</div>
+
+实际上通过一些数学变形可以把$$t$$时刻的无条件概率分布写成条件概率分布的期望
+
+$$
+\begin{aligned}
+\nabla \log{p_t (x_t)} &= \int \nabla_x \log{p_{t \vert 0} (x_t \vert x_0)} \ p_0 (x_0 \vert x_t) \ \mathrm{d} x_0 \\
+&= \mathbb{E}_{x_0 \sim X_0 \vert X_t = x_t} [\nabla_x \log{p_{t \vert 0} (x_t \vert x_0)}] 
+\end{aligned}
+$$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/eI3DweQ.png" width="100%">
+</div>
+
+因此，考虑扩散过程的score function损失函数实际上就是去计算无条件情况下的score function。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/EXgX0au.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/xpaMzzQ.png" width="100%">
+</div>
 
 ## Reference
 
