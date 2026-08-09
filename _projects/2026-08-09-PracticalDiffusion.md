@@ -57,6 +57,62 @@ Write down the exact minimizer $$\epsilon_{\sigma}^*(x_{\sigma})$$ in terms of t
 
 Hint: use part **a**, Bayes' rule, as well as the probability density function of $$N(x_0, \sigma^2 I_n)$$.
 
+**Solve**
+
+From part **a**, the minimizer of $$\epsilon_{\sigma}$$ has the closed form
+
+$$
+\epsilon_{\sigma}^*(x_{\sigma}) = \mathbb{E}[\epsilon \vert x_{\sigma} = x_0 + \sigma \epsilon]
+$$
+
+Then, with the forward diffusion process, the added noise could be expressed as 
+
+$$
+\epsilon = \frac{x_\sigma - x_0}{\sigma}
+$$
+
+As a result, the minimizer is
+
+$$
+\begin{aligned}
+\epsilon_{\sigma}^*(x_{\sigma}) &= \mathbb{E} \bigg[\frac{x_\sigma - x_0}{\sigma} \bigg\vert x_{\sigma} \bigg] \\
+&= \frac{1}{\sigma} \big( x_\sigma - \mathbb{E}[x_0 \vert x_\sigma] \big)
+\end{aligned}
+$$
+
+Now we need to solve the posterior expectation $$\mathbb{E}[x_0 \vert x_\sigma]$$. To start with, the posterior probability density function $$p(x_0 \vert x_\sigma)$$ could be derived with the Baye's rule:
+
+$$
+\begin{aligned}
+p(x_0 \vert x_\sigma) &= \frac{p(x_\sigma \vert x_0) p(x_0)}{p(x_\sigma)} \\
+&= \frac{p(x_\sigma \vert x_0) p(x_0)}{\int p(x_\sigma \vert x_0) p(x_0) \mathrm{d} x_0} \\
+&= \frac{p(x_\sigma \vert x_0) \mu(x_0)}{\int p(x_\sigma \vert x_0) \mu(x_0) \mathrm{d} x_0}
+\end{aligned}
+$$
+
+Since $$x_\sigma \vert x_0 \sim N(x_0, \sigma^2 I_n)$$, the posterior probability density function becomes
+
+$$
+p(x_0 \vert x_\sigma) =\frac{\mu(x_0) \exp{ \bigg( -\frac{\| x_\sigma - x_0 \|^2}{2\sigma^2} \bigg)}}{\int \mu(x_0) \exp{ \bigg( -\frac{\| x_\sigma - x_0 \|^2}{2\sigma^2} \bigg)} \mathrm{d} x_0}
+$$
+
+Now, the posterior expectation is given by
+
+$$
+\mathbb{E}[x_0 \vert x_\sigma] = \frac{\int x_0 \cdot \mu(x_0) \exp{ \bigg( -\frac{\| x_\sigma - x_0 \|^2}{2\sigma^2} \bigg)} \mathrm{d} x_0}{\int \mu(x_0) \exp{ \bigg( -\frac{\| x_\sigma - x_0 \|^2}{2\sigma^2} \bigg)} \mathrm{d} x_0}
+$$
+
+To sum up, the minimizer has the closed form
+
+$$
+\begin{aligned}
+\epsilon_{\sigma}^*(x_{\sigma}) &= \frac{1}{\sigma} \big( x_\sigma - \mathbb{E}[x_0 \vert x_\sigma] \big) \\
+&= \frac{\int (x_\sigma - x_0) \cdot \mu(x_0) \exp{ ( -\| x_\sigma - x_0 \|^2/{2\sigma^2} )} \mathrm{d} x_0}{\sigma \int \mu(x_0) \exp{ ( -\| x_\sigma - x_0 \|^2/{2\sigma^2} )} \mathrm{d} x_0}
+\end{aligned}
+$$
+
+∎
+
 **c.**
 Let $$x_0$$ be a random variable distributed according to some continuous density $$p_0(x)$$. Define $$x_t := x_0 + \sigma(t)\epsilon$$ for some function $$\sigma : [0, 1] \rightarrow \mathbb{R}_{\geq 0}$$ and let $$p_t(x)$$ be the probability density associated with $$x_t$$.
 Show that $$v(x, t) = \mathbb{E}[\frac{d\sigma(t)}{dt} \mid x_t = x]$$ and $$p_t(x)$$ satisfy the *transport equation* governing the evolution of the density $$p_t$$ subject to a velocity field $$v$$:
