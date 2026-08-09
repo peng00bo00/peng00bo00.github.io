@@ -15,10 +15,36 @@ toc:
 Prove that for any distribution over random variables $$X$$ and $$Y$$ we have
 
 $$
-\arg\min_f \mathbb{E}_{x,y} \left[ \|f(y) - x\|^2 \right] = \mathbb{E}[x \vert y].
+\arg\min_f \mathbb{E}_{x,y} \big[ \|f(y) - x\|^2 \big] = \mathbb{E}[x \vert y].
 $$
 
 Hint: Solve the optimization problem pointwise for fixed $$y$$.
+
+**Proof**
+
+With the [law of total expectation](https://en.wikipedia.org/wiki/Law_of_total_expectation), we have 
+
+$$
+\mathbb{E} \big[ \|f(y) - x\|^2 \big] = \mathbb{E}_Y \bigg[ \mathbb{E}_X \big[ \|f(y) - x\|^2 \vert Y = y \big] \bigg]
+$$
+
+For any fixed $$y$$, $$f(y)$$ is nothing but a constant. Let $$c = f(y)$$, the inner expectation could be expressed as
+
+$$
+\begin{aligned}
+\mathbb{E}_X \big[ \|f(y) - x\|^2 \vert Y = y \big] &= \mathbb{E}_X [ \| c - x\|^2 \vert Y=y ] \\
+&= \mathbb{E}_X [ c^2 - 2 c x + x^2 \vert Y=y ] \\
+&= c^2 - 2c \mathbb{E} [X \vert Y=y] + \mathbb{E} [X^2 \vert Y=y]
+\end{aligned}
+$$
+
+Obviously, the minimizer of $$c$$ is
+
+$$
+c^* = f(y) = \mathbb{E} [X \vert Y=y]
+$$
+
+This is also known as the [MMSE estimator](https://en.wikipedia.org/wiki/Minimum_mean_square_error_estimator).∎
 
 **b.**
 Let $$\mu$$ be the density function of a data distribution, so that $$\mu(x_0) \geq 0$$ for all $$x_0 \in \mathbb{R}^n$$ and $$\int_{\mathbb{R}^n} \mu(x_0) \mathrm{d} x_0 = 1$$. Consider the following loss function for fixed $$\sigma$$.
