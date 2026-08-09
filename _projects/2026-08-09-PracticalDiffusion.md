@@ -1,6 +1,6 @@
 ---
 layout: page
-title: A Practical Introduction to Diffusion Models
+title: MIT 6.S183 Homeworks
 description: "Homeworks in MIT 6.S183: A Practical Introduction to Diffusion Models"
 category: Diffusion
 toc:
