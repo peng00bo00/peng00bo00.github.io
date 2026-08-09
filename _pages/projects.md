@@ -5,7 +5,7 @@ permalink: /projects/
 description: A growing collection of my projects.
 nav: true
 nav_order: 2
-display_categories: [3D Vision, Geometry Processing, Simulation, OMSCS]
+display_categories: [3D Vision, Diffusion, Geometry Processing, Simulation, OMSCS]
 horizontal: false
 ---
 
