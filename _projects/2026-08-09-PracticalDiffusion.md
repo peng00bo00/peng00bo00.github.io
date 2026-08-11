@@ -157,16 +157,16 @@ Now, with the law of total expectation, the expectation term could be expressed 
 
 $$
 \begin{aligned}
-\mathbb{E} [ e^{ik \cdot x_t} \cdot \sigma' (t) \cdot \epsilon ] &=\mathbb{E} \big[ \mathbb{E} [ e^{ik \cdot x_t} \cdot \sigma' (t) \cdot \epsilon \vert x_t ] \big] \\
-&= \mathbb{E} [ e^{ik \cdot x_t} \cdot \mathbb{E} [ \sigma' (t) \cdot \epsilon \vert x_t ] ] \\
-&= \mathbb{E} [ e^{ik \cdot x_t} \cdot v(x, t) ]
+\mathbb{E} [ e^{ik \cdot x_t} \cdot \sigma' (t) \cdot \epsilon ] &=\mathbb{E} \big[ \mathbb{E} [ e^{ik \cdot x_t} \cdot \sigma' (t) \cdot \epsilon \vert x_t = x ] \big] \\
+&= \mathbb{E} [ e^{ik \cdot x} \cdot \mathbb{E} [ \sigma' (t) \cdot \epsilon \vert x_t = x ] ] \\
+&= \mathbb{E} [ e^{ik \cdot x} \cdot v(x, t) ]
 \end{aligned}
 $$
 
 As a result,
 
 $$
-\partial_t \tilde{p}_t (k) = ik \cdot \mathbb{E} [ e^{ik \cdot x_t} \cdot v(x, t) ]
+\partial_t \tilde{p}_t (k) = ik \cdot \mathbb{E} [ e^{ik \cdot x} \cdot v(x, t) ]
 $$
 
 Now consider the transport equation. Use Fourier transform on the LHS,
