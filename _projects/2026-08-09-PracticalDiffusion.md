@@ -115,7 +115,7 @@ $$
 
 **c.**
 Let $$x_0$$ be a random variable distributed according to some continuous density $$p_0(x)$$. Define $$x_t := x_0 + \sigma(t)\epsilon$$ for some function $$\sigma : [0, 1] \rightarrow \mathbb{R}_{\geq 0}$$ and let $$p_t(x)$$ be the probability density associated with $$x_t$$.
-Show that $$v(x, t) = \mathbb{E}[\frac{d\sigma(t)}{dt} \mid x_t = x]$$ and $$p_t(x)$$ satisfy the *transport equation* governing the evolution of the density $$p_t$$ subject to a velocity field $$v$$:
+Show that $$v(x, t) = \mathbb{E} \bigg[\frac{d\sigma(t)}{dt} \mid x_t = x \bigg]$$ and $$p_t(x)$$ satisfy the *transport equation* governing the evolution of the density $$p_t$$ subject to a velocity field $$v$$:
 
 $$
 \partial_t p_t(x) + \nabla \cdot (v(x, t) p_t(x)) = 0
@@ -124,8 +124,66 @@ $$
 Hint: Consider the time derivative of the *characteristic function* $$g(t, k) = \mathbb{E}[e^{ik \cdot x_t}]$$. You may also use the fact from Fourier analysis that
 
 $$
-\int e^{ik \cdot x} 
-\nabla \cdot f(x) \mathrm{d} x = -ik \cdot \int e^{ik \cdot x} f(x) \mathrm{d} x
+\int e^{ik \cdot x} \nabla \cdot f(x) \mathrm{d} x = -ik \cdot \int e^{ik \cdot x} f(x) \mathrm{d} x
 $$
 
 and, for continuous functions $$f$$ and $$g$$, $$\int e^{ik \cdot x} f(x) \mathrm{d} x = \int e^{ik \cdot x} g(x) \mathrm{d} x$$ iff $$f = g$$.
+
+**Solve**
+
+Take the time derivative of the characteristic function
+
+$$
+\begin{aligned}
+\partial_t \tilde{p}_t (x_t) &= \frac{\partial}{\partial t} \mathbb{E}[e^{ik \cdot x_t}] \\
+&= \mathbb{E} \bigg[\frac{\partial}{\partial t} e^{ik \cdot x_t} \bigg] \\
+&= \mathbb{E} [ e^{ik \cdot x_t} \cdot ik \cdot \partial_t x_t ] 
+\end{aligned}
+$$
+
+Consider the forward diffusion process
+
+$$
+\partial_t x_t = \partial_t \big(x_0 + \sigma (t) \epsilon \big) = \sigma' (t) \epsilon
+$$
+
+Then, the time derivative part gives 
+
+$$
+\partial_t \tilde{p}_t (x_t) = ik \ \mathbb{E} [ e^{ik \cdot x_t} \cdot \sigma' (t) \cdot \epsilon ] 
+$$
+
+Now, with the law of total expectation, the expectation term could be expressed as
+
+$$
+\begin{aligned}
+\mathbb{E} [ e^{ik \cdot x_t} \cdot \sigma' (t) \cdot \epsilon ] &=\mathbb{E} \big[ \mathbb{E} [ e^{ik \cdot x_t} \cdot \sigma' (t) \cdot \epsilon \vert x_t ] \big] \\
+&= \mathbb{E} [ e^{ik \cdot x_t} \cdot \mathbb{E} [ \sigma' (t) \cdot \epsilon \vert x_t ] ] \\
+&= \mathbb{E} [ e^{ik \cdot x_t} \cdot v(x, t) ]
+\end{aligned}
+$$
+
+As a result,
+
+$$
+\partial_t \tilde{p}_t (x_t) = ik \cdot \mathbb{E} [ e^{ik \cdot x_t} \cdot v(x, t) ]
+$$
+
+Now consider the transport equation. Use Fourier transform on the LHS,
+
+$$
+\begin{aligned}
+\text{LHS} &= \int e^{ik \cdot x} \ \partial_t p_t(x) \ \mathrm{d} x + \int e^{ik \cdot x} \ \nabla \cdot (v(x, t) p_t(x)) \ \mathrm{d} x \\
+&= \partial_t \tilde{p}_t (x_t) - ik \int e^{ik \cdot x} \ v(x, t) \ p_t(x) \ \mathrm{d} x \\
+&= \partial_t \tilde{p}_t (x_t) - ik \cdot \mathbb{E} [ e^{ik \cdot x_t} \cdot v(x, t) ] \\
+&= 0
+\end{aligned}
+$$
+
+Finally, we have proved the transport equation
+
+$$
+\partial_t p_t(x) + \nabla \cdot (v(x, t) p_t(x)) = 0
+$$
+
+∎
