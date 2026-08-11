@@ -135,7 +135,7 @@ Take the time derivative of the characteristic function
 
 $$
 \begin{aligned}
-\partial_t \tilde{p}_t (x_t) &= \frac{\partial}{\partial t} \mathbb{E}[e^{ik \cdot x_t}] \\
+\partial_t \tilde{p}_t (k) &= \frac{\partial}{\partial t} \mathbb{E}[e^{ik \cdot x_t}] \\
 &= \mathbb{E} \bigg[\frac{\partial}{\partial t} e^{ik \cdot x_t} \bigg] \\
 &= \mathbb{E} [ e^{ik \cdot x_t} \cdot ik \cdot \partial_t x_t ] 
 \end{aligned}
@@ -150,7 +150,7 @@ $$
 Then, the time derivative part gives 
 
 $$
-\partial_t \tilde{p}_t (x_t) = ik \ \mathbb{E} [ e^{ik \cdot x_t} \cdot \sigma' (t) \cdot \epsilon ] 
+\partial_t \tilde{p}_t (k) = ik \ \mathbb{E} [ e^{ik \cdot x_t} \cdot \sigma' (t) \cdot \epsilon ] 
 $$
 
 Now, with the law of total expectation, the expectation term could be expressed as
@@ -166,7 +166,7 @@ $$
 As a result,
 
 $$
-\partial_t \tilde{p}_t (x_t) = ik \cdot \mathbb{E} [ e^{ik \cdot x_t} \cdot v(x, t) ]
+\partial_t \tilde{p}_t (k) = ik \cdot \mathbb{E} [ e^{ik \cdot x_t} \cdot v(x, t) ]
 $$
 
 Now consider the transport equation. Use Fourier transform on the LHS,
@@ -174,8 +174,8 @@ Now consider the transport equation. Use Fourier transform on the LHS,
 $$
 \begin{aligned}
 \text{LHS} &= \int e^{ik \cdot x} \ \partial_t p_t(x) \ \mathrm{d} x + \int e^{ik \cdot x} \ \nabla \cdot (v(x, t) p_t(x)) \ \mathrm{d} x \\
-&= \partial_t \tilde{p}_t (x_t) - ik \int e^{ik \cdot x} \ v(x, t) \ p_t(x) \ \mathrm{d} x \\
-&= \partial_t \tilde{p}_t (x_t) - ik \cdot \mathbb{E} [ e^{ik \cdot x_t} \cdot v(x, t) ] \\
+&= \partial_t \tilde{p}_t (k) - ik \int e^{ik \cdot x} \ v(x, t) \ p_t(x) \ \mathrm{d} x \\
+&= \partial_t \tilde{p}_t (k) - ik \cdot \mathbb{E} [ e^{ik \cdot x} \cdot v(x, t) ] \\
 &= 0
 \end{aligned}
 $$
