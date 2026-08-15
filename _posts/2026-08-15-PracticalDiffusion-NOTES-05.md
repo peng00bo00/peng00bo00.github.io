@@ -106,14 +106,65 @@ stable diffusion就是采用latent diffusion这样的技术路线。
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/lLcyGsr.png" width="100%">
 </div>
 
-在视频生成的基础上，更有野心的场景是**世界模型(world model)**。我们希望能基于现有的海量视频数据直接模拟整个世界的物理过程，这同样是目前最火爆的AI应用领域之一。
+在视频生成的基础上，更有野心的场景是**世界模型(world model)**。我们希望能基于现有的海量视频数据直接模拟整个世界的物理过程，这同样是目前最火爆的AI研究领域之一。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/lnNQ4Qv.png" width="100%">
 </div>
 
+### Diffusion Models in Robotics
+
+除了CV相关的场景外，最近几年扩散模型在机器人领域也得到了研究者的广泛关注。如何在真实世界中控制机器人完成各种任务一直是一个难题，很多对人类而言非常简单的任务对于机器人反而是极其复杂的。一个重要原因在于真实世界中的物理反馈往往是非常复杂甚至是随机的，这使得传统方法在真实世界的场景中总会出现失效的问题。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/mGu3UI6.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/zQlzULN.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/JCfX7Go.png" width="100%">
+</div>
+
+为了处理这样的问题，人们开发出了**模仿学习(imitation learning)**这样的技术让机器人从人的行为中学习合适的行动策略，进而实现各种复杂的操作流程。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/cF4UZ2y.png" width="100%">
+</div>
+
+模仿学习的核心之一在于使用了扩散模型来实现机器人的运动策略。它的思路在于利用扩散模型来生成机器人在给定输入状态(视频图像、传感器信号等)下的行为序列，这样扩散模型实际上就构成了机器人的策略生成器。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/5imVD8S.png" width="100%">
+</div>
+
+目前基于扩散模型的机器人控制技术已经在很多过去难以处理的复杂场景中实现了令人惊喜的成果。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/GMCuDwq.png" width="100%">
+</div>
+
+关于扩散模型为何能在机器人场景中取得成功，学术界也有一些讨论。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/Qdz8yTs.png" width="100%">
+</div>
+
 ## Why does Diffusion Work So Well?
 
+本节课最后讨论了优化视角下的扩散模型。实际上扩散模型从噪声生成数据的过程可以理解为从高维的空间中把噪声点投影到数据所在流形的过程。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/BwjdRWe.png" width="100%">
+</div>
+
+基于梯度下降法的框架，扩散模型中的降噪过程实际上就是迭代最小化噪声点到流形上距离。梯度下降的方向由训练的denoiser给出，而不同采样器的差异则在于如何计算梯度下降的步长。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/IKplKLa.png" width="100%">
+</div>
+
+在这样的视角下，扩散模型的优势就在于通过添加噪声以及迭代求解，模型可以更快更稳定地从高维空间移动到目标流形上。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/vhWtMlu.png" width="100%">
+</div>
 
 ## Reference
 
