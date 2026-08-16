@@ -200,7 +200,7 @@ $$
 #### DDPM Sampler
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/lT3BsYD.gif" width="60%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/tNdqvoG.gif" width="60%">
 </div>
 
 #### Accelerated Sampler
@@ -213,14 +213,36 @@ Implement accelerated sampler according to [Interpreting and Improving Diffusion
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/9HWpGbK.gif" width="30%">
 </div>
 
-### Question2
+## Problem Set2
 
-#### Interpolation with Diffusion
+### Image Interpolation with Diffusion
 
 *Building in a futuristic city, oil painting, ghibli inspired, high resolution* → 
 *House in the woods, oil painting, ghibli inspired, high resolution*
 
-#### Visual Illusions with Diffusion
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/FJI1Ry4.gif" width="60%">
+</div>
+
+### Visual Illusions with Diffusion
 
 *A painting of a snowy mountain* → 
 *A painting of a horse*
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/jU2nFUD.png" width="90%">
+</div>
+
+*An oil painting of a restaurant* → 
+*An oil painting of a palace*
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/3gIoCM8.png" width="90%">
+</div>
+
+*A painting of a bull* → 
+*A painting of a bear*
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/aTC7EZV.png" width="90%">
+</div>
