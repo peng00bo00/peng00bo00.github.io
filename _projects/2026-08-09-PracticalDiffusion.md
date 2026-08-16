@@ -2,6 +2,7 @@
 layout: page
 title: MIT 6.S183 Homeworks
 description: "Homeworks in MIT 6.S183: A Practical Introduction to Diffusion Models"
+img: https://i.imgur.com/lT3BsYD.gif
 category: Diffusion
 toc:
   sidebar: left
@@ -129,7 +130,7 @@ $$
 
 and, for continuous functions $$f$$ and $$g$$, $$\int e^{ik \cdot x} f(x) \mathrm{d} x = \int e^{ik \cdot x} g(x) \mathrm{d} x$$ iff $$f = g$$.
 
-**Solve**
+**Proof**
 
 Take the time derivative of the characteristic function
 
@@ -187,3 +188,39 @@ $$
 $$
 
 ∎
+
+### Question2
+
+#### DDIM Sampler
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/lT3BsYD.gif" width="60%">
+</div>
+
+#### DDPM Sampler
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/lT3BsYD.gif" width="60%">
+</div>
+
+#### Accelerated Sampler
+
+Implement accelerated sampler according to [Interpreting and Improving Diffusion Models from an Optimization Perspective](https://arxiv.org/abs/2306.04848).
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/bvcu1KX.gif" width="30%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/aR6Ejfg.gif" width="30%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/9HWpGbK.gif" width="30%">
+</div>
+
+### Question2
+
+#### Interpolation with Diffusion
+
+*Building in a futuristic city, oil painting, ghibli inspired, high resolution* → 
+*House in the woods, oil painting, ghibli inspired, high resolution*
+
+#### Visual Illusions with Diffusion
+
+*A painting of a snowy mountain* → 
+*A painting of a horse*
