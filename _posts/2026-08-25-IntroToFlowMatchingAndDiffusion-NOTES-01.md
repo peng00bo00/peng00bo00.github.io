@@ -12,7 +12,7 @@ toc:
 ---
 
 
-> 这个系列是[MIT 6.S184 - Introduction to Flow Matching and Diffusion Models](https://diffusion.csail.mit.edu/2026/index.html)的同步课程笔记。
+> 这个系列是[MIT 6.S184 - Introduction to Flow Matching and Diffusion Models](https://diffusion.csail.mit.edu/2026/index.html)的同步课程笔记。本门课程面向希望对流模型与扩散模型有更深入理解的学生和研究者，从最基础的数学工具出发逐步推导这些模型背后的数学原理，并介绍相应的训练与采样算法。本节课主要介绍生成模型的基本概念，以及流模型与扩散模型的整体框架。
 {: .block-preface }
 
 
@@ -67,8 +67,49 @@ toc:
 
 ### Flow Models
 
+接下来我们会开始介绍流模型与扩散模型，在进入具体的代码之前我们需要先了解回顾一些基本的数学知识。首先我们定义**轨迹(Trajectory)**为$$[0, 1]$$区间到$$\mathbb{R}^{d}$$空间的映射
+
+$$
+X : [0, 1] \rightarrow \mathbb{R}^{d}, \ \ \ t \mapsto X_t
+$$
+
+**向量场(Vector Field)**则是一个从$$\mathbb{R}^{d}$$空间到$$\mathbb{R}^{d}$$空间的映射
+
+$$
+u : \mathbb{R}^{d} \times [0, 1]\rightarrow \mathbb{R}^{d}, \ \ \ (x, t) \mapsto u_t(x)
+$$
+
+二者通过**常微分方程(Oridinary Differential Equation, ODE)**联系在一起
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} t} X_t = u_t(X_t), \ \ \ X_0 = x_0
+$$
+
+换句话说，ODE和向量场定义了粒子的行为，而粒子的轨迹则是ODE的解。以下图为例，背景中的箭头描述了不同时刻空间中的向量场，而白色的曲线则是粒子在向量场驱动下的运动轨迹。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/6YXBhP8.png" width="100%">
+</div>
+
+基于ODE的概念，我们定义**flow**$$\psi$$为初始点$$x_0$$与时间$$t$$到时刻$$t$$所在位置的映射，其在时间上的演化则由向量场给出称为**flow ODE**。其严格数学定义如下
+
+$$\
+\begin{aligned}
+\psi : \mathbb{R}^d \times [0, 1] \rightarrow \mathbb{R}^d, &\quad (x_0, t) \mapsto \psi_t(x_0) \\
+\frac{\mathrm{d}}{\mathrm{d} t} \psi_t(x_0) &= u_t(\psi_t(x_0)) \\
+\psi_0(x_0) &= x_0
+\end{aligned}
+$$
+
+因此从直觉上来讲向量场、ODE和flow都在描述同样的事情，即粒子在向量场驱动下的运动轨迹：向量场定义了ODE，而ODE的解即为flow。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/QtSRsBM.png" width="100%">
+</div>
+
 ### Diffusion Models
 
 ## Reference
 
 - [Lecture 1 - Flow and Diffusion Models](https://www.youtube.com/watch?v=9eJQQVrUUoI)
+- [Introduction to Flow Matching and Diffusion Models](https://arxiv.org/abs/2506.02070)
