@@ -54,6 +54,15 @@
           /* create pseudocode node */
           let pseudoCodeElement = document.createElement('pre');
           pseudoCodeElement.classList.add('pseudocode');
+          {% comment %}
+            Line numbering is on by default. Because pseudocode.js assigns
+            `options.lineNumber` verbatim, setting it to the string 'false' would
+            still be truthy, so the attribute is simply omitted when disabled.
+            Opt out per post with `pseudocode_line_numbers: false` in the front matter.
+          {% endcomment %}
+          {% if page.pseudocode_line_numbers != false %}
+            pseudoCodeElement.dataset.lineNumber = 'true';
+          {% endif %}
           const text = document.createTextNode(texData);
           pseudoCodeElement.appendChild(text);
           /* add pseudocode node and remove the original code block */
