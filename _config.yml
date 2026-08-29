@@ -521,6 +521,14 @@ third_party_libraries:
     url:
       js: "https://cdn.jsdelivr.net/npm/jquery@{{version}}/dist/jquery.min.js"
     version: "3.6.0"
+  katex:
+    integrity:
+      css: "sha256-hLTCMFlKxdNgPXyWlSSxYN0ykJmxxq9Yt3MNfdRGWeA="
+      js: "sha256-KLASOtKS2x8pUxWVzCDmlWJ4jhuLb0vtrgakbD6gDDo="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/katex@{{version}}/dist/katex.min.css"
+      js: "https://cdn.jsdelivr.net/npm/katex@{{version}}/dist/katex.min.js"
+    version: "0.16.7"
   leaflet:
     integrity:
       css: "sha256-q9ba7o845pMPFU+zcAll8rv+gC+fSovKsOoNQ6cynuQ="

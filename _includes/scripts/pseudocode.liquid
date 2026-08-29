@@ -23,6 +23,21 @@
     integrity="{{ site.third_party_libraries.mathjax.integrity.js }}"
     crossorigin="anonymous"
   ></script>
+  <!-- KaTeX: math backend used by pseudocode.js to typeset math inside algorithms.
+       Without it pseudocode.js falls back to MathJax.tex2chtml(), which is not
+       guaranteed to be ready when the blocks are rendered. -->
+  <link
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.katex.url.css }}"
+    integrity="{{ site.third_party_libraries.katex.integrity.css }}"
+    crossorigin="anonymous"
+  >
+  <script
+    type="text/javascript"
+    src="{{ site.third_party_libraries.katex.url.js }}"
+    integrity="{{ site.third_party_libraries.katex.integrity.js }}"
+    crossorigin="anonymous"
+  ></script>
   <script
     type="text/javascript"
     src="{{ site.third_party_libraries.pseudocode.url.js }}"
@@ -35,6 +50,7 @@
         document.querySelectorAll('pre>code.language-pseudocode').forEach((elem) => {
           const texData = elem.textContent;
           const parent = elem.parentElement.parentElement;
+          const original = elem.parentElement;
           /* create pseudocode node */
           let pseudoCodeElement = document.createElement('pre');
           pseudoCodeElement.classList.add('pseudocode');
@@ -42,9 +58,14 @@
           pseudoCodeElement.appendChild(text);
           /* add pseudocode node and remove the original code block */
           parent.appendChild(pseudoCodeElement);
-          parent.removeChild(elem.parentElement);
+          parent.removeChild(original);
           /* embed the visualization in the container */
-          pseudocode.renderElement(pseudoCodeElement);
+          try {
+            pseudocode.renderElement(pseudoCodeElement);
+          } catch (err) {
+            console.error('pseudocode.js failed to render the block:', err);
+            parent.replaceChild(original, pseudoCodeElement);
+          }
         });
       }
     });

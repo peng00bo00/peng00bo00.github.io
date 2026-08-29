@@ -80,7 +80,7 @@ $$
 u : \mathbb{R}^{d} \times [0, 1]\rightarrow \mathbb{R}^{d}, \ \ \ (x, t) \mapsto u_t(x)
 $$
 
-二者通过**常微分方程(Oridinary Differential Equation, ODE)**联系在一起
+二者通过**常微分方程(oridinary differential equation, ODE)**联系在一起
 
 $$
 \frac{\mathrm{d}}{\mathrm{d} t} X_t = u_t(X_t), \ \ \ X_0 = x_0
@@ -126,6 +126,12 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/0W831Do.png" width="100%">
 </div>
 
+对于Euler方法来说，积分的时间步长$$h$$对于最终的结果有很大的影响。过大的步长会影响精度，而过小的步长则会影响效率。实际应用中需要对二者进行权衡。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/eHtCKMT.png" width="100%">
+</div>
+
 回到机器学习和生成模型的话题，前面已经介绍过生成的过程可以理解为从初始分布到目标分布的变换，因此我们可以利用flow的方式将初始分布$$p_\text{init}$$变换到目标分布$$p_\text{data}$$上。具体来说，对于给定学习好的神经网络向量场$$u_t^\theta$$，可以通过Euler方法从初始分布中采样并逐步积分到目标分布，这样就得到了如下所示的流模型数据生成算法。
 
 ```pseudocode
@@ -146,6 +152,82 @@ $$
 ```
 
 ### Diffusion Models
+
+扩散模型和流模型整体上是类似的，不过在扩散模型中我们需要引入随机性来描述轨迹。为此我们需要引入**随机微分方程(stochastic differential equation, SDE)**来描述扩散模型。回顾一下在ODE中对轨迹的微分可以表示为
+
+$$
+\mathrm{d} X_t = u_t(X_t) \  \mathrm{d} t
+$$
+
+而在SDE中，我们还需要加入随机微分项来表示随机性
+
+$$
+\mathrm{d} X_t = u_t(X_t) \  \mathrm{d} t + \sigma_t \ \mathrm{d} W_t
+$$
+
+其中$$\sigma_t$$称为**扩散系数(diffusion coefficient)**，$$W_t$$则是**布朗运动(Brownian motion)**。
+
+布朗运动也称为**Wiener过程(Wiener process)**，其本身是一类非常重要的随机过程。它的初值为$$W_0 = 0$$，且满足以下两条重要性质：
+
+1. **正态增量(Normal increments)**: 任意两个时刻$$0 \leq s \lt t$$的布朗运动的增量服从正态分布且方差随时间差线性增长，即$$W_t - W_s \sim \mathcal{N} (0, (t-s) I_d)$$
+2. **独立增量(Independent increments)**: 任意两个时刻的布朗运动的增量相互独立
+
+因此我们可以利用布朗运动的增量性质来构造出布朗运动
+
+$$
+W_{t+h} = W_t + \sqrt{h} \epsilon, \quad \epsilon \sim \mathcal{N}(0, I_d)
+$$
+
+需要额外说明的是这里我们对微分符号$$\mathrm{d}$$存在一些滥用，实际上由于随机性的存在是无法直接进行微分运算的。这里的微分符号可以理解为差分，以ODE为例其前向过程可以表示为
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t} X_t = u_t(X_t) &\Leftrightarrow \frac{1}{h} (X_{t+h} - X_t) = u_t(X_t) \\
+&\Leftrightarrow X_{t+h} = X_t + h u_t(X_t) + h R_t(h)
+\end{aligned}
+$$
+
+其中$$R_t(h)$$是积分误差，满足
+
+$$\lim_{h \to 0} R_t(h) = 0$$
+
+对于SDE的情况则可以表示为
+
+$$
+X_{t+h} = X_t + \underbrace{h u_t(X_t)}_{\text{deterministic}} + \underbrace{\sigma_t (W_{t+h} - W_t)}_{\text{stochastic}} + \underbrace{h R_t(h)}_{\text{error term}}
+$$
+
+其中的随机误差项$$R_t(h)$$的标准差满足
+
+$$
+\lim_{h \to 0} \mathbb{E}[R_t(h)^2]^{1/2} = 0
+$$
+
+类似于ODE的情况，SDE是否有解以及解是否唯一同样由向量场$$u_t(x)$$决定。不过在实际应用中我们一般直接假定SDE有解且唯一。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/72Fh2fI.png" width="100%">
+</div>
+
+同样我们也可以通过Euler方法来近似求解SDE，称为Euler-Maruyama方法。基于Euler-Maruyama方法的扩散模型生成算法流程如下：
+
+```pseudocode
+\begin{algorithm}
+\caption{Sampling from a Diffusion Model (Euler-Maruyama method)}
+\begin{algorithmic}
+\REQUIRE Neural network $$u_t^\theta$$, number of steps $$n$$, diffusion coefficient $$\sigma_t$$
+\STATE Set $$t = 0$$
+\STATE Set step size $$h = \frac{1}{n}$$
+\STATE Draw a sample $$X_0 \sim p_\text{init}$$
+\FOR{$$i = 1, \ldots, n$$}
+    \STATE Draw a sample $$\epsilon \sim \mathcal{N}(0, I_d)$$
+    \STATE $$X_{t+h} = X_t + h u_t^\theta(X_t) + \sigma_t \sqrt{h} \epsilon$$
+    \STATE Update $$t \leftarrow t + h$$
+\ENDFOR
+\RETURN $$X_1$$
+\end{algorithmic}
+\end{algorithm}
+```
 
 ## Reference
 
