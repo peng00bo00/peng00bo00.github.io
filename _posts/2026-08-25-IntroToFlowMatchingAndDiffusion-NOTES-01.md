@@ -9,6 +9,7 @@ giscus_comments: false
 related_posts: false
 toc:
   sidebar: left
+pseudocode: true
 ---
 
 
@@ -103,9 +104,46 @@ $$
 
 因此从直觉上来讲向量场、ODE和flow都在描述同样的事情，即粒子在向量场驱动下的运动轨迹：向量场定义了ODE，而ODE的解即为flow。
 
+接下来的问题是ODE是否有解以及如果有解的情况下是否存在唯一解。在数学上这个问题已经被回答了：当向量场是Lipschitz连续时ODE有唯一解，称为[Picard–Lindelöf定理](https://en.wikipedia.org/wiki/Picard%E2%80%93Lindel%C3%B6f_theorem)。不过在机器学习的范畴里我们一般可以直接假定上述条件成立，ODE以及对应的flow一定存在且唯一。
+
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/QtSRsBM.png" width="100%">
 </div>
+
+对于简单形式的ODE是可以通过直接求解来获得解析解的。以下图为例，对于向量场$$u_t(x) = -\theta x$$，其解析解为
+
+$$
+\psi_t(x_0) = \exp(-\theta t) x_0
+$$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/n3gLAAk.png" width="100%">
+</div>
+
+不过大多数情况下ODE都是无法解析求解的，此时则需要通过数值方法来近似求解。目前最简单也是最常用的方法是Euler方法，通过前向积分来近似求解ODE。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/0W831Do.png" width="100%">
+</div>
+
+回到机器学习和生成模型的话题，前面已经介绍过生成的过程可以理解为从初始分布到目标分布的变换，因此我们可以利用flow的方式将初始分布$$p_\text{init}$$变换到目标分布$$p_\text{data}$$上。具体来说，对于给定学习好的神经网络向量场$$u_t^\theta$$，可以通过Euler方法从初始分布中采样并逐步积分到目标分布，这样就得到了如下所示的流模型数据生成算法。
+
+```pseudocode
+\begin{algorithm}
+\caption{Sampling from a Flow Model with Euler method}
+\begin{algorithmic}
+\REQUIRE Neural network vector field $$u_t^\theta$$, number of steps $$n$$
+\STATE Set $$t = 0$$
+\STATE Set step size $$h = \frac{1}{n}$$
+\STATE Draw a sample $$X_0 \sim p_\text{init}$$
+\FOR{$$i = 1, \ldots, n$$}
+    \STATE $$X_{t+h} = X_t + h u_t^\theta(X_t)$$
+    \STATE Update $$t \leftarrow t + h$$
+\ENDFOR
+\RETURN $$X_1$$
+\end{algorithmic}
+\end{algorithm}
+```
 
 ### Diffusion Models
 
