@@ -49,8 +49,8 @@ pseudocode: true
 
 接下来我们定义**条件概率路径(conditional probability path)** $$p_t (x \vert z)$$ 为满足如下条件的概率分布：
 
-1. 在$$t=0$$时刻等价于初始分布$$p_0 (\cdot \vert z) = p_{\text{init}}$$，且与样本数据$$z$$无关；
-2. 在$$t=1$$时刻收敛到样本数据$$z$$上，即$$p_1 (\cdot \vert z) = \delta_z$$。
+1. 在$$t=0$$时刻等价于初始分布$$p_0 (\cdot \vert z) = p_{\text{init}}$$，且与样本数据$$z$$无关
+2. 在$$t=1$$时刻收敛到样本数据$$z$$上，即$$p_1 (\cdot \vert z) = \delta_z$$
 
 我们可以参考下图来理解上述条件概率路径：初始分布$$p_{\text{init}}$$随着时间推移，最终集中到样本数据$$z$$处。
 
@@ -63,7 +63,7 @@ pseudocode: true
 在条件概率路径的基础上，我们可以定义**边缘概率路径(marginal probability path)**，它描述了从初始分布到整个数据分布的变换过程。根据联合概率密度公式，边缘概率路径$$p_t (x)$$可以表示为
 
 $$
-p_t (x) = \int p_t (x \vert z) p_{\text{data}} (z) dz
+p_t (x) = \int p_t (x \vert z) \ p_{\text{data}} (z) \ \mathrm{d} z
 $$
 
 <div align=center>
@@ -107,6 +107,80 @@ $$
 其中$$\epsilon_t \sim \mathcal{N} (0, I_d)$$。上式表明，高斯概率路径可以看作是对样本数据$$\alpha_t z$$逐步添加高斯噪声$$\beta_t \epsilon_t$$的过程。
 
 ### Vector Field
+
+接下来的问题是如何设计向量场，使得样本轨迹能够沿着我们期望的概率路径变换到数据分布上。
+
+### Conditional Vector Field
+
+记**条件向量场(conditional vector field)**为$$u_t^\text{target} (\cdot \vert z)$$，它对应条件概率路径$$p_t (x \vert z)$$，即满足如下ODE
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} t} X_t = u_t^\text{target} (X_t \vert z), \quad X_0 \sim p_{\text{init}}
+$$
+
+对于高斯概率路径，可以证明，其条件向量场具有如下解析形式
+
+$$
+u_t^\text{target} (x \vert z) = \bigg( \dot{\alpha_t} - \frac{\dot{\beta_t}}{\beta_t} \bigg) z + \frac{\dot{\beta_t}}{\beta_t} x
+$$
+
+实际上，只需按照上式中的向量场进行积分，就可以将初始正态分布的噪声变换到给定的样本数据$$z$$上。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/A1wPuI8.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/E5klWn5.png" width="100%">
+</div>
+
+### Marginal Vector Field
+
+类似于边缘概率路径，**边缘向量场(marginal vector field)** $$u_t^\text{target} (x)$$描述了从初始分布$$p_{\text{init}}$$到整个数据分布$$p_{\text{data}}$$的变换过程。基于条件向量场计算边缘向量场的过程称为**边缘化技巧(marginalization trick)**，其公式可以表达为：
+
+$$
+u_t^\text{target} (x) = \int \underbrace{u_t^\text{target} (x \vert z) \vphantom{\frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)}}}_{\text{conditional vector field}} \ \underbrace{\frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)}}_{\text{posterior}}  \mathrm{d} z
+$$
+
+其中第一项$$u_t^\text{target} (x \vert z)$$是条件向量场，而第二项$$\frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)} = p_t(z \vert x)$$则是后验分布，它表示在$$t$$时刻给定样本$$x$$时，该样本来自真实数据$$z$$的条件概率。
+
+边缘化技巧的几何意义在于，$$t$$时刻的边缘向量场实际上是条件向量场的加权平均(条件期望)，其权重为当前样本$$x$$来自不同数据$$z$$的后验分布。
+
+利用边缘向量场，我们就可以将初始分布$$p_{\text{init}}$$变换到数据分布$$p_{\text{data}}$$上，对应的ODE为
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} t} X_t = u_t^\text{target} (X_t), \quad X_0 \sim p_{\text{init}}
+$$
+
+条件向量场和边缘向量场的关系可以参考下图：
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/kXz3q0T.png" width="100%">
+</div>
+
+#### Continuity Equation
+
+边缘化技巧的数学证明依赖于概率密度的**连续性方程(continuity equation)**，它描述了概率密度函数在连续时间上的守恒关系。
+
+$$
+\partial_t p_t(x) = -\nabla \cdot (p_t u_t^\text{target}) (x)
+$$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/AA9uvB3.png" width="100%">
+</div>
+
+不难发现，概率密度的连续性方程实际上也是流体力学中的质量守恒方程，其物理意义在于：在任意时刻、流场的任意位置上，流入量与流出量都是守恒的。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/s10Dn2O.png" width="100%">
+</div>
+
+总结一下，概率路径和向量场的关系如下图所示：
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/ft6sjGo.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/IX0cNxU.png" width="100%">
+</div>
+
+## Learning the Marginal Vector Field
 
 ## Reference
 
