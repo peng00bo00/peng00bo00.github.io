@@ -116,16 +116,53 @@ $$
 \frac{\mathrm{d}}{\mathrm{d} t} X_t = u_t^\text{target} (X_t \vert z), \quad X_0 \sim p_{\text{init}}
 $$
 
-对于高斯概率路径，可以证明，其条件向量场具有如下解析形式
+对于高斯概率路径，可以证明其条件向量场具有如下解析形式：
 
 $$
 u_t^\text{target} (x \vert z) = \bigg( \dot{\alpha_t} - \frac{\dot{\beta_t}}{\beta_t} \alpha_t \bigg) z + \frac{\dot{\beta_t}}{\beta_t} x
 $$
 
-实际上，只需按照上式中的向量场进行积分，就可以将初始正态分布的噪声变换到给定的样本数据$$z$$上。
+下面给出上述公式的证明。首先构造**条件流模型(conditional flow model)**
+
+$$
+\psi_t^{\text{target}} (x \vert z) = \alpha_t z + \beta_t x
+$$
+
+设$$X_t$$为上述条件流模型对应的轨迹，由高斯概率路径的定义有
+
+$$
+X_t = \psi_t^{\text{target}} (X_0 \vert z) = \alpha_t z + \beta_t X_0 \sim \mathcal{N} (\alpha_t z, \beta_t^2 I_d) = p_t (\cdot \vert z)
+$$
+
+上式说明，我们所构造的条件流模型$$\psi_t^{\text{target}} (x \vert z)$$恰好对应高斯条件概率路径$$p_t (\cdot \vert z)$$。
+
+接下来开始求条件向量场的具体形式。根据流模型的ODE定义$$\partial_t \psi_t = u_t (\psi_t)$$，可以得到
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t} \psi_t^{\text{target}} (x \vert z) &= u_t^{\text{target}} (\psi_t^{\text{target}} (x \vert z) \vert z) \\
+\dot{\alpha_t} z + \dot{\beta_t} x &= u_t^{\text{target}} (\alpha_t z + \beta_t x \vert z)
+\end{aligned}
+$$
+
+记$$x' = \alpha_t z + \beta_t x$$，即$$x = (x' - \alpha_t z) / \beta_t$$，将其代入上式则有
+
+$$
+\begin{aligned}
+\dot{\alpha_t} z + \dot{\beta_t} \bigg( \frac{x' - \alpha_t z}{\beta_t} \bigg) &= u_t^{\text{target}} (x' \vert z) \\
+\bigg( \dot{\alpha_t} - \frac{\dot{\beta_t}}{\beta_t} \alpha_t \bigg) z + \frac{\dot{\beta_t}}{\beta_t} x' &= u_t^{\text{target}} (x' \vert z)
+\end{aligned}
+$$
+
+最后将$$x'$$重新记作$$x$$，就得到了高斯概率路径的条件向量场公式。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/A1wPuI8.png" width="100%">
+</div>
+
+实际上，只需按照上式中的向量场进行积分，就可以将初始正态分布的噪声变换到给定的样本数据$$z$$上。
+
+<div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/E5klWn5.png" width="100%">
 </div>
 
