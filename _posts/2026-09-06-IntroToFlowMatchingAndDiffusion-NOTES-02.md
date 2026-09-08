@@ -136,7 +136,7 @@ $$
 
 上式说明，我们所构造的条件流模型$$\psi_t^{\text{target}} (x \vert z)$$恰好对应高斯条件概率路径$$p_t (\cdot \vert z)$$。
 
-接下来开始求条件向量场的具体形式。根据流模型的ODE定义$$\partial_t \psi_t = u_t (\psi_t)$$，可以得到
+接下来开始求条件向量场的具体形式。根据流模型的ODE定义$$\frac{\mathrm{d}}{\mathrm{d} t} \psi_t = u_t (\psi_t)$$，可以得到
 
 $$
 \begin{aligned}
@@ -207,6 +207,38 @@ $$
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/s10Dn2O.png" width="100%">
 </div>
+
+接下来我们利用连续性方程来推导边缘向量场的计算公式。对连续性方程的左端，利用边缘概率路径的定义有
+
+$$
+\partial_t p_t(x) = \partial_t \int p_t (x \vert z) \ p_{\text{data}} (z) \ \mathrm{d} z = \int \partial_t p_t (x \vert z) \ p_{\text{data}} (z) \ \mathrm{d} z
+$$
+
+对条件概率路径$$p_t (x \vert z)$$继续使用连续性方程有
+
+$$
+\partial_t p_t (x \vert z) = -\nabla \cdot (p_t (x \vert z) \ u_t^\text{target} (x \vert z))
+$$
+
+将其代入并整理，得到
+
+$$
+\begin{aligned}
+\partial_t p_t(x) &= \int \partial_t p_t (x \vert z) \ p_{\text{data}} (z) \ \mathrm{d} z \\
+&= \int \bigg(  -\nabla \cdot (p_t (x \vert z) \ u_t^\text{target} (x \vert z)) \bigg) \ p_{\text{data}} (z) \ \mathrm{d} z \\
+&= -\nabla \cdot \bigg( \int p_t (x \vert z) \ u_t^\text{target} (x \vert z) \ p_{\text{data}} (z) \ \mathrm{d} z \bigg) \\
+&= -\nabla \cdot \bigg( \int u_t^\text{target} (x \vert z) \ p_t (x) \frac{p_t (x \vert z) \ p_{\text{data}} (z)}{p_t (x)}  \ \mathrm{d} z \bigg) \\
+&= -\nabla \cdot \bigg( p_t (x) \int u_t^\text{target} (x \vert z) \ \frac{p_t (x \vert z) \ p_{\text{data}} (z)}{p_t (x)} \ \mathrm{d} z \bigg)
+\end{aligned}
+$$
+
+再结合$$p_t (x)$$连续性方程的右端$$\partial_t p_t(x) = -\nabla \cdot (p_t u_t^\text{target}) (x)$$，我们就得到了边缘向量场的计算公式：
+
+$$
+u_t^\text{target} (x) = \int u_t^\text{target} (x \vert z) \ \frac{p_t (x \vert z) \ p_{\text{data}} (z)}{p_t (x)} \ \mathrm{d} z
+$$
+
+上式即为边缘向量场与条件向量场的计算关系式。
 
 总结一下，概率路径和向量场的关系如下图所示：
 
