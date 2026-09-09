@@ -269,7 +269,7 @@ $$
 更进一步，flow matching算法的一大贡献在于，它从理论上证明了上述两个损失函数之间只相差一个常数
 
 $$
-\mathcal{L}_{\text{FM}} = \mathcal{L}_{\text{CFM}} + C
+\mathcal{L}_{\text{FM}} (\theta) = \mathcal{L}_{\text{CFM}} (\theta) + C
 $$
 
 这里我们对上述结论进行证明。首先将$$\mathcal{L}_{\text{FM}}$$展开
@@ -302,24 +302,30 @@ $$
 \int_0^1 \int p_t (x) \ u_t^\theta (x)^T u_t^\text{target} (x) \ \mathrm{d} x \ \mathrm{d} t \\
 &= \int_0^1 \int p_t (x) \ u_t^\theta (x)^T \int u_t^\text{target} (x \vert z) \frac{p_t(x \vert z) p_\text{data}(z)}{p_t (x)} \ \mathrm{d} z \ \mathrm{d} x \ \mathrm{d} t \\
 &= \int_0^1 \int  \int u_t^\theta (x)^T  u_t^\text{target} (x \vert z) \ p_t(x \vert z) \ p_\text{data}(z) \ \mathrm{d} z \ \mathrm{d} x \ \mathrm{d} t \\
-&= \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ u_t^\theta (x)^T  u_t^\text{target} (x \vert z) \big]
+&= \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, x \sim p_t (\cdot \vert z)} \big[ u_t^\theta (x)^T  u_t^\text{target} (x \vert z) \big]
 \end{aligned}
 $$
 
-将上式代入$$\mathcal{L}_\text{FM}$$得到
+将上式代入$$\mathcal{L}_\text{FM}$$。注意第一项也可以改写成对$$(z, x)$$联合分布的期望：由边缘化关系$$\int p_t (x \vert z) \ p_\text{data} (z) \ \mathrm{d} z = p_t (x)$$，有
+
+$$
+\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[\| u_t^\theta (x) \|^2 \big] = \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, x \sim p_t (\cdot \vert z)} \big[\| u_t^\theta (x) \|^2 \big]
+$$
+
+这样两项就具有相同的测度，可以合并到同一个期望中，配方后得到
 
 $$
 \begin{aligned}
 \mathcal{L}_{\text{FM}} (\theta) &=
-\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[\| u_t^\theta (x) \|^2 \big] 
-- 2 \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ u_t^\theta (x)^T u_t^\text{target} (x) \big] + C_1 \\
-&= \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ \| u_t^\theta (x) \|^2 - 2 u_t^\theta (x)^T  u_t^\text{target} (x \vert z) + \| u_t^\text{target} (x \vert z) \|^2 - \| u_t^\text{target} (x \vert z) \|^2 \big] + C_1 \\
-&= \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ \| u_t^\theta (x) - u_t^\text{target} (x \vert z) \|^2 \big] + \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ -\| u_t^\text{target} (x \vert z) \|^2 \big]+ C_1 \\
-&= \mathcal{L}_{\text{CFM}} (\theta) + \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ -\| u_t^\text{target} (x \vert z) \|^2 \big]+ C_1
+\mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, x \sim p_t (\cdot \vert z)} \big[\| u_t^\theta (x) \|^2 \big] 
+- 2 \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, x \sim p_t (\cdot \vert z)} \big[ u_t^\theta (x)^T u_t^\text{target} (x \vert z) \big] + C_1 \\
+&= \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, x \sim p_t (\cdot \vert z)} \big[ \| u_t^\theta (x) \|^2 - 2 u_t^\theta (x)^T  u_t^\text{target} (x \vert z) + \| u_t^\text{target} (x \vert z) \|^2 - \| u_t^\text{target} (x \vert z) \|^2 \big] + C_1 \\
+&= \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, x \sim p_t (\cdot \vert z)} \big[ \| u_t^\theta (x) - u_t^\text{target} (x \vert z) \|^2 \big] + \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, x \sim p_t (\cdot \vert z)} \big[ -\| u_t^\text{target} (x \vert z) \|^2 \big]+ C_1 \\
+&= \mathcal{L}_{\text{CFM}} (\theta) + \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, x \sim p_t (\cdot \vert z)} \big[ -\| u_t^\text{target} (x \vert z) \|^2 \big]+ C_1
 \end{aligned}
 $$
 
-显然第二项$$\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ -\| u_t^\text{target} (x \vert z) \|^2 \big]$$与参数$$\theta$$无关，将它与$$C_1$$合并为常数$$C$$即可得到$$\mathcal{L}_\text{FM}$$与$$\mathcal{L}_\text{CFM}$$的关系式：
+显然第二项$$\mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, x \sim p_t (\cdot \vert z)} \big[ -\| u_t^\text{target} (x \vert z) \|^2 \big]$$与参数$$\theta$$无关，将它与$$C_1$$合并为常数$$C$$即可得到$$\mathcal{L}_\text{FM}$$与$$\mathcal{L}_\text{CFM}$$的关系式：
 
 $$
 \mathcal{L}_{\text{FM}} (\theta) = \mathcal{L}_{\text{CFM}} (\theta) + C
