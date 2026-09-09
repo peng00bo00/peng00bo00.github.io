@@ -272,6 +272,59 @@ $$
 \mathcal{L}_{\text{FM}} = \mathcal{L}_{\text{CFM}} + C
 $$
 
+这里我们对上述结论进行证明。首先将$$\mathcal{L}_{\text{FM}}$$展开
+
+$$
+\begin{aligned}
+\mathcal{L}_{\text{FM}} (\theta) 
+&= \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[\| u_t^\theta (x) - u_t^\text{target} (x) \|^2 \big] \\
+&= \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[\| u_t^\theta (x) \|^2 - 2 u_t^\theta (x)^T u_t^\text{target} (x) + \| u_t^\text{target} (x) \|^2 \big] \\
+&= 
+\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[\| u_t^\theta (x) \|^2 \big] 
+- 2 \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ u_t^\theta (x)^T u_t^\text{target} (x) \big] + \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[\| u_t^\text{target} (x) \|^2 \big] 
+\end{aligned}
+$$
+
+显然上式中第三项$$\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[\| u_t^\text{target} (x) \|^2 \big]$$与参数$$\theta$$无关，可以将其记为$$C_1$$。因此有
+
+$$
+\mathcal{L}_{\text{FM}} (\theta) = 
+\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[\| u_t^\theta (x) \|^2 \big] 
+- 2 \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ u_t^\theta (x)^T u_t^\text{target} (x) \big] + C_1
+$$
+
+接下来考虑第二项$$\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ u_t^\theta (x)^T u_t^\text{target} (x) \big]$$，利用边缘向量场的计算公式，可以得到
+
+$$
+\begin{aligned}
+\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ u_t^\theta (x)^T u_t^\text{target} (x) \big] 
+&= 
+\int_0^1 \int p_t (x) \ u_t^\theta (x)^T u_t^\text{target} (x) \ \mathrm{d} x \ \mathrm{d} t \\
+&= \int_0^1 \int p_t (x) \ u_t^\theta (x)^T \int u_t^\text{target} (x \vert z) \frac{p_t(x \vert z) p_\text{data}(z)}{p_t (x)} \ \mathrm{d} z \ \mathrm{d} x \ \mathrm{d} t \\
+&= \int_0^1 \int  \int u_t^\theta (x)^T  u_t^\text{target} (x \vert z) \ p_t(x \vert z) \ p_\text{data}(z) \ \mathrm{d} z \ \mathrm{d} x \ \mathrm{d} t \\
+&= \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ u_t^\theta (x)^T  u_t^\text{target} (x \vert z) \big]
+\end{aligned}
+$$
+
+将上式代入$$\mathcal{L}_\text{FM}$$得到
+
+$$
+\begin{aligned}
+\mathcal{L}_{\text{FM}} (\theta) &=
+\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[\| u_t^\theta (x) \|^2 \big] 
+- 2 \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ u_t^\theta (x)^T u_t^\text{target} (x) \big] + C_1 \\
+&= \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ \| u_t^\theta (x) \|^2 - 2 u_t^\theta (x)^T  u_t^\text{target} (x \vert z) + \| u_t^\text{target} (x \vert z) \|^2 - \| u_t^\text{target} (x \vert z) \|^2 \big] + C_1 \\
+&= \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ \| u_t^\theta (x) - u_t^\text{target} (x \vert z) \|^2 \big] + \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ -\| u_t^\text{target} (x \vert z) \|^2 \big]+ C_1 \\
+&= \mathcal{L}_{\text{CFM}} (\theta) + \mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ -\| u_t^\text{target} (x \vert z) \|^2 \big]+ C_1
+\end{aligned}
+$$
+
+显然第二项$$\mathbb{E}_{t \sim \text{Unif}, x \sim p_t} \big[ -\| u_t^\text{target} (x \vert z) \|^2 \big]$$与参数$$\theta$$无关，将它与$$C_1$$合并为常数$$C$$即可得到$$\mathcal{L}_\text{FM}$$与$$\mathcal{L}_\text{CFM}$$的关系式：
+
+$$
+\mathcal{L}_{\text{FM}} (\theta) = \mathcal{L}_{\text{CFM}} (\theta) + C
+$$
+
 因此，无论使用哪个损失函数，它们的梯度都是相同的，也就是说我们可以通过最小化条件向量场的平方误差来学习边缘向量场。这样我们就得到了flow matching的整体算法框架：
 
 ```pseudocode
