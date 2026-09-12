@@ -2,7 +2,7 @@
 layout: post
 title: MIT 6.S184课程笔记3-Score Functions and Score Matching
 date: 2026-09-12
-description: 流匹配
+description: 分数匹配
 tags: DL Diffusion
 categories: MIT-6.S184
 giscus_comments: false
@@ -56,7 +56,7 @@ $$
 \begin{aligned}
 \nabla \log p_t(x) &= \frac{\nabla p_t (x)}{p_t (x)} = \frac{\nabla \int p_t (x \vert z) p_{\text{data}} (z) \mathrm{d} z}{p_t (x)} \\
 &= \frac{\int \nabla p_t (x \vert z) p_{\text{data}} (z) \mathrm{d} z}{p_t (x)} \\
-&= \frac{\int \nabla p_t (x \vert z) p_{\text{data}} (z) \mathrm{d} z}{p_t (x)} \\
+&= \frac{\int \nabla \log p_t (x \vert z) \ p_t (x \vert z) \ p_{\text{data}} (z) \mathrm{d} z}{p_t (x)} \\
 &= \int \nabla \log p_t(x \vert z) \frac{p_t (x \vert z) p_{\text{data}} (z)}{p_t (x)} \mathrm{d} z
 \end{aligned}
 $$
@@ -65,13 +65,13 @@ $$
 
 ### Score of Gaussian Probability Path
 
-对于Gauss probability path，我们可以显式计算它的conditional score function。
+对于Gaussian probability path，我们可以显式计算它的conditional score function。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/8f8Kl2w.png" width="100%">
 </div>
 
-类似地，我们可以计算marginal score function。整理一下可以得到Gauss probability path相关的所有计算公式如下：
+类似地，我们可以计算marginal score function。整理一下可以得到Gaussian probability path相关的所有计算公式如下：
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/dBWQHJu.png" width="100%">
@@ -79,7 +79,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/UR03z1X.png" width="100%">
 </div>
 
-不难发现，Gauss probability path的conditional score function和conditional vector field有非常相似的形式。实际上只需要进行一些简单的代数变换，我们就可以score function使用vector field的形式来表示。因此可以认为score function和vector field是相互等价的。
+不难发现，Gaussian probability path的conditional score function和conditional vector field有非常相似的形式。实际上只需要进行一些简单的代数变换，我们就可以用vector field的形式来表示score function。因此可以认为score function和vector field是相互等价的。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/2361cqx.png" width="100%">
@@ -125,7 +125,7 @@ $$
 
 ### Score Matching for Gaussian Probability Paths
 
-对于Gauss probability path，我们可以直接计算它的conditional score function。
+对于Gaussian probability path，我们可以直接计算它的conditional score function。
 
 $$
 \nabla \log p_t (x \vert z) = - \frac{x - \alpha_t z}{\beta_t^2}
