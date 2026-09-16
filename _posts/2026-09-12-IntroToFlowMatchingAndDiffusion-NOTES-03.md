@@ -65,13 +65,13 @@ $$
 
 ### Score of Gaussian Probability Path
 
-对于Gaussian probability path，我们可以显式计算它的conditional score function。
+对于高斯概率路径，我们可以显式计算它的conditional score function。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/8f8Kl2w.png" width="100%">
 </div>
 
-类似地，我们可以计算marginal score function。整理一下可以得到Gaussian probability path相关的所有计算公式如下：
+类似地，我们可以计算marginal score function。整理一下可以得到高斯概率路径相关的所有计算公式如下：
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/dBWQHJu.png" width="100%">
@@ -79,7 +79,33 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/UR03z1X.png" width="100%">
 </div>
 
-不难发现，Gaussian probability path的conditional score function和conditional vector field有非常相似的形式。实际上只需要进行一些简单的代数变换，我们就可以用vector field的形式来表示score function。因此可以认为score function和vector field是相互等价的。
+不难发现，高斯概率路径的conditional score function和conditional vector field有非常相似的形式。实际上只需要进行一些简单的代数变换，我们就可以用vector field的形式来表示score function。首先对高斯概率路径的条件向量场公式进行变形可以得到
+
+$$
+\begin{aligned}
+u_t^{\text{target}} (x \vert z) &= \bigg( \dot{\alpha_t} - \frac{\dot{\beta_t}}{\beta_t} \alpha_t \bigg) z + \frac{\dot{\beta_t}}{\beta_t} x \\
+&= \bigg( \beta_t^2 \frac{\dot{\alpha_t}}{\alpha_t} - \dot{\beta_t} \beta_t \bigg) \bigg( \frac{\alpha_t z - x}{\beta_t^2} \bigg) + \frac{\dot{\alpha_t}}{\alpha_t} x \\
+&= \bigg( \beta_t^2 \frac{\dot{\alpha_t}}{\alpha_t} - \dot{\beta_t} \beta_t \bigg) \nabla \log{p_t (x \vert z)} + \frac{\dot{\alpha_t}}{\alpha_t} x
+\end{aligned}
+$$
+
+记$$a_t = \beta_t^2 \frac{\dot{\alpha_t}}{\alpha_t} - \dot{\beta_t} \beta_t$$，$$b_t = \frac{\dot{\alpha_t}}{\alpha_t}$$，则有
+
+$$
+u_t^{\text{target}} (x \vert z) = a_t \nabla \log{p_t (x \vert z)} + b_t x
+$$
+
+对于边缘向量场，只需要按照边缘化技巧进行积分即可
+
+$$
+\begin{aligned}
+u_t^\text{target} (x) &= \int u_t^\text{target} (x \vert z) \frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)} \ \frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)} \mathrm{d} z \\
+&= \int [a_t \nabla \log{p_t (x \vert z)} + b_t x] \frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)} \ \ \mathrm{d} z \\
+&= a_t \nabla \log{p_t (x)} + b_t x
+\end{aligned}
+$$
+
+因此可以认为score function和vector field是相互等价的。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/2361cqx.png" width="100%">
@@ -125,7 +151,7 @@ $$
 
 ### Score Matching for Gaussian Probability Paths
 
-对于Gaussian probability path，我们可以直接计算它的conditional score function。
+对于高斯概率路径，我们可以直接计算它的conditional score function。
 
 $$
 \nabla \log p_t (x \vert z) = - \frac{x - \alpha_t z}{\beta_t^2}
