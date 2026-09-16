@@ -99,7 +99,7 @@ $$
 
 $$
 \begin{aligned}
-u_t^\text{target} (x) &= \int u_t^\text{target} (x \vert z) \frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)} \ \frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)} \mathrm{d} z \\
+u_t^\text{target} (x) &= \int u_t^\text{target} (x \vert z) \frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)} \mathrm{d} z \\
 &= \int [a_t \nabla \log{p_t (x \vert z)} + b_t x] \frac{p_t(x \vert z) \ p_{\text{data}} (z)}{p_t (x)} \ \ \mathrm{d} z \\
 &= a_t \nabla \log{p_t (x)} + b_t x
 \end{aligned}
@@ -203,7 +203,7 @@ $$
 
 注意这里$$\sigma_t$$是可以任意指定的，理论上我们可以使用任意非负的$$\sigma_t$$来实现采样，它与模型的训练过程无关。上式中$$\sigma_t \mathrm{d} W_t$$表示对数据添加噪声的过程，与数据本身无关；而$$\frac{\sigma_t^2}{2} \nabla \log p_t (X_t)$$则可以理解为对噪声数据进行修正，修正量取决于当前状态的score function。
 
-对于Gauss probability path，我们可以直接计算它的推导它的随机动力学为
+对于高斯概率路径，我们可以直接推导它的随机动力学为
 
 $$
 \mathrm{d} X_t = \bigg[ \bigg( a_t + \frac{\sigma_t^2}{2} \bigg) s_t^\theta (X_t)+ b_t X_t \bigg] \mathrm{d} t + \sigma_t \mathrm{d} W_t
@@ -215,7 +215,7 @@ $$
 
 ### Fokker-Planck Equation
 
-对于随机动力学的证明需要引入[Fokker-Planck方程](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation)，它可以理解为是考虑热扩散过程的连续性方程。其物理意义可以理解为流场中密度的扩散等于流场中的扩散加上热过程产生的扩散。
+随机动力学的证明需要引入[Fokker-Planck方程](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation)，它可以理解为考虑了扩散过程的连续性方程。其物理意义在于：概率密度的时间演化由两部分构成，一部分来自向量场的输运，另一部分则来自随机噪声引起的扩散。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/YUJgtJQ.png" width="100%">
@@ -224,7 +224,7 @@ $$
 
 ### Why Stochastic Dynamics?
 
-实际上我们到目前为止还没有回答这样一个问题：已经有flow matching和向量场了，为什么要使用随机动力学来进行采样？这里主要是生成模型的一些下游任务可能会需要一些随机性。
+实际上我们到目前为止还没有回答这样一个问题：既然已经有了flow matching和向量场，为什么还要使用随机动力学来进行采样？这主要是因为生成模型的一些下游任务需要引入随机性。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/M57Izyt.png" width="100%">
@@ -236,7 +236,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/YPyEVsB.png" width="100%">
 </div>
 
-本节课的主要内容可以总结如下。
+本节课的主要内容可以总结如下：
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/6f5TGyK.png" width="100%">
