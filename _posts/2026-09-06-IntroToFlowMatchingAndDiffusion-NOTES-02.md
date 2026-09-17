@@ -190,7 +190,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/kXz3q0T.png" width="100%">
 </div>
 
-#### Continuity Equation
+### Continuity Equation
 
 边缘化技巧的数学证明依赖于概率密度的**连续性方程(continuity equation)**，它描述了概率密度函数在连续时间上的守恒关系。
 

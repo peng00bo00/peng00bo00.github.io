@@ -215,12 +215,53 @@ $$
 
 ### Fokker-Planck Equation
 
-随机动力学的证明需要引入[Fokker-Planck方程](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation)，它可以理解为考虑了扩散过程的连续性方程。其物理意义在于：概率密度的时间演化由两部分构成，一部分来自向量场的输运，另一部分则来自随机噪声引起的扩散。
+随机动力学的证明需要引入[Fokker-Planck方程](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation)，它可以理解为考虑了扩散过程的连续性方程。Fokker-Planck方程指出随机微分方程
+
+$$
+\mathrm{d} X_t = u_t (X_t) \mathrm{d} t + \sigma_t \mathrm{d} W_t, \quad X_0 \sim p_\text{init}
+$$
+
+存在的充要条件是其概率密度函数$$p_t (x)$$满足
+
+$$
+\partial_t p_t (x) = - \nabla \cdot (p_t u_t) (x) + \frac{\sigma_t^2}{2} \Delta p_t (x)
+$$
+
+Fokker-Planck方程的物理意义在于：概率密度的时间演化由两部分构成，一部分来自向量场的输运，另一部分则来自随机噪声引起的扩散。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/YUJgtJQ.png" width="100%">
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/lW3v2oK.png" width="100%">
 </div>
+
+接下来我们将使用Fokker-Planck方程来证明随机动力学的正确性。根据边缘向量场的[连续性方程](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#continuity-equation)有
+
+$$
+\begin{aligned}
+\partial_t p_t(x) &= -\nabla \cdot (p_t u_t^\text{target}) (x) \\
+&= -\nabla \cdot (p_t u_t^\text{target}) (x) - \frac{\sigma_t^2}{2} \Delta p_t (x_t) + \frac{\sigma_t^2}{2} \Delta p_t (x_t)
+\end{aligned}
+$$
+
+上式中$$\Delta$$为Laplace算子，它和散度算子$$\nabla \cdot$$的关系为
+
+$$
+\Delta w_t (x) = \sum_{i=1}^d \frac{\partial^2}{\partial x_i^2} w_t(x) = \nabla \cdot \big( \nabla w_t \big) (x)
+$$
+
+其中$$w_t (x) : \mathbb{R}^d \rightarrow \mathbb{R}$$为任意标量场。利用Laplace算子和散度算子的关系，可以得到
+
+$$
+\begin{aligned}
+\partial_t p_t(x) 
+&= -\nabla \cdot (p_t u_t^\text{target}) (x) - \frac{\sigma_t^2}{2} \Delta p_t (x) + \frac{\sigma_t^2}{2} \Delta p_t (x) \\
+&= -\nabla \cdot (p_t u_t^\text{target}) (x) - \nabla \cdot \bigg( \frac{\sigma_t^2}{2} \nabla p_t \bigg) (x) + \frac{\sigma_t^2}{2} \Delta p_t (x) \\
+&=  -\nabla \cdot (p_t u_t^\text{target}) (x) - \nabla \cdot \bigg( p_t  \frac{\sigma_t^2}{2} \nabla \log p_t \bigg) (x) + \frac{\sigma_t^2}{2} \Delta p_t (x) \\
+&= -\nabla \cdot \bigg( p_t \bigg[ u_t^\text{target} + \frac{\sigma_t^2}{2} \nabla \log p_t \bigg] \bigg) (x_t) + \frac{\sigma_t^2}{2} \Delta p_t (x)
+\end{aligned}
+$$
+
+因此只需令边缘向量场为$$u_t^\text{target} \leftarrow u_t^\text{target} + \frac{\sigma_t^2}{2} \nabla \log p_t$$即构造出了随机动力学对应的SDE。
 
 ### Why Stochastic Dynamics?
 
