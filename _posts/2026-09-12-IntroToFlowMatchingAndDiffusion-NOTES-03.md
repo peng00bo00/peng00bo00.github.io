@@ -221,7 +221,7 @@ $$
 \mathrm{d} X_t = u_t (X_t) \mathrm{d} t + \sigma_t \mathrm{d} W_t, \quad X_0 \sim p_\text{init}
 $$
 
-存在的充要条件是其概率密度函数$$p_t (x)$$满足
+其概率密度函数$$p_t (x)$$满足
 
 $$
 \partial_t p_t (x) = - \nabla \cdot (p_t u_t) (x) + \frac{\sigma_t^2}{2} \Delta p_t (x)
@@ -239,7 +239,7 @@ Fokker-Planck方程的物理意义在于：概率密度的时间演化由两部�
 $$
 \begin{aligned}
 \partial_t p_t(x) &= -\nabla \cdot (p_t u_t^\text{target}) (x) \\
-&= -\nabla \cdot (p_t u_t^\text{target}) (x) - \frac{\sigma_t^2}{2} \Delta p_t (x_t) + \frac{\sigma_t^2}{2} \Delta p_t (x_t)
+&= -\nabla \cdot (p_t u_t^\text{target}) (x) - \frac{\sigma_t^2}{2} \Delta p_t (x) + \frac{\sigma_t^2}{2} \Delta p_t (x)
 \end{aligned}
 $$
 
@@ -257,11 +257,11 @@ $$
 &= -\nabla \cdot (p_t u_t^\text{target}) (x) - \frac{\sigma_t^2}{2} \Delta p_t (x) + \frac{\sigma_t^2}{2} \Delta p_t (x) \\
 &= -\nabla \cdot (p_t u_t^\text{target}) (x) - \nabla \cdot \bigg( \frac{\sigma_t^2}{2} \nabla p_t \bigg) (x) + \frac{\sigma_t^2}{2} \Delta p_t (x) \\
 &=  -\nabla \cdot (p_t u_t^\text{target}) (x) - \nabla \cdot \bigg( p_t  \frac{\sigma_t^2}{2} \nabla \log p_t \bigg) (x) + \frac{\sigma_t^2}{2} \Delta p_t (x) \\
-&= -\nabla \cdot \bigg( p_t \bigg[ u_t^\text{target} + \frac{\sigma_t^2}{2} \nabla \log p_t \bigg] \bigg) (x_t) + \frac{\sigma_t^2}{2} \Delta p_t (x)
+&= -\nabla \cdot \bigg( p_t \bigg[ u_t^\text{target} + \frac{\sigma_t^2}{2} \nabla \log p_t \bigg] \bigg) (x) + \frac{\sigma_t^2}{2} \Delta p_t (x)
 \end{aligned}
 $$
 
-因此只需令边缘向量场为$$u_t^\text{target} \leftarrow u_t^\text{target} + \frac{\sigma_t^2}{2} \nabla \log p_t$$即构造出了随机动力学对应的SDE。
+对比Fokker-Planck方程可知，上式对应的SDE其漂移项为$$u_t^\text{target} + \frac{\sigma_t^2}{2} \nabla \log p_t$$、扩散系数为$$\sigma_t$$。换言之，只要将漂移项取为$$u_t^\text{target} + \frac{\sigma_t^2}{2} \nabla \log p_t$$，随机动力学给出的概率密度演化就与原来的连续性方程完全一致，也就证明了随机动力学的正确性。
 
 ### Why Stochastic Dynamics?
 
