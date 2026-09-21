@@ -271,7 +271,25 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/M57Izyt.png" width="100%">
 </div>
 
-同时，我们推导的随机动力学也与Langevin动力学有一定的联系。
+同时，我们推导的随机动力学也与**Langevin动力学(Langevin dynamics)**有一定的联系。假设概率路径$$p_t (x)$$与时间$$t$$无关，即$$p_t(x) = p(x)$$，由[连续性方程](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#continuity-equation)有
+
+$$
+\partial_t p_t(x) = -\nabla \cdot (p_t u_t^\text{target}) (x) = 0
+$$
+
+满足该条件的最简单取法是令边缘向量场为零，即
+
+$$
+u_t^\text{target} (x) = 0
+$$
+
+在此基础上结合随机动力学公式，可以得到Langevin动力学的SDE为
+
+$$
+\mathrm{d} X_t = \frac{\sigma_t^2}{2} \nabla \log p (X_t) \mathrm{d} t + \sigma_t \mathrm{d} W_t
+$$
+
+实际上$$p(x)$$给出了Langevin动力学的**平稳分布(stationary distribution)**，而利用该SDE可以将任意初始分布$$p' \neq p$$以随机扩散的方式收敛到平稳分布$$p(x)$$上。这一性质使得Langevin动力学在分子模拟、MCMC等领域中都有着重要的应用。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/YPyEVsB.png" width="100%">
