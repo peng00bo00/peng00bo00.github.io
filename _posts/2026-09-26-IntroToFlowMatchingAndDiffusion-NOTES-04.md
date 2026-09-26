@@ -17,7 +17,7 @@ pseudocode: true
 {: .block-preface }
 
 
-前面的课程中我们主要关注的是通用的生成算法。然而在很多实际场景中，我们往往需要根据一些用户的输入或提示来控制生成的内容。例如在图像生成任务中，我们往往需要根据用户的描述来生成对应的图像。本节课我们将介绍如何使用条件引导来控制数据生成的过程。
+前面的课程中我们主要关注的是通用的生成算法。然而在很多实际场景中，我们往往需要根据用户的输入或提示来控制生成的内容，例如在图像生成任务中根据文字描述生成对应的图像。本节课我们将介绍如何使用条件引导来控制数据生成的过程。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/Diy3Ewy.png" width="100%">
@@ -25,7 +25,7 @@ pseudocode: true
 
 ## Vanilla Guidance
 
-首先我们来介绍最基础的条件生成方法。在条件生成的任务中，我们的输入数据为带有标签的一对
+首先我们来介绍最基础的条件生成方法。在条件生成任务中，训练数据由成对的数据与标签构成：
 
 $$
 (z, y) \sim p_{\text{data}}
@@ -57,7 +57,7 @@ $$
 \end{algorithm}
 ```
 
-从直觉上讲使用上述训练算法应该能够实现基于promt的条件引导生成。然而实践中发现使用上述算法训练的模型往往不能得到理想的生成结果，甚至生成的数据本身也存在一些错误。
+从直觉上讲，使用上述方法应该能够实现基于prompt的条件引导生成。然而实践中发现，按照这一思路训练出的模型往往不能得到理想的生成结果，甚至生成的数据本身也存在一些问题。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/6rIWW66.png" width="100%">
@@ -65,7 +65,7 @@ $$
 
 ## Classifier Guidance
 
-要解释为什么vanilla guidance算法会出现问题则需要深入学习到的向量场$$u_t^\theta (x \vert y)$$。首先根据Bayes法则将条件概率$$p_t (x \vert y)$$展开为
+要解释vanilla guidance算法为什么会出现问题，需要深入分析我们学习到的向量场$$u_t^\theta (x \vert y)$$。首先根据Bayes法则将条件概率$$p_t (x \vert y)$$展开为
 
 $$
 p_t (x \vert y) = \frac{p_t (y \vert x) p_t (x)}{p_t (y)}
@@ -86,7 +86,7 @@ $$
 
 上式说明，条件概率$$p_t (x \vert y)$$的score function包含两项，其中一项为无条件概率$$p_t (x)$$对应的score function，而另一项则是分类器$$p_t (y \vert x)$$对应的score function。
 
-对于高斯概率路径，其向量场可以表示为对应的[score function](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-03/#score-of-gaussian-probability-path)，这样就可以把条件引导向量场$$u_t^\text{target} (x \vert y)$$表示为
+对于高斯概率路径，利用向量场与[score function](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-03/#score-of-gaussian-probability-path)的关系，条件引导向量场$$u_t^\text{target} (x \vert y)$$可以进一步表示为
 
 $$
 \begin{aligned}
@@ -97,13 +97,13 @@ u_t^\text{target} (x \vert y)
 \end{aligned}
 $$
 
-上式表明，条件引导向量场$$u_t^\text{target} (x \vert y)$$可以分解为两部分：第一项$$u_t^\text{target} (x)$$是无条件向量场与promt无关，而第二项$$a_t \nabla \log{p_t (y \vert x)}$$则对应分类器的score function。
+上式表明，条件引导向量场$$u_t^\text{target} (x \vert y)$$可以分解为两部分：第一项$$u_t^\text{target} (x)$$是无条件向量场，与prompt无关；第二项$$a_t \nabla \log{p_t (y \vert x)}$$则对应分类器的score function。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/VzPSr2k.png" width="100%">
 </div>
 
-在这一观察下，如果我们可以调整来自promt分类器的score function，则可以实现更好更可控的生成效果。使用这一思路进行训练的过程称为classifier guidance，可以表示为
+在这一观察下，通过调整分类器对应的score function，就可以实现更好、更可控的生成效果。基于这一思路的方法称为classifier guidance，其引导后的向量场可以表示为
 
 $$
 \tilde{u}_t (x \vert y) = u_t^\text{target} (x) + w a_t \nabla \log{p_t (y \vert x)}, \quad w > 1
@@ -115,7 +115,7 @@ $$
 
 ## Classifier-Free Guidance
 
-classifier guidance的一个缺陷在于我们需要单独训练一个分类器$$p_t (y \vert x)$$，而这个分类器对于生成任务来说往往是多余的。实际上我们可以避开这个分类器，利用score function和Bayes法则可以将分类器重新表示为
+classifier guidance的一个缺陷在于需要单独训练一个分类器$$p_t (y \vert x)$$，而这个分类器对生成任务而言往往是多余的。实际上我们可以避开它：利用score function和Bayes法则，分类器对应的梯度可以重新表示为
 
 $$
 \nabla \log{p_t (y \vert x)}  = \nabla \log{p_t (x \vert y)} - \nabla \log{p_t (x)}
@@ -132,13 +132,13 @@ $$
 \end{aligned}
 $$
 
-上式表明，完整的引导向量场可以分解为两个向量场的加权和，其中$$(1 - w) u_t^\text{target} (x)$$对应无条件向量场，而$$w u_t^\text{target} (x \vert y)$$则对应把prompt也作为输入的向量场。因此，我们只需要训练两个向量场并且将它们通过权重$$w$$进行组合起来就能够得到完整的引导向量场。
+上式表明，完整的引导向量场可以分解为两个向量场的加权和，其中$$(1 - w) u_t^\text{target} (x)$$对应无条件向量场，而$$w u_t^\text{target} (x \vert y)$$则对应把prompt也作为输入的向量场。因此，我们只需要训练两个向量场，再通过权重$$w$$将它们组合起来，就能得到完整的引导向量场。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/QAlNgdJ.png" width="100%">
 </div>
 
-在实践中一般不会专门训练两个向量场，而是为无条件向量场$$u_t^\text{target}$$设置一个专门的空promt，即$$u_t^\text{target} (x) := u_t^\text{target} (x \vert \varnothing)$$，并且在训练时按照一定的概率将采样出的的promt置空。这样只需要训练一个向量场即可，对应的训练过程如下。
+在实践中一般不会专门训练两个向量场，而是为无条件向量场$$u_t^\text{target}$$设置一个专门的空prompt，即$$u_t^\text{target} (x) := u_t^\text{target} (x \vert \varnothing)$$，并在训练时以一定概率将采样出的prompt置空。这样只需要训练一个向量场即可，对应的训练过程如下。
 
 ```pseudocode
 \begin{algorithm}
@@ -158,7 +158,7 @@ $$
 \end{algorithm}
 ```
 
-训练完成后，使用CFG进行采样的方式与之前的采样算法完全相同，唯一的区别是使用加权的向量场
+训练完成后，使用CFG进行采样的方式与此前的采样算法完全相同，唯一的区别是使用加权的向量场：
 
 $$
 u_t^{\theta, w} (x) = (1 - w) u_t^\theta (x \vert \varnothing) + w u_t^\theta (x \vert y)
@@ -184,6 +184,7 @@ $$
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/mMKzmaZ.png" width="100%">
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/gSMnUdv.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/AAiAq1z.png" width="100%">
 </div>
 
 ## Reference
