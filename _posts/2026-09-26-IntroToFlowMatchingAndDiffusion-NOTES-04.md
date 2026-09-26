@@ -86,7 +86,7 @@ $$
 
 上式说明，条件概率$$p_t (x \vert y)$$的score function包含两项，其中一项为无条件概率$$p_t (x)$$对应的score function，而另一项则是分类器$$p_t (y \vert x)$$对应的score function。
 
-对于高斯概率路径，其向量场可以表示为对应的[score function](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-03/#score-function)，这样就可以把条件引导向量场$$u_t^\text{target} (x \vert y)$$表示为
+对于高斯概率路径，其向量场可以表示为对应的[score function](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-03/#score-of-gaussian-probability-path)，这样就可以把条件引导向量场$$u_t^\text{target} (x \vert y)$$表示为
 
 $$
 \begin{aligned}
@@ -106,7 +106,7 @@ $$
 在这一观察下，如果我们可以调整来自promt分类器的score function，则可以实现更好更可控的生成效果。使用这一思路进行训练的过程称为classifier guidance，可以表示为
 
 $$
-u_t^\text{target} (x \vert y) = u_t^\text{target} (x) + w a_t \nabla \log{p_t (y \vert x)}, \quad w > 1
+\tilde{u}_t (x \vert y) = u_t^\text{target} (x) + w a_t \nabla \log{p_t (y \vert x)}, \quad w > 1
 $$
 
 <div align=center>
@@ -115,5 +115,76 @@ $$
 
 ## Classifier-Free Guidance
 
+classifier guidance的一个缺陷在于我们需要单独训练一个分类器$$p_t (y \vert x)$$，而这个分类器对于生成任务来说往往是多余的。实际上我们可以避开这个分类器，利用score function和Bayes法则可以将分类器重新表示为
+
+$$
+\nabla \log{p_t (y \vert x)}  = \nabla \log{p_t (x \vert y)} - \nabla \log{p_t (x)}
+$$
+
+将上式代回完整的向量场得到
+
+$$
+\begin{aligned}
+\tilde{u}_t (x \vert y) &= u_t^\text{target} (x) + w a_t \nabla \log p_t (y \vert x) \\
+&= u_t^\text{target} (x) + w a_t \big( \nabla \log p_t (x \vert y) - \nabla \log p_t (x) \big) \\
+&= u_t^\text{target} (x) - \big( w b_t x + w a_t \nabla \log p_t (x) \big) + \big( w b_t x + w a_t \nabla \log p_t (x \vert y) \big) \\
+&= (1 - w) u_t^\text{target} (x) + w u_t^\text{target} (x \vert y)
+\end{aligned}
+$$
+
+上式表明，完整的引导向量场可以分解为两个向量场的加权和，其中$$(1 - w) u_t^\text{target} (x)$$对应无条件向量场，而$$w u_t^\text{target} (x \vert y)$$则对应把prompt也作为输入的向量场。因此，我们只需要训练两个向量场并且将它们通过权重$$w$$进行组合起来就能够得到完整的引导向量场。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/QAlNgdJ.png" width="100%">
+</div>
+
+在实践中一般不会专门训练两个向量场，而是为无条件向量场$$u_t^\text{target}$$设置一个专门的空promt，即$$u_t^\text{target} (x) := u_t^\text{target} (x \vert \varnothing)$$，并且在训练时按照一定的概率将采样出的的promt置空。这样只需要训练一个向量场即可，对应的训练过程如下。
+
+```pseudocode
+\begin{algorithm}
+\caption{Classifier-free guidance training for Gaussian probability path $p_t (x \vert z) = \mathcal{N} (x; \alpha_t z, \beta_t^2 I_d)$}
+\begin{algorithmic}
+\REQUIRE Paired dataset $(z, y) \sim p_{\text{data}}$, neural network $u_t^\theta$
+\FOR{each mini-batch of data}
+    \STATE Sample a data example $(z, y)$ from the dataset
+    \STATE Sample a random time $t \sim \text{Unif}_{[0,1]}$
+    \STATE Sample noise $\epsilon \sim \mathcal{N}(0, I_d)$
+    \STATE Set $x = \alpha_t z + \beta_t \epsilon$
+    \STATE With probability $p$ drop label: $y \leftarrow \varnothing$
+    \STATE Compute loss $\mathcal{L}(\theta) = \| u_t^\theta (x \vert y) - (\dot{\alpha_t} z + \dot{\beta_t} \epsilon) \|^2$
+    \STATE Update the model parameters $\theta$ via gradient descent on $\mathcal{L}(\theta)$
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+```
+
+训练完成后，使用CFG进行采样的方式与之前的采样算法完全相同，唯一的区别是使用加权的向量场
+
+$$
+u_t^{\theta, w} (x) = (1 - w) u_t^\theta (x \vert \varnothing) + w u_t^\theta (x \vert y)
+$$
+
+对应的采样过程如下：
+
+```pseudocode
+\begin{algorithm}
+\caption{Classifier-Free Guidance Sampling Procedure}
+\begin{algorithmic}
+\REQUIRE A trained guided vector field $u_t^\theta (x \vert y)$
+\STATE Select a prompt $y \in \mathcal{Y}$, or take $y = \varnothing$ for unguided sampling
+\STATE Select a guidance scale $w > 1$
+\STATE Initialize $X_0 \sim p_\text{init}$
+\STATE Simulate $\mathrm{d} X_t = \big[ (1 - w) u_t^\theta (X_t \vert \varnothing) + w u_t^\theta (X_t \vert y) \big] \mathrm{d} t$ from $t = 0$ to $t = 1$
+\end{algorithmic}
+\end{algorithm}
+```
+
+目前成熟的文生图模型基本都是基于上述classifier-free guidance的框架来实现的。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/mMKzmaZ.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/gSMnUdv.png" width="100%">
+</div>
+
 ## Reference
-- [Lecture Lecture 03B - Classifier-free Guidance](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
+- [Lecture 03B - Classifier-free Guidance](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
