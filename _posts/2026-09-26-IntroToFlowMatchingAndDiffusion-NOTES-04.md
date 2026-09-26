@@ -65,6 +65,54 @@ $$
 
 ## Classifier Guidance
 
+要解释为什么vanilla guidance算法会出现问题则需要深入学习到的向量场$$u_t^\theta (x \vert y)$$。首先根据Bayes法则将条件概率$$p_t (x \vert y)$$展开为
+
+$$
+p_t (x \vert y) = \frac{p_t (y \vert x) p_t (x)}{p_t (y)}
+$$
+
+$$
+\log{p_t (x \vert y)} = \log{p_t (y \vert x)} + \log{p_t (x)} - \log{p_t (y)}
+$$
+
+对上式求梯度得到
+
+$$
+\begin{aligned}
+\nabla_x \log{p_t (x \vert y)} &= \nabla_x \log{p_t (y \vert x)} + \nabla_x \log{p_t (x)} - \nabla_x \log{p_t (y)} \\
+&= \nabla_x \log{p_t (y \vert x)} + \nabla_x \log{p_t (x)}
+\end{aligned}
+$$
+
+上式说明，条件概率$$p_t (x \vert y)$$的score function包含两项，其中一项为无条件概率$$p_t (x)$$对应的score function，而另一项则是分类器$$p_t (y \vert x)$$对应的score function。
+
+对于高斯概率路径，其向量场可以表示为对应的[score function](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-03/#score-function)，这样就可以把条件引导向量场$$u_t^\text{target} (x \vert y)$$表示为
+
+$$
+\begin{aligned}
+u_t^\text{target} (x \vert y) 
+&= a_t \nabla \log{p_t (x \vert y)} + b_t x \\
+&= b_t x + a_t \big( \nabla_x \log{p_t (y \vert x)} + \nabla_x \log{p_t (x)} \big) \\
+&= u_t^\text{target} (x) + a_t \nabla \log{p_t (y \vert x)} 
+\end{aligned}
+$$
+
+上式表明，条件引导向量场$$u_t^\text{target} (x \vert y)$$可以分解为两部分：第一项$$u_t^\text{target} (x)$$是无条件向量场与promt无关，而第二项$$a_t \nabla \log{p_t (y \vert x)}$$则对应分类器的score function。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/VzPSr2k.png" width="100%">
+</div>
+
+在这一观察下，如果我们可以调整来自promt分类器的score function，则可以实现更好更可控的生成效果。使用这一思路进行训练的过程称为classifier guidance，可以表示为
+
+$$
+u_t^\text{target} (x \vert y) = u_t^\text{target} (x) + w a_t \nabla \log{p_t (y \vert x)}, \quad w > 1
+$$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/SFwccko.png" width="100%">
+</div>
+
 ## Classifier-Free Guidance
 
 ## Reference
