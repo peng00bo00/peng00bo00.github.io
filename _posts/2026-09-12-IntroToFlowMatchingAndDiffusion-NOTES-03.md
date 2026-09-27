@@ -295,6 +295,42 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/YPyEVsB.png" width="100%">
 </div>
 
+### Denoising Diffusion Models
+
+从扩散模型的发展历史来看，最早获得人们广泛关注的扩散模型是基于**降噪器(denoiser)**的模型，而非score matching。实际上二者完全等价，只是从两个不同角度对同一个对象进行参数化。这里以高斯概率路径为例进行推导。回忆高斯概率路径的conditional score function具有解析形式：
+
+$$
+s_t (x) = \nabla \log p_t (x \vert z) = - \frac{x - \alpha_t z}{\beta_t^2}
+$$
+
+同时$$t$$时刻采样出的带噪声数据可以表示为
+
+$$
+x_t = \alpha_t z + \beta_t \epsilon_t
+$$
+
+把上述两式结合起来可以得到噪声$$\epsilon_t$$的表达式
+
+$$
+\epsilon_t (x) = \frac{x - \alpha_t z}{\beta_t} = -\beta_t s_t (x)
+$$
+
+将上式代入到score matching的损失函数中，可以得到重新参数化的损失函数
+
+$$
+\begin{aligned}
+\mathcal{L}_{\text{DSM}} (\theta) &= \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, \epsilon \sim \mathcal{N}(0, I_d)} \bigg[ \bigg\| s_t^\theta (\alpha_t z + \beta_t \epsilon) + \frac{\epsilon}{\beta_t} \bigg\|^2 \bigg] \\
+&= \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, \epsilon \sim \mathcal{N}(0, I_d)} \bigg[ \frac{1}{\beta_t^2} \bigg\| \beta_t s_t^\theta (\alpha_t z + \beta_t \epsilon) + \epsilon \bigg\|^2 \bigg] \\
+&= \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, \epsilon \sim \mathcal{N}(0, I_d)} \bigg[ \frac{1}{\beta_t^2} \bigg\| \epsilon_t^\theta (\alpha_t z + \beta_t \epsilon) - \epsilon \bigg\|^2 \bigg] 
+\end{aligned}
+$$
+
+上式表明score matching可以理解为对添加的噪声进行预测，这也是为什么conditional score matching使用的损失函数也称为denoising score matching的原因。在实践中为了防止$$\beta_t \to 0$$时产生数值稳定性问题，在训练时往往会直接丢掉$$1 / \beta_t^2$$一项，这样就得到了DDPM的损失函数
+
+$$
+\mathcal{L}_{\text{DDPM}} (\theta) = \mathbb{E}_{t \sim \text{Unif}, z \sim p_{\text{data}}, \epsilon \sim \mathcal{N}(0, I_d)} \big[ \| \epsilon_t^\theta (\alpha_t z + \beta_t \epsilon) - \epsilon \|^2 \big] 
+$$
+
 本节课的主要内容可以总结如下：
 
 <div align=center>
