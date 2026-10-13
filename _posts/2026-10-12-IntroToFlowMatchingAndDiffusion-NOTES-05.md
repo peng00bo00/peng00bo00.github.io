@@ -19,7 +19,7 @@ pseudocode: true
 
 ## Latent Space
 
-对于现实中的生成任务，一个巨大的挑战在于数据的维度往往非常巨大。以图像生成为例，一张分辨率为600×1000的彩色图像，其维度可以达到百万级别。如此高的维度使得生成任务变得异常困难，甚至连在GPU上存放模型本身都不太现实。对于flow matching相关的模型，这样的问题会更加严峻：模型学习到的速度场与数据本身是同维度的，在高维空间中进行计算以及积分会带来严重的效率问题。
+对于现实中的生成任务，一个巨大的挑战在于数据的维度往往非常巨大。以图像生成为例，一张分辨率为600×1000的彩色图像，其维度可以达到百万级别。如此高的维度不仅让生成任务的建模变得异常困难，训练与采样时的计算和显存开销也同样难以承受。对于flow matching相关的模型，这样的问题会更加严峻：模型学习到的速度场与数据本身是同维度的，在高维空间中进行网络前向计算以及沿时间积分都会带来严重的效率问题。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/V6EYPLu.png" width="100%">
@@ -57,31 +57,31 @@ $$
 
 ### Training and Loss
 
-由于VAE的encoder和decoder给出的都是概率分布，autoencoder中的重建误差在这里就不再适用了。在VAE中我们希望样本$$x$$经过编码和解码后能够尽可能地接近原始样本$$x$$，因此可以构造出重建损失：
+由于VAE的encoder和decoder给出的都是概率分布，autoencoder中的重建误差在这里就不再适用了。在VAE中我们希望样本$$x$$经过编码再解码之后能够尽可能地还原出它本身，因此可以构造出重建损失：
 
 $$
-\mathcal{L}_\text{VAE-Recon} (\phi, \theta) = -\mathbb{E}_{x \sim p_\text{data}, z \sim q_\phi ( \cdot \vert x)} [ \log{p_\theta (x \vert z)} ]
+\mathcal{L}_\text{VAE-Recon} (\phi, \theta) = -\mathbb{E}_{x \sim p_\text{data} (x),\, z \sim q_\phi ( \cdot \vert x)} [ \log{p_\theta (x \vert z)} ]
 $$
 
-对于正态分布，上式可以写成
+对于正态分布，把上式展开可以得到
 
 $$
 \mathcal{L}_\text{VAE-Recon} (\phi, \theta) = \mathbb{E}_{x \sim p_\text{data} (x),\, z \sim q_\phi (z \vert x)} \left[ \frac{1}{2 \sigma^2_\theta (z)} \| x - \mu_\theta (z) \|^2 + \frac{d}{2} \log \sigma^2_\theta (z) \right] + \text{const}
 $$
 
-其中第一项是autoencoder的重建误差；而第二项则对应生成样本的方差，大多数的实现往往会忽略这一项。这样可以得到VAE的重建损失：
+其中第一项正对应autoencoder的重建误差；第二项来自高斯分布的归一化系数，可以理解为对decoder给出的不确定性的惩罚，大多数实现会直接忽略这一项。这样VAE的重建损失就化简为：
 
 $$
 \mathcal{L}_\text{VAE-Recon} (\phi, \theta) = \mathbb{E}_{x \sim p_\text{data} (x),\, z \sim q_\phi (z \vert x)} \left[ \frac{1}{2 \sigma^2_\theta (z)} \| x - \mu_\theta (z) \|^2 \right] + \text{const}
 $$
 
-除了重建损失外，我们还需要对encoder的分布进行约束，使其在隐空间中尽可能接近某个先验分布$$p_\text{prior} (z)$$。这就需要让两个分布尽可能相似，比较常用的是度量工具是[KL散度(Kullback-Leibler divergence)](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)：
+除了重建损失外，我们还需要对encoder给出的分布进行约束，使它在隐空间中尽可能接近某个先验分布$$p_\text{prior} (z)$$。这就需要一个能够度量两个分布之间差异的工具，其中最常用的是[KL散度(Kullback-Leibler divergence)](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)：
 
 $$
 D_{\text{KL}} \big( q(x) \,\|\, p(x) \big) = \int q(x) \log \frac{q(x)}{p(x)} \,\mathrm{d}x = \mathbb{E}_{X \sim q} \left[ \log \frac{q(X)}{p(X)} \right]
 $$
 
-从某种意义上讲，KL散度可以看作两个分布之间的"距离"：它满足非负性，且当且仅当两个分布相同时取值为零。不过KL散度并不满足对称性，即一般来说$$D_{\text{KL}} (q \,\|\, p) \neq D_{\text{KL}} (p \,\|\, q)$$，因此它并不是严格意义上的距离度量。
+从某种意义上讲，KL散度可以看作两个分布之间的"距离"：它满足非负性，且仅当两个分布（几乎处处）相同时取值为零。不过KL散度并不满足对称性，即一般来说$$D_{\text{KL}} (q \,\|\, p) \neq D_{\text{KL}} (p \,\|\, q)$$，因此它并不是严格意义上的距离度量。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/itkb9Pm.png" width="100%">
@@ -106,11 +106,11 @@ $$
 $$
 \begin{aligned}
 \mathcal{L}_\text{VAE-Prior} (\phi) &= \mathbb{E}_{x \sim p_\text{data} (x)} \big[ D_{\text{KL}} \big( q_\phi ( \cdot \vert x) \,\|\, \mathcal{N} (0, I_k) \big) \big] \\ 
-&= \mathbb{E}_{x \sim p_\text{data}} \left[ \frac{1}{2} \mathcal{K} \big( \sigma^2_\phi (x) \big) + \frac{1}{2} \| \mu_\phi (x) \|^2 \right]
+&= \mathbb{E}_{x \sim p_\text{data} (x)} \left[ \frac{1}{2} \mathcal{K} \big( \sigma^2_\phi (x) \big) + \frac{1}{2} \| \mu_\phi (x) \|^2 \right]
 \end{aligned}
 $$
 
-将重建损失和先验损失结合起来，可以得到VAE的总损失函数：
+将重建损失和先验损失加权结合起来，就得到VAE的总损失函数，其中$$\beta \geq 0$$是用于权衡重建质量与先验约束的超参数，$$\beta = 1$$时即为标准VAE，$$\beta > 1$$时称为$$\beta$$-VAE：
 
 $$
 \begin{aligned}
@@ -121,19 +121,19 @@ $$
 
 ### Reparameterization Trick
 
-得到损失函数后就可以着手训练VAE了，但需要注意这里需要对隐变量$$z$$进行采样，大多数情况下这是无法实现的。不过对于正态分布，我们可以使用**重参数化技巧(reparameterization trick)**来实现采样。回忆隐变量$$z$$来自于正态分布
+得到损失函数后就可以着手训练VAE了。但这里有一个麻烦：损失函数中需要对隐变量$$z \sim q_\phi (z \vert x)$$求期望，而这个分布本身由参数$$\phi$$决定，采样操作又是不可微的，梯度无法穿过采样这一步回传到encoder。不过对于正态分布，我们可以使用**重参数化技巧(reparameterization trick)**来解决这个问题。回忆隐变量$$z$$服从正态分布
 
 $$
 z \sim q_\phi (z \vert x) = \mathcal{N} (z; \mu_\phi (x), \sigma^2_\phi (x) I_k )
 $$
 
-我们可以利用一个标准正态分布的随机变量$$\epsilon \sim \mathcal{N} (0, I_k)$$来描述它：
+我们可以引入一个与模型参数无关的标准正态随机变量$$\epsilon \sim \mathcal{N} (0, I_k)$$，把$$z$$改写为
 
 $$
 z = \mu_\phi (x) + \sigma_\phi (x) \epsilon
 $$
 
-这样对$$z$$进行采样就不再依赖于$$q_\phi (z \vert x)$$，而完整的VAE损失函数则可以写成
+这样一来，采样过程中的随机性全部转移到与$$\phi$$无关的$$\epsilon$$上，$$\mu_\phi (x)$$和$$\sigma_\phi (x)$$则成为可微的确定性函数，梯度得以顺利回传到encoder。相应地，完整的VAE损失函数可以写成
 
 $$
 \mathcal{L}_\text{VAE} (\phi, \theta) = \mathbb{E}_{x \sim p_\text{data} (x),\, \epsilon \sim \mathcal{N} (0, I_k)} \left[ \frac{1}{2 \sigma^2} \big\| x - \mu_\theta \big( \mu_\phi (x) + \sigma_\phi (x) \epsilon \big) \big\|^2 + \frac{\beta}{2} \mathcal{K} \big( \sigma^2_\phi (x) \big) + \frac{\beta}{2} \| \mu_\phi (x) \|^2 \right]
