@@ -90,7 +90,7 @@ $$
 对于两个正态分布$$q(x) = \mathcal{N} (x; \mu_q, \sigma_q^2 I_d)$$和$$p(x) = \mathcal{N} (x; \mu_p, \sigma_p^2 I_d)$$，KL散度具有解析形式：
 
 $$
-D_{\text{KL}} \big( q(x) \,\|\, p(x) \big) = \frac{1}{2} \bigg( \mathcal{K} \bigg( \frac{\sigma_q^2}{\sigma_p^2} \bigg)+ \frac{\| \mu_q - \mu_p \|^2}{\sigma_p^2} \bigg)
+D_{\text{KL}} \big( q(x) \,\|\, p(x) \big) = \frac{1}{2} \bigg( \mathcal{K} \bigg( \frac{\sigma_q^2}{\sigma_p^2} \bigg) + \frac{\| \mu_q - \mu_p \|^2}{\sigma_p^2} \bigg)
 $$
 
 $$
@@ -105,12 +105,12 @@ $$
 
 $$
 \begin{aligned}
-\mathcal{L}_\text{VAE-Prior} (\phi) &= \mathbb{E}_{x \sim p_\text{data} (x)} \big[ D_{\text{KL}} \big( q_\phi ( \cdot \vert x) \,\|\, \mathcal{N} (0, I_k) \big) \big] \\ 
+\mathcal{L}_\text{VAE-Prior} (\phi) &= \mathbb{E}_{x \sim p_\text{data} (x)} \big[ D_{\text{KL}} \big( q_\phi ( \cdot \vert x) \,\|\, \mathcal{N} (0, I_k) \big) \big] \\
 &= \mathbb{E}_{x \sim p_\text{data} (x)} \left[ \frac{1}{2} \mathcal{K} \big( \sigma^2_\phi (x) \big) + \frac{1}{2} \| \mu_\phi (x) \|^2 \right]
 \end{aligned}
 $$
 
-将重建损失和先验损失加权结合起来，就得到VAE的总损失函数，其中$$\beta \geq 0$$是用于权衡重建质量与先验约束的超参数，$$\beta = 1$$时即为标准VAE，$$\beta > 1$$时称为$$\beta$$-VAE：
+将重建损失和先验损失加权结合起来，就得到VAE的总损失函数，其中$$\beta \geq 0$$是用于权衡重建质量与先验约束的超参数：
 
 $$
 \begin{aligned}
@@ -159,6 +159,13 @@ $$
 \end{algorithmic}
 \end{algorithm}
 ```
+
+训练好VAE之后，我们只需要让flow matching在隐空间中进行，编码和解码的过程则完全交给VAE来完成。目前主流的图像与视频生成模型大多都采用了这一范式。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/2vvFWAV.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/ACMgerz.png" width="100%">
+</div>
 
 ## Reference
 - [Lecture 04 - Latent Spaces, Neural networks](https://www.youtube.com/watch?v=g0MB1CCBmsI)
