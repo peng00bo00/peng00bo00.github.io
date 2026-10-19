@@ -167,5 +167,85 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/ACMgerz.png" width="100%">
 </div>
 
+## Neural Network Architectures
+
+要用神经网络来实现flow matching模型，本质上就是对速度场进行参数化。以条件速度场$$u_t^\theta (x \vert y)$$为例，网络的输入包含三部分：当前状态$$x$$、提示词$$y$$以及时间$$t$$。我们需要先对这三者分别进行编码，再统一送入神经网络，由网络输出当前时刻的速度场。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/0tWLdSk.png" width="100%">
+</div>
+
+首先是时间参数$$t$$。它是一个一维标量，需要先映射到高维空间中才能被网络有效利用，常用的做法是使用正弦和余弦函数进行**位置编码(positional encoding)**。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/7lWR5m4.png" width="100%">
+</div>
+
+其次是提示词$$y$$。文本同样需要被映射为高维向量序列，实践中通常直接借用预训练好的文本编码器来完成，例如CLIP、T5或是各类大语言模型。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/0248Ov2.png" width="100%">
+</div>
+
+最后是状态$$x$$本身。对于图像，我们可以像NLP中处理句子那样，先把它切成若干小块(patch)，每块映射为一个向量，于是整张图像就转换成了一个向量序列，从而可以像处理序列数据一样交给网络。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/gXfPUDe.png" width="100%">
+</div>
+
+把上述三种输入的编码方式结合起来，让它们以统一的序列形式进入同一个主干网络，就得到了**Diffusion Transformer(DiT)**模型。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/TpZcPXM.png" width="100%">
+</div>
+
+DiT的核心思想在于利用Transformer把所有这些输入统一视为一个序列来处理，借助注意力机制来建模它们之间的相互关系，从而获得更强的建模能力与更好的扩展性。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/Z6SbPyA.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/LMS7hZs.png" width="100%">
+</div>
+
+当然，DiT在实现上还有很多细节，例如时间$$t$$如何注入到每一层网络（adaLN-Zero）、注意力机制的变体等，具体的实现方式可以参考Lab 03的相关代码。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/eyogWEK.png" width="100%">
+</div>
+
+除了DiT之外，目前一些流行的扩散生成模型也基本延续了"在隐空间中生成"这一思路，区别主要在于主干网络架构的选择与取舍，例如是采用U-Net还是Transformer。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/HDVcwu5.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/pmu3GND.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/eF67wWI.png" width="100%">
+</div>
+
+## A Guide to the Diffusion Literature
+
+本节课最后梳理了扩散模型的发展脉络以及文献中的术语惯例。正如前面课程所介绍的，扩散模型与flow matching在数学本质上是相通的，但由于两条路线的发展顺序不同，文献中逐渐形成了两套不同的术语体系，其对应关系可以参考下图。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/Gbm6s0c.png" width="100%">
+</div>
+
+从加噪方式的角度来看，不同文献会采用不同的噪声调度与参数化方法。不过对于高斯噪声，这些写法给出的概率路径都可以纳入同一套$$\alpha_t, \beta_t$$参数化之中，因此彼此是相通的。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/kDdAgAQ.png" width="100%">
+</div>
+
+经典扩散模型的核心数学工具是前向SDE以及与之对应的反向SDE：对于任意前向加噪过程，都存在一个反向SDE能够把加噪后的样本还原为原始数据样本，而驱动这个反向过程的关键正是[score function](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-03/#score-function)——它抵消了前向过程注入的随机性。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/CDVnkNp.png" width="100%">
+</div>
+
+从更宏观的角度来看，flow matching的数学原理更加简洁清晰，实现起来也更加容易，因此当前前沿的生成模型大多选择基于flow matching而不是传统的扩散模型。同时值得一提的是，flow matching并没有把概率路径限制为高斯形式，它更像是一套"把任意源分布连续变换为目标分布"的通用工具。因此在需要处理非高斯噪声或非高斯起点的场景下，flow matching往往是更合适的选择。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/5KgClsh.png" width="100%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/ynTy8AX.png" width="100%">
+</div>
+
 ## Reference
 - [Lecture 04 - Latent Spaces, Neural networks](https://www.youtube.com/watch?v=g0MB1CCBmsI)
