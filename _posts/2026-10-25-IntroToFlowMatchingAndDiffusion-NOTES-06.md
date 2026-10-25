@@ -98,7 +98,7 @@ $$
 Q_t^\theta ( y \vert x ) = 0 \quad \text{whenever } y_i \neq x_i \text{ for more than one position}
 $$
 
-满足这一条件的状态$$y$$（即与$$x$$至多只在一个位置上不同的状态）称为$$x$$的**邻居(neighbor)**，记为$$N(x)$$。于是分解后的CTMC模型可以表示为
+满足这一条件的状态$$y$$（即与$$x$$至多只在一个位置上不同的状态）称为$$x$$的**邻居(neighbor)**，记为$$N(x)$$。于是分解后的CTMC模型可以表示为：
 
 $$
 x \mapsto \{ Q_t^\theta (y \vert x) \}_{y \in N(x)} = 
@@ -116,7 +116,7 @@ $$
 
 ### Sampling CTMC Models
 
-接下来考虑如何从CTMC模型中进行采样，实际上这一过程和一般的Markov链采样没有太大区别。假设$$t=0$$时刻的样本来自于初始分布$$p_\text{init}$$，那么任意时刻的状态满足$$X_{t + h} \sim p_{t + h \vert t} (\cdot \vert X_t)$$。利用Taylor展开和rate matrix的定义可以得到
+接下来考虑如何从CTMC模型中采样，这一过程与一般的Markov链采样并没有太大区别。假设$$t=0$$时刻的样本来自于初始分布$$p_\text{init}$$，那么任意时刻的状态满足$$X_{t + h} \sim p_{t + h \vert t} (\cdot \vert X_t)$$。利用Taylor展开以及rate matrix的定义可以得到：
 
 $$
 \begin{aligned}
@@ -127,7 +127,7 @@ p_{t \vert t} (X_t = y \vert X_t = x) + h Q_t (y \vert x) \\
 \end{aligned}
 $$
 
-上式说明，我们只需要在时间轴上不断对$$\tilde{p}_{t + h \vert t} (y \vert x)$$进行采样就可以得到样本的演化。整理一下可以得到CTMC模型的采样算法：
+上式说明，只要沿时间轴不断从$$\tilde{p}_{t + h \vert t} (y \vert x)$$中采样，就能得到样本的演化轨迹。整理一下即可得到CTMC模型的采样算法：
 
 ```pseudocode
 \begin{algorithm}
@@ -180,10 +180,9 @@ $$
 
 ### Conditional and Marginal Rate Matrix
 
-在离散情形下，驱动概率路径演化的是CTMC，其地位相当于连续情形中的向量场。定义$$Q_t^z (y \vert x)$$为目标$$z$$对应的conditional rate matrix，通过执行CTMC采样可以将初始分布$$p_\text{init}$$变换为条件分布$$p_t (\cdot \vert z)$$。
+在离散情形下，驱动概率路径演化的是CTMC，其地位相当于连续情形中的向量场。对于给定的目标样本$$z$$，我们把驱动条件概率路径$$p_t (\cdot \vert z)$$的CTMC所对应的速率矩阵记为$$Q_t^z (y \vert x)$$，称为**条件速率矩阵(conditional rate matrix)**：从$$t = 0$$时刻的$$p_\text{init}$$出发执行CTMC采样，即可演化到任意时刻的条件分布$$p_t (\cdot \vert z)$$。
 
-
-类似于flow matching中的[边缘化技巧](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#marginal-vector-field)，我们也可以对rate matrix做同样的边缘化，由此定义出**marginal rate matrix**
+类似于flow matching中的[边缘化技巧](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#marginal-vector-field)，我们也可以对rate matrix做同样的边缘化，由此定义出**marginal rate matrix**：
 
 $$
 \begin{aligned}
@@ -192,7 +191,17 @@ Q_t (y \vert x) = \sum_{z \in S} Q_t^z (y \vert x) \frac{p_t (x \vert z) p_\text
 \end{aligned}
 $$
 
-与flow matching类似，只要用上式定义的marginal rate matrix执行CTMC采样，就能把初始分布$$p_\text{init}$$变换为目标分布$$p_\text{data}$$。
+其中$$p_{1 \vert t} (z \vert x)$$可以理解为"已知$$t$$时刻状态为$$x$$时，原始数据为$$z$$"的后验概率。与flow matching类似，只要用上式定义的marginal rate matrix执行CTMC采样，就能把初始分布$$p_\text{init}$$变换为目标分布$$p_\text{data}$$。
+
+类似于flow matching中的[连续性方程](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#continuity-equation)，CTMC中概率在时间维度上的演化则需要满足[Kolmogorov前向方程(Kolmogorov forward equation, KFE)](https://en.wikipedia.org/wiki/Kolmogorov_equations#Continuous-time_Markov_chains)：
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x) = \sum_{y \in S} Q_t (x \vert y) p_t (y)
+$$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/mOZWFwM.png" width="100%">
+</div>
 
 ## Reference
 - [Lecture 05 - Discrete Diffusion Models](https://www.youtube.com/watch?v=d0kmyEJN2hI&t=3058s)
