@@ -114,9 +114,71 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/mwXw9W1.png" width="100%">
 </div>
 
-### Sampling CTMC models
+### Sampling CTMC Models
 
-## Training CTMC models
+接下来考虑如何从CTMC模型中进行采样，实际上这一过程和一般的Markov链采样没有太大区别。假设$$t=0$$时刻的样本来自于初始分布$$p_\text{init}$$，那么任意时刻的状态满足$$X_{t + h} \sim p_{t + h \vert t} (\cdot \vert X_t)$$。利用Taylor展开和rate matrix的定义可以得到
+
+$$
+\begin{aligned}
+p_{t + h \vert t} (X_{t + h} = y \vert X_t = x) &\approx 
+p_{t  \vert t} (X_t = y \vert X_t = x) + h Q_t (X_{t + h} = y \vert X_t = x) \\
+&= \delta_y (x) + h Q_t (X_{t + h} = y \vert X_t = x) \\
+&\coloneqq \tilde{p}_{t + h \vert t} (y \vert x)
+\end{aligned}
+$$
+
+上式说明，我们只需要在时间轴上不断对$$\tilde{p}_{t + h \vert t} (y \vert x)$$进行采样就可以得到样本的演化。整理一下可以得到CTMC模型的采样算法：
+
+```pseudocode
+\begin{algorithm}
+\caption{Sampling from a Factorized CTMC Model}
+\begin{algorithmic}
+\REQUIRE Rate network $Q_t^\theta$ (factorized), initial distribution $p_\text{init}$, number of steps $n$
+\STATE Set $t \leftarrow 0$, step size $h \leftarrow \frac{1}{n}$
+\STATE Draw a sample $X_0 \sim p_\text{init}$, where $X_0 = (X_0^{(1)}, \dots, X_0^{(d)}) \in \mathcal{V}^d$
+\FOR{$i = 1, \dots, n$}
+    \STATE Compute factorized jump rates $\{ q_j (v) \}_{j = 1..d,\ v \in \mathcal{V}} \leftarrow Q_t^\theta (\cdot \vert X_t)$
+    \FOR{$j = 1, \dots, d$ (in parallel)}
+        \STATE $x \leftarrow X_t^{(j)}$ (current token at position $j$)
+        \STATE Define the per-position Euler transition probabilities $\tilde{p}_{j,t} (v \vert x)$ by $\tilde{p}_{j,t} (v \vert x) = h q_j (v)$ for $v \neq x$, and $\tilde{p}_{j,t} (x \vert x) = 1 - h \sum_{v' \in \mathcal{V} \setminus \{x\}} q_j (v')$
+        \STATE Sample $X_{t+h}^{(j)} \sim \text{CATEGORICAL}(\{ \tilde{p}_{j,t} (v \vert x) \}_{v \in \mathcal{V}})$
+    \ENDFOR
+    \STATE Set $t \leftarrow t + h$
+\ENDFOR
+\STATE \textbf{return} $X_1$
+\end{algorithmic}
+\end{algorithm}
+```
+
+不难发现，上述采样算法与flow matching中沿ODE积分是非常类似的。事实上，使用CTMC进行生成的整体思路与flow matching也基本一致，区别只在于驱动概率路径演化的工具从ODE换成了CTMC。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/XbMx5Nt.png" width="100%">
+</div>
+
+## Training CTMC Models
+
+### Conditional and Marginal Probability Path
+
+实际上我们可以沿用flow matching中[概率路径](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#probability-path)的框架来理解CTMC模型。离散的**条件概率路径**是一族分布$$p_t (x \vert z)$$，它在$$t=0$$时刻等于初始分布$$p_\text{init}$$，在$$t=1$$时刻收敛到目标样本$$z$$
+
+$$
+p_0 ( \cdot \vert z ) = p_\text{init}, \quad p_1 ( \cdot \vert z ) = \delta_z
+$$
+
+对应的离散**边缘概率路径**则定义为对数据分布取期望
+
+$$
+p_t (x) = \sum_z p_t (x \vert z) p_\text{data} (z)
+$$
+
+类似于flow matching中连续的情形，离散概率路径同样可以看作是在两个概率分布之间进行插值。实际上利用线性插值，我们可以在任意两个分布之间构造出一条离散概率路径。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/tnXNXD3.png" width="100%">
+</div>
+
+### Conditional and Marginal Rate Matrix
 
 ## Reference
 - [Lecture 05 - Discrete Diffusion Models](https://www.youtube.com/watch?v=d0kmyEJN2hI&t=3058s)
