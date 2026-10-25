@@ -2,6 +2,9 @@
   <!-- MathJax -->
   <script type="text/javascript">
     window.MathJax = {
+      loader: {
+        load: ['[tex]/mathtools'],
+      },
       tex: {
         inlineMath: [
           ['$', '$'],
@@ -13,6 +16,7 @@
         ],
         processEscapes: true,
         processEnvironments: true,
+        packages: { '[+]': ['mathtools'] },
       },
     };
   </script>
