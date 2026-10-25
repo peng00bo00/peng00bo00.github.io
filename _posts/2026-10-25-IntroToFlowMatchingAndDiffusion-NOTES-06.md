@@ -78,7 +78,7 @@ $$
 \frac{\mathrm{d}}{\mathrm{d}h} p_{t+h \vert t} (X_{t+h} = y \vert X_t = x) \Big|_{h=0} = Q_t (y \vert x) \quad \text{for all } x, y \in S,\ 0 \leq t
 $$
 
-给定rate matrix，就可以通过矩阵指数构造出任意两个时刻之间的状态转移矩阵。下图给出了一个简单的例子，其中两个状态之间的转移概率会随着时间的推移趋向于0.5。
+下图给出了一个简单的例子展示如何从rate matrix来计算出状态转移矩阵，其中两个状态之间的转移概率会随着时间的推移趋向于0.5。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/uOBdVJg.png" width="100%">
@@ -108,7 +108,7 @@ Q_t^\theta (v_1, d \vert x) & \cdots & Q_t^\theta (v_V, d \vert x)
 \end{pmatrix}
 $$
 
-其中$$Q_t^\theta (v_i, j \vert x)$$表示把输入状态$$x$$的第$$j$$个token替换为词汇表中的第$$i$$个token$$v_i$$的速率，即$$y = (x_1, \cdots, x_{j-1}, v_i, x_{j+1}, \cdots, x_d)$$。这样一来网络的输出就退化为一个$$V \times d$$的矩阵，所需的存储开销随序列长度$$d$$从指数增长降为线性增长，问题的规模也就得到了控制。
+其中$$Q_t^\theta (v_i, j \vert x)$$表示把输入状态$$x$$的第$$j$$个token替换为词汇表中的第$$i$$个token$$v_i$$的速率，即$$y = (x_1, \cdots, x_{j-1}, v_i, x_{j+1}, \cdots, x_d)$$。这样一来网络的输出就退化为一个$$d \times V$$的矩阵，所需的存储开销随序列长度$$d$$从指数增长降为线性增长，问题的规模也就得到了控制。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/mwXw9W1.png" width="100%">
@@ -121,8 +121,8 @@ $$
 $$
 \begin{aligned}
 p_{t + h \vert t} (X_{t + h} = y \vert X_t = x) &\approx 
-p_{t  \vert t} (X_t = y \vert X_t = x) + h Q_t (X_{t + h} = y \vert X_t = x) \\
-&= \delta_y (x) + h Q_t (X_{t + h} = y \vert X_t = x) \\
+p_{t \vert t} (X_t = y \vert X_t = x) + h Q_t (y \vert x) \\
+&= \delta_y (x) + h Q_t (y \vert x) \\
 &\coloneqq \tilde{p}_{t + h \vert t} (y \vert x)
 \end{aligned}
 $$
@@ -150,7 +150,7 @@ $$
 \end{algorithm}
 ```
 
-不难发现，上述采样算法与flow matching中沿ODE积分是非常类似的。事实上，使用CTMC进行生成的整体思路与flow matching也基本一致，区别只在于驱动概率路径演化的工具从ODE换成了CTMC。
+不难发现，上述采样算法与flow matching中沿向量场积分是非常类似的。事实上，使用CTMC进行生成的整体思路与flow matching也基本一致，区别只在于驱动概率路径演化的工具从向量场换成了CTMC。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/XbMx5Nt.png" width="100%">
@@ -160,25 +160,39 @@ $$
 
 ### Conditional and Marginal Probability Path
 
-实际上我们可以沿用flow matching中[概率路径](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#probability-path)的框架来理解CTMC模型。离散的**条件概率路径**是一族分布$$p_t (x \vert z)$$，它在$$t=0$$时刻等于初始分布$$p_\text{init}$$，在$$t=1$$时刻收敛到目标样本$$z$$
+我们可以沿用flow matching中[概率路径](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#probability-path)的框架来理解CTMC模型。离散的**条件概率路径**是一族分布$$p_t (x \vert z)$$，它在$$t=0$$时刻等于初始分布$$p_\text{init}$$，而在$$t=1$$时刻收敛到目标样本$$z$$
 
 $$
 p_0 ( \cdot \vert z ) = p_\text{init}, \quad p_1 ( \cdot \vert z ) = \delta_z
 $$
 
-对应的离散**边缘概率路径**则定义为对数据分布取期望
+对应的离散**边缘概率路径**则通过对数据分布求期望得到
 
 $$
 p_t (x) = \sum_z p_t (x \vert z) p_\text{data} (z)
 $$
 
-类似于flow matching中连续的情形，离散概率路径同样可以看作是在两个概率分布之间进行插值。实际上利用线性插值，我们可以在任意两个分布之间构造出一条离散概率路径。
+与flow matching中连续的情形类似，离散概率路径同样可以看作是在两个概率分布之间进行插值。特别地，利用线性插值就可以在任意两个分布之间构造出一条离散概率路径。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/tnXNXD3.png" width="100%">
 </div>
 
 ### Conditional and Marginal Rate Matrix
+
+在离散情形下，驱动概率路径演化的是CTMC，其地位相当于连续情形中的向量场。定义$$Q_t^z (y \vert x)$$为目标$$z$$对应的conditional rate matrix，通过执行CTMC采样可以将初始分布$$p_\text{init}$$变换为条件分布$$p_t (\cdot \vert z)$$。
+
+
+类似于flow matching中的[边缘化技巧](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#marginal-vector-field)，我们也可以对rate matrix做同样的边缘化，由此定义出**marginal rate matrix**
+
+$$
+\begin{aligned}
+Q_t (y \vert x) = \sum_{z \in S} Q_t^z (y \vert x) \frac{p_t (x \vert z) p_\text{data} (z)}{p_t (x)} = \sum_{z \in S} Q_t^z (y \vert x) p_{1 \vert t} (z \vert x) \\
+\text{where } p_{1 \vert t} (z \vert x) \coloneqq \frac{p_t (x \vert z) p_\text{data} (z)}{p_t (x)}
+\end{aligned}
+$$
+
+与flow matching类似，只要用上式定义的marginal rate matrix执行CTMC采样，就能把初始分布$$p_\text{init}$$变换为目标分布$$p_\text{data}$$。
 
 ## Reference
 - [Lecture 05 - Discrete Diffusion Models](https://www.youtube.com/watch?v=d0kmyEJN2hI&t=3058s)
