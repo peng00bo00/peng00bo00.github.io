@@ -172,7 +172,25 @@ $$
 p_t (x) = \sum_z p_t (x \vert z) p_\text{data} (z)
 $$
 
-与flow matching中连续的情形类似，离散概率路径同样可以看作是在两个概率分布之间进行插值。特别地，利用线性插值就可以在任意两个分布之间构造出一条离散概率路径。
+与flow matching中连续的情形类似，离散概率路径同样可以看作是在两个概率分布之间进行插值。特别地，利用线性插值就可以在任意两个分布之间构造出一条离散概率路径：
+
+$$
+p_t (x \vert z) = \prod_{j = 1}^d \left[ (1 - \kappa_t) p_\text{init}^{(j)} (x_j) + \kappa_t \delta_{z_j} (x_j) \right].
+$$
+
+其中$$p_\text{init}^{(j)} (x_j)$$是初始分布在第$$j$$个位置上的边缘分布，$$\delta_{z_j} (x_j)$$把该位置固定为目标样本的第$$j$$个token，而$$\kappa_t$$则是从0增长到1的插值系数，称为**scheduler**，它满足
+
+$$
+\kappa_0 = 0, \quad \kappa_1 = 1
+$$
+
+对于线性插值这一最简单的情形，可以直接取
+
+$$
+\kappa_t = t
+$$
+
+$$\kappa_t$$相当于一个mask：以概率$$\kappa_t$$保留目标数据token，否则用初始分布采样出的噪声token填充。在每个位置独立地做这样的混合，就得到了对应的概率路径，称为**factorized mixture path**。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/tnXNXD3.png" width="100%">
@@ -201,6 +219,84 @@ $$
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/mOZWFwM.png" width="100%">
+</div>
+
+对于factorized mixture path的情况，可以得到对应的conditional rate matrix的解析式：
+
+$$
+\begin{aligned}
+Q_t^z (v_i, j \vert x) &= \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_{z_j} (v_i) - \delta_{x_j} (v_i) \big) \\
+&= \frac{\dot{\kappa}_t}{1 - \kappa_t}
+\begin{cases}
+0 & \text{if } x_j = z_j \\
+1 & \text{if } v_i = z_j,\ x_j \neq z_j \\
+0 & \text{if } v_i \neq z_j,\ x_j \neq z_j \\
+-1 & \text{if } v_i = x_j,\ x_j \neq z_j
+\end{cases}
+\end{aligned}
+$$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/OZPKPnL.png" width="100%">
+</div>
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/frytvm7.png" width="100%">
+</div>
+
+把上式代入边缘化公式，就得到对应的marginal rate matrix：
+
+$$
+Q_t (v_i, j \vert x) = \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( p_{1 \vert t} (z_j = v_i \vert x) - \delta_{x_j} (v_i) \big)
+$$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/8xLCQXo.png" width="100%">
+</div>
+
+注意到marginal rate matrix中唯一未知的就是条件概率$$p_{1 \vert t} (z_j = v_i \vert x)$$，因此只要用网络把它学习出来，就可以得到完整的CTMC模型。而这一条件概率本质上就是一个在词表上的分类器——它要对每个位置预测该位置的真实token，因此直接使用通常的交叉熵损失即可完成训练。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/f2RIipu.png" width="100%">
+</div>
+
+整理一下，得到CTMC模型的训练算法如下：
+
+```pseudocode
+\begin{algorithm}
+\caption{Training Factorized CTMC Model (Discrete Diffusion)}
+\begin{algorithmic}
+\REQUIRE Dataset of sequences $z \sim p_{\text{data}}$ with $z = (z_1, \dots, z_d) \in \mathcal{V}^d$; initial (noise) token marginals $p_{\text{init}}^{(j)}$ on $\mathcal{V}$; schedule $\kappa_t \in (0, 1]$; posterior network $f_\theta$ returning per-position logits over $\mathcal{V}$; optimizer \textsc{Opt}
+\FOR{each training iteration}
+    \STATE Sample a data point $z \sim p_{\text{data}}$
+    \STATE Sample time $t \sim \text{Unif}[0, 1]$ and compute $\kappa \leftarrow \kappa_t$
+    \STATE Sample a noisy state $x \sim p_t ( \cdot \vert z )$ (factorized mixture path):
+    \FOR{$j = 1, \dots, d$ (in parallel)}
+        \STATE Sample mask $m_j \sim \text{Bernoulli}(\kappa)$
+        \STATE Sample noise token $\xi_j \sim p_{\text{init}}^{(j)}$
+        \STATE Set $x_j \leftarrow m_j z_j + (1 - m_j) \xi_j$
+    \ENDFOR
+    \STATE $x \leftarrow (x_1, \dots, x_d)$
+    \STATE Predict terminal-token posteriors via logits from the network: $\ell_j ( \cdot ) \leftarrow f_\theta (x, t)_j \ \Rightarrow \ p_{1 \vert t}^{\theta} (v \vert x)_j = \text{Softmax} ( \ell_j ) (v)$
+    \STATE Discrete Flow Matching loss (token-wise NLL of $z$): $\mathcal{L}_{\text{DFM}} ( \theta ) \leftarrow \sum_{j = 1}^d \big[ - \log p_{1 \vert t}^{\theta} ( z_j \vert x )_j \big]$
+    \STATE Update parameters: $\theta \leftarrow \textsc{Opt.Step} ( \nabla_\theta \mathcal{L}_{\text{DFM}} ( \theta ) )$
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+```
+
+### Debate and Future Directions
+
+和目前LLM中使用的自回归模型相比，离散扩散模型更像是一种实验性的技术。离散扩散模型的性能以及训练难度还远未达到自回归模型的水平，因此离散扩散模型在实际应用中还需要进一步的研究。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/C5DRxJP.png" width="100%">
+</div>
+
+如果对flow matching以及CTMC模型的底层数学框架更感兴趣，可以参考[Generator Matching](https://arxiv.org/abs/2410.20587)的相关理论。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/cC7aSLU.png" width="100%">
 </div>
 
 ## Reference
