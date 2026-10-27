@@ -86,7 +86,7 @@ $$
 
 ### Factorization Condition
 
-使用神经网络来表达CTMC模型时只需要对rate matrix进行参数化即可。具体来说，我们使用一个神经网络来表达$$Q_t^\theta$$，对于给定的输入状态$$x$$，网络输出对应的rate matrix
+使用神经网络来实现CTMC模型时，只需要对rate matrix进行参数化即可。具体来说，我们用一个神经网络来表达$$Q_t^\theta$$：对于给定的输入状态$$x$$，网络输出对应的rate matrix
 
 $$
 x \mapsto \{ Q_t^\theta ( y \vert x ) \}_{y \in S}
@@ -137,7 +137,7 @@ $$
 \STATE Set $t \leftarrow 0$, step size $h \leftarrow \frac{1}{n}$
 \STATE Draw a sample $X_0 \sim p_\text{init}$, where $X_0 = (X_0^{(1)}, \dots, X_0^{(d)}) \in \mathcal{V}^d$
 \FOR{$i = 1, \dots, n$}
-    \STATE Compute factorized jump rates $\{ q_j (v) \}_{j = 1..d,\ v \in \mathcal{V}} \leftarrow Q_t^\theta (\cdot \vert X_t)$
+    \STATE Compute factorized jump rates $\{ q_j (v) \}_{j = 1, \dots, d,\ v \in \mathcal{V}} \leftarrow Q_t^\theta (\cdot \vert X_t)$
     \FOR{$j = 1, \dots, d$ (in parallel)}
         \STATE $x \leftarrow X_t^{(j)}$ (current token at position $j$)
         \STATE Define the per-position Euler transition probabilities $\tilde{p}_{j,t} (v \vert x)$ by $\tilde{p}_{j,t} (v \vert x) = h q_j (v)$ for $v \neq x$, and $\tilde{p}_{j,t} (x \vert x) = 1 - h \sum_{v' \in \mathcal{V} \setminus \{x\}} q_j (v')$
@@ -160,13 +160,13 @@ $$
 
 ### Conditional and Marginal Probability Path
 
-我们可以沿用flow matching中[概率路径](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#probability-path)的框架来理解CTMC模型。离散的**条件概率路径**是一族分布$$p_t (x \vert z)$$，它在$$t=0$$时刻等于初始分布$$p_\text{init}$$，而在$$t=1$$时刻收敛到目标样本$$z$$
+我们可以沿用flow matching中[概率路径](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#probability-path)的框架来理解CTMC模型。离散的**条件概率路径**是一族分布$$p_t (x \vert z)$$，它在$$t=0$$时刻等于初始分布$$p_\text{init}$$，而在$$t=1$$时刻收敛到目标样本$$z$$：
 
 $$
 p_0 ( \cdot \vert z ) = p_\text{init}, \quad p_1 ( \cdot \vert z ) = \delta_z
 $$
 
-对应的离散**边缘概率路径**则通过对数据分布求期望得到
+对应的离散**边缘概率路径**则通过对数据分布求期望得到：
 
 $$
 p_t (x) = \sum_z p_t (x \vert z) p_\text{data} (z)
@@ -200,18 +200,15 @@ $$\kappa_t$$相当于一个mask：以概率$$\kappa_t$$保留目标数据token�
 
 在离散情形下，驱动概率路径演化的是CTMC，其地位相当于连续情形中的向量场。对于给定的目标样本$$z$$，我们把驱动条件概率路径$$p_t (\cdot \vert z)$$的CTMC所对应的速率矩阵记为$$Q_t^z (y \vert x)$$，称为**条件速率矩阵(conditional rate matrix)**：从$$t = 0$$时刻的$$p_\text{init}$$出发执行CTMC采样，即可演化到任意时刻的条件分布$$p_t (\cdot \vert z)$$。
 
-类似于flow matching中的[边缘化技巧](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#marginal-vector-field)，我们也可以对rate matrix做同样的边缘化，由此定义出**marginal rate matrix**：
+类似于flow matching中的[边缘化技巧](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#marginal-vector-field)，我们也可以对rate matrix做同样的边缘化，由此**构造**出**marginal rate matrix**：
 
 $$
-\begin{aligned}
-Q_t (y \vert x) = \sum_{z \in S} Q_t^z (y \vert x) \frac{p_t (x \vert z) p_\text{data} (z)}{p_t (x)} = \sum_{z \in S} Q_t^z (y \vert x) p_{1 \vert t} (z \vert x) \\
-\text{where } p_{1 \vert t} (z \vert x) \coloneqq \frac{p_t (x \vert z) p_\text{data} (z)}{p_t (x)}
-\end{aligned}
+Q_t (y \vert x) = \sum_{z \in S} Q_t^z (y \vert x) \frac{p_t (x \vert z) p_\text{data} (z)}{p_t (x)} = \sum_{z \in S} Q_t^z (y \vert x) p_{1 \vert t} (z \vert x)
 $$
 
-其中$$p_{1 \vert t} (z \vert x)$$可以理解为"已知$$t$$时刻状态为$$x$$时，原始数据为$$z$$"的后验概率。与flow matching类似，只要用上式定义的marginal rate matrix执行CTMC采样，就能把初始分布$$p_\text{init}$$变换为目标分布$$p_\text{data}$$。
+其中$$p_{1 \vert t} (z \vert x) \coloneqq \frac{p_t (x \vert z) p_\text{data} (z)}{p_t (x)}$$可以理解为"已知$$t$$时刻状态为$$x$$时，原始数据为$$z$$"的后验概率。我们希望这样构造出的marginal rate matrix恰好驱动着边缘概率路径$$p_t$$的演化，从而把初始分布$$p_\text{init}$$变换为目标分布$$p_\text{data}$$；这一点将在下面给出证明。
 
-类似于flow matching中的[连续性方程](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#continuity-equation)，CTMC中概率在时间维度上的演化则需要满足[Kolmogorov前向方程(Kolmogorov forward equation, KFE)](https://en.wikipedia.org/wiki/Kolmogorov_equations#Continuous-time_Markov_chains)：
+类似于flow matching中的[连续性方程](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#continuity-equation)，CTMC中概率分布随时间的演化则由[Kolmogorov前向方程(Kolmogorov forward equation, KFE)](https://en.wikipedia.org/wiki/Kolmogorov_equations#Continuous-time_Markov_chains)来描述。它给出了概率路径$$p_t$$与驱动它的rate matrix$$Q_t$$之间的相容条件：当且仅当满足下式时，$$Q_t$$所对应的CTMC恰好把分布沿着$$p_t$$演化。
 
 $$
 \frac{\mathrm{d}}{\mathrm{d}t} p_t (x) = \sum_{y \in S} Q_t (x \vert y) p_t (y)
@@ -220,6 +217,40 @@ $$
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/mOZWFwM.png" width="100%">
 </div>
+
+下面利用KFE来证明rate matrix的边缘化技巧。首先由全概率公式，对$$p_t (x)$$求导有：
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x) &= \frac{\mathrm{d}}{\mathrm{d}t} \sum_{z \in S} p_t (x \vert z) p_\text{data} (z) \\
+&= \sum_{z \in S} \frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) \, p_\text{data} (z)
+\end{aligned}
+$$
+
+对右边$$\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z)$$一项使用KFE得到
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x) 
+&= \sum_{z \in S} \frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) \, p_\text{data} (z) \\
+&= \sum_{z \in S} \left[ \sum_{y \in S} Q_t^z (x \vert y) \, p_t (y \vert z) \right] p_\text{data} (z) \\
+&= \sum_{y \in S} p_t (y) \left[ \sum_{z \in S} Q_t^z (x \vert y) \, \frac{p_t (y \vert z) p_\text{data} (z)}{p_t (y)} \right]
+\end{aligned}
+$$
+
+此时只要令
+
+$$
+Q_t (x \vert y) \coloneqq \sum_{z \in S} Q_t^z (x \vert y) \frac{p_t (y \vert z) p_\text{data} (z)}{p_t (y)} = \sum_{z \in S} Q_t^z (x \vert y) \, p_{1 \vert t} (z \vert y)
+$$
+
+即证明了前文所述rate matrix的边缘化技巧。同时注意到上式也满足KFE，即
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x) = \sum_{y \in S} Q_t (x \vert y) p_t (y)
+$$
+
+这说明按后验加权平均得到的marginal rate matrix确实驱动着边缘概率路径$$p_t$$的演化。
 
 对于factorized mixture path的情况，可以得到对应的conditional rate matrix的解析式：
 
@@ -266,7 +297,7 @@ $$
 \begin{algorithm}
 \caption{Training Factorized CTMC Model (Discrete Diffusion)}
 \begin{algorithmic}
-\REQUIRE Dataset of sequences $z \sim p_{\text{data}}$ with $z = (z_1, \dots, z_d) \in \mathcal{V}^d$; initial (noise) token marginals $p_{\text{init}}^{(j)}$ on $\mathcal{V}$; schedule $\kappa_t \in (0, 1]$; posterior network $f_\theta$ returning per-position logits over $\mathcal{V}$; optimizer \textsc{Opt}
+\REQUIRE Dataset of sequences $z \sim p_{\text{data}}$ with $z = (z_1, \dots, z_d) \in \mathcal{V}^d$; initial (noise) token marginals $p_{\text{init}}^{(j)}$ on $\mathcal{V}$; schedule $\kappa_t \in (0, 1]$; posterior network $f_\theta$ returning per-position logits over $\mathcal{V}$; optimizer \text{Opt}
 \FOR{each training iteration}
     \STATE Sample a data point $z \sim p_{\text{data}}$
     \STATE Sample time $t \sim \text{Unif}[0, 1]$ and compute $\kappa \leftarrow \kappa_t$
@@ -279,15 +310,15 @@ $$
     \STATE $x \leftarrow (x_1, \dots, x_d)$
     \STATE Predict terminal-token posteriors via logits from the network: $\ell_j ( \cdot ) \leftarrow f_\theta (x, t)_j \ \Rightarrow \ p_{1 \vert t}^{\theta} (v \vert x)_j = \text{Softmax} ( \ell_j ) (v)$
     \STATE Discrete Flow Matching loss (token-wise NLL of $z$): $\mathcal{L}_{\text{DFM}} ( \theta ) \leftarrow \sum_{j = 1}^d \big[ - \log p_{1 \vert t}^{\theta} ( z_j \vert x )_j \big]$
-    \STATE Update parameters: $\theta \leftarrow \textsc{Opt.Step} ( \nabla_\theta \mathcal{L}_{\text{DFM}} ( \theta ) )$
+    \STATE Update parameters: $\theta \leftarrow \text{Opt.Step} ( \nabla_\theta \mathcal{L}_{\text{DFM}} ( \theta ) )$
 \ENDFOR
 \end{algorithmic}
 \end{algorithm}
 ```
 
-### Debate and Future Directions
+## Debate and Future Directions
 
-和目前LLM中使用的自回归模型相比，离散扩散模型更像是一种实验性的技术。离散扩散模型的性能以及训练难度还远未达到自回归模型的水平，因此离散扩散模型在实际应用中还需要进一步的研究。
+与当前LLM普遍采用的自回归模型相比，离散扩散模型目前仍更像是一种探索性的技术：它的性能尚不及自回归模型，训练难度也相对更高，因此距离大规模实用还有不少问题需要进一步研究。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/C5DRxJP.png" width="100%">
