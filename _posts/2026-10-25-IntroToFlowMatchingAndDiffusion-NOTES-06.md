@@ -252,7 +252,55 @@ $$
 
 这说明按后验加权平均得到的marginal rate matrix确实驱动着边缘概率路径$$p_t$$的演化。
 
-对于factorized mixture path的情况，可以得到对应的conditional rate matrix的解析式：
+对于factorized mixture path的情况，利用KFE可以推导出对应的conditional rate matrix。根据因子分解的假定，序列的各个位置上是独立演化的，因此这里在推导时为了简化证明假设序列的长度为1。首先根据factorized mixture path的定义，对$$p_t (x \vert z) = (1 - \kappa_t) q (x) + \kappa_t \delta_z (x)$$求导有：
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) &= \frac{\mathrm{d}}{\mathrm{d}t} \left[ (1 - \kappa_t) p_\text{init} (x) + \kappa_t \delta_z (x) \right] \\
+&= \dot{\kappa}_t \delta_z (x) - \dot{\kappa}_t p_\text{init} (x) \\
+\end{aligned}
+$$
+
+对等式右端进行一些代数变形，可以得到
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) &= 
+\dot{\kappa}_t \delta_z (x) - \dot{\kappa}_t p_\text{init} (x) \\
+&= \frac{\dot{\kappa}_t}{1 - \kappa_t} \bigg( \delta_z (x) - \big[ (1 - \kappa_t) p_\text{init} (x) + \kappa_t \delta_z (x) \big] \bigg) \\
+&= \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - p_t (x \vert z) \big) \\
+&= \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \big( 1 - p_t (x \vert z) \big) + \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z)
+\end{aligned}
+$$
+
+根据状态转移概率的和为1，$$1 - p_t (x \vert z)$$一项可以表示为
+
+$$
+1 - p_t (x \vert z) = \sum_{y \neq x} p_t (y \vert z)
+$$
+
+带入到上式中可以得到
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) 
+&= \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \big( 1 - p_t (x \vert z) \big) + \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z) \\
+&= \sum_{y \neq x} \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \, p_t (y \vert z) + \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z) \\
+\end{aligned}
+$$
+
+其中第二项$$\frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z)$$可以理解为$$y=x$$时的状态转移情况，这样对两项进行合并得到
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z)
+&= \sum_{y \neq x} \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \, p_t (y \vert z) + \sum_{y = x} \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (y) - 1 \big) p_t (y \vert z) \\
+&= \sum_{y \in S} \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - \delta_x (y) \big) \, p_t (y \vert z) \\
+&= \sum_{y \in S} Q_t^z (x \vert y) \, p_t (y \vert z)
+\end{aligned}
+$$
+
+将这一结果逐位置应用就得到对应的conditional rate matrix的解析式：
 
 $$
 \begin{aligned}
