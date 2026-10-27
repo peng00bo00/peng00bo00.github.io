@@ -278,7 +278,7 @@ $$
 \frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) = \sum_{y \neq x} \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \, p_t (y \vert z) + \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z)
 $$
 
-其中第二项对应$$y = x$$即状态保持不变的情形。借助$$\delta_x (y)$$可以把两项写成统一的形式并合并。最终得到KFE以及对应的conditional rate matrix
+其中第二项对应$$y = x$$即状态保持不变的情形。借助$$\delta_x (y)$$可以把两项写成统一的形式并合并，最终得到KFE以及对应的conditional rate matrix
 
 $$
 \begin{aligned}
