@@ -200,7 +200,7 @@ $$\kappa_t$$相当于一个mask：以概率$$\kappa_t$$保留目标数据token�
 
 在离散情形下，驱动概率路径演化的是CTMC，其地位相当于连续情形中的向量场。对于给定的目标样本$$z$$，我们把驱动条件概率路径$$p_t (\cdot \vert z)$$的CTMC所对应的速率矩阵记为$$Q_t^z (y \vert x)$$，称为**条件速率矩阵(conditional rate matrix)**：从$$t = 0$$时刻的$$p_\text{init}$$出发执行CTMC采样，即可演化到任意时刻的条件分布$$p_t (\cdot \vert z)$$。
 
-类似于flow matching中的[边缘化技巧](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#marginal-vector-field)，我们也可以对rate matrix做同样的边缘化，由此**构造**出**marginal rate matrix**：
+类似于flow matching中的[边缘化技巧](/blog/2026/IntroToFlowMatchingAndDiffusion-NOTES-02/#marginal-vector-field)，我们也可以对rate matrix做同样的边缘化，由此构造出**marginal rate matrix**：
 
 $$
 Q_t (y \vert x) = \sum_{z \in S} Q_t^z (y \vert x) \frac{p_t (x \vert z) p_\text{data} (z)}{p_t (x)} = \sum_{z \in S} Q_t^z (y \vert x) p_{1 \vert t} (z \vert x)
@@ -218,33 +218,28 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/mOZWFwM.png" width="100%">
 </div>
 
-下面利用KFE来证明rate matrix的边缘化技巧。首先由全概率公式，对$$p_t (x)$$求导有：
+下面利用KFE来证明rate matrix的边缘化技巧。首先由全概率公式展开$$p_t (x)$$，并交换求导与求和操作：
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x) = \frac{\mathrm{d}}{\mathrm{d}t} \sum_{z \in S} p_t (x \vert z) p_\text{data} (z) = \sum_{z \in S} \frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) \, p_\text{data} (z)
+$$
+
+接着对条件路径$$p_t (\cdot \vert z)$$使用KFE，即$$\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) = \sum_{y \in S} Q_t^z (x \vert y) \, p_t (y \vert z)$$。把它代入上式并交换对$$y$$、$$z$$的求和次序：
 
 $$
 \begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d}t} p_t (x) &= \frac{\mathrm{d}}{\mathrm{d}t} \sum_{z \in S} p_t (x \vert z) p_\text{data} (z) \\
-&= \sum_{z \in S} \frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) \, p_\text{data} (z)
-\end{aligned}
-$$
-
-对右边$$\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z)$$一项使用KFE得到
-
-$$
-\begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d}t} p_t (x) 
-&= \sum_{z \in S} \frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) \, p_\text{data} (z) \\
-&= \sum_{z \in S} \left[ \sum_{y \in S} Q_t^z (x \vert y) \, p_t (y \vert z) \right] p_\text{data} (z) \\
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x) &= \sum_{z \in S} \left[ \sum_{y \in S} Q_t^z (x \vert y) \, p_t (y \vert z) \right] p_\text{data} (z) \\
 &= \sum_{y \in S} p_t (y) \left[ \sum_{z \in S} Q_t^z (x \vert y) \, \frac{p_t (y \vert z) p_\text{data} (z)}{p_t (y)} \right]
 \end{aligned}
 $$
 
-此时只要令
+方括号中的部分正是条件速率矩阵按后验概率$$p_{1 \vert t} (z \vert y) = \frac{p_t (y \vert z) p_\text{data} (z)}{p_t (y)}$$的加权平均。把它记为
 
 $$
 Q_t (x \vert y) \coloneqq \sum_{z \in S} Q_t^z (x \vert y) \frac{p_t (y \vert z) p_\text{data} (z)}{p_t (y)} = \sum_{z \in S} Q_t^z (x \vert y) \, p_{1 \vert t} (z \vert y)
 $$
 
-即证明了前文所述rate matrix的边缘化技巧。同时注意到上式也满足KFE，即
+这与前面构造的marginal rate matrix完全一致。把它代回上式，就得到
 
 $$
 \frac{\mathrm{d}}{\mathrm{d}t} p_t (x) = \sum_{y \in S} Q_t (x \vert y) p_t (y)
@@ -252,44 +247,38 @@ $$
 
 这说明按后验加权平均得到的marginal rate matrix确实驱动着边缘概率路径$$p_t$$的演化。
 
-对于factorized mixture path的情况，利用KFE可以推导出对应的conditional rate matrix。根据因子分解的假定，序列的各个位置上是独立演化的，因此这里在推导时为了简化证明假设序列的长度为1。首先根据factorized mixture path的定义，对$$p_t (x \vert z) = (1 - \kappa_t) q (x) + \kappa_t \delta_z (x)$$求导有：
+对于factorized mixture path，我们还可以利用KFE反解出对应的conditional rate matrix。根据因子分解的假定，各位置上的演化是相互独立的，因此只需考察单个位置的情形（相当于把序列长度取为1），此时$$p_t (x \vert z) = (1 - \kappa_t) p_\text{init} (x) + \kappa_t \delta_z (x)$$。对它求导有：
 
 $$
 \begin{aligned}
 \frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) &= \frac{\mathrm{d}}{\mathrm{d}t} \left[ (1 - \kappa_t) p_\text{init} (x) + \kappa_t \delta_z (x) \right] \\
-&= \dot{\kappa}_t \delta_z (x) - \dot{\kappa}_t p_\text{init} (x) \\
+&= \dot{\kappa}_t \delta_z (x) - \dot{\kappa}_t p_\text{init} (x)
 \end{aligned}
 $$
 
-对等式右端进行一些代数变形，可以得到
+对右端做代数变形：分子分母同乘$$1 - \kappa_t$$，即可凑出概率路径$$p_t (x \vert z)$$本身；最后一步利用$$\delta_z (x) \in \{0, 1\}$$，把结果拆成"跳到目标词"与"保持不动"两项：
 
 $$
 \begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) &= 
-\dot{\kappa}_t \delta_z (x) - \dot{\kappa}_t p_\text{init} (x) \\
-&= \frac{\dot{\kappa}_t}{1 - \kappa_t} \bigg( \delta_z (x) - \big[ (1 - \kappa_t) p_\text{init} (x) + \kappa_t \delta_z (x) \big] \bigg) \\
+\dot{\kappa}_t \delta_z (x) - \dot{\kappa}_t p_\text{init} (x) &= \frac{\dot{\kappa}_t}{1 - \kappa_t} \Big( \delta_z (x) - \big[ (1 - \kappa_t) p_\text{init} (x) + \kappa_t \delta_z (x) \big] \Big) \\
 &= \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - p_t (x \vert z) \big) \\
 &= \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \big( 1 - p_t (x \vert z) \big) + \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z)
 \end{aligned}
 $$
 
-根据状态转移概率的和为1，$$1 - p_t (x \vert z)$$一项可以表示为
+其中第一项中的$$1 - p_t (x \vert z)$$可以利用概率归一性$$\sum_{y \in S} p_t (y \vert z) = 1$$改写为对其余状态的求和：
 
 $$
 1 - p_t (x \vert z) = \sum_{y \neq x} p_t (y \vert z)
 $$
 
-带入到上式中可以得到
+代入之后，第一项就变成了对$$y \neq x$$的求和：
 
 $$
-\begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) 
-&= \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \big( 1 - p_t (x \vert z) \big) + \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z) \\
-&= \sum_{y \neq x} \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \, p_t (y \vert z) + \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z) \\
-\end{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) = \sum_{y \neq x} \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \, p_t (y \vert z) + \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z)
 $$
 
-其中第二项$$\frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z)$$可以理解为$$y=x$$时的状态转移情况，这样对两项进行合并得到
+其中第二项对应$$y = x$$即状态保持不变的情形。借助$$\delta_x (y)$$——它在$$y \neq x$$时取0、在$$y = x$$时取1——可以把两项写成统一的形式并合并：
 
 $$
 \begin{aligned}
@@ -300,7 +289,7 @@ $$
 \end{aligned}
 $$
 
-将这一结果逐位置应用就得到对应的conditional rate matrix的解析式：
+最后一行正是条件路径$$p_t (\cdot \vert z)$$所满足的KFE，因此求和号中的$$Q_t^z (x \vert y) = \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - \delta_x (y) \big)$$就是我们所求的条件速率矩阵。把它逐位置应用，就得到conditional rate matrix的解析表达式：
 
 $$
 \begin{aligned}
