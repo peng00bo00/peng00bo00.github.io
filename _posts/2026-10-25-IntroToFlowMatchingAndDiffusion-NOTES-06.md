@@ -145,7 +145,7 @@ $$
     \ENDFOR
     \STATE Set $t \leftarrow t + h$
 \ENDFOR
-\STATE \textbf{return} $X_1$
+\STATE \RETURN $X_1$
 \end{algorithmic}
 \end{algorithm}
 ```
@@ -334,7 +334,7 @@ $$
 \begin{algorithm}
 \caption{Training Factorized CTMC Model (Discrete Diffusion)}
 \begin{algorithmic}
-\REQUIRE Dataset of sequences $z \sim p_{\text{data}}$ with $z = (z_1, \dots, z_d) \in \mathcal{V}^d$; initial (noise) token marginals $p_{\text{init}}^{(j)}$ on $\mathcal{V}$; schedule $\kappa_t \in (0, 1]$; posterior network $f_\theta$ returning per-position logits over $\mathcal{V}$; optimizer \text{Opt}
+\REQUIRE Dataset of sequences $z \sim p_{\text{data}}$ with $z = (z_1, \dots, z_d) \in \mathcal{V}^d$; initial (noise) token marginals $p_{\text{init}}^{(j)}$ on $\mathcal{V}$; schedule $\kappa_t \in (0, 1]$; posterior network $f_\theta$ returning per-position logits over $\mathcal{V}$; optimizer Opt
 \FOR{each training iteration}
     \STATE Sample a data point $z \sim p_{\text{data}}$
     \STATE Sample time $t \sim \text{Unif}[0, 1]$ and compute $\kappa \leftarrow \kappa_t$
