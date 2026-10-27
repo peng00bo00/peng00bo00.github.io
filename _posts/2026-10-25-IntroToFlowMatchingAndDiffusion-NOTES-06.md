@@ -233,7 +233,7 @@ $$
 \end{aligned}
 $$
 
-方括号中的部分正是条件速率矩阵按后验概率$$p_{1 \vert t} (z \vert y) = \frac{p_t (y \vert z) p_\text{data} (z)}{p_t (y)}$$的加权平均。把它记为
+方括号中的部分正是marginal rate matrix按后验概率$$p_{1 \vert t} (z \vert y) = \frac{p_t (y \vert z) p_\text{data} (z)}{p_t (y)}$$的加权平均。把它记为
 
 $$
 Q_t (x \vert y) \coloneqq \sum_{z \in S} Q_t^z (x \vert y) \frac{p_t (y \vert z) p_\text{data} (z)}{p_t (y)} = \sum_{z \in S} Q_t^z (x \vert y) \, p_{1 \vert t} (z \vert y)
@@ -289,7 +289,7 @@ $$
 \end{aligned}
 $$
 
-最后一行正是条件路径$$p_t (\cdot \vert z)$$所满足的KFE，因此求和号中的$$Q_t^z (x \vert y) = \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - \delta_x (y) \big)$$就是我们所求的条件速率矩阵。把它逐位置应用，就得到conditional rate matrix的解析表达式：
+把它逐位置应用，就得到conditional rate matrix的完整表达式：
 
 $$
 \begin{aligned}
