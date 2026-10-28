@@ -330,7 +330,7 @@ $$
 注意到marginal rate matrix中唯一未知的就是条件概率$$p_{1 \vert t} (z_j = v_i \vert x)$$，因此只要用网络把它学习出来，就可以得到完整的CTMC模型。而这一条件概率本质上就是一个在词表上的分类器——它要对每个位置预测该位置的真实token，因此直接使用通常的交叉熵损失即可完成训练。这样得到discrete flow matching的损失函数：
 
 $$
-\mathcal{L}_\text{DFM} (\theta) = \mathbb{E}_{z \sim p_\text{data},\, t \sim \text{Unif}_{[0, 1]},\, x \sim p_t ( \cdot \vert z)} \left[ \sum_{j = 1}^d - \log p_{1 \vert t}^{\theta} (z_j \vert x) \right]=
+\mathcal{L}_\text{DFM} (\theta) = \mathbb{E}_{z \sim p_\text{data},\, t \sim \text{Unif}_{[0, 1]},\, x \sim p_t ( \cdot \vert z)} \left[ \sum_{j = 1}^d - \log p_{1 \vert t}^{\theta} (z_j \vert x) \right]
 $$
 
 <div align=center>
@@ -343,7 +343,7 @@ $$
 \begin{algorithm}
 \caption{Training Factorized CTMC Model (Discrete Diffusion)}
 \begin{algorithmic}
-\REQUIRE Dataset of sequences $z \sim p_{\text{data}}$ with $z = (z_1, \dots, z_d) \in \mathcal{V}^d$; initial (noise) token marginals $p_{\text{init}}^{(j)}$ on $\mathcal{V}$; schedule $\kappa_t \in (0, 1]$; posterior network $f_\theta$ returning per-position logits over $\mathcal{V}$; optimizer Opt
+\REQUIRE Dataset of sequences $z \sim p_{\text{data}}$ with $z = (z_1, \dots, z_d) \in \mathcal{V}^d$; initial (noise) token marginals $p_{\text{init}}^{(j)}$ on $\mathcal{V}$; schedule $\kappa_t \in [0, 1]$; posterior network $f_\theta$ returning per-position logits over $\mathcal{V}$; optimizer Opt
 \FOR{each training iteration}
     \STATE Sample a data point $z \sim p_{\text{data}}$
     \STATE Sample time $t \sim \text{Unif}[0, 1]$ and compute $\kappa \leftarrow \kappa_t$
