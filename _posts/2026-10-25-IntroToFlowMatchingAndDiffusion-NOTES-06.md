@@ -145,7 +145,7 @@ $$
     \ENDFOR
     \STATE Set $t \leftarrow t + h$
 \ENDFOR
-\STATE \RETURN $X_1$
+\RETURN $X_1$
 \end{algorithmic}
 \end{algorithm}
 ```
