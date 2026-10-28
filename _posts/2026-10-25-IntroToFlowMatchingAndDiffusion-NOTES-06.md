@@ -56,7 +56,7 @@ $$
 此外，CTMC还要求状态之间的转移满足Markov性，即未来的状态只依赖于当前状态，而与更早的历史无关：
 
 $$
-\underbrace{p(X_{t+h} \,\vert\, X_t, X_{t_1}, \cdots, X_{t_k})}_{\text{prob. of future given present and past}} = \underbrace{p(X_{t+h} \,\vert\, X_t)}_{\text{prob. of future given present}} \quad \text{for all } 0 < h,\ 0 \leq t_1 < t_2 < \cdots < t_k < t
+p(X_{t+h} \,\vert\, X_t, X_{t_1}, \cdots, X_{t_k}) = p(X_{t+h} \,\vert\, X_t) \quad \text{for all } 0 < h,\ 0 \leq t_1 < t_2 < \cdots < t_k < t
 $$
 
 ### Rate Matrix
@@ -239,7 +239,7 @@ $$
 Q_t (x \vert y) \coloneqq \sum_{z \in S} Q_t^z (x \vert y) \frac{p_t (y \vert z) p_\text{data} (z)}{p_t (y)} = \sum_{z \in S} Q_t^z (x \vert y) \, p_{1 \vert t} (z \vert y)
 $$
 
-这与前面构造的marginal rate matrix完全一致。把它代回上式，就得到
+这与前面构造的marginal rate matrix完全一致。把它代回上式，就得到边缘概率路径的KFE：
 
 $$
 \frac{\mathrm{d}}{\mathrm{d}t} p_t (x) = \sum_{y \in S} Q_t (x \vert y) p_t (y)
@@ -247,7 +247,7 @@ $$
 
 这说明按后验加权平均得到的marginal rate matrix确实驱动着边缘概率路径$$p_t$$的演化。
 
-对于factorized mixture path，我们还可以利用KFE反解出对应的conditional rate matrix。根据因子分解的假定，各位置上的演化是相互独立的，因此只需考察单个位置的情形（相当于把序列长度取为1），此时$$p_t (x \vert z) = (1 - \kappa_t) p_\text{init} (x) + \kappa_t \delta_z (x)$$。对它求导有：
+对于factorized mixture path，我们还可以利用KFE构造出对应的conditional rate matrix。根据因子分解的假定，各位置上的演化是相互独立的，因此只需考察单个位置的情形（相当于把序列长度取为1），此时$$p_t (x \vert z) = (1 - \kappa_t) p_\text{init} (x) + \kappa_t \delta_z (x)$$。对它求导有：
 
 $$
 \begin{aligned}
@@ -278,7 +278,7 @@ $$
 \frac{\mathrm{d}}{\mathrm{d}t} p_t (x \vert z) = \sum_{y \neq x} \frac{\dot{\kappa}_t}{1 - \kappa_t} \delta_z (x) \, p_t (y \vert z) + \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_z (x) - 1 \big) p_t (x \vert z)
 $$
 
-其中第二项对应$$y = x$$即状态保持不变的情形。借助$$\delta_x (y)$$可以把两项写成统一的形式并合并，最终得到KFE以及对应的conditional rate matrix
+其中第二项对应$$y = x$$即状态保持不变的情形。借助$$\delta_x (y)$$可以把两项写成统一的形式并合并，最终得到条件概率路径的KFE以及对应的conditional rate matrix
 
 $$
 \begin{aligned}
@@ -315,14 +315,23 @@ $$
 把上式代入边缘化公式，就得到对应的marginal rate matrix：
 
 $$
-Q_t (v_i, j \vert x) = \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( p_{1 \vert t} (z_j = v_i \vert x) - \delta_{x_j} (v_i) \big)
+\begin{aligned}
+Q_t (v_i, j \vert x) &= \sum_{z \in S} Q_t^z (v_i, j \vert x) \, p_{1 \vert t} (z \vert x) \\
+&= \sum_{z \in S} \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( \delta_{z_j} (v_i) - \delta_{x_j} (v_i) \big) p_{1 \vert t} (z \vert x) \\
+&= \frac{\dot{\kappa}_t}{1 - \kappa_t} \left( \sum_{z \in S} \delta_{z_j} (v_i) \, p_{1 \vert t} (z \vert x) - \delta_{x_j} (v_i) \sum_{z \in S} p_{1 \vert t} (z \vert x) \right) \\
+&= \frac{\dot{\kappa}_t}{1 - \kappa_t} \big( p_{1 \vert t} (z_j = v_i \vert x) - \delta_{x_j} (v_i) \big)
+\end{aligned}
 $$
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/8xLCQXo.png" width="100%">
 </div>
 
-注意到marginal rate matrix中唯一未知的就是条件概率$$p_{1 \vert t} (z_j = v_i \vert x)$$，因此只要用网络把它学习出来，就可以得到完整的CTMC模型。而这一条件概率本质上就是一个在词表上的分类器——它要对每个位置预测该位置的真实token，因此直接使用通常的交叉熵损失即可完成训练。
+注意到marginal rate matrix中唯一未知的就是条件概率$$p_{1 \vert t} (z_j = v_i \vert x)$$，因此只要用网络把它学习出来，就可以得到完整的CTMC模型。而这一条件概率本质上就是一个在词表上的分类器——它要对每个位置预测该位置的真实token，因此直接使用通常的交叉熵损失即可完成训练。这样得到discrete flow matching的损失函数：
+
+$$
+\mathcal{L}_\text{DFM} (\theta) = \mathbb{E}_{z \sim p_\text{data},\, t \sim \text{Unif}_{[0, 1]},\, x \sim p_t ( \cdot \vert z)} \left[ \sum_{j = 1}^d - \log p_{1 \vert t}^{\theta} (z_j \vert x) \right]=
+$$
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/f2RIipu.png" width="100%">
